@@ -1,0 +1,10 @@
+# Entorno virtual
+venv/
+# Carpeta de datos (imágenes)
+#data/
+# Archivos compilados y caché
+__pycache__/
+*.pyc
+# Modelos y checkpoints
+#*.h5
+#*.keras
