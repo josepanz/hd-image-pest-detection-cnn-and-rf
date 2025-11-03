@@ -6,5 +6,5 @@ venv/
 __pycache__/
 *.pyc
 # Modelos y checkpoints
-#*.h5
-#*.keras
+*.h5
+*.keras
