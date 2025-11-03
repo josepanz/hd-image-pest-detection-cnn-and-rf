@@ -13,11 +13,12 @@ from datetime import datetime
 from data_loader import crear_datasets
 from model import crear_modelo
 
-def plot_history(history: tf.keras.callbacks.History) -> None:
+def plot_history(history: tf.keras.callbacks.History, history_dir: str) -> None:
     """
     Dibuja y muestra las curvas de precisión y pérdida de entrenamiento y validación.
     """
     epochs = range(len(history.history['accuracy']))
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M")
 
     # Curva de Precisión
     plt.figure()
@@ -31,6 +32,12 @@ def plot_history(history: tf.keras.callbacks.History) -> None:
     plt.legend()
     plt.show()
 
+    # GUARDAR la figura en el directorio especificado
+    acc_path = os.path.join(history_dir, f"accuracy_plot_{timestamp}.png")
+    plt.savefig(acc_path)
+    plt.close() # Cierra la figura para liberar memoria
+    print(f"Gráfico de Precisión guardado en: {acc_path}")
+
     # Curva de Pérdida
     plt.figure()
     plt.plot(epochs, history.history['loss'], label='train_loss')
@@ -43,6 +50,11 @@ def plot_history(history: tf.keras.callbacks.History) -> None:
     plt.legend()
     plt.show()
 
+    # GUARDAR la figura en el directorio especificado
+    loss_path = os.path.join(history_dir, f"loss_plot_{timestamp}.png")
+    plt.savefig(loss_path)
+    plt.close() # Cierra la figura
+    print(f"Gráfico de Pérdida guardado en: {loss_path}")
 
 def entrenar(data_dir: str, epochs: int = 10) -> None:
     """
@@ -139,7 +151,7 @@ def entrenar(data_dir: str, epochs: int = 10) -> None:
         json.dump(history.history, f, indent=2)
 
     # 7. Plotea resultados
-    plot_history(history)
+    plot_history(history, HISTORY_DIR)
 
 def main():
     parser = argparse.ArgumentParser(description="Entrena el modelo HD-only para detección de plagas")

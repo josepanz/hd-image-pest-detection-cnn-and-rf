@@ -36,7 +36,7 @@ def generar_nombre_reporte(threshold: float = 0.5) -> str:
     return f"classification_report_{timestamp}_{umbral_str}.json"
 
 
-def plot_confusion(cm: np.ndarray, class_names: list[str]) -> None:
+def plot_confusion(cm: np.ndarray, class_names: list[str], save_path: str) -> None:
     """
     Dibuja la matriz de confusión con anotaciones de recuento.
     """
@@ -56,6 +56,11 @@ def plot_confusion(cm: np.ndarray, class_names: list[str]) -> None:
             ax.text(j, i, f"{cm[i, j]:d}", ha="center", va="center", color=color)
     fig.tight_layout()
     plt.show()
+
+    # GUARDAR la figura
+    plt.savefig(save_path)
+    plt.close() # Cierra la figura
+    print(f"\nMatriz de Confusión guardada en: {save_path}")
 
 
 def evaluar(
@@ -85,6 +90,17 @@ def evaluar(
     BATCH_SIZE = 32
     VAL_SPLIT = 0.2
     SEED = 123
+
+    # Definir el directorio donde se ejecuta este script:
+    # Esto da la ruta: C:\workspace\tesis_plagas\src\cnn\binary_crossentropy\
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    
+    # Definir el subdirectorio de resultados
+    RESULTS_DIR = os.path.join(BASE_DIR, 'results')
+
+    # Crear el directorio 'results' si no existe
+    # El argumento exist_ok=True evita un error si la carpeta ya existe.
+    os.makedirs(RESULTS_DIR, exist_ok=True)
 
     # 1. Carga solo el dataset de validación y nombres de clases
     # Captura el cuarto valor (n_sanas) con un guion bajo para ignorarlo.
@@ -127,7 +143,11 @@ def evaluar(
     cm = confusion_matrix(y_true, y_pred, labels=list(range(len(class_names))))
     print("\nMatriz de confusión:")
     print(cm)
-    plot_confusion(cm, class_names)
+    # Generar el nombre para el gráfico basado en el nombre del reporte JSON
+    # Se reemplaza la extensión .json por .png
+    plot_file_name = report_path.replace('.json', '_confusion.png')
+    final_plot_path = os.path.join(RESULTS_DIR, plot_file_name)
+    plot_confusion(cm, class_names, final_plot_path )
 
     # 6. Reporte de clasificación
     report_dict = classification_report(
@@ -139,18 +159,8 @@ def evaluar(
     )
     print("\nReporte de clasificación:")
     print(json.dumps(report_dict, indent=2))
-    # 1. Definir el directorio donde se ejecuta este script:
-    # Esto da la ruta: C:\workspace\tesis_plagas\src\cnn\binary_crossentropy\
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     
-    # 2. Definir el subdirectorio de resultados
-    RESULTS_DIR = os.path.join(BASE_DIR, 'results')
-    
-    # 3. Crear el directorio 'results' si no existe
-    # El argumento exist_ok=True evita un error si la carpeta ya existe.
-    os.makedirs(RESULTS_DIR, exist_ok=True)
-    
-    # 4. Construir la ruta final: Directorio de Resultados + Nombre del reporte
+    # Construir la ruta final: Directorio de Resultados + Nombre del reporte
     final_save_path = os.path.join(RESULTS_DIR, report_path)
     
     with open(final_save_path, "w") as f:

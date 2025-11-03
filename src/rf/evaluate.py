@@ -15,9 +15,31 @@ from data_loader import crear_datasets
 
 CLASSES = ["Plaga", "Sana"] 
 
-def plot_confusion(cm: np.ndarray, class_names: list[str]) -> None:
-    # ... (código de plot_confusion, mantener el original)
-    pass 
+def plot_confusion(cm: np.ndarray, class_names: list[str], save_path: str) -> None:
+    """
+    Dibuja la matriz de confusión con anotaciones de recuento.
+    """
+    fig, ax = plt.subplots()
+    im = ax.imshow(cm, interpolation='nearest', cmap='viridis')
+    ax.set_title("Matriz de Confusión")
+    ax.set_xlabel("Predicha")
+    ax.set_ylabel("Verdadera")
+    ax.set_xticks(np.arange(len(class_names)))
+    ax.set_yticks(np.arange(len(class_names)))
+    ax.set_xticklabels(class_names, rotation=45, ha="right")
+    ax.set_yticklabels(class_names)
+    thresh = cm.max() / 2
+    for i in range(cm.shape[0]):
+        for j in range(cm.shape[1]):
+            color = "white" if cm[i, j] > thresh else "black"
+            ax.text(j, i, f"{cm[i, j]:d}", ha="center", va="center", color=color)
+    fig.tight_layout()
+    plt.show()
+
+    # GUARDAR la figura
+    plt.savefig(save_path)
+    plt.close() # Cierra la figura
+    print(f"\nMatriz de Confusión guardada en: {save_path}")
 
 def generar_nombre_reporte() -> str:
     timestamp = datetime.now().strftime("%Y%m%d")
@@ -25,6 +47,17 @@ def generar_nombre_reporte() -> str:
 
 
 def evaluar_modelo(data_dir: str, model_path: str, report_path: str) -> None:
+    
+    # Definir el directorio donde se ejecuta este script:
+    # Esto da la ruta: C:\workspace\tesis_plagas\src\cnn\binary_crossentropy\
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    
+    # Definir el subdirectorio de resultados
+    RESULTS_DIR = os.path.join(BASE_DIR, 'results')
+
+    # Crear el directorio 'results' si no existe
+    # El argumento exist_ok=True evita un error si la carpeta ya existe.
+    os.makedirs(RESULTS_DIR, exist_ok=True)
     
     # 1. Cargar Datos de Validación (Features)
     _, X_val, _, y_val, class_names = crear_datasets(
@@ -43,17 +76,17 @@ def evaluar_modelo(data_dir: str, model_path: str, report_path: str) -> None:
 
     # 4. Reporte de clasificación y Matriz de Confusión
     cm = confusion_matrix(y_val, y_pred)
-    plot_confusion(cm, class_names)
+    # Generar el nombre para el gráfico basado en el nombre del reporte JSON
+    # Se reemplaza la extensión .json por .png
+    plot_file_name = report_path.replace('.json', '_confusion.png')
+    final_plot_path = os.path.join(RESULTS_DIR, plot_file_name)
+    plot_confusion(cm, class_names, final_plot_path )
 
     report_dict = classification_report(
         y_val, y_pred, target_names=class_names, output_dict=True, zero_division=0 
     )
     
     # 5. Guardar Reporte
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    RESULTS_DIR = os.path.join(BASE_DIR, 'results')
-    os.makedirs(RESULTS_DIR, exist_ok=True)
-    
     final_save_path = os.path.join(RESULTS_DIR, report_path)
     with open(final_save_path, "w") as f:
         json.dump(report_dict, f, indent=2)
