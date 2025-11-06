@@ -8,7 +8,4 @@ __pycache__/
 # Modelos y checkpoints
 *.h5
 *.keras
-data/multispectral_images
-2022*/
-2022*.zip
-*.zip
+data/multispectral_images/*/*.tif

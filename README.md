@@ -11,6 +11,15 @@ El código está organizado por el tipo de clasificador (CNN o RF) y la función
 | `data/` | `Plaga/`, `Sana/` | Directorio principal de los datos de entrenamiento y validación. **Debe contener las imágenes.** |
 | `data/Plaga` | Imágenes HD | Muestras de plantaciones de papas con plagas/enfermedades. |
 | `data/Sana` | Imágenes HD | Muestras de plantaciones de papas sanas. |
+| `data/shapefiles` | Archivos multiespectrales | Archivos utilizados para analizar los algoritmos a imagenes multiespectrales. |
+| `data/measurements` | Archivos xls del modelo multiespectral | Archivos de mediciones. |
+| `data/multispectral_images` | Carpeta que contiene carpetas con imagenes TIF | Utilizadas para el modelo multiespectral. |
+| `data/multispectral_images/2022_06_15__eko_ecobreed` | Carpeta que contiene imagenes TIF | Utilizadas para el modelo multiespectral. |
+| `data/multispectral_images/2022_06_15__konv_ecobreed` | Carpeta que contiene imagenes TIF | Utilizadas para el modelo multiespectral. |
+| `data/multispectral_images/2022_07_11__eko_ecobreed` | Carpeta que contiene imagenes TIF | Utilizadas para el modelo multiespectral. |
+| `data/multispectral_images/2022_07_11__konv_ecobreed` | Carpeta que contiene imagenes TIF | Utilizadas para el modelo multiespectral. |
+| `data/multispectral_images/2022_07_20__eko_ecobreed` | Carpeta que contiene imagenes TIF | Utilizadas para el modelo multiespectral. |
+| `data/multispectral_images/2022_07_20__konv_ecobreed` | Carpeta que contiene imagenes TIF | Utilizadas para el modelo multiespectral. |
 | `src/` | | Código fuente principal. |
 | `src/cnn/binary_crossentropy/` | | Modelo **Deep Learning (MobileNetV2)** con pérdida estándar. |
 | `src/cnn/focal_loss/` | | Modelo **Deep Learning (MobileNetV2)** con pérdida **Focal Loss** (para desbalance). |
@@ -141,6 +150,14 @@ python src/rf/inference.py ./prueba -m src/rf/models/random_forest_GUARDADO.jobl
 ```
 
 ### IV. Escenario multiespectral con cnn focal loss o binary crossentropy
+
+#### 0. Verificar la descarga y descomprimir los archivos en una carpeta con nombre `multispectral_images` en el directorio -> `data/` con el respectivo nombre del archivo, ej: `2022_07_20__konv_ecobreed/Ecobreed_krompir_EKO_15_06_2022_transparent_reflectance_blue_modified.tif`
+- data/2022_06_15__eko_ecobreed.zip
+- data/2022_06_15__konv_ecobreed.zip
+- data/2022_07_11__eko_ecobreed.zip
+- data/2022_07_11__konv_ecobreed.zip
+- data/2022_07_20__eko_ecobreed.zip
+- data/2022_07_20__konv_ecobreed.zip
 
 #### 1. Entrenamiento (`train_multiespectral.py`)
 
