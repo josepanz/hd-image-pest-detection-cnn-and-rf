@@ -1,0 +1,23 @@
+{
+    "model_name": "best_model_ms_base.keras",
+    "input_channels": 5,
+    "test_samples": 2926,
+    "threshold_used": 0.5,
+    "f1-score (Plaga)": 0.7112970711297071,
+    "f1-score (Sana)": 0.0,
+    "f1-score (Weighted Avg)": 0.3925990327663968,
+    "precision (Plaga)": 0.551948051948052,
+    "precision (Sana)": 0.0,
+    "recall (Plaga)": 1.0,
+    "recall (Sana)": 0.0,
+    "confusion_matrix": [
+        [
+            1615,
+            0
+        ],
+        [
+            1311,
+            0
+        ]
+    ]
+}

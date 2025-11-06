@@ -1,0 +1,10 @@
+[
+    {
+        "file_name": "2022_06_15__eko_ecobreed",
+        "prob_plaga": 0.5163,
+        "prob_sana": 0.4837,
+        "prediccion": "Plaga",
+        "umbral": 0.6,
+        "modelo": "best_model_ms_base.keras"
+    }
+]

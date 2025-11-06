@@ -39,7 +39,7 @@ source venv/bin/activate
 
 ### 2. Instalar Dependencias
 
-Asegúrate de tener un archivo `requirements.txt` que liste todas las librerías necesarias (TensorFlow, scikit-learn, etc.).
+Asegúrate de tener un archivo `requirements.txt` que liste todas las librerías necesarias (TensorFlow, etc.).
 
 ```bash
 pip install -r requirements.txt
@@ -138,6 +138,44 @@ python src/rf/evaluate.py ./data -m src/rf/models/random_forest_GUARDADO.joblib
 ```bash
 # REEMPLAZA <MODELO_RF.joblib> con tu ruta real.
 python src/rf/inference.py ./prueba -m src/rf/models/random_forest_GUARDADO.joblib
+```
+
+### IV. Escenario multiespectral con cnn focal loss o binary crossentropy
+
+#### 1. Entrenamiento (`train_multiespectral.py`)
+
+```bash
+# para funcion de perdida binary crossentropy por defecto
+python src/multiespectral/train_multiespectral.py --epochs 70 --batch_size 32
+```
+
+```bash
+# para funcion de perdida focal loss
+python src/multiespectral/train_multiespectral.py --epochs 70 --batch_size 32 -f focal_loss 
+```
+
+```bash
+# Si deseas permitir el fine-tuning (entrenamiento de las capas base de MobileNetV2, lo cual requiere más recursos y tiempo):
+python src/multiespectral/train_multiespectral.py --epochs 70 --batch_size 32 --fine_tune
+```
+
+#### 2. Evaluación (`evaluate_multiespectral.py`)
+
+```bash
+# Evaluar modelo Multiespectral (5 canales)
+python src/multiespectral/evaluate_multiespectral.py -m src\multiespectral\results_multispectral\best_models_ms\best_model_ms_base.keras -t 0.5
+```
+
+#### 3. Inferencia (`inference_multiespectral.py`) Prueba
+
+```bash
+# probar sobre una imagen
+python src/multiespectral/inference_multiespectral.py -p data/multispectral_images/2022_06_15__eko_ecobreed -m src/multiespectral/results_multispectral/best_models_ms/best_model_ms_base.keras -t 0.60
+```
+
+```bash
+# probar toda la carpeta de prueba
+python src/multiespectral/inference_multiespectral.py -m src/multiespectral/results_multispectral/best_models_ms/best_model_ms_base.keras -t 0.60 -all True
 ```
 
 ## 🔬 Análisis y Comparativa de Resultados

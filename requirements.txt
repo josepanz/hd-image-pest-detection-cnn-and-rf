@@ -3,3 +3,8 @@ numpy
 matplotlib
 scikit-learn
 opencv-python
+
+rasterio
+fiona
+shapely
+scikit-image
