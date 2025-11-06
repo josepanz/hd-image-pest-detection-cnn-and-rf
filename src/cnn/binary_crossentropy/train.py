@@ -13,7 +13,7 @@ from datetime import datetime
 from data_loader import crear_datasets
 from model import crear_modelo
 
-def plot_history(history: tf.keras.callbacks.History, history_dir: str) -> None:
+def plot_history(history: tf.keras.callbacks.History, history_dir: str, train_epochs: int) -> None:
     """
     Dibuja y muestra las curvas de precisión y pérdida de entrenamiento y validación.
     """
@@ -30,11 +30,12 @@ def plot_history(history: tf.keras.callbacks.History, history_dir: str) -> None:
     plt.xticks(epochs)
     plt.grid(True, linestyle='--', alpha=0.5)
     plt.legend()
-    plt.show()
 
     # GUARDAR la figura en el directorio especificado
-    acc_path = os.path.join(history_dir, f"accuracy_plot_{timestamp}.png")
+    acc_path = os.path.join(history_dir, f"accuracy_plot_{timestamp}_epochs_{train_epochs}.png")
     plt.savefig(acc_path)
+
+    plt.show()
     plt.close() # Cierra la figura para liberar memoria
     print(f"Gráfico de Precisión guardado en: {acc_path}")
 
@@ -48,11 +49,12 @@ def plot_history(history: tf.keras.callbacks.History, history_dir: str) -> None:
     plt.xticks(epochs)
     plt.grid(True, linestyle='--', alpha=0.5)
     plt.legend()
-    plt.show()
 
     # GUARDAR la figura en el directorio especificado
-    loss_path = os.path.join(history_dir, f"loss_plot_{timestamp}.png")
+    loss_path = os.path.join(history_dir, f"loss_plot_{timestamp}_epochs_{train_epochs}.png")
     plt.savefig(loss_path)
+
+    plt.show()
     plt.close() # Cierra la figura
     print(f"Gráfico de Pérdida guardado en: {loss_path}")
 
@@ -145,7 +147,7 @@ def entrenar(data_dir: str, epochs: int = 10) -> None:
     # Construir la ruta final: Directorio de Resultados + Nombre del reporte
     # Formato de fecha y hora: AAAA-MM-DD_HHMM
     timestamp = datetime.now().strftime("%Y%m%d_%H%M")
-    history_file_name = f"history_{timestamp}.json"
+    history_file_name = f"history_{timestamp}_epochs_{epochs}.json"
     final_save_path = os.path.join(HISTORY_DIR, history_file_name)
     with open(final_save_path, "w") as f:
         json.dump(history.history, f, indent=2)

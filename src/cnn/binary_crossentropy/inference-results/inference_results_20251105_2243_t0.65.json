@@ -1,0 +1,66 @@
+[
+    {
+        "file_name": "00fc2ee5-729f-4757-8aeb-65c3355874f2___RS_HL 1864.JPG",
+        "prob_sana": 0.3147,
+        "prob_plaga": 0.6853,
+        "prediccion": "Plaga",
+        "umbral": 0.65,
+        "modelo": "best_model.keras"
+    },
+    {
+        "file_name": "0b3e5032-8ae8-49ac-8157-a1cac3df01dd___RS_HL 1817.JPG",
+        "prob_sana": 0.7503,
+        "prob_plaga": 0.2497,
+        "prediccion": "Sana",
+        "umbral": 0.65,
+        "modelo": "best_model.keras"
+    },
+    {
+        "file_name": "0be9d721-82f5-42c3-b535-7494afe01dbe___RS_HL 1814.JPG",
+        "prob_sana": 0.8716,
+        "prob_plaga": 0.1284,
+        "prediccion": "Sana",
+        "umbral": 0.65,
+        "modelo": "best_model.keras"
+    },
+    {
+        "file_name": "0f4ebc5a-d646-436a-919d-961342997cde___RS_HL 4183.JPG",
+        "prob_sana": 0.5456,
+        "prob_plaga": 0.4544,
+        "prediccion": "Plaga",
+        "umbral": 0.65,
+        "modelo": "best_model.keras"
+    },
+    {
+        "file_name": "1ab62af3-c0a5-4fab-bb62-e06d6f7ddb59___RS_LB 2908.JPG",
+        "prob_sana": 0.4963,
+        "prob_plaga": 0.5037,
+        "prediccion": "Plaga",
+        "umbral": 0.65,
+        "modelo": "best_model.keras"
+    },
+    {
+        "file_name": "1d389389-0585-433a-83c7-30b42db2ca3f___RS_LB 3322.JPG",
+        "prob_sana": 0.6198,
+        "prob_plaga": 0.3802,
+        "prediccion": "Plaga",
+        "umbral": 0.65,
+        "modelo": "best_model.keras"
+    },
+    {
+        "file_name": "1f560f09-0b70-40c9-b907-4cac9ba47b8d___RS_LB 3184.JPG",
+        "prob_sana": 0.5399,
+        "prob_plaga": 0.4601,
+        "prediccion": "Plaga",
+        "umbral": 0.65,
+        "modelo": "best_model.keras"
+    },
+    {
+        "file_name": "1fa9afe6-69ab-4206-a8b5-487531391a37___RS_LB 3006.JPG",
+        "prob_sana": 0.3637,
+        "prob_plaga": 0.6363,
+        "prediccion": "Plaga",
+        "umbral": 0.65,
+        "modelo": "best_model.keras"
+    }
+]

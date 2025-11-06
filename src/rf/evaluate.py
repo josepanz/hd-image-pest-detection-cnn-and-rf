@@ -34,10 +34,11 @@ def plot_confusion(cm: np.ndarray, class_names: list[str], save_path: str) -> No
             color = "white" if cm[i, j] > thresh else "black"
             ax.text(j, i, f"{cm[i, j]:d}", ha="center", va="center", color=color)
     fig.tight_layout()
-    plt.show()
 
     # GUARDAR la figura
     plt.savefig(save_path)
+
+    plt.show()
     plt.close() # Cierra la figura
     print(f"\nMatriz de Confusión guardada en: {save_path}")
 
