@@ -9,3 +9,4 @@ __pycache__/
 *.h5
 *.keras
 data/multispectral_images/*/*.tif
+.DS_Store
