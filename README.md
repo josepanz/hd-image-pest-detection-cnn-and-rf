@@ -221,4 +221,12 @@ La métrica más importante en este contexto, dado el desbalance y el costo de u
 |Precision | Deep Learning / RF | De todas las muestras predichas como "Sana", ¿cuántas eran realmente "Sana"? |
 |F1-Score | Deep Learning / RF | Promedio armónico de Precision y Recall. El mejor indicador de rendimiento balanceado. |
 
+## Definiciones: ¿Cuáles son los positivos y negativos? `Positivos = Sanos`, `Negativos = Plagas`
+
+- **Verdaderos Positivos / True Positive (VP o TP):** `"sanos"` clasificados **_realmente_** como `"sanos"`.
+- **Falsos Positivos / False Positive (FP o FP):** `"plagas"` clasificados **_equivocadamente_** como `"sanos"`.
+- **Verdaderos Negativos / True Negative (VN o TN):** `"plagas"` clasificados **_realmente_** como `"plagas"`.
+- **Falsos Negativos / False Negative (FN o FN):** `"sanos"` clasificados **_equivocadamente_** como `"plagas"`.
+
+
 <b>Objetivo:</b> El mejor modelo será aquel que logre un alto Recall para la clase Plaga (para no dejar ninguna plaga sin identificar) sin sacrificar demasiado el Recall de la clase Sana (para evitar la mayoría de falsas alarmas).
