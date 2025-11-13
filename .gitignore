@@ -10,3 +10,15 @@ __pycache__/
 *.keras
 data/multispectral_images/*/*.tif
 .DS_Store
+# Opción 1: Ignora todo dentro de drone_data (incluyendo las carpetas de fecha y su contenido)
+#data/multiespectral_images/TTADDA_NARO_2023_F1/drone_data/*
+
+# Excepción: Mantén la carpeta data.txt, measurements, y metadata
+!data/multiespectral_images/TTADDA_NARO_2023_F1/data.md
+!data/multiespectral_images/TTADDA_NARO_2023_F1/measurements/
+!data/multiespectral_images/TTADDA_NARO_2023_F1/metadata/
+!data/multiespectral_images/TTADDA_NARO_2023_F1/README.md
+
+# Opción 2: Ignora todo dentro de las carpetas de fecha (la más directa para tu caso)
+# Esto ignora el contenido de 2023-05-18/, 2023-05-23/, etc.
+data/multiespectral_images/TTADDA_NARO_2023_F1/drone_data/**/*.tif

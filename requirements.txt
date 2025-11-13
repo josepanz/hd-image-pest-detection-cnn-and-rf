@@ -1,10 +1,15 @@
+# para algoritmos ML
 tensorflow>=2.10
 numpy
 matplotlib
 scikit-learn
 opencv-python
 
+# para importacion de imagenes mediante satelites
 rasterio
 fiona
 shapely
 scikit-image
+
+# para calculo nvdi de algoritmo nunez
+cv2
