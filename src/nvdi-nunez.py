@@ -8,9 +8,11 @@ import argparse
 # Para prevenir errores de división por cero/invalidos en cálculos
 np.seterr(divide='ignore', invalid='ignore') 
 
-# Algoritmo basado en https://colab.research.google.com/drive/1xfFKP2BlFLBk8pykN59Ma7-MuoAx4ZM5?usp=sharing#scrollTo=qIQGDW2o8gCu de Nunez y Evelio
 
 def getCalculations(savesavi: bool = False, plot: bool = False):
+  """"
+  Algoritmo basado en https://colab.research.google.com/drive/1xfFKP2BlFLBk8pykN59Ma7-MuoAx4ZM5?usp=sharing#scrollTo=qIQGDW2o8gCu de Nunez y Evelio
+  """
   # --- 1. CONFIGURACIÓN DE RUTAS CORREGIDA ---
   # La ruta base de la carpeta que contiene los archivos TIF
   TIF_FOLDER = 'data/multispectral_images/TTADDA_NARO_2023_F1/drone_data/2023-05-18' 
@@ -171,6 +173,37 @@ def getCalculations(savesavi: bool = False, plot: bool = False):
 
   print(f'Proceso culminado con exito...')
 
+def anexoCodeNunez():
+  """
+  Codigo de nunez y evelio que esta en su anexo en su tesis
+  """
+  # Empezamos con la importación de los módulos necesarios
+  # ... mas arriba
+  # imgPath = 'C:/Img/' # nunez
+  imgPath = 'data/multispectral_images/TTADDA_NARO_2023_F1/drone_data/2023-05-18/'
+
+  # Leemos la banda R
+  # red = rasterio.open(imgPath+'IMG_0142_RED.TIF') # nunez
+  red = rasterio.open(imgPath+'20230518_WUR_transparent_reflectance_red.tif') 
+
+  # Leemos la banda NIR
+  #nir = rasterio.open(imgPath+'IMG_0142_NIR.TIF') # nunez
+  nir = rasterio.open(imgPath+'20230518_WUR_transparent_reflectance_nir.tif') 
+  # Visualizamos la imagen
+  plot.show(nir)
+  # Convertimos a float
+  red = red.read(1).astype('float64')
+  nir = nir.read(1).astype('float64')
+  # Manejo de errores en la división
+  np.seterr(divide='ignore', invalid='ignore')
+  # Calculamos NDVI usando numpy arrays
+  # Las celdas vacías o las celdas sin datos se informan como cero.
+  ndvi = np.where( ( nir + red ) == 0., 0., ( nir - red ) / ( nir + red ) )
+  # Graficamos los resultados con los colores Rojo, Amarillo y Verde
+  plt.imshow(ndvi, cmap='RdYlGn')
+  # Agregamos paleta de colores
+  plt.colorbar()
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Obtiene datos del satelite Sentinel-2 y calcula el NDVI"
@@ -187,5 +220,14 @@ if __name__ == "__main__":
         default=False,
         help="Indica si debe plotear la imagen .tif."
     )
+    parser.add_argument(
+        "--anexocode", "-ac",
+        action="store_true",
+        default=False,
+        help="Indica si debe plotear la imagen .tif."
+    )
     args = parser.parse_args()
-    getCalculations(args.savesavi, args.plot)
+    if args.anexocode:
+      anexoCodeNunez()
+    else:
+      getCalculations(args.savesavi, args.plot)
