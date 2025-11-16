@@ -4,6 +4,7 @@ numpy
 matplotlib
 scikit-learn
 opencv-python
+geopandas
 
 # para importacion de imagenes mediante satelites
 rasterio

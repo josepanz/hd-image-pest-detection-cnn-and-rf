@@ -260,8 +260,8 @@ def generate_labels_unified(
                                 # --- 3.1 Extracción de IDs y Metadata ---
                                 try:
                                     # print(f'props: {props}')
-                                    obs_unit_id = props.get('obsUnitId', props.get('PlotID'))
-                                    obs_unit_id = str(obs_unit_id) if obs_unit_id is not None else ""
+                                    obs_unit_id_num = props.get('obsUnitId', props.get('PlotID'))
+                                    obs_unit_id = str(obs_unit_id_num) if obs_unit_id_num is not None else ""
                                     obs_unit_id = f"TTADDA_NARO_2023_F1P{obs_unit_id}"
                                     
                                     # Intentar construir el ID si obsUnitId no es directamente el ID del CSV (TTADDA_NARO_2023_F1P1)
@@ -363,6 +363,7 @@ def generate_labels_unified(
                                     'Fecha': date_folder,
                                     'PlotID': plot_id,
                                     'obsUnitId': obs_unit_id, # El ID de unión
+                                    'obs_unit_id_num': obs_unit_id_num, # El ID de unión
                                     'Yield_kgm2': actual_yield,
                                     'Etiqueta_Rendimiento': yield_label,
                                     'SPAD_Punto': spad_mean,
