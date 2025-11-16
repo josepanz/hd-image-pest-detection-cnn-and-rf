@@ -5,8 +5,19 @@ from rasterio.mask import mask
 import numpy as np
 import os
 from sklearn.model_selection import train_test_split
+#from sklearn.metrics import classification_report, accuracy_score
 import cv2
 
+from sklearn.preprocessing import LabelEncoder
+from keras.utils import Sequence
+from math import ceil
+
+from keras.models import Sequential
+from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+# from keras.metrics import Precision, Recall, BinaryAccuracy
+
+from utils_train import create_cnn_callbacks, save_history_and_plot
+import argparse
 # import inspeccionar_tif
 
 # --- CONFIGURACIÓN DE RUTAS ---
@@ -179,4 +190,195 @@ def extract_data_to_img_for_train():
       )
 
       print(f"\nDatos listos para entrenamiento. Total de muestras: {len(X_images)}")
-      print(f"X_train shape: {X_train.shape}")
+      print(f"\nResumen de Datos Multiespectrales:")
+      print(f"Total de parches extraídos: {len(X_images)}")
+      print(f"X Train/Val Split: {len(X_train)} / {len(X_test)}")
+      print(f"Y Train/Val Split: {len(y_train)} / {len(y_test)}")
+      print(f"Forma X_train: {X_train.shape}")
+      print(f"Forma Y_train: {y_train.shape}")
+      
+      return X_train, X_test, y_train, y_test, le
+  
+class MultiespectralDataGenerator(Sequence):
+    """Generador de datos para cargar imágenes multiespectrales (parches de parcela) 
+    a partir de un CSV de etiquetas y un Shapefile de parcelas."""
+
+    def __init__(self, df, parcels_gdf, base_dir_raster, target_size, batch_size, le: LabelEncoder, shuffle=True):
+        self.df = df.reset_index(drop=True)  # DataFrame de etiquetas (ya filtrado por Plaga/Sana)
+        self.parcels_gdf = parcels_gdf.set_index(SHP_ID_COLUMN) # GeoDataFrame, indexado por el ID numérico
+        self.base_dir_raster = base_dir_raster
+        self.target_size = target_size
+        self.batch_size = batch_size
+        self.shuffle = shuffle
+        self.le = le # LabelEncoder ya entrenado (con 'Plaga', 'Sana', etc.)
+        
+        # Codificar las etiquetas del DataFrame que usará este generador
+        self.y_encoded = self.le.transform(self.df['Etiqueta_FINAL'])
+        
+        self.indices = np.arange(len(self.df))
+        if self.shuffle:
+            np.random.shuffle(self.indices)
+
+    def __len__(self):
+        # Número de lotes por época
+        return ceil(len(self.df) / self.batch_size)
+
+    def on_epoch_end(self):
+        # Función llamada al final de cada época (opcional, pero buena práctica)
+        if self.shuffle:
+            np.random.shuffle(self.indices)
+
+    def _get_image_data(self, row):
+        """Implementa la lógica de recorte y apilamiento para una sola fila (muestra)."""
+        fecha = row['Fecha']
+        obs_unit_id_num = row['obsUnitId_num'] 
+        
+        # 1. BÚSQUEDA DE POLÍGONO (Match por el índice)
+        try:
+            # Obtener geometría directamente por el índice (SHP_MATCH_ID)
+            parcela = self.parcels_gdf.loc[[obs_unit_id_num]]
+        except KeyError:
+            # Si el ID no existe en el índice del GeoDataFrame
+            raise FileNotFoundError(f"Polígono no encontrado en SHP para ID: {obs_unit_id_num}")
+
+        geometries = parcela.geometry.values
+        all_bands_clipped = []
+        tif_date_prefix = fecha.replace('-', '')
+
+        # 2. APILAMIENTO DE BANDAS (Red, Red Edge, NIR)
+        for suffix in BAND_SUFFIXES:
+            tif_name = f"{tif_date_prefix}_{suffix}"
+            tif_path = os.path.join(self.base_dir_raster, fecha, tif_name)
+
+            if fecha == "2023-05-18":
+              tif_name = tif_date_prefix + '_WUR_' + 'transparent_reflectance_' + suffix
+              tif_path = os.path.join(self.base_dir_raster, tif_name)
+            else:
+              tif_name = tif_date_prefix + '_transparent_reflectance_' + suffix
+              tif_path = os.path.join(self.base_dir_raster, tif_name)
+
+            if not os.path.exists(tif_path):
+                raise FileNotFoundError(f"Falta el archivo: {tif_name}")
+
+            with rasterio.open(tif_path) as src:
+                out_band_clip, _ = mask(src, geometries, crop=True)
+                all_bands_clipped.append(out_band_clip)
+
+        # 3. APILAMIENTO, REORDENAMIENTO Y RESIZE
+        stacked_image = np.concatenate(all_bands_clipped, axis=0) # (3, H, W)
+        out_image_reorder = np.transpose(stacked_image, (1, 2, 0)) # (H, W, 3)
+
+        resized_image = cv2.resize(
+            out_image_reorder, 
+            self.target_size, 
+            interpolation=cv2.INTER_NEAREST # Mantenemos nearest para valores de reflectancia
+        )
+        
+        # Convertir a float32 para la CNN
+        return resized_image.astype(np.float32)
+
+    def __getitem__(self, index):
+        """Genera un lote de datos."""
+        # Obtener los índices de las muestras para este lote
+        start = index * self.batch_size
+        end = (index + 1) * self.batch_size
+        batch_indices = self.indices[start:end]
+        
+        # Inicializar arrays para el lote (X, y)
+        # N: Batch Size, H: Altura, W: Ancho, C: Canales (3)
+        X = np.empty((len(batch_indices), self.target_size[0], self.target_size[1], len(BAND_SUFFIXES)), dtype=np.float32)
+        y = np.empty((len(batch_indices),), dtype=np.int32) 
+
+        # Llenar el lote
+        for i, data_index in enumerate(batch_indices):
+            row = self.df.iloc[data_index]
+            
+            try:
+                # Obtener y preprocesar la imagen
+                image = self._get_image_data(row)
+                X[i,] = image
+                
+                # Obtener la etiqueta codificada
+                y[i] = self.y_encoded[data_index]
+            except Exception as e:
+                # En caso de error (archivo TIF faltante, geometría inválida), 
+                # se puede optar por ignorar la muestra o llenar con ceros y manejarlo en la loss.
+                # Aquí, simplemente llenamos con un array de ceros y una etiqueta inválida (-1) 
+                # para evitar errores de forma. En un entorno de producción, es mejor
+                # filtrar estos errores antes de crear el DataFrame.
+                print(f"Error fatal al cargar muestra: {row['obsUnitId']} - {e}")
+                # Usaremos un continue para intentar recuperar la siguiente muestra si la forma lo permite
+                # Para Keras, la forma debe ser consistente, por lo que una muestra fallida
+                # probablemente deba hacer fallar el lote si no se puede reemplazar.
+                # Por simplicidad, en este ejemplo, aseguramos que la muestra esté vacía.
+                X[i,] = np.zeros((self.target_size[0], self.target_size[1], len(BAND_SUFFIXES)))
+                y[i] = -1 # Etiqueta inválida
+                continue
+
+        # Filtrar posibles muestras inválidas (-1) si se usó la lógica de error
+        valid_indices = y != -1
+        return X[valid_indices], y[valid_indices]
+
+# ----------------------------------------------------------------------------------------------------
+
+def test_extract_data_to_img_for_train(X_train, X_test, y_train, y_test, le):
+  # Asumimos una CNN sencilla
+  model = Sequential([
+      Conv2D(32, (3, 3), activation='relu', input_shape=(128, 128, 3)), # 3 canales de entrada
+      MaxPooling2D((2, 2)),
+      Conv2D(64, (3, 3), activation='relu'),
+      MaxPooling2D((2, 2)),
+      Flatten(),
+      Dense(10, activation='relu'),
+      Dense(len(le.classes_), activation='softmax') # 2 clases (Plaga/Sana)
+  ])
+
+  model.compile(optimizer='adam',
+                loss='sparse_categorical_crossentropy', # Usamos sparse porque las etiquetas son números enteros (0, 1)
+                metrics=['accuracy'
+                    # BinaryAccuracy(name='accuracy'),
+                    # Precision(name='precision'),
+                    # Recall(name='recall')
+                    ])
+
+  print("\nModelo listo para entrenar con Generadores.")
+
+  # # ENTRENAMIENTO
+  callbacks, _ = create_cnn_callbacks(os.path.dirname(__file__))
+  history = model.fit(
+      X_train, 
+      y_train,
+      epochs=10, # Ajusta el número de épocas
+      validation_data=[X_test, y_test],
+      callbacks=callbacks
+  )
+
+  y_pred = model.predict(X_test)   
+  target_names = le.fit_transform(le.classes_)
+  print(f'le.classes_: {le.classes_}')
+  print(f'target_names: {target_names}')
+  print("\n--- Reporte de Clasificación ---")
+  # Usamos inverse_transform para mostrar las etiquetas reales en el reporte
+
+  # print(classification_report(y_test, y_pred, target_names=np.array(target_names)))
+  # print(f"Precisión General (Accuracy): {accuracy_score(y_test, y_pred):.4f}")
+
+  suffix = f"_MS"
+  save_history_and_plot(history, os.path.dirname(__file__), 10, suffix=suffix)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Entrena el modelo HD-only para detección de plagas")
+    parser.add_argument("--test", "-t", action="store_true", default=False, help="Indica si quiere demostrar el entrenamiento con un modelo simple")
+
+    # Ejecutar la carga para prueba
+    # X = data/img
+    # Y = labels/etiquetes
+    X_train, X_test, y_train, y_test, le = extract_data_to_img_for_train()
+
+    # Aquí puedes dividir los datos en train/test y entrenar tu modelo
+    if parser.parse_args().test:
+      test_extract_data_to_img_for_train(X_train, X_test, y_train, y_test, le)
+    
+    # Asegúrate de que Y_labels se conviertan a one-hot encoding para el entrenamiento CNN:
+    # from tensorflow.keras.utils import to_categorical
+    # Y_one_hot = to_categorical(Y_labels, num_classes=len(CLASSES))
