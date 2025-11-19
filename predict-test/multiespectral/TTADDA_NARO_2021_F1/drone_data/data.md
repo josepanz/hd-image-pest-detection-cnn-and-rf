@@ -1,2 +1,2 @@
 aqui deben ir todos las carpetas con sus respectivas imagenes por dia 
-![alt text](image.png)
+![alt text](img.png)

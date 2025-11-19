@@ -8,23 +8,17 @@ El código está organizado por el tipo de clasificador (CNN o RF) y la función
 
 | Carpeta | Contenido | Descripción |
 | :--- | :--- | :--- |
-| `data/` | `Plaga/`, `Sana/` | Directorio principal de los datos de entrenamiento y validación. **Debe contener las imágenes.** |
-| `data/Plaga` | Imágenes HD | Muestras de plantaciones de papas con plagas/enfermedades. |
-| `data/Sana` | Imágenes HD | Muestras de plantaciones de papas sanas. |
-| `data/shapefiles` | Archivos multiespectrales | Archivos utilizados para analizar los algoritmos a imagenes multiespectrales. |
-| `data/measurements` | Archivos xls del modelo multiespectral | Archivos de mediciones. |
-| `data/multispectral_images` | Carpeta que contiene carpetas con imagenes TIF | Utilizadas para el modelo multiespectral. |
-| `data/multispectral_images/2022_06_15__eko_ecobreed` | Carpeta que contiene imagenes TIF | Utilizadas para el modelo multiespectral. |
-| `data/multispectral_images/2022_06_15__konv_ecobreed` | Carpeta que contiene imagenes TIF | Utilizadas para el modelo multiespectral. |
-| `data/multispectral_images/2022_07_11__eko_ecobreed` | Carpeta que contiene imagenes TIF | Utilizadas para el modelo multiespectral. |
-| `data/multispectral_images/2022_07_11__konv_ecobreed` | Carpeta que contiene imagenes TIF | Utilizadas para el modelo multiespectral. |
-| `data/multispectral_images/2022_07_20__eko_ecobreed` | Carpeta que contiene imagenes TIF | Utilizadas para el modelo multiespectral. |
-| `data/multispectral_images/2022_07_20__konv_ecobreed` | Carpeta que contiene imagenes TIF | Utilizadas para el modelo multiespectral. |
-| `src/` | | Código fuente principal. |
-| `src/cnn/binary_crossentropy/` | | Modelo **Deep Learning (MobileNetV2)** con pérdida estándar. |
-| `src/cnn/focal_loss/` | | Modelo **Deep Learning (MobileNetV2)** con pérdida **Focal Loss** (para desbalance). |
-| `src/rf/` | | Modelo **Machine Learning Clásico (Random Forest)** usando CNN para extracción de *features*. |
-| `prueba/` | Imágenes nuevas | Imágenes de prueba para los scripts de inferencia (`inference.py`). |
+| `data/` | `multiespectral/`, `rgb/` | Directorio principal de los datos de entrenamiento y validación. **Debe contener las imágenes.** |
+| `data/rgb/plain` | Imágenes HD | Muestras de plantaciones de papas con plagas/enfermedades. |
+| `data/multiespectral/*-dataset` | Imágenes Multiespectrales | Muestras de plantaciones de papas. |
+| `data/multiespectral/*-dataset/metadata or shapefiles` | Archivos multiespectrales | Archivos utilizados para analizar los algoritmos a imagenes multiespectrales. |
+| `data/multiespectral/*-dataset/measurements` | Archivos xls del modelo multiespectral | Archivos de mediciones. |
+| `data/multispectral/*-dataset/*/.tif` | Carpeta que contiene carpetas con imagenes TIF | Utilizadas para el modelo multiespectral. |
+| `src/` | Arquitectura de carpetas para archivos | Código fuente principal. |
+| `src/cnn/binary_crossentropy/` | Archivos .py para cargar, crear modelo, entrenar, evaluar e inferir. | Modelo **Deep Learning (MobileNetV2)** con pérdida estándar. |
+| `src/cnn/focal_loss/` | Archivos .py para cargar, crear modelo, entrenar, evaluar e inferir. | Modelo **Deep Learning (MobileNetV2)** con pérdida **Focal Loss** (para desbalance). |
+| `src/rf/` | Archivos .py para cargar, crear modelo, entrenar, evaluar e inferir. | Modelo **Machine Learning Clásico (Random Forest)** usando CNN para extracción de *features*. |
+| `predict-test/*` | Imágenes nuevas | Imágenes de prueba para los scripts de inferencia (`inference.py`). |
 | `requirements.txt`| Dependencias | Lista de librerías necesarias. |
 
 ---
