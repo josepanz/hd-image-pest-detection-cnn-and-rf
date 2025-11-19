@@ -13,7 +13,7 @@ shapely
 scikit-image
 
 # para calculo nvdi de algoritmo nunez
-cv2
+#cv2
 
 # para inspeccionar xlsx
 openpyxl
