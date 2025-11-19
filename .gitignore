@@ -8,6 +8,8 @@ __pycache__/
 # Modelos y checkpoints
 *.h5
 *.keras
+*.tif
+*.zip
 data/multispectral_images/*/*.tif
 .DS_Store
 # Opción 1: Ignora todo dentro de drone_data (incluyendo las carpetas de fecha y su contenido)
