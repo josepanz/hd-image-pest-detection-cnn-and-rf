@@ -6,7 +6,7 @@ import rasterio.mask
 import fiona
 from shapely.geometry import shape
 import pandas as pd
-from typing import List, Dict, Any, Tuple
+from typing import Dict, Tuple
 import sys
 # Importa iqr para el cálculo de umbrales robustos si es necesario, aunque aquí usamos .quantile()
 # from scipy.stats import iqr 
@@ -14,24 +14,33 @@ import sys
 
 # --- CONFIGURACIÓN DE RUTAS Y UMBRALES ---
 BASE_DATA_DIR = os.path.join("data") 
+# BASE_DATA_DIR = os.path.join("predict-test") # para clasificacion de datos de prediccion por calculo NVDI, SPAD 
 
 # Directorios de imágenes y shapefiles (adaptados de tu código)
-MULTISPECTRAL_IMAGES_DIR = os.path.join(BASE_DATA_DIR, "multispectral_images", "TTADDA_NARO_2023_F1", "drone_data")
-SHAPEFILES_DIR = os.path.join(BASE_DATA_DIR, "multispectral_images", "TTADDA_NARO_2023_F1", "metadata")
+MULTISPECTRAL_IMAGES_DIR = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2023_F1", "drone_data")
+SHAPEFILES_DIR = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2023_F1", "metadata")
 
-MULTISPECTRAL_IMAGES_DIR_E = os.path.join(BASE_DATA_DIR, "multispectral_images")
+# MULTISPECTRAL_IMAGES_DIR = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2021_F1", "drone_data") # para clasificacion de datos de prediccion por calculo NVDI, SPAD 
+# SHAPEFILES_DIR = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2021_F1", "metadata") # para clasificacion de datos de prediccion por calculo NVDI, SPAD 
+
+MULTISPECTRAL_IMAGES_DIR_E = os.path.join(BASE_DATA_DIR, "multiespectral") 
 SHAPEFILES_DIR_E = os.path.join(BASE_DATA_DIR, "shapefiles")
 
 # Rutas a los CSV de Ground Truth
 YIELD_CSV_FILENAME = "NARO_field_2023_GT_yield.csv"
 ADDITIONAL_GT_CSV_FILENAME = "NARO_field_2023_GT_additional.csv"
+YIELD_CSV_FILENAME = "NARO_field_2021_GT_yield.csv"
+ADDITIONAL_GT_CSV_FILENAME = "NARO_field_2021_GT_additional.csv"
 
 # Se asume que los CSV de GT están en la carpeta 'data/measurements'
-YIELD_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR,  "multispectral_images", "TTADDA_NARO_2023_F1", "measurements", YIELD_CSV_FILENAME)
-ADDITIONAL_GT_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR, "multispectral_images", "TTADDA_NARO_2023_F1", "measurements", ADDITIONAL_GT_CSV_FILENAME)
+YIELD_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR,  "multiespectral", "TTADDA_NARO_2023_F1", "measurements", YIELD_CSV_FILENAME)
+ADDITIONAL_GT_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2023_F1", "measurements", ADDITIONAL_GT_CSV_FILENAME)
+# YIELD_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR,  "multiespectral", "TTADDA_NARO_2021_F1", "measurements", YIELD_CSV_FILENAME)
+# ADDITIONAL_GT_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2021_F1", "measurements", ADDITIONAL_GT_CSV_FILENAME)
 
 # Ruta base para el CSV de salida (se le añadirá el sufijo de la etiqueta final)
-OUTPUT_CSV_BASE = os.path.join(BASE_DATA_DIR, "multispectral_images", "TTADDA_NARO_2023_F1", "measurements", "generated_labels.csv")
+OUTPUT_CSV_BASE = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2023_F1", "measurements", "generated_labels.csv")
+# OUTPUT_CSV_BASE = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2021_F1", "measurements", "generated_labels.csv")
 
 
 # --- UMBRALES DE CLASIFICACIÓN (AJUSTABLES) ---
@@ -187,7 +196,7 @@ def get_band_path(tiff_folder: str, band_name: str) -> str:
 # --- FUNCIÓN PRINCIPAL DE PROCESAMIENTO ---
 
 def generate_labels_unified(
-    multispectral_root_dir: str, 
+    multiespectral_root_dir: str, 
     shapefiles_dir: str, 
     output_csv_path: str,
     label_source: str,
@@ -213,9 +222,9 @@ def generate_labels_unified(
     ]
 
     # Iterar sobre cada subdirectorio de imágenes multiespectrales (e.g., 2023-05-18)
-    for date_folder in os.listdir(multispectral_root_dir):
+    for date_folder in os.listdir(multiespectral_root_dir):
         
-        tiff_folder_path = os.path.join(multispectral_root_dir, date_folder)
+        tiff_folder_path = os.path.join(multiespectral_root_dir, date_folder)
         if not os.path.isdir(tiff_folder_path) or 'ttadda_naro' in date_folder.lower():
             continue
 
@@ -476,44 +485,44 @@ if __name__ == "__main__":
     parser.add_argument(
         "--tifftype", "-tft",
         default="eko", # Se ignora, pero se mantiene la estructura
-        help="Para saber cual data usar (ahora se usa el directorio principal 'multispectral_images')."
+        help="Para saber cual data usar (ahora se usa el directorio principal 'multiespectral')."
     )
 
     parser.add_argument(
         "--shapedir", "-spd",
         default=SHAPEFILES_DIR, # Se ignora, pero se mantiene la estructura
-        help="Para saber cual data usar (ahora se usa el directorio principal 'multispectral_images')."
+        help="Para saber cual data usar (ahora se usa el directorio principal 'multiespectral')."
     )
 
     parser.add_argument(
         "--multidir", "-msd",
         default=MULTISPECTRAL_IMAGES_DIR, # Se ignora, pero se mantiene la estructura
-        help="Para saber cual data usar (ahora se usa el directorio principal 'multispectral_images')."
+        help="Para saber cual data usar (ahora se usa el directorio principal 'multiespectral')."
     )
 
     parser.add_argument(
         "--yielddir", "-yd",
         default=YIELD_CSV_PATH_FULL, # Se ignora, pero se mantiene la estructura
-        help="Para saber cual data usar (ahora se usa el directorio principal 'multispectral_images')."
+        help="Para saber cual data usar (ahora se usa el directorio principal 'multiespectral')."
     )
 
     parser.add_argument(
         "--additionaldir", "-addir",
         default=ADDITIONAL_GT_CSV_PATH_FULL, # Se ignora, pero se mantiene la estructura
-        help="Para saber cual data usar (ahora se usa el directorio principal 'multispectral_images')."
+        help="Para saber cual data usar (ahora se usa el directorio principal 'multiespectral')."
     )
 
     parser.add_argument(
         "--outcsv", "-ocsv",
         default=OUTPUT_CSV_BASE, # Se ignora, pero se mantiene la estructura
-        help="Para saber cual data usar (ahora se usa el directorio principal 'multispectral_images')."
+        help="Para saber cual data usar (ahora se usa el directorio principal 'multiespectral')."
     )
     
     args = parser.parse_args()
 
     # Se invoca la función unificada
     generate_labels_unified(
-        multispectral_root_dir=args.multidir,
+        multiespectral_root_dir=args.multidir,
         shapefiles_dir=args.shapedir,
         output_csv_path=args.outcsv,
         label_source=args.label_source,

@@ -3,7 +3,21 @@
 import argparse
 import os
 import tensorflow as tf
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# agregar a path la carpeta src
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../evaluation'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../../utils'))
 from src.evaluation.utils_inference import load_model_for_inference, run_inference_on_path, save_inference_results
+from src.utils.print_utils import print_time_and_step
+
+import time
+from datetime import datetime
+start_time = time.time()
+timestamp = datetime.now().strftime("%Y%m%d_%H%M")
 
 def main():
     parser = argparse.ArgumentParser(description="Realiza inferencia con modelo CNN (RGB).")
@@ -12,13 +26,15 @@ def main():
     parser.add_argument("-t", "--threshold", type=float, default=0.5, help="Umbral de decisión.")
     args = parser.parse_args()
 
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    
     
     # 1. Carga del Modelo
+    print_time_and_step('1', f"⏳ Cargando modelo desde: {args.model}", timestamp=timestamp, start_time=start_time)
     model = load_model_for_inference(args.model)
     model_name = os.path.basename(args.model).replace('.keras', '').replace('.h5', '')
     
     # 2. Ejecutar Inferencia
+    print_time_and_step('2', "⏳ Realizando inferencia...", timestamp=timestamp, start_time=start_time)
     results = run_inference_on_path(
         model=model,
         feature_extractor_rf=None,
@@ -31,6 +47,7 @@ def main():
     )
 
     # 3. Guardar Resultados
+    print_time_and_step('3', "⏳ Guardando resultados...", timestamp=timestamp, start_time=start_time)
     if results:
         # Usamos 'bce' o 'fl' como tipo de modelo para la carpeta de resultados
         model_type = 'bce' if 'bce' in model_name.lower() else 'fl' 

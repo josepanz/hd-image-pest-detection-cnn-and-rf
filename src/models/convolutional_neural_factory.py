@@ -60,7 +60,7 @@ def crear_modelo_cnn(
         
         # Adaptación de la cabeza para el modelo multiespectral (con L2)
         x = Dense(
-            128, 
+            224, 
             activation='relu', 
             kernel_regularizer=tf.keras.regularizers.l2(l2_reg)
         )(x)

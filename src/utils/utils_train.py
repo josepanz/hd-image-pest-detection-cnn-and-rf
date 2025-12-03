@@ -83,6 +83,7 @@ def save_history_and_plot(
     plt.legend()
     acc_path = os.path.join(HISTORY_DIR, f"accuracy_plot_{timestamp}_epochs_{epochs}{suffix}.png")
     plt.savefig(acc_path)
+    plt.show()
     
     # Curva de Pérdida
     plt.figure(figsize=(10, 5))

@@ -16,29 +16,36 @@ from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 # from keras.metrics import Precision, Recall, BinaryAccuracy
 
+from src.utils.print_utils import print_time_and_step
 from utils_train import create_cnn_callbacks, save_history_and_plot
 import argparse
+
+import time
+from datetime import datetime
+start_time = time.time()
+timestamp = datetime.now().strftime("%Y%m%d_%H%M")
 # import inspeccionar_tif
 
 # --- CONFIGURACIÓN DE RUTAS ---
 # 1. Usar r-strings para evitar errores de barras invertidas en Windows.
-LABELS_CSV = r'C:\workspace\hd-image-pest-detection-cnn-and-rf\data\multispectral_images\TTADDA_NARO_2023_F1\measurements\generated_labels_unified.csv'
-PARCELS_SHP = r'C:\workspace\hd-image-pest-detection-cnn-and-rf\data\multispectral_images\TTADDA_NARO_2023_F1\metadata\plot_shapefile.shp'
-BASE_DIR_RASTER = r'data\multispectral_images\TTADDA_NARO_2023_F1\drone_data' 
+LABELS_CSV = r'C:\workspace\hd-image-pest-detection-cnn-and-rf\data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\measurements\generated_labels_unified.csv'
+PARCELS_SHP = r'C:\workspace\hd-image-pest-detection-cnn-and-rf\data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\metadata\plot_shapefile.shp'
+BASE_DIR_RASTER = r'data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data' 
 #TIF_SUFFIX = '.tif' # Define qué TIF usarás (puedes cambiarlo a '_WUR_transparent_reflectance_nir.tif')
-BAND_SUFFIXES = ['red.tif', 'red edge.tif', 'nir.tif']
+BAND_SUFFIXES = ['red.tif', 'red edge.tif', 'nir.tif', 'RGB.tif']
 
 # 2. DEFINICIÓN DE LA COLUMNA DE UNIÓN DEL SHAPEFILE
 # ¡AJUSTA ESTO! Debe ser el nombre exacto de la columna en tu SHP que tiene el número de parcela.
 SHP_ID_COLUMN = 'PlotID' # <--- EJEMPLO: Revisa y ajusta este nombre.
 
 # 3. DIMENSIÓN DE SALIDA PARA EL MODELO CNN (Necesario para el entrenamiento)
-TARGET_SIZE = (128, 128) 
+TARGET_SIZE = (224, 224) 
 
-def extract_data_to_img_for_train():
+def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: str = LABELS_CSV, parcels_dir: str = PARCELS_SHP, isRgb: bool = False):
   # --- 1. CARGA DE DATOS ---
-  labels_df = pd.read_csv(LABELS_CSV)
-  parcels_gdf = gpd.read_file(PARCELS_SHP)
+  print_time_and_step('1', f'Carga de datos {'RGB' if isRgb else 'Multiespectral'  }', timestamp=timestamp, start_time=start_time)
+  labels_df = pd.read_csv(labels_dir)
+  parcels_gdf = gpd.read_file(parcels_dir)
 
   # Preparación del Shapefile para la unión: convertir la columna del SHP a string
   parcels_gdf['SHP_MATCH_ID'] = parcels_gdf[SHP_ID_COLUMN].astype(str) 
@@ -47,12 +54,13 @@ def extract_data_to_img_for_train():
 
 
   # --- 2. FILTRADO Y EXTRACCIÓN ---
+  print_time_and_step('2', "Filtrado y extracción de datos", timestamp=timestamp, start_time=start_time)
   df_train = labels_df[labels_df['Etiqueta_FINAL'].isin(['Plaga', 'Sana'])].copy()
 
   X_images = [] 
   y_labels = [] 
 
-  print(f"Iniciando procesamiento de {len(df_train)} imágenes etiquetadas...")
+  print_time_and_step('2.1', f"Iniciando procesamiento de {len(df_train)} imágenes etiquetadas...", timestamp=timestamp, start_time=start_time)
 
   for index, row in df_train.iterrows():
       fecha = row['Fecha']
@@ -61,13 +69,15 @@ def extract_data_to_img_for_train():
       etiqueta = row['Etiqueta_FINAL']
 
       # 3. CONSTRUCCIÓN DE RUTA TIF
-      tif_folder = os.path.join(BASE_DIR_RASTER, fecha)
+      # print_time_and_step('3', 'Construccion de ruta TIF')
+      tif_folder = os.path.join(data_dir, fecha)
 
       # 4. BÚSQUEDA DE POLÍGONO (Unión directa por ID numérico)
+      # print_time_and_step('4', 'Busqueda de polígono por ID numérico')
       parcela = parcels_gdf[parcels_gdf['SHP_MATCH_ID'] == obs_unit_id_num]
       
       if parcela.empty:
-          print(f"Polígono no encontrado en SHP para ID numérico: {obs_unit_id_num}")
+          print_time_and_step('error', f"Polígono no encontrado en SHP para ID numérico: {obs_unit_id_num}", timestamp=timestamp, start_time=start_time)
           continue
       
       geometries = parcela.geometry.values
@@ -76,20 +86,29 @@ def extract_data_to_img_for_train():
       all_bands_clipped = [] # Lista temporal para guardar los recortes de cada banda
       
       # 5. EXTRACCIÓN Y APILAMIENTO DE TRES BANDAS (Red, Red Edge, NIR)
+      # print_time_and_step('5', 'Extracción y apilamiento de tres bandas (Red, Red Edge, NIR) o (RGB de 3 bandas)')
       try:
           tif_date_prefix = fecha.replace('-', '') # Ej: '20230605'
           
-          for suffix in BAND_SUFFIXES:
-              # Construir la ruta al archivo de la banda específica
-              tif_name = f"{tif_date_prefix}_{suffix}" # Ej: 20230605_red.tif
-              tif_path = os.path.join(BASE_DIR_RASTER, fecha, tif_name)
+          # --- A. SELECCIÓN DE ARCHIVOS Y RECORTE ---
+          selected_suffixes = ['RGB.tif'] if isRgb else BAND_SUFFIXES # Asumo que BAND_SUFFIXES contiene Red, Red Edge, NIR, Blue, Green, etc.
 
-              if fecha == "2023-05-18":
-                tif_name = tif_date_prefix + '_WUR_' + 'transparent_reflectance_' + suffix
-                tif_path = os.path.join(tif_folder, tif_name)
+          # Filtramos los sufijos si es RGB para que solo procese 'RGB.tif'
+          suffixes_to_process = [s for s in selected_suffixes if (isRgb and s == 'RGB.tif') or (not isRgb and s != 'RGB.tif')]
+          
+          for suffix in suffixes_to_process:
+
+              if suffix == 'RGB.tif':
+                # Construir la ruta al archivo de la banda específica
+                tif_name = f"{tif_date_prefix}_{suffix}" # Ej: 20230605_red.tif
+                tif_path = os.path.join(data_dir, fecha, tif_name)
               else:
-                tif_name = tif_date_prefix + '_transparent_reflectance_' + suffix
-                tif_path = os.path.join(tif_folder, tif_name)
+                if fecha == "2023-05-18":
+                  tif_name = tif_date_prefix + '_WUR_' + 'transparent_reflectance_' + suffix
+                  tif_path = os.path.join(tif_folder, tif_name)
+                else:
+                  tif_name = tif_date_prefix + '_transparent_reflectance_' + suffix
+                  tif_path = os.path.join(tif_folder, tif_name)
 
               if not os.path.exists(tif_path):
                   raise FileNotFoundError(f"Falta el archivo: {tif_name}")
@@ -101,15 +120,19 @@ def extract_data_to_img_for_train():
                   # Agregamos la banda recortada a la lista
                   all_bands_clipped.append(out_band_clip)
 
-          # CRÍTICO: Apilar todas las bandas en una sola matriz
-          # Usamos np.concatenate con axis=0 para apilar las 3 matrices (1, H, W) -> (3, H, W)
-          stacked_image = np.concatenate(all_bands_clipped, axis=0)
-              
+          if isRgb == False:
+            # CRÍTICO: Apilar todas las bandas en una sola matriz
+            # Usamos np.concatenate con axis=0 para apilar las 3 matrices (1, H, W) -> (3, H, W)
+            stacked_image = np.concatenate(all_bands_clipped, axis=0)
+          else:
+            stacked_image = all_bands_clipped[0]
+
           # 6. REORDENAMIENTO Y RESIZE
+          # print_time_and_step('6', 'Reordenamiento y resize de la imagen apilada')
           # Reorganizar array: (Bandas, Alto, Ancho) -> (Alto, Ancho, Bandas)
           # Necesario para cv2.resize y TensorFlow/PyTorch
           out_image_reorder = np.transpose(stacked_image, (1, 2, 0))
-
+          
           # Redimensionar la imagen apilada a TARGET_SIZE (ej: 128x128x3)
           resized_image = cv2.resize(
               out_image_reorder, 
@@ -121,15 +144,20 @@ def extract_data_to_img_for_train():
           resized_image = resized_image.astype(np.float32)
 
           # print(f"Shape final apilado: {resized_image.shape}") # Debug
-          
+
+          # *** VERIFICACIÓN CRÍTICA DE CANALES (¡LA SOLUCIÓN!) ***
+          if resized_image.shape[-1] != 3:
+            # print(f"Advertencia CRÍTICA: La imagen ID={obs_unit_id_num}, fecha={fecha} tiene {resized_image.shape[-1]} canales, pero se esperaban {3}. SKIPPING.")
+            continue # Saltar esta imagen inconsistente
+
           X_images.append(resized_image)
           y_labels.append(etiqueta)
 
       except FileNotFoundError as e:
-          print(f"Advertencia: {e}")
+          print_time_and_step('error', f"Advertencia: {e}", timestamp=timestamp, start_time=start_time)
           continue
       except Exception as e:
-          print(f"Error procesando {tif_path} (ID: {obs_unit_id_num}): {e}")
+          print_time_and_step('Error', f"Error procesando {tif_path} (ID: {obs_unit_id_num}): {e}", timestamp=timestamp, start_time=start_time)
           continue
 
       # 5. RECORTE (CLIPPING), RESIZE Y EXTRACCIÓN
@@ -158,13 +186,13 @@ def extract_data_to_img_for_train():
       #         y_labels.append(etiqueta)
 
       except rasterio.RasterioIOError:
-          print(f"Advertencia: Archivo TIF no encontrado o dañado para {tif_path}")
+          print_time_and_step('error', f"Advertencia: Archivo TIF no encontrado o dañado para {tif_path}")
           continue
       except Exception as e:
-          print(f"Error procesando {tif_path} (ID: {obs_unit_id_num}): {e}")
+          print_time_and_step('error', f"Error procesando {tif_path} (ID: {obs_unit_id_num}): {e}")
           continue
 
-  print("Extracción de imágenes completada.")
+  print_time_and_step('7', "Extracción de imágenes completada.")
 
   # Convertir las etiquetas de texto a números (ej: Plaga=0, Sana=1, Indeterminado=2)
   from sklearn.preprocessing import LabelEncoder
@@ -324,7 +352,7 @@ class MultiespectralDataGenerator(Sequence):
 def test_extract_data_to_img_for_train(X_train, X_test, y_train, y_test, le):
   # Asumimos una CNN sencilla
   model = Sequential([
-      Conv2D(32, (3, 3), activation='relu', input_shape=(128, 128, 3)), # 3 canales de entrada
+      Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 3)), # 3 canales de entrada
       MaxPooling2D((2, 2)),
       Conv2D(64, (3, 3), activation='relu'),
       MaxPooling2D((2, 2)),
@@ -365,6 +393,80 @@ def test_extract_data_to_img_for_train(X_train, X_test, y_train, y_test, le):
 
   suffix = f"_MS"
   save_history_and_plot(history, os.path.dirname(__file__), 10, suffix=suffix)
+
+import numpy as np
+from typing import Tuple, List, Dict, Callable, Any
+from sklearn.utils import class_weight
+
+import time
+from datetime import datetime
+start_time = time.time()
+timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+
+# Definición de tipos para mayor claridad
+# Un 'Dataset' en este contexto es una tupla de arrays: (X_features, y_labels)
+ArrayDataset = Tuple[np.ndarray, np.ndarray]
+
+def crear_datasets_cnn_multiespectral(
+    data_dir: str, # Parámetro requerido por la firma original (ignorado aquí)
+    img_size: Tuple[int, int] = (128, 128), # Parámetro requerido (ignorado aquí)
+    batch_size: int = 32, # Parámetro requerido (ignorado aquí)
+    val_split: float = 0.2, # Parámetro requerido (ignorado aquí)
+    seed: int = 42, # Parámetro requerido (ignorado aquí)
+    mode: str = 'class_weight', # Estrategia de balanceo
+    isRgb: bool = False
+) -> Tuple[ArrayDataset, ArrayDataset, List[str], Dict[int, float]]:
+    """
+    Carga datos multiespectrales como arrays NumPy (usando la función de extracción del usuario) 
+    y los envuelve en el formato de retorno (train_ds, val_ds, class_names, class_weights_dict) 
+    para mantener la compatibilidad con el entrenamiento de Keras.
+    
+    Args:
+        extract_data_func: La función que realiza la extracción de imágenes y el split (extract_data_to_img_for_train).
+        ... (Otros parámetros para coincidir con la firma de crear_datasets_cnn_rgb, pero son ignorados).
+
+    Retorna: (train_ds, val_ds, class_names, class_weights_dict)
+    """
+
+    print_time_and_step('1', 'Ejecutando extracción y split de datos (extract_data_to_img_for_train)', timestamp=timestamp, start_time=start_time)
+    # 1. Ejecutar la función de extracción para obtener los arrays y el LabelEncoder
+    try:
+        # La función de extracción del usuario retorna: X_train, X_test, y_train, y_test, le
+        X_train, X_test, y_train, y_test, le = extract_data_to_img_for_train(isRgb=isRgb)
+    except Exception as e:
+        print_time_and_step('error: ', f"Error CRÍTICO al ejecutar la función de extracción: {e}", timestamp=timestamp, start_time=start_time)
+        raise # Detener la ejecución si la data no se carga
+
+    class_names = list(le.classes_)
+    print_time_and_step('1.1', f"Clases detectadas: {class_names}", timestamp=timestamp, start_time=start_time)
+    
+    # 2. CÁLCULO DE PESOS DE CLASE
+    print_time_and_step('2', 'Calculando pesos de clase (Estrategia: Class Weighting)', timestamp=timestamp, start_time=start_time)
+    
+    # Calcular los pesos usando las etiquetas enteras del conjunto de entrenamiento
+    weights = class_weight.compute_class_weight(
+        class_weight='balanced',
+        classes=np.unique(y_train), # Clases únicas (0, 1)
+        y=y_train # Etiquetas codificadas del set de entrenamiento
+    )
+    # Convertir a diccionario {0: peso_0, 1: peso_1} para usar en model.fit(class_weight=...)
+    class_weights_dict = dict(zip(le.transform(le.classes_), weights))
+
+    unique, counts = np.unique(y_train, return_counts=True)
+    # train_counts: {0: count_plaga, 1: count_sana}
+    train_counts = dict(zip(unique, counts))
+    
+    print_time_and_step('2.1', f"Pesos de Clase Calculados (train_counts): {class_weights_dict}", timestamp=timestamp, start_time=start_time)
+
+    # 3. EMPAQUETAR LOS ARRAYS PARA IGUALAR LA FIRMA DE SALIDA (train_ds, val_ds)
+    # Creamos tuplas (X, Y) para imitar la estructura de un Dataset de TensorFlow
+    train_ds: ArrayDataset = (X_train, y_train)
+    val_ds: ArrayDataset = (X_test, y_test)
+    
+    # 4. Retornar en el orden exacto requerido: train_ds, val_ds, class_names, class_weights_dict
+    # (class_weights_dict ocupa el lugar de 'train_counts')
+    #return train_ds, val_ds, class_names, class_weights_dict # TODO: revisar
+    return train_ds, val_ds, class_names, train_counts
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Entrena el modelo HD-only para detección de plagas")

@@ -1,14 +1,7 @@
 import time
 from datetime import datetime
 
-### Variables globales ###
-# Registrar fecha y hora de inicio
-timestamp = datetime.now().strftime("%Y%m%d_%H%M")
-# Registrar el tiempo de inicio
-start_time = time.time()
-
-
-def print_time_and_step(step_number, message):
+def print_time_and_step(step_number, message, timestamp = datetime.now().strftime("%Y%m%d_%H%M"), start_time = time.time()):
     """Calcula y imprime el tiempo transcurrido desde el inicio."""
     elapsed = time.time() - start_time
     print(f"\n--- [Fecha/hora inicio={timestamp}] ---")

@@ -12,15 +12,29 @@ from keras.preprocessing.image import load_img, img_to_array
 from keras.applications.mobilenet_v2 import preprocess_input # Para la extracción de features de RF
 from datetime import datetime
 
+# agregar a path la carpeta src
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
+
+from src.utils.print_utils import print_time_and_step
+# from src.multiespectral.data_loader_multiespectral import load_single_multispectral_image
+from src.data_management.convolutional_neural_network.multiespectral.loader_multiespectral import load_single_multispectral_image
+
+import time
+from datetime import datetime
+start_time = time.time()
+timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+
 CUSTOM_OBJECTS = {
     'focal_loss': focal_loss(), 
     # Añadir aquí cualquier otra clase o función personalizada que uses en tus modelos
 }
 
-def load_model_for_inference(model_path: str) -> Union[tf.keras.Model, joblib._io.NumpyArrayWrapper]:
+def load_model_for_inference(model_path: str):
     """
     Carga un modelo guardado (.keras o .joblib), manejando objetos personalizados.
     """
+    print_time_and_step('1', f"⏳ Cargando modelo desde: {model_path}", timestamp=timestamp, start_time=start_time)  
     if not os.path.exists(model_path):
         raise FileNotFoundError(f"El archivo del modelo no se encontró en: {model_path}")
 
@@ -32,7 +46,7 @@ def load_model_for_inference(model_path: str) -> Union[tf.keras.Model, joblib._i
                 custom_objects=CUSTOM_OBJECTS, 
                 compile=False # No necesitamos recompilar si solo vamos a predecir
             )
-            print(f"Modelo Keras cargado exitosamente desde {model_path}")
+            print_time_and_step('2', f"✅Modelo Keras cargado exitosamente desde {model_path}", timestamp=timestamp, start_time=start_time)
             return model
         except Exception as e:
             raise RuntimeError(f"Error al cargar modelo Keras: {e}. Asegúrate de que las rutas y custom_objects son correctos.")
@@ -40,38 +54,52 @@ def load_model_for_inference(model_path: str) -> Union[tf.keras.Model, joblib._i
     elif model_path.endswith('.joblib'):
         # Modelo Scikit-learn (Random Forest)
         model = joblib.load(model_path)
-        print(f"Modelo Scikit-learn (Joblib) cargado exitosamente desde {model_path}")
+        print_time_and_step('2', f"✅Modelo Scikit-learn (Joblib) cargado exitosamente desde {model_path}", timestamp=timestamp, start_time=start_time)
         return model
         
     else:
         raise ValueError("Formato de modelo no soportado. Use '.keras' o '.joblib'.")
 
-def predict_cnn(model: tf.keras.Model, data_ds: tf.data.Dataset, steps: int) -> Tuple[np.ndarray, np.ndarray]:
-    """
-    Realiza predicciones con un modelo CNN en un tf.data.Dataset.
-    Devuelve probabilidades (y_pred_proba) y etiquetas verdaderas (y_true).
-    """
-    print("Iniciando predicción del modelo CNN...")
+# def predict_cnn(model: tf.keras.Model, data_ds: tf.data.Dataset, steps: int) -> Tuple[np.ndarray, np.ndarray]:
+#     """
+#     Realiza predicciones con un modelo CNN en un tf.data.Dataset.
+#     Devuelve probabilidades (y_pred_proba) y etiquetas verdaderas (y_true).
+#     """
+#     print("Iniciando predicción del modelo CNN...")
     
-    # Extraer etiquetas verdaderas del dataset
-    # Usamos .flat_map para aplanar el dataset antes de extraer las etiquetas
-    y_true_list = []
-    # Nota: Es crucial usar la misma cantidad de pasos que en la predicción para asegurar que y_true sea del mismo tamaño
-    for _, y_batch in data_ds.unbatch().as_numpy_iterator():
-        y_true_list.append(y_batch)
+#     # Extraer etiquetas verdaderas del dataset
+#     # Usamos .flat_map para aplanar el dataset antes de extraer las etiquetas
+#     y_true_list = []
+#     # Nota: Es crucial usar la misma cantidad de pasos que en la predicción para asegurar que y_true sea del mismo tamaño
+#     for _, y_batch in data_ds.unbatch().as_numpy_iterator():
+#         y_true_list.append(y_batch)
+    
+#     # Realizar predicciones
+#     # El modelo Keras ya está compilado para BCE/Focal Loss (salida sigmoid)
+#     y_pred_proba = model.predict(data_ds, steps=steps, verbose=1).flatten()
+    
+#     # Concatenar las etiquetas verdaderas solo hasta el tamaño de las predicciones
+#     y_true_flat = np.concatenate(y_true_list).flatten()
+#     y_true = y_true_flat[:len(y_pred_proba)] # Asegurar tamaños iguales
+
+#     return y_pred_proba, y_true
+
+def predict_cnn(model: tf.keras.Model, X_data: np.ndarray) -> np.ndarray:
+    """
+    Realiza predicciones con un modelo CNN en un array de NumPy (X_data).
+    Devuelve solo las probabilidades (y_pred_proba).
+    """
+    print_time_and_step('1', "Iniciando predicción del modelo CNN...")
     
     # Realizar predicciones
-    # El modelo Keras ya está compilado para BCE/Focal Loss (salida sigmoid)
-    y_pred_proba = model.predict(data_ds, steps=steps, verbose=1).flatten()
+    # model.predict maneja arrays de NumPy automáticamente
+    y_pred_proba = model.predict(X_data, verbose=1).flatten()
     
-    # Concatenar las etiquetas verdaderas solo hasta el tamaño de las predicciones
-    y_true_flat = np.concatenate(y_true_list).flatten()
-    y_true = y_true_flat[:len(y_pred_proba)] # Asegurar tamaños iguales
-
-    return y_pred_proba, y_true
+    # Solo devolvemos las probabilidades
+    return y_pred_proba
 
 
-def predict_rf(model: joblib._io.NumpyArrayWrapper, X_features: np.ndarray, Y_true: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+def predict_rf(model: any, X_features: np.ndarray, Y_true: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
     """
     Realiza predicciones con un modelo Random Forest (Scikit-learn).
     Devuelve etiquetas predichas (y_pred) y etiquetas verdaderas (y_true).
@@ -113,7 +141,7 @@ def preprocess_single_image(
         return None
 
 def run_inference_on_path(
-    model: Union[tf.keras.Model, joblib._io.NumpyArrayWrapper],
+    model: Union[tf.keras.Model, any],
     feature_extractor_rf: Union[tf.keras.Model, None], # Solo necesario para RF
     path: str,
     threshold: float,
@@ -129,31 +157,37 @@ def run_inference_on_path(
     CLASSES = ["Plaga", "Sana"] 
     
     # 1. Determinar rutas a procesar
+    print_time_and_step('1', f"Determinando rutas a procesar {path}...", timestamp=timestamp, start_time=start_time)
     if os.path.isfile(path):
+        print("es archivo")
         paths_to_process = [path]
         base_dir = os.path.dirname(path)
     elif os.path.isdir(path):
+        print("es directorio")
         paths_to_process = [os.path.join(path, f) for f in os.listdir(path) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.tif', '.tiff'))]
         # Si es multiespectral, la ruta 'path' es la carpeta que contiene las bandas.
         if is_multiespectral:
              # Para MS, la carpeta *es* la unidad de inferencia.
             paths_to_process = [path] 
         else:
-            paths_to_process = [os.path.join(path, f) for f in os.listdir(path) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+            paths_to_process = [os.path.join(path, f) for f in os.listdir(path) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.tif', '.tiff'))]
         
         base_dir = path
     else:
         print(f"❌ Error: La ruta '{path}' no es un archivo ni una carpeta válida.")
         return []
 
-    print(f"\nIniciando inferencia en {len(paths_to_process)} elementos...")
+    print_time_and_step('2', f"\nIniciando inferencia en {len(paths_to_process)} elementos...", timestamp=timestamp, start_time=start_time)
     
     for item_path in paths_to_process:
+        print('paths_to_process: ', paths_to_process)
         try:
             # --- 2. Carga y Preprocesamiento ---
+            print('item_path: ', item_path)
+            print('is_multiespectral: ', is_multiespectral)
             if is_multiespectral:
                 # Importación específica de MS (debe estar en el entorno)
-                from src.data_management.multiespectral.loader_convolutional_neural_network_multiespectral import load_single_multispectral_image
+                # from src.data_management.multiespectral.loader_convolutional_neural_network_multiespectral import load_single_multispectral_image
                 # Para MS, item_path es la carpeta de las 5 bandas
                 X = load_single_multispectral_image(item_path, img_size=img_size)
                 file_id = os.path.basename(item_path)
@@ -176,7 +210,16 @@ def run_inference_on_path(
             # --- 4. Predicción (CNNs) ---
             elif not is_random_forest:
                 # CNN predice directamente las probabilidades (salida Sigmoid)
-                prob_sana = model.predict(X, verbose=0)[0][0]
+                # np.squeeze convierte (1, 1, 224, 224, 3) a (224, 224, 3)
+                X_data_squeezed = np.squeeze(X) 
+
+                # 2. Asegúrate de que tenga la dimensión Batch Size (1) en la posición correcta (axis=0)
+                # Resultado final: (1, 224, 224, 3)
+                X_final = np.expand_dims(X_data_squeezed, axis=0) 
+
+                # 3. Haz la predicción
+                prob_sana = model.predict(X_final, verbose=0)[0][0]
+                # prob_sana = model.predict(X, verbose=0)[0][0]
                 # [Prob_Plaga, Prob_Sana]
                 probs = np.array([1.0 - prob_sana, prob_sana])
             
@@ -193,10 +236,10 @@ def run_inference_on_path(
             # --- 6. Guardar Resultados ---
             result = {
                 "file_name": file_id,
-                "prob_plaga": round(probs[0], 4),
-                "prob_sana": round(probs[1], 4),
+                "prob_plaga": float(round(probs[0], 4)),
+                "prob_sana": float(round(probs[1], 4)),
                 "prediccion": etiqueta,
-                "umbral": threshold if not is_random_forest else 0.5, # RF es 0.5 por defecto
+                "umbral": float(threshold) if not is_random_forest else 0.5, # RF es 0.5 por defecto
                 "modelo": model_name
             }
             inference_results.append(result)
@@ -209,7 +252,9 @@ def run_inference_on_path(
             
         except Exception as e:
             print(f"❌ Error inesperado al procesar {file_id}: {e}")
+            raise e
             
+    print_time_and_step('U', 'Finalizando proceso de inferencia de modelo', timestamp=timestamp, start_time=start_time)
     return inference_results
 
 # --- Función Auxiliar para Guardar ---
