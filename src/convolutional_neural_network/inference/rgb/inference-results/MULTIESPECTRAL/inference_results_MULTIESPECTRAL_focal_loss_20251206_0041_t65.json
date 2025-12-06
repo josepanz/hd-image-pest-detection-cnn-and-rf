@@ -1,0 +1,10 @@
+[
+    {
+        "file_name": "2021-05-25",
+        "prob_plaga": 0.5453000068664551,
+        "prob_sana": 0.4546999931335449,
+        "prediccion": "Plaga",
+        "umbral": 0.65,
+        "modelo": "best_model_val_recall_MULTIESPECTRAL_focal_loss"
+    }
+]

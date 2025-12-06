@@ -41,9 +41,9 @@ SHP_ID_COLUMN = 'PlotID' # <--- EJEMPLO: Revisa y ajusta este nombre.
 # 3. DIMENSIÓN DE SALIDA PARA EL MODELO CNN (Necesario para el entrenamiento)
 TARGET_SIZE = (224, 224) 
 
-def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: str = LABELS_CSV, parcels_dir: str = PARCELS_SHP, isRgb: bool = False):
+def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: str = LABELS_CSV, parcels_dir: str = PARCELS_SHP, isRgb: bool = False, img_size: tuple[int, int] = TARGET_SIZE, val_split: float = 0.2, seed: int = 42, batch_size: int = 32):
   # --- 1. CARGA DE DATOS ---
-  print_time_and_step('1', f'Carga de datos {'RGB' if isRgb else 'Multiespectral'  }', timestamp=timestamp, start_time=start_time)
+  print_time_and_step('1', f'Carga de datos {'RGB' if isRgb else 'Multiespectral'}', timestamp=timestamp, start_time=start_time)
   labels_df = pd.read_csv(labels_dir)
   parcels_gdf = gpd.read_file(parcels_dir)
 
@@ -61,6 +61,11 @@ def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: s
   y_labels = [] 
 
   print_time_and_step('2.1', f"Iniciando procesamiento de {len(df_train)} imágenes etiquetadas...", timestamp=timestamp, start_time=start_time)
+  # --- A. SELECCIÓN DE ARCHIVOS Y RECORTE ---
+  selected_suffixes = ['RGB.tif'] if isRgb else BAND_SUFFIXES # Asumo que BAND_SUFFIXES contiene Red, Red Edge, NIR, Blue, Green, etc.
+  # Filtramos los sufijos si es RGB para que solo procese 'RGB.tif'
+  suffixes_to_process = [s for s in selected_suffixes if (isRgb and s == 'RGB.tif') or (not isRgb and s != 'RGB.tif')]
+  print_time_and_step('2.2', f'Archivos seleccionados: {suffixes_to_process}', timestamp=timestamp, start_time=start_time)
 
   for index, row in df_train.iterrows():
       fecha = row['Fecha']
@@ -89,12 +94,6 @@ def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: s
       # print_time_and_step('5', 'Extracción y apilamiento de tres bandas (Red, Red Edge, NIR) o (RGB de 3 bandas)')
       try:
           tif_date_prefix = fecha.replace('-', '') # Ej: '20230605'
-          
-          # --- A. SELECCIÓN DE ARCHIVOS Y RECORTE ---
-          selected_suffixes = ['RGB.tif'] if isRgb else BAND_SUFFIXES # Asumo que BAND_SUFFIXES contiene Red, Red Edge, NIR, Blue, Green, etc.
-
-          # Filtramos los sufijos si es RGB para que solo procese 'RGB.tif'
-          suffixes_to_process = [s for s in selected_suffixes if (isRgb and s == 'RGB.tif') or (not isRgb and s != 'RGB.tif')]
           
           for suffix in suffixes_to_process:
 
@@ -136,7 +135,7 @@ def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: s
           # Redimensionar la imagen apilada a TARGET_SIZE (ej: 128x128x3)
           resized_image = cv2.resize(
               out_image_reorder, 
-              TARGET_SIZE, 
+              img_size, 
               interpolation=cv2.INTER_LINEAR
           )
           
@@ -212,8 +211,8 @@ def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: s
       X_train, X_test, y_train, y_test = train_test_split(
           X_images_array, 
           y_labels_array, 
-          test_size=0.2, 
-          random_state=42, 
+          test_size=val_split, 
+          random_state=seed, 
           stratify=y_labels_array
       )
 
@@ -408,13 +407,12 @@ timestamp = datetime.now().strftime("%Y%m%d_%H%M")
 ArrayDataset = Tuple[np.ndarray, np.ndarray]
 
 def crear_datasets_cnn_multiespectral(
-    data_dir: str, # Parámetro requerido por la firma original (ignorado aquí)
-    img_size: Tuple[int, int] = (128, 128), # Parámetro requerido (ignorado aquí)
-    batch_size: int = 32, # Parámetro requerido (ignorado aquí)
-    val_split: float = 0.2, # Parámetro requerido (ignorado aquí)
-    seed: int = 42, # Parámetro requerido (ignorado aquí)
-    mode: str = 'class_weight', # Estrategia de balanceo
-    isRgb: bool = False
+    data_dir: str, # Parámetro requerido por la firma original
+    isRgb: bool = False, 
+    img_size: tuple[int, int] = (128, 128), # Parámetro requerido
+    batch_size: int = 32, # Parámetro requerido
+    val_split: float = 0.2, # Parámetro requerido
+    seed: int = 42, # Parámetro requerido
 ) -> Tuple[ArrayDataset, ArrayDataset, List[str], Dict[int, float]]:
     """
     Carga datos multiespectrales como arrays NumPy (usando la función de extracción del usuario) 
@@ -432,7 +430,7 @@ def crear_datasets_cnn_multiespectral(
     # 1. Ejecutar la función de extracción para obtener los arrays y el LabelEncoder
     try:
         # La función de extracción del usuario retorna: X_train, X_test, y_train, y_test, le
-        X_train, X_test, y_train, y_test, le = extract_data_to_img_for_train(isRgb=isRgb)
+        X_train, X_test, y_train, y_test, le = extract_data_to_img_for_train(data_dir=data_dir, isRgb=isRgb, img_size=img_size, val_split=val_split, seed=seed, batch_size=batch_size)
     except Exception as e:
         print_time_and_step('error: ', f"Error CRÍTICO al ejecutar la función de extracción: {e}", timestamp=timestamp, start_time=start_time)
         raise # Detener la ejecución si la data no se carga

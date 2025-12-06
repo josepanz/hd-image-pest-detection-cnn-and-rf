@@ -130,8 +130,8 @@ def load_single_multispectral_image(
 ) -> np.ndarray:
     """Carga, apila y redimensiona las 5 bandas TIFF de una carpeta de imagen única."""
     bands = {
-        'blue': f'transparent_reflectance_blue{"_modified" if modified else ""}.tif',
-        'green': f'transparent_reflectance_green{"_modified" if modified else ""}.tif',
+        #'blue': f'transparent_reflectance_blue{"_modified" if modified else ""}.tif',
+        #'green': f'transparent_reflectance_green{"_modified" if modified else ""}.tif',
         'red': f'transparent_reflectance_red{"_modified" if modified else ""}.tif',
         'red_edge': f'transparent_reflectance_red edge{"_modified" if modified else ""}.tif',
         'nir': f'transparent_reflectance_nir{"_modified" if modified else ""}.tif',
@@ -144,6 +144,7 @@ def load_single_multispectral_image(
     for band_name, filename_suffix in bands.items():
         # Encuentra el archivo TIF que contiene el sufijo en el directorio
         full_filename = next((f for f in os.listdir(tiff_dir) if f.lower().endswith(filename_suffix)), None)
+        print('full_filename: ', full_filename)
         if not full_filename:
             raise FileNotFoundError(f"Falta el archivo para la banda {band_name} en {tiff_dir}")
 

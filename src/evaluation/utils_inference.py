@@ -46,7 +46,7 @@ def load_model_for_inference(model_path: str):
                 custom_objects=CUSTOM_OBJECTS, 
                 compile=False # No necesitamos recompilar si solo vamos a predecir
             )
-            print_time_and_step('2', f"✅Modelo Keras cargado exitosamente desde {model_path}", timestamp=timestamp, start_time=start_time)
+            print_time_and_step('2', f"✅ Modelo Keras cargado exitosamente desde {model_path}", timestamp=timestamp, start_time=start_time)
             return model
         except Exception as e:
             raise RuntimeError(f"Error al cargar modelo Keras: {e}. Asegúrate de que las rutas y custom_objects son correctos.")
@@ -54,7 +54,7 @@ def load_model_for_inference(model_path: str):
     elif model_path.endswith('.joblib'):
         # Modelo Scikit-learn (Random Forest)
         model = joblib.load(model_path)
-        print_time_and_step('2', f"✅Modelo Scikit-learn (Joblib) cargado exitosamente desde {model_path}", timestamp=timestamp, start_time=start_time)
+        print_time_and_step('2', f"✅ Modelo Scikit-learn (Joblib) cargado exitosamente desde {model_path}", timestamp=timestamp, start_time=start_time)
         return model
         
     else:
@@ -84,7 +84,7 @@ def load_model_for_inference(model_path: str):
 
 #     return y_pred_proba, y_true
 
-def predict_cnn(model: tf.keras.Model, X_data: np.ndarray) -> np.ndarray:
+def predict_cnn(model: tf.keras.Model, X_data: np.ndarray, steps: int) -> np.ndarray:
     """
     Realiza predicciones con un modelo CNN en un array de NumPy (X_data).
     Devuelve solo las probabilidades (y_pred_proba).
@@ -93,7 +93,7 @@ def predict_cnn(model: tf.keras.Model, X_data: np.ndarray) -> np.ndarray:
     
     # Realizar predicciones
     # model.predict maneja arrays de NumPy automáticamente
-    y_pred_proba = model.predict(X_data, verbose=1).flatten()
+    y_pred_proba = model.predict(X_data, steps=steps, verbose=1).flatten()
     
     # Solo devolvemos las probabilidades
     return y_pred_proba
@@ -211,6 +211,8 @@ def run_inference_on_path(
             elif not is_random_forest:
                 # CNN predice directamente las probabilidades (salida Sigmoid)
                 # np.squeeze convierte (1, 1, 224, 224, 3) a (224, 224, 3)
+                X = X[..., :3] 
+                print(f"✅ Recorte MS: Data con {X.shape[-1]} canales para modelo MS.")
                 X_data_squeezed = np.squeeze(X) 
 
                 # 2. Asegúrate de que tenga la dimensión Batch Size (1) en la posición correcta (axis=0)
@@ -258,15 +260,15 @@ def run_inference_on_path(
     return inference_results
 
 # --- Función Auxiliar para Guardar ---
-def save_inference_results(results: List[Dict[str, Any]], base_dir: str, threshold: float, model_type: str) -> None:
+def save_inference_results(results: List[Dict[str, Any]], base_dir: str, threshold: float, img_type: str, model_type: str) -> None:
     """Guarda la lista de resultados de inferencia en un archivo JSON."""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M")
     umbral_str = f"t{int(threshold * 100):02d}" 
 
-    OUTPUT_DIR = os.path.join(base_dir, f'inference-results-{model_type}')
+    OUTPUT_DIR = os.path.join(base_dir, f'inference-results/{img_type}')
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     
-    output_filename = f"inference_results_{model_type}_{timestamp}_{umbral_str}.json"
+    output_filename = f"inference_results_{img_type}_{model_type}_{timestamp}_{umbral_str}.json"
     final_json_path = os.path.join(OUTPUT_DIR, output_filename)
     
     with open(final_json_path, 'w') as f:
