@@ -7,7 +7,7 @@ import tensorflow as tf
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-from inference_random_forest import run_rf_inference
+from inference_random_forest import plot_inference_results, run_rf_inference
 # agregar a path la carpeta src
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
@@ -32,27 +32,27 @@ def main():
 
 def run_inference(path, model, threshold, model_type, size):
   if model_type == 'cnn':
-      run_cnn_inference(path, model, threshold, model_type)
+      run_cnn_inference(path, model, threshold)
   elif model_type == 'rf':
       run_rf_inference(path, model, size)
   else:
       raise ValueError(f"Tipo de modelo '{model_type}' no soportado.")
   
-def run_cnn_inference(path, model, threshold, model_type):
+def run_cnn_inference(path, model_path, threshold):
   start_time = time.time()
   timestamp = datetime.now().strftime("%Y%m%d_%H%M")
   IMG_SIZE = (224, 224)
-  img_type = 'RGB' if model.find('RGB') != -1 else 'MULTIESPECTRAL'
-  model_type = 'focal_loss' if model.lower().find('focal') != -1 else ('random_forest' if model.lower().find('random_forest') != -1 else 'binary_crossentropy')
-  is_multiespectral = True if model.lower().find('multiespectral') != -1 else False
-  is_random_forest = True if model.lower().find('random_forest') != -1 else False
+  img_type = 'RGB' if model_path.find('RGB') != -1 else 'MULTIESPECTRAL'
+  model_type = 'focal_loss' if model_path.lower().find('focal') != -1 else ('random_forest' if model_path.lower().find('random_forest') != -1 else 'binary_crossentropy')
+  is_multiespectral = True if model_path.lower().find('multiespectral') != -1 else False
+  is_random_forest = True if model_path.lower().find('random_forest') != -1 else False
 
   print_time_and_step('init', f'Iniciando inferencia del modelo {img_type} {"Focal Loss" if model_type == "focal_loss" else ("random_forest" if model_type == "random_forest" else "Binary Crossentropy")}', timestamp=timestamp, start_time=start_time)
 
   # 1. Carga del Modelo
-  print_time_and_step('1', f"⏳ Cargando modelo desde: {model}", timestamp=timestamp, start_time=start_time)
-  model = load_model_for_inference(model)
-  model_name = os.path.basename(model).replace('.keras', '').replace('.h5', '')
+  print_time_and_step('1', f"⏳ Cargando modelo desde: {model_path}", timestamp=timestamp, start_time=start_time)
+  model = load_model_for_inference(model_path)
+  model_name = os.path.basename(model_path).replace('.keras', '').replace('.h5', '')
   
   # 2. Ejecutar Inferencia
   print_time_and_step('2', "⏳ Realizando inferencia...", timestamp=timestamp, start_time=start_time)
@@ -71,6 +71,10 @@ def run_cnn_inference(path, model, threshold, model_type):
   print_time_and_step('3', "⏳ Guardando resultados...", timestamp=timestamp, start_time=start_time)
   if results:
       save_inference_results(results, BASE_DIR, threshold, img_type, model_type)
+      # Pasamos el flag is_multiespectral al ploteo
+      OUTPUT_DIR = os.path.join(BASE_DIR, f'inference-results/{img_type}')
+      os.makedirs(OUTPUT_DIR, exist_ok=True)
+      plot_inference_results(results, OUTPUT_DIR, timestamp, is_multiespectral, '')
         
 
 if __name__ == "__main__":

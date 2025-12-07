@@ -38,7 +38,7 @@ TARGET_RF_FEATURES = 150528
 
 # --- Funciones de Utilidad (Asegúrate que coincidan con tus originales) ---
 
-def plot_inference_results(results: List[Dict[str, Any]], output_dir: str, timestamp: str, is_multiespectral: bool):
+def plot_inference_results(results: List[Dict[str, Any]], output_dir: str, timestamp: str, is_multiespectral: bool, model_type: str):
   """Crea y guarda un gráfico de confianza de predicción."""
   if not results:
       print("No hay resultados para plotear.")
@@ -73,7 +73,7 @@ def plot_inference_results(results: List[Dict[str, Any]], output_dir: str, times
   plt.legend()
   plt.tight_layout()
   
-  plot_path = os.path.join(output_dir, f"inference_confidence_plot_RANDOM_FOREST_{model_name}_{timestamp}.png")
+  plot_path = os.path.join(output_dir, f"inference_confidence_plot_{model_type}_{model_name}_{timestamp}.png")
   plt.savefig(plot_path)
   plt.close()
   
@@ -301,7 +301,7 @@ def run_rf_inference(path, model, size):
   print_time_and_step('3', f"\n\n✅ Resultados de la inferencia guardados en: {final_json_path}", timestamp=timestamp, start_time=start_time)
 
   # Pasamos el flag is_multiespectral al ploteo
-  plot_inference_results(inference_results, OUTPUT_DIR, timestamp, multiespectral)
+  plot_inference_results(inference_results, OUTPUT_DIR, timestamp, multiespectral, 'RANDOM_FOREST')
 
 if __name__ == "__main__":
     main()
