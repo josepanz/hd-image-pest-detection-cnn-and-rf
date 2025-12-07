@@ -1,0 +1,11 @@
+[
+    {
+        "file_name": "20210525_rgb.tif",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25\\20210525_rgb.tif",
+        "prob_sana": 0.1496,
+        "prob_plaga": 0.8504,
+        "prediccion": "Plaga",
+        "umbral": 0.5,
+        "modelo": "best_model_random_forest_20251207_0004_RGB.joblib"
+    }
+]

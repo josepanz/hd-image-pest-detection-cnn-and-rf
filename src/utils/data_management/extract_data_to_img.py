@@ -41,9 +41,9 @@ SHP_ID_COLUMN = 'PlotID' # <--- EJEMPLO: Revisa y ajusta este nombre.
 # 3. DIMENSIÓN DE SALIDA PARA EL MODELO CNN (Necesario para el entrenamiento)
 TARGET_SIZE = (224, 224) 
 
-def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: str = LABELS_CSV, parcels_dir: str = PARCELS_SHP, isRgb: bool = False, img_size: tuple[int, int] = TARGET_SIZE, val_split: float = 0.2, seed: int = 42, batch_size: int = 32):
+def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: str = LABELS_CSV, parcels_dir: str = PARCELS_SHP, isRgb: bool = False, img_size: tuple[int, int] = TARGET_SIZE, val_split: float = 0.2, seed: int = 42, batch_size: int = 32, model_type: str = 'cnn'):
   # --- 1. CARGA DE DATOS ---
-  print_time_and_step('1', f'Carga de datos {'RGB' if isRgb else 'Multiespectral'}', timestamp=timestamp, start_time=start_time)
+  print_time_and_step('1', f'Carga de datos {model_type} {'RGB' if isRgb else 'Multiespectral'}', timestamp=timestamp, start_time=start_time)
   labels_df = pd.read_csv(labels_dir)
   parcels_gdf = gpd.read_file(parcels_dir)
 
@@ -207,14 +207,29 @@ def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: s
       # y_labels_array = np.array(y_labels) # codificado a 0, 1, 2
       y_labels_array = np.array(y_encoded) # codificado
 
-      # División final
-      X_train, X_test, y_train, y_test = train_test_split(
-          X_images_array, 
-          y_labels_array, 
-          test_size=val_split, 
-          random_state=seed, 
-          stratify=y_labels_array
-      )
+      if model_type=='cnn':
+        # División final
+        X_train, X_test, y_train, y_test = train_test_split(
+            X_images_array, 
+            y_labels_array, 
+            test_size=val_split, 
+            random_state=seed, 
+            stratify=y_labels_array
+        )
+      else:
+        # Obtenemos la forma requerida F (features totales)
+        num_samples = X_images_array.shape[0]
+        total_features = X_images_array.size // num_samples
+    
+        # Aplanar las dimensiones espaciales y de canales en una sola dimensión de características (F)
+        X_vectorized = X_images_array.reshape(num_samples, total_features)
+        X_train, X_test, y_train, y_test = train_test_split(
+            X_vectorized, # <--- Usar el array vectorizado
+            y_labels_array, 
+            test_size=val_split, 
+            random_state=seed, 
+            stratify=y_labels_array
+          )
 
       print(f"\nDatos listos para entrenamiento. Total de muestras: {len(X_images)}")
       print(f"\nResumen de Datos Multiespectrales:")
@@ -225,7 +240,39 @@ def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: s
       print(f"Forma Y_train: {y_train.shape}")
       
       return X_train, X_test, y_train, y_test, le
-  
+
+def crear_datasets_rf_multiespectral(
+    data_dir: str, 
+    isRgb: bool = False,
+    val_split: float = 0.2, 
+    seed: int = 42,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, list[str], dict[int, int]]:
+    """
+    Carga datos vectoriales para Random Forest. 
+    Llama a la función de extracción que aplana la imagen a vector (N_samples, N_features).
+    """
+
+    print_time_and_step('1', 'Ejecutando extracción de datos (extract_data_to_vector_for_train)', timestamp=timestamp, start_time=start_time)
+
+    # Suponemos que esta función ahora realiza el APLANAMIENTO (Flattening) interno
+    # y devuelve X_train con forma (N_train, F)
+    try:
+        # Debes definir esta función para que haga el Flattening
+        X_train, X_test, y_train, y_test, le = extract_data_to_img_for_train(data_dir=data_dir, isRgb=isRgb, img_size=(224, 224), val_split=val_split, seed=seed, batch_size=32, model_type='rf')
+
+    except Exception as e:
+        print_time_and_step('error: ', f"Error CRÍTICO al ejecutar la extracción vectorial: {e}", timestamp=timestamp, start_time=start_time)
+        raise
+
+    class_names = list(le.classes_)
+    
+    # Calcular conteos para reportes (no para class_weight, ya que RF usa diferentes mecanismos)
+    unique, counts = np.unique(y_train, return_counts=True)
+    train_counts = dict(zip(unique, counts))
+    
+    # Retorna los arrays vectoriales
+    return X_train, X_test, y_train, y_test, class_names, train_counts
+
 class MultiespectralDataGenerator(Sequence):
     """Generador de datos para cargar imágenes multiespectrales (parches de parcela) 
     a partir de un CSV de etiquetas y un Shapefile de parcelas."""
@@ -430,7 +477,7 @@ def crear_datasets_cnn_multiespectral(
     # 1. Ejecutar la función de extracción para obtener los arrays y el LabelEncoder
     try:
         # La función de extracción del usuario retorna: X_train, X_test, y_train, y_test, le
-        X_train, X_test, y_train, y_test, le = extract_data_to_img_for_train(data_dir=data_dir, isRgb=isRgb, img_size=img_size, val_split=val_split, seed=seed, batch_size=batch_size)
+        X_train, X_test, y_train, y_test, le = extract_data_to_img_for_train(data_dir=data_dir, isRgb=isRgb, img_size=img_size, val_split=val_split, seed=seed, batch_size=batch_size, model_type='cnn')
     except Exception as e:
         print_time_and_step('error: ', f"Error CRÍTICO al ejecutar la función de extracción: {e}", timestamp=timestamp, start_time=start_time)
         raise # Detener la ejecución si la data no se carga

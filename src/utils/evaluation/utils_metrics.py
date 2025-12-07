@@ -10,7 +10,7 @@ from typing import List, Tuple, Dict, Any
 
 CLASSES = ["Plaga", "Sana"] 
 
-def plot_confusion(cm: np.ndarray, class_names: List[str], save_path: str, title: str = "Matriz de Confusión") -> None:
+def plot_confusion(cm: np.ndarray, class_names: List[str], save_path: str, name: str, title: str = "Matriz de Confusión") -> None:
     """
     Dibuja y guarda la Matriz de Confusión con anotaciones de recuento.
     """
@@ -32,7 +32,7 @@ def plot_confusion(cm: np.ndarray, class_names: List[str], save_path: str, title
             ax.text(j, i, f"{cm[i, j]:d}", ha="center", va="center", color=color, fontsize=12)
             
     fig.tight_layout()
-    plt.savefig(save_path)
+    plt.savefig(save_path+name)
     plt.close('all')
     print(f"✅ Matriz de Confusión guardada en: {save_path}")
 
