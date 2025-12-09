@@ -74,7 +74,7 @@ def run_cnn_inference(path, model_path, threshold):
       # Pasamos el flag is_multiespectral al ploteo
       OUTPUT_DIR = os.path.join(BASE_DIR, f'inference-results/{img_type}')
       os.makedirs(OUTPUT_DIR, exist_ok=True)
-      plot_inference_results(results, OUTPUT_DIR, timestamp, is_multiespectral, '')
+      plot_inference_results(results, OUTPUT_DIR, timestamp, is_multiespectral, 'CNN')
         
 
 if __name__ == "__main__":

@@ -67,7 +67,7 @@ def plot_inference_results(results: List[Dict[str, Any]], output_dir: str, times
   
   plt.ylabel(f'Probabilidad de ser "{CLASSES[1]}"')
   model_name = "MULTIESPECTRAL" if is_multiespectral else "RGB"
-  plt.title(f'Confianza de la Predicción RF ({model_name}) (Umbral: {umbral:.2f})')
+  plt.title(f'Confianza de la Predicción {model_type} ({model_name}) (Umbral: {umbral:.2f})')
   plt.xticks(x_pos, short_names, rotation=45, ha='right')
   plt.ylim(0, 1)
   plt.legend()
