@@ -15,6 +15,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../evaluation'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
 from src.utils.evaluation.utils_inference import load_model_for_inference, run_inference_on_path, save_inference_results
 from src.utils.print_utils import print_time_and_step
+from src.utils.print_utils import plot_inference_results
 
 import time
 from datetime import datetime

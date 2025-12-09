@@ -6,12 +6,10 @@ import os
 import sys
 import joblib 
 import json
-import matplotlib.pyplot as plt # Necesario para plot_inference_results
 from datetime import datetime
 import rasterio 
 from rasterio.mask import mask
 import cv2 # Necesario para resize
-from typing import List, Dict, Any
 from sklearn.ensemble import RandomForestClassifier
 
 import time
@@ -22,12 +20,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../evaluation'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
 from src.utils.print_utils import print_time_and_step
-
-# --- Configuraciones y Rutas ---
-# Asegura que las funciones de utilidad (como plot_inference_results) sean accesibles
-# Si 'plot_inference_results' está en un archivo de utilidad, asegúrate de importarlo
-# Por simplicidad, incluiré una versión básica de plot_inference_results al final.
-# NOTA: En este flujo, NO NECESITAS importar TensorFlow/Keras.
+from src.utils.print_utils import plot_inference_results
 
 # --- Constantes ---
 BAND_SUFFIXES = ['red.tif', 'red edge.tif', 'nir.tif']
@@ -35,50 +28,6 @@ CLASSES = ["Plaga", "Sana"]
 RASTER_EXTENSIONS = ('.tif', '.tiff')
 # Tamaño de features que coincide con 224 * 224 * 3
 TARGET_RF_FEATURES = 150528 
-
-# --- Funciones de Utilidad (Asegúrate que coincidan con tus originales) ---
-
-def plot_inference_results(results: List[Dict[str, Any]], output_dir: str, timestamp: str, is_multiespectral: bool, model_type: str):
-  """Crea y guarda un gráfico de confianza de predicción."""
-  if not results:
-      print("No hay resultados para plotear.")
-      return
-
-  file_names = [res['file_name'] for res in results]
-  # Asumimos que la probabilidad de "Sana" está en 'prob_sana'
-  prob_sana = np.array([res['prob_sana'] for res in results])
-  predictions = [res['prediccion'] for res in results]
-  
-  # Crear la figura
-  plt.figure(figsize=(15, 6))
-  x_pos = np.arange(len(file_names))
-  
-  # Colores: Rojo para 'Plaga', Verde para 'Sana'
-  colors = ['red' if pred == 'Plaga' else 'green' for pred in predictions]
-  
-  plt.bar(x_pos, prob_sana, color=colors)
-  
-  # Usar el umbral del primer resultado (asumiendo que es constante)
-  umbral = results[0].get('umbral', 0.5) 
-  plt.axhline(umbral, color='gray', linestyle='--', linewidth=1, label=f'Umbral ({umbral:.2f})')
-  
-  # Nombres de eje X acortados para mejor visualización
-  short_names = [name[0:6] + "..." + name[-15:] if len(name) > 25 else name for name in file_names]
-  
-  plt.ylabel(f'Probabilidad de ser "{CLASSES[1]}"')
-  model_name = "MULTIESPECTRAL" if is_multiespectral else "RGB"
-  plt.title(f'Confianza de la Predicción {model_type} ({model_name}) (Umbral: {umbral:.2f})')
-  plt.xticks(x_pos, short_names, rotation=45, ha='right')
-  plt.ylim(0, 1)
-  plt.legend()
-  plt.tight_layout()
-  
-  plot_path = os.path.join(output_dir, f"inference_confidence_plot_{model_type}_{model_name}_{timestamp}.png")
-  plt.savefig(plot_path)
-  plt.close()
-  
-  print(f"📈 Gráfico de confianza guardado en: {plot_path}")
-
 
 # --- Función Principal de Preprocesamiento y Vectorización ---
 
