@@ -15,7 +15,8 @@ def crear_modelo_cnn(
     learning_rate: float = 0.0001,
     alpha: float = 0.50, # Para Focal Loss
     gamma: float = 3.0,  # Para Focal Loss
-    l2_reg: float = 0.0001 # Para el modelo multiespectral
+    l2_reg: float = 0.0001, # Para el modelo multiespectral
+    threshold: float = 0.5
 ) -> Model:
     """
     Fábrica unificada para crear modelos CNN con MobileNetV2 (3 o 5 canales).
@@ -94,9 +95,9 @@ def crear_modelo_cnn(
         optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate),
         loss=loss_fn,
         metrics=[
-            BinaryAccuracy(name='accuracy'),
-            Precision(name='precision'),
-            Recall(name='recall')
+            BinaryAccuracy(name='accuracy', threshold=threshold),
+            Precision(name='precision', thresholds=threshold),
+            Recall(name='recall', thresholds=threshold)
         ]
     )
 

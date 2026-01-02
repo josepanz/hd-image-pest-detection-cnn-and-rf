@@ -1,0 +1,10 @@
+[
+    {
+        "file_name": "20210525_rgb.tif",
+        "prob_plaga": 0.7867000102996826,
+        "prob_sana": 0.21330000460147858,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_val_loss_RGB_binary_crossentropy"
+    }
+]

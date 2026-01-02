@@ -22,9 +22,9 @@ from src.utils.models.model_random_forest import crear_modelo_rf
 import time
 from datetime import datetime
 
-def run_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, alpha: float, gamma: float, model_type: str, batch_size: int = 32, base_dir: str = BASE_DIR) -> None:
+def run_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, alpha: float, gamma: float, model_type: str, threshold: float = 0.5, batch_size: int = 32, base_dir: str = BASE_DIR) -> None:
   if model_type == 'cnn':
-      run_cnn_training(data_dir, epochs, loss_type, isRgb, alpha, gamma, batch_size, base_dir)
+      run_cnn_training(data_dir, epochs, loss_type, isRgb, alpha, gamma, threshold, batch_size, base_dir)
   elif model_type == 'rf':
       # Llamar a la nueva función especializada para RF
       run_rf_training(data_dir, isRgb, base_dir) 
@@ -65,14 +65,14 @@ def run_rf_training(data_dir: str, isRgb: bool, base_dir: str) -> None:
   joblib.dump(model, final_save_path)
   print_time_and_step('Saves', f"\nModelo Random Forest guardado en '{final_save_path}'")
 
-def run_cnn_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, alpha: float, gamma: float, batch_size: int, base_dir: str) -> None:
+def run_cnn_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, alpha: float, gamma: float, threshold: float, batch_size: int, base_dir: str) -> None:
   start_time = time.time()
   timestamp = datetime.now().strftime("%Y%m%d_%H%M")
   IMG_SIZE = (224, 224)
   SEED = 42
   VAL_SPLIT = 0.2
 
-  print_time_and_step('init', f'Iniciando entrenamiento {"RGB" if isRgb else "MULTIESPECTRAL"} con perdida {"Focal Loss" if loss_type == "focal_loss" else "Binary Crossentropy"}', timestamp=timestamp, start_time=start_time)
+  print_time_and_step('init', f'Iniciando entrenamiento {"RGB" if isRgb else "MULTIESPECTRAL"} con perdida {"Focal Loss" if loss_type == "focal_loss" else "Binary Crossentropy"}, umbral: {threshold}', timestamp=timestamp, start_time=start_time)
   # 1. Carga de Datos y Cálculo de Pesos
   print_time_and_step('1', f"1. Cargando datos con {'Undersampling' if loss_type == 'focal_loss' else 'Class Weighting'}...", timestamp=timestamp, start_time=start_time)
   train_ds, val_ds, _, train_counts = crear_datasets_cnn_multiespectral(data_dir=data_dir, isRgb=isRgb, img_size=IMG_SIZE, val_split=VAL_SPLIT, seed=SEED, batch_size=batch_size)
@@ -81,13 +81,13 @@ def run_cnn_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, al
   # 2. Construcción del Modelo (3 canales, BCE)
   print_time_and_step('2', f"Creando y Compilando Modelo (MobileNetV2 + {'Focal' if loss_type == 'focal_loss' else 'BCE'})...", timestamp=timestamp, start_time=start_time)
   if loss_type == 'focal_loss':
-    model = crear_modelo_cnn(input_shape=(*IMG_SIZE, 3), loss_type='focal_loss', learning_rate=0.0001, alpha=alpha, gamma=gamma)
+    model = crear_modelo_cnn(input_shape=(*IMG_SIZE, 3), loss_type='focal_loss', learning_rate=0.0001, alpha=alpha, gamma=gamma, threshold=threshold)
   else:
-    model = crear_modelo_cnn(input_shape=(*IMG_SIZE, 3), loss_type='binary_crossentropy', learning_rate=0.0001)
+    model = crear_modelo_cnn(input_shape=(*IMG_SIZE, 3), loss_type='binary_crossentropy', learning_rate=0.0001, threshold=threshold)
   
   # 3. Callbacks y Pasos
   print_time_and_step('3', "Configurando Callbacks y Pasos...", timestamp=timestamp, start_time=start_time)
-  callbacks, _ = create_cnn_callbacks(base_dir, isRgb, loss_type)
+  callbacks, _ = create_cnn_callbacks(base_dir, isRgb, loss_type, monitor='val_loss')
   train_size = sum(train_counts.values()) 
   steps_per_epoch = ceil(train_size / batch_size)
   
@@ -113,6 +113,7 @@ def run_cnn_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, al
   # 5. Guardado y Ploteo (Usando utils_train)
   print_time_and_step('5', 'Guardado y Ploteo (Usando utils_train)', timestamp=timestamp, start_time=start_time)
   suffix = f"_Focal_a{alpha}_g{gamma}" if loss_type == 'focal_loss' else "_BCE"
+  suffix += f"_t{threshold}"
   save_history_and_plot(history, base_dir, epochs, suffix=suffix, isRgb=isRgb)
     
 def main():
@@ -124,8 +125,9 @@ def main():
   parser.add_argument("-lt", "--loss_type", type=str, choices=["focal_loss", "binary_crossentropy"], help="Tipo de funcion de perdida")
   parser.add_argument("-rgb", "--rgb", action='store_true', default=False, help="Es RGB?")
   parser.add_argument("-mt", "--model_type", type=str, required=True, choices=["cnn", "rf"], help="Tipo de modelo a entrenar (cnn o rf)")
+  parser.add_argument("-t", "--threshold", type=float, default=0.5, help="Umbral de decisión (0.0 a 1.0)")
   args = parser.parse_args()
-  run_training(args.data_dir, args.epochs, args.loss_type, args.rgb, args.alpha, args.gamma, args.model_type)
+  run_training(args.data_dir, args.epochs, args.loss_type, args.rgb, args.alpha, args.gamma, args.model_type, args.threshold)
 
 if __name__ == "__main__":
   main()

@@ -33,8 +33,10 @@ def plot_confusion(cm: np.ndarray, class_names: List[str], save_path: str, name:
             
     fig.tight_layout()
     plt.savefig(save_path+name)
-    plt.close('all')
+    plt.show()
     print(f"✅ Matriz de Confusión guardada en: {save_path}")
+
+    plt.close('all')
 
 def generate_classification_report(y_true: np.ndarray, y_pred: np.ndarray, class_names: List[str]) -> Tuple[Dict[str, Any], np.ndarray]:
     """
@@ -81,8 +83,24 @@ def save_report_and_plot_cm(
     # 2. Plotear y guardar la Matriz de Confusión
     plot_filename = report_filename.replace('.json', '_confusion.png')
     plot_path = os.path.join(results_dir, plot_filename)
-    plot_confusion(cm, class_names, plot_path, title=f"Matriz de Confusión ({model_name}, t={threshold})")
+    plot_confusion(cm, class_names, plot_path, name='', title=f"Matriz de Confusión ({model_name}, t={threshold})")
 
     # 3. Imprimir el resumen
+    text_report = classification_report(y_true, y_pred, target_names=class_names, zero_division=0)
     print("\n--- RESUMEN DEL REPORTE DE CLASIFICACIÓN ---")
-    print(classification_report(y_true, y_pred, target_names=class_names, zero_division=0))
+    print(text_report)
+
+    report_path_md = os.path.join(results_dir, f"report_table_{model_name}_{timestamp}_{umbral_str}.md")
+    with open(report_path_md, "w", encoding="utf-8") as f:
+      f.write(f"# Reporte de Clasificación - {model_name}\n\n")
+      f.write(f"- **Fecha:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+      f.write(f"- **Modelo:** {model_name}\n")
+      f.write(f"- **Umbral de decisión:** {threshold}\n\n")
+      f.write("## Métricas por Clase\n\n")
+      f.write("```text\n")
+      f.write(text_report)
+      f.write("\n```\n\n")
+      f.write("---\n")
+      f.write("*Generado automáticamente por el sistema de detección de plagas.*")
+
+    print(f"✅ Reporte Markdown (Tabla) guardado en: {report_path_md}")

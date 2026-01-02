@@ -1,0 +1,10 @@
+[
+    {
+        "file_name": "2021-05-25",
+        "prob_plaga": 0.6478999853134155,
+        "prob_sana": 0.3521000146865845,
+        "prediccion": "Plaga",
+        "umbral": 0.5,
+        "modelo": "best_model_val_loss_MULTIESPECTRAL_binary_crossentropy"
+    }
+]
