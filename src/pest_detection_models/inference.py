@@ -15,6 +15,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../evaluation'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
 from src.utils.evaluation.utils_inference import load_model_for_inference, run_inference_on_path, save_inference_results
 from src.utils.print_utils import print_time_and_step
+from src.utils.print_utils import plot_inference_results
 
 import time
 from datetime import datetime
@@ -74,7 +75,7 @@ def run_cnn_inference(path, model_path, threshold):
       # Pasamos el flag is_multiespectral al ploteo
       OUTPUT_DIR = os.path.join(BASE_DIR, f'inference-results/{img_type}')
       os.makedirs(OUTPUT_DIR, exist_ok=True)
-      plot_inference_results(results, OUTPUT_DIR, timestamp, is_multiespectral, '')
+      plot_inference_results(results, OUTPUT_DIR, timestamp, is_multiespectral, 'CNN')
         
 
 if __name__ == "__main__":
