@@ -17,3 +17,5 @@ scikit-image
 
 # para inspeccionar xlsx
 openpyxl
+
+seaborn

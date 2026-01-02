@@ -10,12 +10,12 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
 
 # Importaciones de Módulos Centralizados
-from src.utils.evaluation.utils_metrics import save_report_and_plot_cm, CLASSES
+from src.utils.evaluation.utils_metrics import save_report_and_plot_cm, CLASSES, plot_roc_curve_and_auc
 from src.utils.evaluation.utils_inference import load_model_for_inference, predict_cnn
 from src.utils.data_management.extract_data_to_img import crear_datasets_cnn_multiespectral, crear_datasets_rf_multiespectral
 from src.utils.print_utils import print_time_and_step
 
-from sklearn.metrics import classification_report, confusion_matrix 
+from sklearn.metrics import classification_report, confusion_matrix, roc_curve, auc
 import joblib # Usamos joblib para guardar modelos sklearn
 from src.utils.evaluation.utils_metrics import plot_confusion
 import json
@@ -104,6 +104,8 @@ def run_evaluation_rf(data_dir: str, model_path: str) -> None:
 
   print(f"✅ Reporte Markdown (Tabla) guardado en: {report_path_md}")
 
+  plot_roc_curve_and_auc(y_val, y_pred, final_plot_path, f'report_table_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}')
+
 def run_evaluation_cnn(data_dir: str, model_path: str, threshold: float, base_dir: str, batch_size: int) -> None:
   start_time = time.time()
   timestamp = datetime.now().strftime("%Y%m%d_%H%M")
@@ -149,6 +151,8 @@ def run_evaluation_cnn(data_dir: str, model_path: str, threshold: float, base_di
       model_name, 
       threshold
   )
+
+  plot_roc_curve_and_auc(y_test, y_pred_proba, RESULTS_DIR, model_name, threshold)
 
 if __name__ == "__main__":
   parser = argparse.ArgumentParser(description="Evalúa el modelo CNN con BCE/Focal RGB/MS")

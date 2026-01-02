@@ -4,7 +4,7 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import classification_report, confusion_matrix, roc_curve, auc
 from datetime import datetime
 from typing import List, Tuple, Dict, Any
 
@@ -14,6 +14,7 @@ def plot_confusion(cm: np.ndarray, class_names: List[str], save_path: str, name:
     """
     Dibuja y guarda la Matriz de Confusión con anotaciones de recuento.
     """
+    plot_path = os.path.join(save_path, name)
     fig, ax = plt.subplots(figsize=(6, 6))
     im = ax.imshow(cm, interpolation='nearest', cmap='viridis')
     ax.set_title(title)
@@ -32,11 +33,26 @@ def plot_confusion(cm: np.ndarray, class_names: List[str], save_path: str, name:
             ax.text(j, i, f"{cm[i, j]:d}", ha="center", va="center", color=color, fontsize=12)
             
     fig.tight_layout()
-    plt.savefig(save_path+name)
+    plt.savefig(plot_path)
     plt.show()
-    print(f"✅ Matriz de Confusión guardada en: {save_path}")
+    print(f"✅ Matriz de Confusión guardada en: {plot_path}")
 
     plt.close('all')
+
+    print('Matriz de confusión:')
+    print(cm)
+
+    name = name.replace('.png', '.md')
+    report_path_md = os.path.join(save_path, f"{name}")
+    with open(report_path_md, "w", encoding="utf-8") as f:
+      f.write(f"# Matriz de confusión\n\n")
+      f.write(f"- **Fecha:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+      f.write(f"- **Modelo:** {name}\n")
+      f.write("```text\n")
+      f.write(str(cm))
+      f.write("\n```\n\n")
+      f.write("---\n")
+      f.write("*Generado automáticamente por el sistema de detección de plagas.*")
 
 def generate_classification_report(y_true: np.ndarray, y_pred: np.ndarray, class_names: List[str]) -> Tuple[Dict[str, Any], np.ndarray]:
     """
@@ -82,8 +98,7 @@ def save_report_and_plot_cm(
 
     # 2. Plotear y guardar la Matriz de Confusión
     plot_filename = report_filename.replace('.json', '_confusion.png')
-    plot_path = os.path.join(results_dir, plot_filename)
-    plot_confusion(cm, class_names, plot_path, name='', title=f"Matriz de Confusión ({model_name}, t={threshold})")
+    plot_confusion(cm, class_names, results_dir, name=plot_filename, title=f"Matriz de Confusión ({model_name}, t={threshold})")
 
     # 3. Imprimir el resumen
     text_report = classification_report(y_true, y_pred, target_names=class_names, zero_division=0)
@@ -104,3 +119,47 @@ def save_report_and_plot_cm(
       f.write("*Generado automáticamente por el sistema de detección de plagas.*")
 
     print(f"✅ Reporte Markdown (Tabla) guardado en: {report_path_md}")
+
+def plot_roc_curve_and_auc(y_true: np.ndarray, y_scores: np.ndarray, results_dir: str, model_name: str, threshold: float = 0.5) -> None:
+  """
+  Plotea la curva ROC y calcula el AUC, luego guarda la figura.
+  """
+
+  fpr, tpr, _ = roc_curve(y_true, y_scores)
+  roc_auc = auc(fpr, tpr)
+
+  timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+  report_filename = f"ROC_{model_name}_{timestamp}_t{threshold}.png"
+  report_path = os.path.join(results_dir, report_filename)
+
+  plt.figure()
+  plt.plot(fpr, tpr, label=f'ROC (AUC = {roc_auc:.2f})')
+  plt.plot([0,1], [0,1], linestyle='--')
+  plt.xlabel('Tasa de Falsos Positivos')
+  plt.ylabel('Tasa de Verdaderos Positivos')
+  plt.title(f'Curva ROC - {model_name} (t={threshold})')
+  plt.legend()
+  plt.savefig(report_path)
+  plt.show()
+  print(f"✅ Curva ROC guardada en: {report_path}")
+
+  plt.close('all')
+
+  save_roc_data(y_true, y_scores, os.path.join(results_dir, f"ROC_data_{model_name}_{timestamp}_t{threshold}.npz"))
+
+
+def save_roc_data(y_true, y_score, output_path):
+    """
+    Guarda FPR, TPR y AUC para curvas ROC
+    """
+    fpr, tpr, _ = roc_curve(y_true, y_score)
+    roc_auc = auc(fpr, tpr)
+
+    np.savez(
+        output_path,
+        fpr=fpr,
+        tpr=tpr,
+        auc=roc_auc
+    )
+
+    print(f"ROC guardada en {output_path} (AUC={roc_auc:.3f})")
