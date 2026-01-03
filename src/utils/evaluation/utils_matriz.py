@@ -61,10 +61,17 @@ thresholds = [0.45, 0.50, 0.70]
 
 # Mapeo de tus matrices [[TP, FN], [FP, TN]] 
 # (Asumiendo Plaga como clase positiva según el comportamiento del umbral en tus logs)
+# binary crossentropy RGB
 tp = [42, 54, 80]  # Aciertos Plaga
 fn = [41, 29, 3]   # Plaga que el modelo no vio
 fp = [11, 13, 14]  # Sana que el modelo marcó como Plaga
 tn = [3, 1, 0]     # Aciertos Sana
+
+# En tus logs de Focal Loss MS, el modelo mantuvo una estabilidad notable
+# tp = [90, 90, 90]  # Verdaderos Positivos (Muy estables)
+# tn = [0, 0, 0]     # Verdaderos Negativos (Desafío del desbalance)
+# fp = [0, 0, 0]     # Falsos Positivos 
+# fn = [14, 14, 14]  # Falsos Negativos
 
 def plot_metrics_evolution():
     plt.figure(figsize=(10, 6))
