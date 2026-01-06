@@ -166,52 +166,6 @@ python src/rf/evaluate.py ./data -m src/rf/models/random_forest_GUARDADO.joblib
 python src/rf/inference.py ./prueba -m src/rf/models/random_forest_GUARDADO.joblib
 ```
 
-### IV. Escenario multiespectral con cnn focal loss o binary crossentropy
-
-#### 0. Verificar la descarga y descomprimir los archivos en una carpeta con nombre `multispectral_images` en el directorio -> `data/` con el respectivo nombre del archivo, ej: `2022_07_20__konv_ecobreed/Ecobreed_krompir_EKO_15_06_2022_transparent_reflectance_blue_modified.tif`
-- data/2022_06_15__eko_ecobreed.zip
-- data/2022_06_15__konv_ecobreed.zip
-- data/2022_07_11__eko_ecobreed.zip
-- data/2022_07_11__konv_ecobreed.zip
-- data/2022_07_20__eko_ecobreed.zip
-- data/2022_07_20__konv_ecobreed.zip
-
-#### 1. Entrenamiento (`train_multiespectral.py`)
-
-```bash
-# para funcion de perdida binary crossentropy por defecto
-python src/multiespectral/train_multiespectral.py --epochs 70 --batch_size 32
-```
-
-```bash
-# para funcion de perdida focal loss
-python src/multiespectral/train_multiespectral.py --epochs 70 --batch_size 32 -f focal_loss 
-```
-
-```bash
-# Si deseas permitir el fine-tuning (entrenamiento de las capas base de MobileNetV2, lo cual requiere más recursos y tiempo):
-python src/multiespectral/train_multiespectral.py --epochs 70 --batch_size 32 --fine_tune
-```
-
-#### 2. Evaluación (`evaluate_multiespectral.py`)
-
-```bash
-# Evaluar modelo Multiespectral (5 canales)
-python src/multiespectral/evaluate_multiespectral.py -m src\multiespectral\results_multispectral\best_models_ms\best_model_ms_base.keras -t 0.5
-```
-
-#### 3. Inferencia (`inference_multiespectral.py`) Prueba
-
-```bash
-# probar sobre una imagen
-python src/multiespectral/inference_multiespectral.py -p data/multispectral_images/2022_06_15__eko_ecobreed -m src/multiespectral/results_multispectral/best_models_ms/best_model_ms_base.keras -t 0.60
-```
-
-```bash
-# probar toda la carpeta de prueba
-python src/multiespectral/inference_multiespectral.py -m src/multiespectral/results_multispectral/best_models_ms/best_model_ms_base.keras -t 0.60 -all True
-```
-
 ## 🔬 Análisis y Comparativa de Resultados
 
 ### Enfoque de Métricas
