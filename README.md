@@ -1,31 +1,72 @@
-# 🌿 Tesis Plagas con Imágenes HD: Detección en Cultivos de Papa
+# 🌿 Detección de Plagas en Cultivos de Papa con Imágenes HD y Multiespectrales (CNN y Random Forest)
 
-Este proyecto implementa y compara **tres escenarios** de clasificación para la detección de plagas/enfermedades en cultivos de papa a partir de imágenes de alta resolución (HD). El objetivo principal es evaluar cómo diferentes funciones de pérdida y arquitecturas manejan el alto desbalance de clases del dataset.
+Este proyecto implementa y compara distintos enfoques de Inteligencia
+Artificial para detectar plagas en cultivos de papa utilizando imágenes
+RGB y multiespectrales capturadas por drones.
+
+El objetivo es analizar cómo diferentes funciones de pérdida, umbrales
+de decisión y modelos de clasificación se comportan frente al desbalance
+de clases presente en el dataset.
+
+**Modelos evaluados:**
+
+-   CNN basada en MobileNetV2
+-   CNN utilizando Focal Loss
+-   Random Forest utilizando características extraídas por CNN
+
+**Repositorio:**
+
+- https://github.com/josepanz/hd-image-pest-detection-cnn-and-rf
+
+------------------------------------------------------------------------
 
 ## 📂 Estructura del Proyecto
 
 El código está organizado por el tipo de clasificador (CNN o RF) y la función de pérdida utilizada.
 
-| Carpeta | Contenido | Descripción |
-| :--- | :--- | :--- |
-| `data/` | `multiespectral/`, `rgb/` | Directorio principal de los datos de entrenamiento y validación. **Debe contener las imágenes.** |
-| `data/rgb/plain` | Imágenes HD | Muestras de plantaciones de papas con plagas/enfermedades. |
-| `data/multiespectral/*-dataset` | Imágenes Multiespectrales | Muestras de plantaciones de papas. |
-| `data/multiespectral/*-dataset/metadata or shapefiles` | Archivos multiespectrales | Archivos utilizados para analizar los algoritmos a imagenes multiespectrales. |
-| `data/multiespectral/*-dataset/measurements` | Archivos xls del modelo multiespectral | Archivos de mediciones. |
-| `data/multispectral/*-dataset/*/.tif` | Carpeta que contiene carpetas con imagenes TIF | Utilizadas para el modelo multiespectral. |
-| `src/` | Arquitectura de carpetas para archivos | Código fuente principal. |
-| `src/cnn/binary_crossentropy/` | Archivos .py para cargar, crear modelo, entrenar, evaluar e inferir. | Modelo **Deep Learning (MobileNetV2)** con pérdida estándar. |
-| `src/cnn/focal_loss/` | Archivos .py para cargar, crear modelo, entrenar, evaluar e inferir. | Modelo **Deep Learning (MobileNetV2)** con pérdida **Focal Loss** (para desbalance). |
-| `src/rf/` | Archivos .py para cargar, crear modelo, entrenar, evaluar e inferir. | Modelo **Machine Learning Clásico (Random Forest)** usando CNN para extracción de *features*. |
-| `predict-test/*` | Imágenes nuevas | Imágenes de prueba para los scripts de inferencia (`inference.py`). |
-| `requirements.txt`| Dependencias | Lista de librerías necesarias. |
+| Carpeta | Contenido / Descripción |
+| :--- | :--- |
+| data | Contiene los datasets utilizados para entrenamiento |
+| predict-test/ | Imágenes utilizadas para pruebas de inferencia |
+| src/pest_detection_models/ | Código principal del proyecto
+| src/pest_detection_models/train.py | Script para entrenamiento de modelos |
+| src/pest_detection_models/evaluate.py | Script para evaluación de modelos |
+| src/pest_detection_models/inference.py | Script para realizar predicciones |
+| src/pest_detection_models/inference_random_forest.py | Inferencia específica para Random Forest |
+| src/pest_detection_models/best_models/ | Modelos entrenados guardados |
+| src/pest_detection_models/evaluation_results/ | Resultados de evaluación |
+| requirements.txt | Dependencias del proyecto |
+| README.md | Documentación del repositorio |
 
----
+## Estructura simplificada:
+```bash
+    .
+    ├── data/
+    │   └── multiespectral/
+    │       └── TTADDA-dataset/
+    │           └── TTADDA_NARO_2023_F1/
+    │               └── drone_data/
+    │
+    ├── predict-test/
+    │   └── multiespectral/
+    │
+    ├── src/
+    │   └── pest_detection_models/
+    │       ├── train.py
+    │       ├── evaluate.py
+    │       ├── inference.py
+    │       ├── inference_random_forest.py
+    │       ├── best_models/
+    │       └── evaluation_results/
+    │
+    ├── requirements.txt
+    └── README.md
+```
 
-## ⚙️ Configuración y Requisitos
 
-### 1. Crear y Activar el Entorno Virtual
+## ⚙️ Configuración del Entorno
+
+### 1️⃣ Crear entorno virtual
 
 Es fundamental usar un entorno virtual (`venv`) para evitar conflictos de librerías. Ejecuta estos comandos en la carpeta raíz del proyecto.
 
@@ -40,7 +81,9 @@ python -m venv venv
 source venv/bin/activate
 ```
 
-### 2. Instalar Dependencias
+------------------------------------------------------------------------
+
+### 2️⃣ Instalar dependencias
 
 Asegúrate de tener un archivo `requirements.txt` que liste todas las librerías necesarias (TensorFlow, etc.).
 
@@ -48,7 +91,7 @@ Asegúrate de tener un archivo `requirements.txt` que liste todas las librerías
 pip install -r requirements.txt
 ```
 
-### 3. Descargar archivos para pruebas 
+### 3️⃣ Descargar archivos para pruebas 
 **<u>Articulo en linea:</u>** <span><a href="https://data.4tu.nl/datasets/c5f013d0-85e0-4feb-b653-a3c59683a2bc">TTADDA_NARO_2023: A subset of the multi-season RGB and multispectral TTADDA-UAV potato dataset</a> (TTADDA_NARO_2023: Un subconjunto del conjunto de datos de patatas TTADDA-UAV RGB y multiespectral de varias temporadas)</span>
 
 **Descarga Directa:** <a href="https://data.4tu.nl/file/c5f013d0-85e0-4feb-b653-a3c59683a2bc/1baf67c0-9522-4099-b058-72ed0084c1a4">TTADDA_NARO_2023.zip</a>
@@ -71,100 +114,96 @@ pip install -r requirements.txt
 </a> (TTADDA_WUR_2023: Un subconjunto del conjunto de datos de patatas TTADDA-UAV RGB y multiespectral de varias temporadas)
 
 
+#### Ubicación dentro del proyecto:
+- `data/multiespectral/TTADDA-dataset/TTADDA_NARO_2023_F1/drone_data`
+
+##### El dataset contiene:
+
+-   imágenes RGB
+-   imágenes multiespectrales
+-   mediciones y metadatos agronómicos
+
 ## 🚀 Guía de Ejecución Paso a Paso
-### I. Escenario: Deep Learning con Binary Cross-Entropy (Línea Base)
+### 1️⃣ 🧠 Entrenamiento de Modelos
 
-Este modelo establece la referencia utilizando la función de pérdida estándar.
-
-#### 1. Entrenamiento (`train.py`)
-
-El script entrena el modelo CNN y guarda el mejor peso monitoreando el Recall o la Loss de validación (dependiendo de la configuración del callback).
-
+#### **- CNN Multiespectral — Focal Loss**
 ```bash
-python src/cnn/binary_crossentropy/train.py ./data
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt focal_loss -e 20 -a 0.75 -g 1.5 -mt cnn -t 0.45
+
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt focal_loss -e 20 -a 0.75 -g 1.5 -mt cnn -t 0.50
+
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt focal_loss -e 20 -a 0.75 -g 1.5 -mt cnn -t 0.70
 ```
 
-#### 2. Evaluación (`evaluate.py`)
-
-Evalúa el modelo guardado. Es clave usar el argumento `-t` para probar la sensibilidad (umbral) de la clasificación binaria (por defecto es 0.5).
-
+#### **- CNN Multiespectral — Binary Crossentropy**
 ```bash
-# Ejemplo de Evaluación Estándar (Umbral 0.5)
-python src/cnn/binary_crossentropy/evaluate.py ./data -m src/cnn/binary_crossentropy/best_model.keras -t 0.5 -r report_bce_t050.json
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt binary_crossentropy -e 20 -mt cnn -t 0.45
 
-# Ejemplo de Evaluación con Umbral Ajustado (0.75)
-python src/cnn/binary_crossentropy/evaluate.py ./data -m src/cnn/binary_crossentropy/best_model.keras -t 0.75 -r report_bce_t075.json
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt binary_crossentropy -e 20 -mt cnn -t 0.50
+
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt binary_crossentropy -e 20 -mt cnn -t 0.70
 ```
 
-#### 3. Inferencia (`inference.py`) Prueba
-
-Prueba el modelo en imágenes de la carpeta `prueba/`.
-
+#### **- CNN RGB — Focal Loss**
 ```bash
-python src/cnn/binary_crossentropy/inference.py ./prueba -m src/cnn/binary_crossentropy/best_model.keras -t 0.5
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt focal_loss -e 20 -a 0.75 -g 1.5 -mt cnn -rgb -t 0.45
+
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt focal_loss -e 20 -a 0.75 -g 1.5 -mt cnn -rgb -t 0.50
+
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt focal_loss -e 20 -a 0.75 -g 1.5 -mt cnn -rgb -t 0.70
 ```
 
-### II. Escenario: Deep Learning con Focal Loss (Recomendado para Desbalance)
-
-Este modelo utiliza Focal Loss y un sampling avanzado en el dataloader para mitigar el sesgo por desbalance.
-
-Este modelo es el enfoque principal para mejorar el rendimiento de la clase minoritaria ("Sana") mediante la pérdida focal y técnicas de sampling.
-
-#### 1. Entrenamiento (`train.py`)
-
-Utiliza el parámetro `-a` (`--alpha`) para configurar la pérdida focal (`-a 0.15` favorece más el enfoque en la clase Plaga).
-
+#### **- CNN RGB — Binary Crossentropy**
 ```bash
-# -e: 25 épocas, -a: Alpha de 0.50 para Focal Loss.
-python src/cnn/focal_loss/train.py ./data -e 20 -a 0.50
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt binary_crossentropy -e 20 -mt cnn -rgb -t 0.45
+
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt binary_crossentropy -e 20 -mt cnn -rgb -t 0.50
+
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt binary_crossentropy -e 20 -mt cnn -rgb -t 0.70
 ```
 
-#### 2. Evaluación (`evaluate.py`)
-Evalúa el modelo con Focal Loss. Aquí es donde se recomienda probar diferentes umbrales si el Recall en la clase "Sana" es bajo.
-
-Evalúa el modelo guardado (`best_model.keras`).
-
+#### **- Random Forest**
 ```bash
-python src/cnn/focal_loss/evaluate.py ./data -m src/cnn/focal_loss/best_model.keras -t 0.5
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -mt rf
+
+python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -mt rf -rgb
+```
+------------------------------------------------------------------------
+
+### 2️⃣ 📊 Evaluación de Modelos
+
+#### Los resultados de evaluación se guardan en:
+- `src/pest_detection_models/evaluation_results/`
+
+#### Ejemplo de evaluación:
+```bash
+python src\pest_detection_models\evaluate.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -m src\pest_detection_models\best_models\best_model_val_loss_MULTIESPECTRAL_focal_loss.keras -t 0.50 -mt cnn
 ```
 
-#### 3. Inferencia (`inference.py`) Prueba
-
+#### Evaluación Random Forest:
 ```bash
-python src/cnn/focal_loss/inference.py ./prueba -m src/cnn/focal_loss/best_model.keras -t 0.5
+python src\pest_detection_models\evaluate.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -m src\pest_detection_models\best_models\best_model_random_forest_20260102_0042_MULTIESPECTRAL.joblib -mt rf
 ```
 
-### II. Escenario: Machine Learning Clásico (Random Forest)
+### 3️⃣ 🔎 Inferencia (Predicción)
 
-Este enfoque usa la CNN (MobileNetV2) solo para extraer características y clasifica con Random Forest (entrena un clasificador no basado en gradiente (RF)).
+Permite predecir si una imagen corresponde a plaga o planta sana.
 
-#### 1. Extracción de Características y Entrenamiento (`train.py`)
-
-El `train.py` en RF primero extrae características de todas las imágenes (proceso que puede ser lento) y luego entrena el clasificador RF, guardándolo como un archivo `.joblib.`
-
-Este proceso es más lento porque primero extrae características de todas las imágenes. El modelo se guarda como `.joblib`.
-
+#### Ejemplo CNN:
 ```bash
-# El modelo RF (.joblib) se guardará en src/rf/models/
-python src/rf/train.py ./data
+python src\pest_detection_models\inference.py predict-test\multiespectral\TTADDA_NARO_2021_F1\drone_data\2021-05-25 -m src\pest_detection_models\best_models\best_model_val_loss_MULTIESPECTRAL_focal_loss.keras -t 0.50 -mt cnn
 ```
 
-<b>⚠️IMPORTANTE:</b> Anota la ruta del archivo `.joblib` generado (ej: `src/rf/models/random_forest_20251103_0038.joblib`).
-
-#### 2. Evaluación (`evaluate.py`)
-Usa la ruta exacta del modelo `.joblib` para el argumento `-m`.
-
+#### Ejemplo RGB:
 ```bash
-# REEMPLAZA <MODELO_RF.joblib> con tu ruta real.
-python src/rf/evaluate.py ./data -m src/rf/models/random_forest_GUARDADO.joblib
+python src\pest_detection_models\inference.py predict-test\multiespectral\TTADDA_NARO_2021_F1\drone_data\2021-05-25\20210525_rgb.tif -m src\pest_detection_models\best_models\best_model_val_loss_RGB_binary_crossentropy.keras -t 0.50 -mt cnn
 ```
 
-#### 3. Inferencia (`inference.py`) Prueba
-
+#### Random Forest:
 ```bash
-# REEMPLAZA <MODELO_RF.joblib> con tu ruta real.
-python src/rf/inference.py ./prueba -m src/rf/models/random_forest_GUARDADO.joblib
+python src\pest_detection_models\inference.py predict-test\multiespectral\TTADDA_NARO_2021_F1\drone_data\2021-05-25 -m src\pest_detection_models\best_models\best_model_random_forest_20260102_0042_MULTIESPECTRAL.joblib -mt rf
 ```
+
 
 ## 🔬 Análisis y Comparativa de Resultados
 
