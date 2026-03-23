@@ -1,3 +1,19 @@
+import numpy as np
+import tensorflow as tf
+import random
+import os
+
+SEED = 42
+def set_seeds(seed=SEED):
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    random.seed(seed)
+    np.random.seed(seed)
+    tf.random.set_seed(seed)
+    # Si usas operaciones muy específicas de GPU:
+    os.environ['TF_DETERMINISTIC_OPS'] = '1'
+
+set_seeds(SEED) # Usa el número que quieras, pero mantenlo
+
 import argparse
 import os
 from math import ceil
@@ -11,9 +27,9 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
 
 # Importaciones de Módulos
 from src.utils.data_management.base_loader import calculate_class_weights
-from src.utils.models.convolutional_neural_factory import crear_modelo_cnn
+from src.utils.models.convolutional_neural_factory import crear_modelo_cnn, crear_modelo_cnnv2
 from src.utils.data_management.extract_data_to_img import crear_datasets_cnn_multiespectral, crear_datasets_rf_multiespectral
-from src.utils.utils_train import create_cnn_callbacks, save_history_and_plot
+from src.utils.utils_train import create_cnn_callbacks, encontrar_umbral_optimo, save_history_and_plot
 from src.utils.print_utils import print_time_and_step
 
 import joblib # Usamos joblib para guardar modelos sklearn
@@ -69,7 +85,6 @@ def run_cnn_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, al
   start_time = time.time()
   timestamp = datetime.now().strftime("%Y%m%d_%H%M")
   IMG_SIZE = (224, 224)
-  SEED = 42
   VAL_SPLIT = 0.2
 
   print_time_and_step('init', f'Iniciando entrenamiento {"RGB" if isRgb else "MULTIESPECTRAL"} con perdida {"Focal Loss" if loss_type == "focal_loss" else "Binary Crossentropy"}, umbral: {threshold}', timestamp=timestamp, start_time=start_time)
@@ -79,11 +94,12 @@ def run_cnn_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, al
   class_weight = calculate_class_weights(train_counts[0], train_counts[1])
   
   # 2. Construcción del Modelo (3 canales, BCE)
+  lr_to_use = 0.0001 # if loss_type == 'focal_loss' else 0.00001
   print_time_and_step('2', f"Creando y Compilando Modelo (MobileNetV2 + {'Focal' if loss_type == 'focal_loss' else 'BCE'})...", timestamp=timestamp, start_time=start_time)
   if loss_type == 'focal_loss':
-    model = crear_modelo_cnn(input_shape=(*IMG_SIZE, 3), loss_type='focal_loss', learning_rate=0.0001, alpha=alpha, gamma=gamma, threshold=threshold)
+    model = crear_modelo_cnnv2(input_shape=(*IMG_SIZE, 3 if isRgb else 5), loss_type='focal_loss', learning_rate=lr_to_use, alpha=alpha, gamma=gamma, isRgb=isRgb)
   else:
-    model = crear_modelo_cnn(input_shape=(*IMG_SIZE, 3), loss_type='binary_crossentropy', learning_rate=0.0001, threshold=threshold)
+    model = crear_modelo_cnnv2(input_shape=(*IMG_SIZE, 3 if isRgb else 5), loss_type='binary_crossentropy', learning_rate=lr_to_use, isRgb=isRgb)
   
   # 3. Callbacks y Pasos
   print_time_and_step('3', "Configurando Callbacks y Pasos...", timestamp=timestamp, start_time=start_time)
@@ -102,6 +118,8 @@ def run_cnn_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, al
       train_ds[0],  # X_train (Features/Imágenes)
       train_ds[1],  # y_train (Labels/Etiquetas)
       epochs=epochs,
+      batch_size=batch_size,
+      shuffle=True,
       steps_per_epoch=steps_per_epoch,
       validation_data=val_ds,
       validation_steps=validation_steps,
@@ -115,6 +133,9 @@ def run_cnn_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, al
   suffix = f"_Focal_a{alpha}_g{gamma}" if loss_type == 'focal_loss' else "_BCE"
   suffix += f"_t{threshold}"
   save_history_and_plot(history, base_dir, epochs, suffix=suffix, isRgb=isRgb)
+
+  umbral_maestro = encontrar_umbral_optimo(model, val_ds[0], val_ds[1])
+  print('Umbral mas optimo: ', umbral_maestro)
     
 def main():
   parser = argparse.ArgumentParser(description="Entrena el modelo HD-only para detección de plagas")
