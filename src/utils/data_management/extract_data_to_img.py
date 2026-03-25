@@ -138,7 +138,15 @@ def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: s
               img_size, 
               interpolation=cv2.INTER_LINEAR
           )
-          
+
+          # Normalización
+          if not isRgb:
+            max_val = np.max(resized_image)
+            if max_val > 0:
+              resized_image = resized_image / max_val
+          else:
+             resized_image = resized_image.astype(np.float32) / 255.0
+             
           # Opcional: Asegurar que el array sea tipo float32 para el entrenamiento
           resized_image = resized_image.astype(np.float32)
 

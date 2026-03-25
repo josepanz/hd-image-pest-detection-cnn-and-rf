@@ -133,7 +133,7 @@ def plot_roc_curve_and_auc(y_true: np.ndarray, y_scores: np.ndarray, results_dir
   report_path = os.path.join(results_dir, report_filename)
 
   plt.figure()
-  plt.plot(fpr, tpr, label=f'ROC (AUC = {roc_auc:.2f})')
+  plt.plot(fpr, tpr, label=f'ROC (AUC = {roc_auc:.4f})')
   plt.plot([0,1], [0,1], linestyle='--')
   plt.xlabel('Tasa de Falsos Positivos')
   plt.ylabel('Tasa de Verdaderos Positivos')
@@ -162,4 +162,4 @@ def save_roc_data(y_true, y_score, output_path):
         auc=roc_auc
     )
 
-    print(f"ROC guardada en {output_path} (AUC={roc_auc:.3f})")
+    print(f"ROC guardada en {output_path} (AUC={roc_auc:.4f})")

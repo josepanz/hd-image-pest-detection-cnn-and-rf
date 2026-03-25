@@ -83,7 +83,7 @@ def load_model_for_inference(model_path: str):
 
 #     return y_pred_proba, y_true
 
-def predict_cnn(model: tf.keras.Model, X_data: np.ndarray, steps: int) -> np.ndarray:
+def predict_cnn(model: tf.keras.Model, X_data: np.ndarray, steps: int | None = None) -> np.ndarray:
     """
     Realiza predicciones con un modelo CNN en un array de NumPy (X_data).
     Devuelve solo las probabilidades (y_pred_proba).

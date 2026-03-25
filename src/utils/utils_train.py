@@ -53,13 +53,14 @@ def save_history_and_plot(
     base_dir: str, 
     epochs: int,
     suffix: str = "",
-    isRgb: bool = False
+    isRgb: bool = False,
+    loss_type: str = "focal_loss"
 ) -> None:
     """
     Guarda el historial en JSON y plotea las curvas de entrenamiento.
     """
     imgType = 'RGB' if isRgb else 'MULTIESPECTRAL'
-    HISTORY_DIR = os.path.join(base_dir, f'history/{imgType}')
+    HISTORY_DIR = os.path.join(base_dir, f'history/{imgType}/{loss_type}')
     os.makedirs(HISTORY_DIR, exist_ok=True)
     
     # 1. Serialización del Historial
