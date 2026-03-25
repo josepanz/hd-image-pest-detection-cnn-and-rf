@@ -12,7 +12,7 @@ def plot_combined_roc(roc_files, labels):
         plt.plot(
             data["fpr"],
             data["tpr"],
-            label=f"{label} (AUC = {data['auc']:.2f})"
+            label=f"{label} (AUC = {data['auc']:.4f})"
         )
 
     plt.plot([0, 1], [0, 1], linestyle="--", color="gray")
@@ -30,42 +30,22 @@ def main():
   parser = argparse.ArgumentParser(description="Plotea curvas ROC comparativas desde archivos guardados")
   args = parser.parse_args()
   roc_files = [
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\MULTIESPECTRAL\ROC_data_best_model_val_loss_MULTIESPECTRAL_binary_crossentropy_20260313_2336_t0.45.npz",
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\MULTIESPECTRAL\ROC_data_best_model_val_loss_MULTIESPECTRAL_binary_crossentropy_20260313_2342_t0.5.npz",
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\MULTIESPECTRAL\ROC_data_best_model_val_loss_MULTIESPECTRAL_binary_crossentropy_20260313_2347_t0.7.npz",
-
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\MULTIESPECTRAL\ROC_data_best_model_val_loss_MULTIESPECTRAL_focal_loss_20260313_2332_t0.45.npz",
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\MULTIESPECTRAL\ROC_data_best_model_val_loss_MULTIESPECTRAL_focal_loss_20260313_2333_t0.5.npz",
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\MULTIESPECTRAL\ROC_data_best_model_val_loss_MULTIESPECTRAL_focal_loss_20260313_2334_t0.7.npz",
+    r"C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\CNN\MULTIESPECTRAL\binary_crossentropy\0.5\ROC_data_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260325_1152_t0.5.npz",
+    r"C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\CNN\MULTIESPECTRAL\focal_loss\0.7\ROC_data_best_model_final_MULTIESPECTRAL_focal_loss.keras_20260325_1159_t0.7.npz",
     
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\RGB\ROC_data_best_model_val_loss_RGB_binary_crossentropy_20260313_2351_t0.45.npz",
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\RGB\ROC_data_best_model_val_loss_RGB_binary_crossentropy_20260313_2351_t0.5.npz",
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\RGB\ROC_data_best_model_val_loss_RGB_binary_crossentropy_20260313_2352_t0.7.npz",
-
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\RGB\ROC_data_best_model_val_loss_RGB_focal_loss_20260313_2348_t0.45.npz",
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\RGB\ROC_data_best_model_val_loss_RGB_focal_loss_20260313_2349_t0.5.npz",
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\RGB\ROC_data_best_model_val_loss_RGB_focal_loss_20260313_2350_t0.7.npz",
+    r"C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\CNN\RGB\binary_crossentropy\0.7\ROC_data_best_model_final_RGB_binary_crossentropy.keras_20260325_1509_t0.7.npz",
+    r"C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\CNN\RGB\focal_loss\0.7\ROC_data_best_model_final_RGB_focal_loss.keras_20260325_1445_t0.7.npz",
     
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\RANDOM_FOREST\ROC_data_report_table_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260313_2354_t0.5.npz",
-    "C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\RANDOM_FOREST\ROC_data_report_table_best_model_RANDOM_FOREST_RGB_20260313_2355_t0.5.npz"
+    r"C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\RANDOM_FOREST\MULTIESPECTRAL\0.7\ROC_data_report_table_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1634_t0.7.npz",
+    r"C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\RANDOM_FOREST\RGB\0.7\ROC_data_report_table_best_model_RANDOM_FOREST_RGB_20260325_1643_t0.7.npz"
   ]
 
   labels = [
-      "CNN Multiespectral BC 0.45",
-      "CNN Multiespectral BC 0.50",
-      "CNN Multiespectral BC 0.70",
+      "CNN Multiespectral BC",
+      "CNN Multiespectral FL",
 
-      "CNN Multiespectral FL 0.45",
-      "CNN Multiespectral FL 0.50",
-      "CNN Multiespectral FL 0.70",
-
-      "CNN RGB BC 0.45",
-      "CNN RGB BC 0.50",
-      "CNN RGB BC 0.70",
-
-      "CNN RGB FL 0.45",
-      "CNN RGB FL 0.50",
-      "CNN RGB FL 0.70",
+      "CNN RGB BC",
+      "CNN RGB FL",
 
       "RF Multiespectral",
       "RF RGB"
