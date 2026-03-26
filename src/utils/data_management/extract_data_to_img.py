@@ -32,7 +32,7 @@ LABELS_CSV = r'C:\workspace\hd-image-pest-detection-cnn-and-rf\data\multiespectr
 PARCELS_SHP = r'C:\workspace\hd-image-pest-detection-cnn-and-rf\data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\metadata\plot_shapefile.shp'
 BASE_DIR_RASTER = r'data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data' 
 #TIF_SUFFIX = '.tif' # Define qué TIF usarás (puedes cambiarlo a '_WUR_transparent_reflectance_nir.tif')
-BAND_SUFFIXES = ['red.tif', 'red edge.tif', 'nir.tif', 'RGB.tif']
+BAND_SUFFIXES = ['red.tif', 'red edge.tif', 'nir.tif', 'RGB.tif', 'blue.tif', 'green.tif']
 
 # 2. DEFINICIÓN DE LA COLUMNA DE UNIÓN DEL SHAPEFILE
 # ¡AJUSTA ESTO! Debe ser el nombre exacto de la columna en tu SHP que tiene el número de parcela.
@@ -138,16 +138,26 @@ def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: s
               img_size, 
               interpolation=cv2.INTER_LINEAR
           )
-          
+
+          # Normalización
+          if not isRgb:
+            max_val = np.max(resized_image)
+            if max_val > 0:
+              resized_image = resized_image / max_val
+          else:
+             resized_image = resized_image.astype(np.float32) / 255.0
+             
           # Opcional: Asegurar que el array sea tipo float32 para el entrenamiento
           resized_image = resized_image.astype(np.float32)
 
           # print(f"Shape final apilado: {resized_image.shape}") # Debug
 
           # *** VERIFICACIÓN CRÍTICA DE CANALES (¡LA SOLUCIÓN!) ***
-          if resized_image.shape[-1] != 3:
-            # print(f"Advertencia CRÍTICA: La imagen ID={obs_unit_id_num}, fecha={fecha} tiene {resized_image.shape[-1]} canales, pero se esperaban {3}. SKIPPING.")
-            continue # Saltar esta imagen inconsistente
+          expected_channels = 3 if isRgb else len(suffixes_to_process)
+
+          if resized_image.shape[-1] != expected_channels:
+              print(f"Imagen inválida: {resized_image.shape[-1]} canales (esperado {expected_channels})")
+              continue
 
           X_images.append(resized_image)
           y_labels.append(etiqueta)
@@ -200,7 +210,7 @@ def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: s
 
   # --- 6. DIVISIÓN PARA ENTRENAMIENTO ---
   if len(X_images) == 0:
-      print("Error: El conjunto de datos de imágenes está vacío después de la extracción.")
+    raise ValueError("Dataset vacío: ninguna imagen válida fue procesada.")
   else:
       # Convertir a array de NumPy
       X_images_array = np.array(X_images)
@@ -483,7 +493,8 @@ def crear_datasets_cnn_multiespectral(
         raise # Detener la ejecución si la data no se carga
 
     class_names = list(le.classes_)
-    print_time_and_step('1.1', f"Clases detectadas: {class_names}", timestamp=timestamp, start_time=start_time)
+    class_mapping_str = ", ".join([f"{i}: {name}" for i, name in enumerate(class_names)])
+    print_time_and_step('1.1', f"Clases detectadas: {class_mapping_str}", timestamp=timestamp, start_time=start_time)
     
     # 2. CÁLCULO DE PESOS DE CLASE
     print_time_and_step('2', 'Calculando pesos de clase (Estrategia: Class Weighting)', timestamp=timestamp, start_time=start_time)

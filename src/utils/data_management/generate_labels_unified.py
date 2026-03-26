@@ -17,8 +17,8 @@ BASE_DATA_DIR = os.path.join("data")
 # BASE_DATA_DIR = os.path.join("predict-test") # para clasificacion de datos de prediccion por calculo NVDI, SPAD 
 
 # Directorios de imágenes y shapefiles (adaptados de tu código)
-MULTISPECTRAL_IMAGES_DIR = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2023_F1", "drone_data")
-SHAPEFILES_DIR = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2023_F1", "metadata")
+MULTISPECTRAL_IMAGES_DIR = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA-dataset", "TTADDA_NARO_2023_F1", "drone_data")
+SHAPEFILES_DIR = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA-dataset", "TTADDA_NARO_2023_F1", "metadata")
 
 # MULTISPECTRAL_IMAGES_DIR = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2021_F1", "drone_data") # para clasificacion de datos de prediccion por calculo NVDI, SPAD 
 # SHAPEFILES_DIR = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2021_F1", "metadata") # para clasificacion de datos de prediccion por calculo NVDI, SPAD 
@@ -33,13 +33,13 @@ YIELD_CSV_FILENAME = "NARO_field_2021_GT_yield.csv"
 ADDITIONAL_GT_CSV_FILENAME = "NARO_field_2021_GT_additional.csv"
 
 # Se asume que los CSV de GT están en la carpeta 'data/measurements'
-YIELD_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR,  "multiespectral", "TTADDA_NARO_2023_F1", "measurements", YIELD_CSV_FILENAME)
-ADDITIONAL_GT_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2023_F1", "measurements", ADDITIONAL_GT_CSV_FILENAME)
+YIELD_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR,  "multiespectral", "TTADDA-dataset", "TTADDA_NARO_2023_F1", "measurements", YIELD_CSV_FILENAME)
+ADDITIONAL_GT_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA-dataset", "TTADDA_NARO_2023_F1", "measurements", ADDITIONAL_GT_CSV_FILENAME)
 # YIELD_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR,  "multiespectral", "TTADDA_NARO_2021_F1", "measurements", YIELD_CSV_FILENAME)
 # ADDITIONAL_GT_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2021_F1", "measurements", ADDITIONAL_GT_CSV_FILENAME)
 
 # Ruta base para el CSV de salida (se le añadirá el sufijo de la etiqueta final)
-OUTPUT_CSV_BASE = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2023_F1", "measurements", "generated_labels.csv")
+OUTPUT_CSV_BASE = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA-dataset", "TTADDA_NARO_2023_F1", "measurements", "generated_labels.csv")
 # OUTPUT_CSV_BASE = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2021_F1", "measurements", "generated_labels.csv")
 
 
@@ -458,7 +458,8 @@ def unify_labels(yield_label: str, spad_label: str, ndvi_drone_label: str) -> st
     
     # Prioridad 3: Indeterminado
     # Si las etiquetas restantes son 'Indeterminado' o una mezcla no concluyente
-    return 'Indeterminado'
+    # return 'Indeterminado'
+    return 'Sana'
 
 # --- FUNCIÓN PRINCIPAL DE EJECUCIÓN ---
 if __name__ == "__main__":

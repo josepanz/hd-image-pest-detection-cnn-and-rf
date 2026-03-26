@@ -252,5 +252,33 @@ def run_rf_inference(path, model, size):
   # Pasamos el flag is_multiespectral al ploteo
   plot_inference_results(inference_results, OUTPUT_DIR, timestamp, multiespectral, 'RANDOM_FOREST')
 
+def load_rf_and_predict(image_array, model_path, cnn_model_path):
+    import tensorflow as tf
+
+    # 1. Cargar RF + scaler
+    bundle = joblib.load(model_path)
+    rf = bundle["rf_model"]
+    scaler = bundle["scaler"]
+
+    # 2. Cargar CNN
+    cnn_model = tf.keras.models.load_model(cnn_model_path, compile=False)
+
+    feature_extractor = tf.keras.Model(
+        inputs=cnn_model.input,
+        outputs=cnn_model.layers[-2].output
+    )
+
+    # 3. Extraer features
+    features = feature_extractor.predict(image_array)
+
+    # 4. Escalar
+    features = scaler.transform(features)
+
+    # 5. Predicción
+    prob = rf.predict_proba(features)[:, 1]
+    pred = (prob >= 0.5).astype(int)
+
+    return pred, prob
+
 if __name__ == "__main__":
     main()

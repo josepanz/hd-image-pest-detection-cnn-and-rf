@@ -17,30 +17,30 @@ def create_cnn_callbacks(base_dir: str, isRgb: bool = False, loss_type: str = "f
     os.makedirs(model_save_dir, exist_ok=True)
     
     # Ruta donde se guardará el modelo con mejor precisión
-    model_path = os.path.join(model_save_dir, f'best_model_{monitor}_{"RGB" if isRgb else "MULTIESPECTRAL"}_{loss_type}.keras')
+    model_path = os.path.join(model_save_dir, f'best_model_final_{"RGB" if isRgb else "MULTIESPECTRAL"}_{loss_type}.keras')
     
     callbacks = [
         # 1. Detención temprana (si la pérdida de validación no mejora)
         EarlyStopping(
             monitor=monitor,
-            patience=5,
+            patience=10,
             restore_best_weights=True,
             verbose=1,
-            mode='max'
+            mode='min'
         ),
         # 2. Guardado del mejor modelo (basado en la precisión)
         ModelCheckpoint(
             filepath=model_path,
             save_best_only=True,
-            monitor=monitor,
+            monitor="val_recall",
             verbose=1,
             mode='max'
         ),
         # 3. Reducción de la tasa de aprendizaje (para evitar estancamientos)
         ReduceLROnPlateau(
-            monitor=monitor,
+            monitor="val_auc",
             factor=0.5,
-            patience=3,
+            patience=5,
             min_lr=1e-6,
             verbose=1,
             mode='max'
@@ -53,13 +53,14 @@ def save_history_and_plot(
     base_dir: str, 
     epochs: int,
     suffix: str = "",
-    isRgb: bool = False
+    isRgb: bool = False,
+    loss_type: str = "focal_loss"
 ) -> None:
     """
     Guarda el historial en JSON y plotea las curvas de entrenamiento.
     """
     imgType = 'RGB' if isRgb else 'MULTIESPECTRAL'
-    HISTORY_DIR = os.path.join(base_dir, f'history/{imgType}')
+    HISTORY_DIR = os.path.join(base_dir, f'history/{imgType}/{loss_type}')
     os.makedirs(HISTORY_DIR, exist_ok=True)
     
     # 1. Serialización del Historial
@@ -118,3 +119,32 @@ def save_history_and_plot(
     plt.show()
 
     plt.close('all')
+
+import numpy as np
+from sklearn.metrics import roc_curve, confusion_matrix, classification_report, auc
+
+def encontrar_umbral_optimo(model, x_val, y_val):
+    # 1. Obtenemos las probabilidades (no las etiquetas fijas)
+    y_preds_proba = model.predict(x_val).ravel()
+    
+    # 2. Calculamos la curva ROC
+    fpr, tpr, thresholds = roc_curve(y_val, y_preds_proba)
+    
+    # 3. Calculamos el índice de Youden: J = Sensibilidad + Especificidad - 1
+    # El valor de threshold que maximice J es nuestro "punto dulce"
+    j_scores = tpr - fpr
+    best_idx = np.argmax(j_scores)
+    best_threshold = thresholds[best_idx]
+    
+    print(f"\n--- ANÁLISIS DE UMBRAL ÓPTIMO ---")
+    print(f"Mejor Umbral detectado: {best_threshold:.4f}")
+    
+    # 4. Mostramos cómo quedaría la matriz con ese nuevo umbral
+    y_preds_final = (y_preds_proba >= best_threshold).astype(int)
+    print("\nNueva Matriz de Confusión con Umbral Óptimo:")
+    print(confusion_matrix(y_val, y_preds_final))
+    print("\nReporte de Clasificación:")
+    print(classification_report(y_val, y_preds_final))
+    print("\nAuc:", auc(fpr, tpr))
+    
+    return best_threshold

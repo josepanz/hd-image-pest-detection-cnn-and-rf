@@ -1,166 +1,289 @@
 import argparse
 import os
-from math import ceil
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# agregar a path la carpeta src
 import sys
+import time
+import json
+from datetime import datetime
+
+import numpy as np
+import joblib
+
+from sklearn.metrics import classification_report, confusion_matrix
+
+# Paths
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
 
-# Importaciones de Módulos Centralizados
-from src.utils.evaluation.utils_metrics import save_report_and_plot_cm, CLASSES, plot_roc_curve_and_auc
-from src.utils.evaluation.utils_inference import load_model_for_inference, predict_cnn
-from src.utils.data_management.extract_data_to_img import crear_datasets_cnn_multiespectral, crear_datasets_rf_multiespectral
+# Utils propios
 from src.utils.print_utils import print_time_and_step
+from src.utils.evaluation.utils_metrics import (
+    save_report_and_plot_cm,
+    CLASSES,
+    plot_roc_curve_and_auc,
+    plot_confusion
+)
+from src.utils.evaluation.utils_inference import load_model_for_inference
+from src.utils.data_management.extract_data_to_img import extract_data_to_img_for_train
 
-from sklearn.metrics import classification_report, confusion_matrix, roc_curve, auc
-import joblib # Usamos joblib para guardar modelos sklearn
-from src.utils.evaluation.utils_metrics import plot_confusion
-import json
+# Constantes
+IMG_SIZE = (224, 224)
+SEED = 42
+VAL_SPLIT = 0.2
 
-import time
-from datetime import datetime
 
-def run_evaluation(data_dir: str, model_path: str, threshold: float, model_type: str, base_dir: str = BASE_DIR, batch_size: int = 32) -> None:
-  if model_type == 'cnn':
-      run_evaluation_cnn(data_dir, model_path, threshold, base_dir, batch_size)
-  elif model_type == 'rf':
-      # Llamar a la nueva función especializada para RF
-      run_evaluation_rf(data_dir, model_path) 
-  else:
-      raise ValueError(f"Tipo de modelo '{model_type}' no soportado.")
-  
-def run_evaluation_rf(data_dir: str, model_path: str) -> None:
-  start_time = time.time()
-  timestamp = datetime.now().strftime("%Y%m%d_%H%M")
-  imgType = 'RGB' if model_path.lower().find('rgb') != -1 else 'MULTIESPECTRAL'
-  isRgb = True if model_path.lower().find('rgb') != -1 else False
+# =========================================================
+# MAIN
+# =========================================================
+def run_evaluation(data_dir, model_path, threshold, model_type, base_dir, batch_size):
+    if model_type == 'cnn':
+        run_evaluation_cnn(data_dir, model_path, threshold, base_dir, batch_size)
+    elif model_type == 'rf':
+        run_evaluation_rf(data_dir, model_path, threshold, base_dir)
+    else:
+        raise ValueError("Modelo no soportado")
 
-  print_time_and_step('init', f'Iniciando evaluacion del modelo RANDOM FOREST {imgType}', timestamp=timestamp, start_time=start_time)
-  # Definir el subdirectorio de resultados
-  RESULTS_DIR = os.path.join(BASE_DIR, 'results')
 
-  # Crear el directorio 'results' si no existe
-  # El argumento exist_ok=True evita un error si la carpeta ya existe.
-  os.makedirs(RESULTS_DIR, exist_ok=True)
-  
-  # 1. Cargar Datos de Validación (Features)
-  _, X_val, _, y_val, class_names, _ = crear_datasets_rf_multiespectral(data_dir=data_dir, isRgb=isRgb)
-  
-  # 2. Cargar Modelo Random Forest
-  try:
-      model = joblib.load(model_path)
-  except Exception as e:
-      print(f"Error cargando el modelo RF: {e}")
-      return
+# =========================================================
+# CNN EVALUATION (FIXED)
+# =========================================================
+def run_evaluation_cnn(data_dir, model_path, threshold, base_dir, batch_size):
+    start_time = time.time()
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M")
 
-  # 3. Predicción en el conjunto de prueba
-  y_pred = model.predict(X_val) 
+    imgType = 'RGB' if 'rgb' in model_path.lower() else 'MULTIESPECTRAL'
+    loss_type = 'focal_loss' if 'focal' in model_path.lower() else 'binary_crossentropy'
+    isRgb = 'rgb' in model_path.lower()
 
-  # 4. Reporte de clasificación y Matriz de Confusión
-  cm = confusion_matrix(y_val, y_pred)
-  # Generar el nombre para el gráfico basado en el nombre del reporte JSON
-  # Se reemplaza la extensión .json por .png
-  final_plot_path = os.path.join(BASE_DIR, f'evaluation_results/RANDOM_FOREST/')
-  os.makedirs(final_plot_path, exist_ok=True)
-  plot_confusion(cm, class_names, final_plot_path, name=f'report_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}.png')
+    print_time_and_step('init',
+        f'Evaluando CNN {imgType} - Loss: {loss_type} - Threshold: {threshold}',
+        timestamp, start_time
+    )
 
-  # Generar el reporte de clasificación y matriz de confusión (asumiendo que tienes utils para esto)
-  report_dict = classification_report(
-      y_val, y_pred, target_names=class_names, output_dict=True, zero_division=0 
-  )
+    # ✅ USAR EXACTAMENTE EL MISMO PIPELINE QUE TRAIN
+    print_time_and_step('1', 'Extrayendo datos (MISMO pipeline que training)...', timestamp, start_time)
 
-  text_report = classification_report(
-      y_val, y_pred, target_names=class_names, zero_division=0 
-  )
-  
-  # 5. Guardar Reporte
-  final_save_path = os.path.join(final_plot_path, f'report_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}.json')
-  with open(final_save_path, "w") as f:
-      json.dump(report_dict, f, indent=2)
-  print(f"\nReporte guardado en '{final_save_path}'")
+    X_train, X_val, y_train, y_val, _ = extract_data_to_img_for_train(
+        data_dir=data_dir,
+        isRgb=isRgb,
+        model_type='cnn',
+        batch_size=batch_size,
+        img_size=IMG_SIZE,
+        val_split=VAL_SPLIT,
+        seed=SEED
+    )
 
-  # 4. Evaluación y Reporte
-  print_time_and_step('4', 'Evaluación y Reporte de Random Forest...', timestamp=timestamp, start_time=start_time)
+    print("Distribución y_val:", dict(zip(*np.unique(y_val, return_counts=True))))
 
-  # 5. Guardado (Ajusta esta función según cómo guardes los reportes RF)
-  print("\n--- RESUMEN DEL REPORTE DE CLASIFICACIÓN ---")
-  print(text_report)
+    # Modelo
+    print_time_and_step('2', 'Cargando modelo...', timestamp, start_time)
+    model = load_model_for_inference(model_path)
+    model_name = os.path.basename(model_path)
 
-  report_path_md = os.path.join(final_plot_path, f'report_table_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}.md')
-  with open(report_path_md, "w", encoding="utf-8") as f:
-    f.write(f"# Reporte de Clasificación - {f'RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}'}\n\n")
-    f.write(f"- **Fecha:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-    f.write(f"- **Modelo:** {f'RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}'}\n")
-    f.write(f"- **Umbral de decisión:** por defecto {0.5}\n\n")
-    f.write("## Métricas por Clase\n\n")
-    f.write("```text\n")
-    f.write(text_report)
-    f.write("\n```\n\n")
-    f.write("---\n")
-    f.write("*Generado automáticamente por el sistema de detección de plagas.*")
+    # Predicción
+    print_time_and_step('3', 'Prediciendo...', timestamp, start_time)
+    y_prob = model.predict(X_val, verbose=1).flatten()
 
-  print(f"✅ Reporte Markdown (Tabla) guardado en: {report_path_md}")
+    # DEBUG CRÍTICO
+    print("\n--- DEBUG PROBABILIDADES ---")
+    print("MIN:", np.min(y_prob))
+    print("MAX:", np.max(y_prob))
+    print("MEAN:", np.mean(y_prob))
+    print("PERCENTILES:", np.percentile(y_prob, [0, 25, 50, 75, 100]))
 
-  plot_roc_curve_and_auc(y_val, y_pred, final_plot_path, f'report_table_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}')
+    print("X_val stats:")
+    print("MIN:", np.min(X_val))
+    print("MAX:", np.max(X_val))
+    print("MEAN:", np.mean(X_val))
 
-def run_evaluation_cnn(data_dir: str, model_path: str, threshold: float, base_dir: str, batch_size: int) -> None:
-  start_time = time.time()
-  timestamp = datetime.now().strftime("%Y%m%d_%H%M")
-  IMG_SIZE = (224, 224)
-  SEED = 42
-  VAL_SPLIT = 0.2
+    print("STD:", np.std(y_prob))
 
-  imgType = 'RGB' if model_path.lower().find('rgb') != -1 else 'MULTIESPECTRAL'
-  loss_type = 'focal_loss' if model_path.lower().find('focal') != -1 else 'binary_crossentropy'
-  isRgb = True if model_path.lower().find('rgb') != -1 else False
+    # Threshold
+    y_pred = (y_prob >= threshold).astype(int)
 
-  print_time_and_step('init', f'Iniciando evaluacion del modelo {imgType} con perdida {"Focal Loss" if loss_type == "focal_loss" else "Binary Crossentropy"}', timestamp=timestamp, start_time=start_time)
-  # 1. Carga de Datos (solo validación)
-  print_time_and_step('1', 'Cargando datos de Validación...', timestamp=timestamp, start_time=start_time)
-  _, val_ds, _, _ = crear_datasets_cnn_multiespectral(data_dir=data_dir, isRgb=isRgb, img_size=IMG_SIZE, val_split=VAL_SPLIT, seed=SEED, batch_size=batch_size)
+    # Resultados
+    RESULTS_DIR = os.path.join(base_dir, f'evaluation_results/CNN/{imgType}/{loss_type}/{threshold}')
+    os.makedirs(RESULTS_DIR, exist_ok=True)
 
-  val_cardinality = len(val_ds[1]) 
-  validation_steps = ceil(val_cardinality / 32) if val_cardinality > 0 else 1
-  
-  # 2. Carga del Modelo
-  print_time_and_step("2", "Cargando modelo...", timestamp=timestamp, start_time=start_time)
-  model = load_model_for_inference(model_path)
-  model_name = os.path.basename(model_path).replace('.keras', '').replace('.h5', '')
-  
-  # 3. Predicciones
-  print_time_and_step("3", "Realizando predicciones...", timestamp=timestamp, start_time=start_time)
-  (X_test, y_test) = val_ds
-  y_pred_proba = predict_cnn(model, X_test, steps=validation_steps)
-  
-  # 4. Asignación de Clase usando el umbral
-  print_time_and_step("4", "Asignando clases usando el umbral...", timestamp=timestamp, start_time=start_time)
-  y_pred = (y_pred_proba >= threshold).astype(int)
+    print_time_and_step('4', 'Generando métricas...', timestamp, start_time)
 
-  # 5. Guardar Reporte y Plotear Matriz de Confusión
-  print_time_and_step("5", "Guardando reporte y ploteando matriz de confusión...", timestamp=timestamp, start_time=start_time)
-  RESULTS_DIR = os.path.join(base_dir, f'evaluation_results/{imgType}')
-  os.makedirs(RESULTS_DIR, exist_ok=True)
-  save_report_and_plot_cm(
-      y_test, 
-      y_pred, 
-      CLASSES, 
-      RESULTS_DIR, 
-      model_name, 
-      threshold
-  )
+    save_report_and_plot_cm(
+        y_val,
+        y_pred,
+        CLASSES,
+        RESULTS_DIR,
+        model_name,
+        threshold
+    )
 
-  plot_roc_curve_and_auc(y_test, y_pred_proba, RESULTS_DIR, model_name, threshold)
+    plot_roc_curve_and_auc(
+        y_val,
+        y_prob,
+        RESULTS_DIR,
+        model_name,
+        threshold
+    )
 
+
+# =========================================================
+# RF EVALUATION (FIXED)
+# =========================================================
+def run_evaluation_rf(data_dir, model_path, threshold, base_dir):
+    start_time = time.time()
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+
+    imgType = 'RGB' if 'rgb' in model_path.lower() else 'MULTIESPECTRAL'
+    isRgb = 'rgb' in model_path.lower()
+
+    print_time_and_step('init',
+        f'Evaluando RANDOM FOREST {imgType}',
+        timestamp, start_time
+    )
+
+    # =========================================================
+    # 1. DATA (MISMO PIPELINE QUE TRAINING)
+    # =========================================================
+    X_train, X_val, y_train, y_val, _ = extract_data_to_img_for_train(
+        data_dir=data_dir,
+        isRgb=isRgb,
+        model_type='cnn',  # 🔥 IMPORTANTE: CNN porque necesitas imágenes
+        img_size=IMG_SIZE,
+        val_split=VAL_SPLIT,
+        seed=SEED,
+        batch_size=32
+    )
+
+    print("Distribución y_val:", dict(zip(*np.unique(y_val, return_counts=True))))
+
+    # =========================================================
+    # 2. LOAD MODEL
+    # =========================================================
+    print_time_and_step('2', 'Cargando modelo...', timestamp, start_time)
+
+    bundle = joblib.load(model_path)
+
+    rf_model = bundle["rf_model"]
+    scaler = bundle["scaler"]
+    feature_extractor = bundle["feature_extractor"]
+
+    print("\n--- DEBUG RF ---")
+    print("X_val shape:", X_val.shape)
+    print("X_val min:", np.min(X_val))
+    print("X_val max:", np.max(X_val))
+
+    # =========================================================
+    # 3. FEATURE EXTRACTION (🔥 ESTO TE FALTABA)
+    # =========================================================
+    print_time_and_step('3', 'Extrayendo features...', timestamp, start_time)
+
+    X_val_feat = feature_extractor.predict(X_val, verbose=1)
+
+    print("Features shape:", X_val_feat.shape)
+
+    # =========================================================
+    # 4. SCALING (MISMO QUE TRAIN)
+    # =========================================================
+    X_val_feat = scaler.transform(X_val_feat)
+
+    # =========================================================
+    # 5. PREDICCIÓN
+    # =========================================================
+    print_time_and_step('4', 'Prediciendo...', timestamp, start_time)
+
+    y_prob = rf_model.predict_proba(X_val_feat)[:, 1]
+    y_pred = (y_prob >= threshold).astype(int)
+
+    print("\n--- DEBUG PROB ---")
+    print("MIN:", np.min(y_prob))
+    print("MAX:", np.max(y_prob))
+    print("STD:", np.std(y_prob))
+
+    # =========================================================
+    # 6. MÉTRICAS
+    # =========================================================
+    cm = confusion_matrix(y_val, y_pred)
+
+    RESULTS_DIR = os.path.join(base_dir, f'evaluation_results/RANDOM_FOREST/{imgType}/{threshold}')
+    os.makedirs(RESULTS_DIR, exist_ok=True)
+
+    plot_confusion(
+        cm,
+        ["Plaga", "Sana"],
+        RESULTS_DIR,
+        name=f'report_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}.png'
+    )
+
+    report = classification_report(y_val, y_pred, target_names=["Plaga", "Sana"])
+
+    print("\n--- REPORTE ---")
+    print(report)
+
+    # Generar el reporte de clasificación y matriz de confusión (asumiendo que tienes utils para esto)
+    report_dict = classification_report(
+        y_val, y_pred, target_names=["Plaga", "Sana"], output_dict=True, zero_division=0 
+    )
+
+    text_report = classification_report(
+        y_val, y_pred, target_names=["Plaga", "Sana"], zero_division=0 
+    )
+    
+    # 5. Guardar Reporte
+    final_save_path = os.path.join(RESULTS_DIR, f'report_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}.json')
+    with open(final_save_path, "w") as f:
+        json.dump(report_dict, f, indent=2)
+    print(f"\nReporte guardado en '{final_save_path}'")
+
+    # 4. Evaluación y Reporte
+    print_time_and_step('4', 'Evaluación y Reporte de Random Forest...', timestamp=timestamp, start_time=start_time)
+
+    # 5. Guardado (Ajusta esta función según cómo guardes los reportes RF)
+    print("\n--- RESUMEN DEL REPORTE DE CLASIFICACIÓN ---")
+    print(text_report)
+
+    report_path_md = os.path.join(RESULTS_DIR, f'report_table_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}.md')
+    with open(report_path_md, "w", encoding="utf-8") as f:
+      f.write(f"# Reporte de Clasificación - {f'RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}'}\n\n")
+      f.write(f"- **Fecha:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+      f.write(f"- **Modelo:** {f'RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}'}\n")
+      f.write(f"- **Umbral de decisión:** por defecto {0.5}\n\n")
+      f.write("## Métricas por Clase\n\n")
+      f.write("```text\n")
+      f.write(text_report)
+      f.write("\n```\n\n")
+      f.write("---\n")
+      f.write("*Generado automáticamente por el sistema de detección de plagas.*")
+
+    print(f"✅ Reporte Markdown (Tabla) guardado en: {report_path_md}")
+
+    plot_roc_curve_and_auc(
+        y_val,
+        y_prob,
+        RESULTS_DIR,
+        f'report_table_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}',
+        threshold
+    )
+
+
+# =========================================================
+# CLI
+# =========================================================
 if __name__ == "__main__":
-  parser = argparse.ArgumentParser(description="Evalúa el modelo CNN con BCE/Focal RGB/MS")
-  parser.add_argument("data_dir", help="Ruta al directorio de datos (raíz)")
-  parser.add_argument("-m", "--model", required=True, help="Ruta al archivo del modelo Keras")
-  parser.add_argument("-t", "--threshold", type=float, default=0.5, help="Umbral de decisión (0.0 a 1.0)")
-  parser.add_argument("-b", "--base_dir", default=BASE_DIR, help="Directorio base para guardar resultados")
-  parser.add_argument("-mt", "--model_type", type=str, required=True, choices=["cnn", "rf"], help="Tipo de modelo a entrenar (cnn o rf)")
-  args = parser.parse_args()
-  
-  run_evaluation(args.data_dir, args.model, args.threshold, args.model_type, args.base_dir)
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("data_dir")
+    parser.add_argument("-m", "--model", required=True)
+    parser.add_argument("-t", "--threshold", type=float, default=0.5)
+    parser.add_argument("-mt", "--model_type", required=True, choices=["cnn", "rf"])
+    parser.add_argument("-b", "--base_dir", default=BASE_DIR)
+    parser.add_argument("-bs", "--batch_size", type=int, default=32)
+
+    args = parser.parse_args()
+
+    run_evaluation(
+        args.data_dir,
+        args.model,
+        args.threshold,
+        args.model_type,
+        args.base_dir,
+        args.batch_size
+    )
