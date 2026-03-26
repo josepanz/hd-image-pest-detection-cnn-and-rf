@@ -2216,66 +2216,13 @@ AUC REAL: 0.6576
 ````
 
 #### 4.3.2 Accuracy plot:
-![alt text](src/pest_detection_models/history/RGB/binary_crossentropy/accuracy_plot_20260324_1449_epochs_80_RGB_BCE.png)
+![alt text](src/pest_detection_models/history/RGB/binary_crossentropy/accuracy_plot_20260325_1459_epochs_80_RGB_BCE.png)
 
 #### 4.3.2 Loss plot:
-![alt text](src/pest_detection_models/history/RGB/binary_crossentropy/loss_plot_20260324_1449_epochs_80_RGB_BCE.png)
+![alt text](src/pest_detection_models/history/RGB/binary_crossentropy/loss_plot_20260325_1459_epochs_80_RGB_BCE.png)
 
 #### 4.3.2 Recall plot:
-![alt text](src/pest_detection_models/history/RGB/binary_crossentropy/recall_plot_20260324_1449_epochs_80_RGB_BCE.png)
-
-## II. EVALUACION
-### - El algoritmo de evaluación, `evaluate.py`, permite los siguientes argumentos:
-````python
-if __name__ == "__main__":
-  parser = argparse.ArgumentParser(description="Evalúa el modelo CNN con BCE/Focal RGB/MS")
-  parser.add_argument("data_dir", help="Ruta al directorio de datos (raíz)")
-  parser.add_argument("-m", "--model", required=True, help="Ruta al archivo del modelo Keras")
-  parser.add_argument("-t", "--threshold", type=float, default=0.5, help="Umbral de decisión (0.0 a 1.0)")
-  parser.add_argument("-b", "--base_dir", default=BASE_DIR, help="Directorio base para guardar resultados")
-  parser.add_argument("-mt", "--model_type", type=str, required=True, choices=["cnn", "rf"], help="Tipo de modelo a entrenar (cnn o rf)")
-  args = parser.parse_args()
- 
-  run_evaluation(args.data_dir, args.model, args.threshold, args.model_type, args.base_dir)
-````
-
-### Curva ROC:
-
-
-### 1.1 UMBRAL 0.4
-#### 1.1.1 Comando:
-
-````bash
-python src\pest_detection_models\evaluate.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -m src\pest_detection_models\best_models\best_model_final_MULTIESPECTRAL_focal_loss.keras -t 0.45 -mt cnn
-````
-
-#### 1.1.2 Consola:
-````bash
-
-````
-
-#### 1.1.3 Resultados:
-##### 1.1.3.1 Reporte de clasificación json:
-
-##### 1.1.3.2 Reporte de clasificación tabla
-
-##### 1.1.3.3 Matriz de confusión
-
-### 1.2 UMBRAL 0.50
-#### 1.2.1 EJECUCION
-
-````bash
-````
-
-#### 1.2.2 RESULTADO
-
-### 1.2 UMBRAL 0.70
-#### 1.2.1 EJECUCION
-
-````bash
-````
-
-#### 1.2.2 RESULTADO
+![alt text](src/pest_detection_models/history/RGB/binary_crossentropy/recall_plot_20260325_1459_epochs_80_RGB_BCE.png)
 
 # RANDOM FOREST (RF)
 ## I. ENTRENAMIENTO
@@ -2597,7 +2544,16 @@ Modelo RF + Scaler guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\
 ## II. EVALUACION
 ### - El algoritmo de evaluación, `evaluate.py`, permite los siguientes argumentos:
 ````python
-
+if __name__ == "__main__":
+  parser = argparse.ArgumentParser(description="Evalúa el modelo CNN con BCE/Focal RGB/MS")
+  parser.add_argument("data_dir", help="Ruta al directorio de datos (raíz)")
+  parser.add_argument("-m", "--model", required=True, help="Ruta al archivo del modelo Keras")
+  parser.add_argument("-t", "--threshold", type=float, default=0.5, help="Umbral de decisión (0.0 a 1.0)")
+  parser.add_argument("-b", "--base_dir", default=BASE_DIR, help="Directorio base para guardar resultados")
+  parser.add_argument("-mt", "--model_type", type=str, required=True, choices=["cnn", "rf"], help="Tipo de modelo a entrenar (cnn o rf)")
+  args = parser.parse_args()
+ 
+  run_evaluation(args.data_dir, args.model, args.threshold, args.model_type, args.base_dir)
 ````
 
 ### Curva ROC:
