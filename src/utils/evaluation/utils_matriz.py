@@ -48,9 +48,12 @@ def plot_thesis_evolution_cm(data_dict, model_name):
 # --- DATOS EXTRAÍDOS DE TUS LOGS (CNN RGB Binary Crossentropy) ---
 # Formato: [[TP, FN], [FP, TN]] según el orden de tus clases
 data_logs = {
-    "0.45": [[42, 41], [11, 3]],
-    "0.50": [[54, 29], [13, 1]],
-    "0.70": [[80, 3], [14, 0]]
+    # "0.45": [[42, 41], [11, 3]],
+    # "0.50": [[54, 29], [13, 1]],
+    # "0.70": [[80, 3], [14, 0]]
+    "0.45": [[62, 28], [4, 39]],
+    "0.50": [[64, 26], [5, 38]],
+    "0.70": [[80, 10], [15, 28]]
 }
 
 import matplotlib.pyplot as plt
@@ -62,10 +65,10 @@ thresholds = [0.45, 0.50, 0.70]
 # Mapeo de tus matrices [[TP, FN], [FP, TN]] 
 # (Asumiendo Plaga como clase positiva según el comportamiento del umbral en tus logs)
 # binary crossentropy RGB
-tp = [42, 54, 80]  # Aciertos Plaga
-fn = [41, 29, 3]   # Plaga que el modelo no vio
-fp = [11, 13, 14]  # Sana que el modelo marcó como Plaga
-tn = [3, 1, 0]     # Aciertos Sana
+tp = [62, 64, 80]  # Aciertos Plaga
+fn = [28, 26, 10]   # Plaga que el modelo no vio
+fp = [4, 5, 15]  # Sana que el modelo marcó como Plaga
+tn = [39, 38, 28]     # Aciertos Sana
 
 # En tus logs de Focal Loss MS, el modelo mantuvo una estabilidad notable
 # tp = [90, 90, 90]  # Verdaderos Positivos (Muy estables)
