@@ -1,0 +1,10 @@
+[
+    {
+        "file_name": "20210525_rgb.tif",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_focal_loss.keras"
+    }
+]

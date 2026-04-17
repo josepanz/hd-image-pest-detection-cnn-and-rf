@@ -1,0 +1,10 @@
+[
+    {
+        "file_name": "20210525_rgb.tif",
+        "prob_sana": 0.19,
+        "prob_plaga": 0.81,
+        "prediccion": "Plaga",
+        "umbral": 0.5,
+        "modelo": "best_model_final_random_forest_RGB_20260325_1637.joblib"
+    }
+]

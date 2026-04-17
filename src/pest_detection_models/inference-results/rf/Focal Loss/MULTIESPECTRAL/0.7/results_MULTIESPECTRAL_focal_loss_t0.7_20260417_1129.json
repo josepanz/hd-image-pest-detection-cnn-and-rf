@@ -1,0 +1,173 @@
+[
+    {
+        "file_name": "2021-05-18",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-05-25",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-06-01",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-06-07",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-06-14",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-06-22",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-06-29",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-07-07",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-07-13",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-07-20",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-07-27",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-08-03",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-08-11",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-08-17",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-08-31",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-09-06",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-09-14",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-09-21",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    },
+    {
+        "file_name": "2021-09-28",
+        "path": "predict-test\\multiespectral\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.11,
+        "prob_plaga": 0.89,
+        "prediccion": "Plaga",
+        "umbral": 0.7,
+        "modelo": "best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib"
+    }
+]
