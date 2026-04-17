@@ -1,0 +1,10 @@
+[
+    {
+        "file_name": "2021-05-25",
+        "prob_sana": 0.7353,
+        "prob_plaga": 0.2647,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    }
+]

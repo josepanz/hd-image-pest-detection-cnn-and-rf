@@ -12,12 +12,12 @@ def load_single_multispectral_image(
 ) -> np.ndarray:
     """Carga, apila y redimensiona las 5 bandas TIFF de una carpeta de imagen única."""
     bands = {
-        #'blue': f'transparent_reflectance_blue{"_modified" if modified else ""}.tif',
-        #'green': f'transparent_reflectance_green{"_modified" if modified else ""}.tif',
+        'blue': f'transparent_reflectance_blue{"_modified" if modified else ""}.tif',
+        'green': f'transparent_reflectance_green{"_modified" if modified else ""}.tif',
         'red': f'transparent_reflectance_red{"_modified" if modified else ""}.tif',
         'red_edge': f'transparent_reflectance_red edge{"_modified" if modified else ""}.tif',
         'nir': f'transparent_reflectance_nir{"_modified" if modified else ""}.tif',
-        #'rgb': 'rgb.tif',
+        # 'rgb': 'rgb.tif',
         #'dem': 'dem
     }
     band_data_list = []

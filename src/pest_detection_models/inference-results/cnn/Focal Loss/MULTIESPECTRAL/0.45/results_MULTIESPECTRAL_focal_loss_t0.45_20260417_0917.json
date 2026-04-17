@@ -1,0 +1,10 @@
+[
+    {
+        "file_name": "2021-05-25",
+        "prob_sana": 0.7185,
+        "prob_plaga": 0.2815,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    }
+]
