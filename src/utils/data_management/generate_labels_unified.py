@@ -29,8 +29,8 @@ SHAPEFILES_DIR_E = os.path.join(BASE_DATA_DIR, "shapefiles")
 # Rutas a los CSV de Ground Truth
 YIELD_CSV_FILENAME = "NARO_field_2023_GT_yield.csv"
 ADDITIONAL_GT_CSV_FILENAME = "NARO_field_2023_GT_additional.csv"
-YIELD_CSV_FILENAME = "NARO_field_2021_GT_yield.csv"
-ADDITIONAL_GT_CSV_FILENAME = "NARO_field_2021_GT_additional.csv"
+# YIELD_CSV_FILENAME = "NARO_field_2021_GT_yield.csv"
+# ADDITIONAL_GT_CSV_FILENAME = "NARO_field_2021_GT_additional.csv"
 
 # Se asume que los CSV de GT están en la carpeta 'data/measurements'
 YIELD_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR,  "multiespectral", "TTADDA-dataset", "TTADDA_NARO_2023_F1", "measurements", YIELD_CSV_FILENAME)
@@ -42,6 +42,9 @@ ADDITIONAL_GT_CSV_PATH_FULL = os.path.join(BASE_DATA_DIR, "multiespectral", "TTA
 OUTPUT_CSV_BASE = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA-dataset", "TTADDA_NARO_2023_F1", "measurements", "generated_labels.csv")
 # OUTPUT_CSV_BASE = os.path.join(BASE_DATA_DIR, "multiespectral", "TTADDA_NARO_2021_F1", "measurements", "generated_labels.csv")
 
+# OBS UNIT PREFIX
+OBS_UNIT_PREFIX = "TTADDA_NARO_2023_F1P" 
+# OBS_UNIT_PREFIX = "TTADDA_NARO_2021_F1P" 
 
 # --- UMBRALES DE CLASIFICACIÓN (AJUSTABLES) ---
 
@@ -271,7 +274,7 @@ def generate_labels_unified(
                                     # print(f'props: {props}')
                                     obs_unit_id_num = props.get('obsUnitId', props.get('PlotID'))
                                     obs_unit_id = str(obs_unit_id_num) if obs_unit_id_num is not None else ""
-                                    obs_unit_id = f"TTADDA_NARO_2023_F1P{obs_unit_id}"
+                                    obs_unit_id = f"{OBS_UNIT_PREFIX}{obs_unit_id}"
                                     
                                     # Intentar construir el ID si obsUnitId no es directamente el ID del CSV (TTADDA_NARO_2023_F1P1)
                                     if obs_unit_id and not obs_unit_id.startswith('TTADDA'):
