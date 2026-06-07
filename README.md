@@ -223,20 +223,20 @@ Tras ejecutar las evaluaciones de los tres escenarios, encontrarás los reportes
 
 ### Métricas Clave
 
-La métrica más importante en este contexto, dado el desbalance y el costo de un Falso Negativo (no detectar una plaga), es el Recall de la clase "Sana" y el F1-Score de la clase minoritaria:
+La métrica más importante en este contexto, dado el desbalance y el costo de un Falso Negativo (no detectar una plaga), es el Recall de la clase "Plaga" y el F1-Score de la clase minoritaria:
 
-| Métrica | Enfoque | Interpretación para "Sana" |
+| Métrica | Enfoque | Interpretación para "Plaga" |
 | :--- | :--- | :--- |
-|Recall | Deep Learning / RF | ¿Cuántas muestras de "Sana" se detectaron correctamente? |
-|Precision | Deep Learning / RF | De todas las muestras predichas como "Sana", ¿cuántas eran realmente "Sana"? |
+|Recall | Deep Learning / RF | ¿Cuántas muestras de "Plaga" se detectaron correctamente? |
+|Precision | Deep Learning / RF | De todas las muestras predichas como "Plaga", ¿cuántas eran realmente "Plaga"? |
 |F1-Score | Deep Learning / RF | Promedio armónico de Precision y Recall. El mejor indicador de rendimiento balanceado. |
 
 ## Definiciones: ¿Cuáles son los positivos y negativos? `Positivos = Sanos`, `Negativos = Plagas`
 <a href= "https://www.youtube.com/watch?v=H8FSfqxRWmA">YouTube</a> | <a href="https://codificandobits.com/blog/precision-recall-f-score/">Blog</a> | <a href="https://colab.research.google.com/drive/10xngRuU0kyxGildcx7YfxQzjrk_nXXU-?usp=sharing">Colab</a>
-- **Verdaderos Positivos / True Positive (VP o TP):** `"sanos"` clasificados **_realmente_** como `"sanos"`.
-- **Falsos Positivos / False Positive (FP o FP):** `"plagas"` clasificados **_equivocadamente_** como `"sanos"`.
-- **Verdaderos Negativos / True Negative (VN o TN):** `"plagas"` clasificados **_realmente_** como `"plagas"`.
-- **Falsos Negativos / False Negative (FN o FN):** `"sanos"` clasificados **_equivocadamente_** como `"plagas"`.
+- **Verdaderos Positivos / True Positive (VP o TP):** `"plagas"` clasificados **_realmente_** como `"plagas"`.
+- **Falsos Positivos / False Positive (FP o FP):** `"sanos"` clasificados **_equivocadamente_** como `"plagas"`.
+- **Verdaderos Negativos / True Negative (VN o TN):** `"sanos"` clasificados **_realmente_** como `"sanos"`.
+- **Falsos Negativos / False Negative (FN o FN):** `"plagas"` clasificados **_equivocadamente_** como `"sanos"`.
 
 
 <b>Objetivo:</b> El mejor modelo será aquel que logre un alto Recall para la clase Plaga (para no dejar ninguna plaga sin identificar) sin sacrificar demasiado el Recall de la clase Sana (para evitar la mayoría de falsas alarmas).
