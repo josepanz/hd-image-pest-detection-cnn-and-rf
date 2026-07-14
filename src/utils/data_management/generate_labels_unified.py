@@ -420,11 +420,17 @@ def generate_labels_unified(
 
 def unify_labels(yield_label: str, spad_label: str, ndvi_drone_label: str) -> str:
     """
-    Genera una etiqueta final de consenso ('Plaga', 'Sana', 'Indeterminado') 
-    aplicando una lógica de riesgo/jerarquía a los tres indicadores.
+    Genera una etiqueta final de consenso ('Plaga' o 'Sana') a partir de los tres
+    indicadores, priorizando no dejar pasar una plaga por error.
 
-    Jerarquía: Plaga > Indeterminado > Sana (dada la naturaleza de los datos)
-    (A menos que haya datos fuertes de 'Sana' que superen a 'Indeterminado').
+    Jerarquía real (decisión de diseño, no un resultado de "Indeterminado" real):
+    1. Si cualquier indicador válido dice 'Plaga', se etiqueta 'Plaga' (precaución:
+       mejor una falsa alarma que una plaga no detectada).
+    2. En cualquier otro caso (incluyendo señales mixtas o ambiguas entre los tres
+       indicadores) se etiqueta 'Sana' por defecto. La función nunca devuelve
+       'Indeterminado' como etiqueta final: ese valor solo existe como estado
+       intermedio de cada indicador individual (ver classify_by_ndvi/classify_by_spad),
+       filtrado antes de esta decisión.
     """
     
     # 1. Recolectar todas las etiquetas
@@ -459,9 +465,8 @@ def unify_labels(yield_label: str, spad_label: str, ndvi_drone_label: str) -> st
     if sana_count >= 2 or (sana_count == 1 and len(etiquetas_validas) == 1):
         return 'Sana'
     
-    # Prioridad 3: Indeterminado
-    # Si las etiquetas restantes son 'Indeterminado' o una mezcla no concluyente
-    # return 'Indeterminado'
+    # Prioridad 3: sin consenso claro de 'Sana' ni señal de 'Plaga' -> default a 'Sana'
+    # (decisión de diseño a propósito, ver docstring de esta función).
     return 'Sana'
 
 # --- FUNCIÓN PRINCIPAL DE EJECUCIÓN ---
