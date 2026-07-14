@@ -13,7 +13,6 @@ from src.utils.data_management.extract_data_to_img import extract_data_to_img_fo
 from src.utils.models.cnn_model import crear_modelo_cnn
 from src.utils.plots import plot_history
 from src.utils.callbacks import get_callbacks
-from src.utils.kfold import run_kfold
 from src.utils.utils_train import encontrar_umbral_optimo, save_history_and_plot
 from src.utils.data_management.base_loader import calculate_class_weights
 from src.utils.post_train import evaluate_model
@@ -23,17 +22,12 @@ import numpy as np
 import tensorflow as tf
 
 from src.utils.print_utils import print_time_and_step
-from src.utils.feature_extractor import extraer_features_cnn
 from src.utils.models.random_forest import entrenar_rf, evaluar_rf, model_random_forest
 import joblib
-import json
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 
 import time
 from datetime import datetime
-
-from math import ceil
 
 # CONSTANTS
 SEED = 42
@@ -53,7 +47,7 @@ def set_seeds(seed=SEED):
 set_seeds(SEED) # Usa el número que quieras, pero mantenlo
 
 
-def run_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, alpha: float, gamma: float, model_type: str, threshold: float = 0.5) -> None:
+def run_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, alpha: float, gamma: float, model_type: str) -> None:
   if model_type == 'cnn':
     print(f'Modelo cnn {loss_type} | RGB? {isRgb} | alpha {alpha} | gamma {gamma}')
     train(
@@ -141,7 +135,6 @@ def train(
     print('Umbral mas optimo: ', umbral_maestro)
 
     evaluate_model(model, X_val, y_val, umbral_maestro, BASE_DIR)
-    # print(f"aucs run kfold: {run_kfold(model, X_train, y_train)}")
 
     return model
 
@@ -269,17 +262,15 @@ def main():
   parser.add_argument("-lt", "--loss_type", type=str, choices=["focal_loss", "binary_crossentropy"], help="Tipo de funcion de perdida")
   parser.add_argument("-rgb", "--rgb", action='store_true', default=False, help="Es RGB?")
   parser.add_argument("-mt", "--model_type", type=str, required=True, default='cnn', choices=["cnn", "rf"], help="Tipo de modelo a entrenar (cnn o rf)")
-  parser.add_argument("-t", "--threshold", type=float, default=0.5, help="Umbral de decisión (0.0 a 1.0)")
   args = parser.parse_args()
   run_training(
-    data_dir=args.data_dir, 
-    epochs=args.epochs, 
-    loss_type=args.loss_type, 
-    isRgb=args.rgb, 
-    alpha=args.alpha, 
+    data_dir=args.data_dir,
+    epochs=args.epochs,
+    loss_type=args.loss_type,
+    isRgb=args.rgb,
+    alpha=args.alpha,
     gamma=args.gamma,
-    model_type=args.model_type, 
-    threshold=args.threshold
+    model_type=args.model_type
     )
 
 if __name__ == "__main__":

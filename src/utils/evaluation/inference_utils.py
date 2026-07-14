@@ -128,16 +128,27 @@ def load_and_preprocess_image(path, img_size, is_ms):
     try:
         if is_ms:
             # Lógica Multiespectral: Cargar las 5 bandas desde la carpeta 'path'
+            #
+            # ⚠️ BUG CONOCIDO SIN CONFIRMAR (pendiente de datos .tif reales para validar):
+            # el entrenamiento (extract_data_to_img_for_train) normaliza cada imagen
+            # dividiendo por su propio máximo (resized_image / max_val, ~0-1 por imagen).
+            # Acá en cambio se divide siempre por un /255.0 fijo. Si las bandas de
+            # reflectancia UAV vienen en un rango distinto a 0-255 (típico en TIFF de 16
+            # bits), esto entrega al modelo una escala de entrada muy distinta a la de
+            # entrenamiento y puede degradar la inferencia real a algo cercano al azar
+            # (coincide con las probabilidades ~0.50 vistas en BITACORA_INFERENCE*.md para
+            # el modelo MULTIESPECTRAL). No se corrigió a ciegas: falta confirmar contra
+            # TIFFs reales cuál es el rango real de reflectancia antes de tocar esto.
             bands = []
             for suffix in BAND_SUFFIXES:
                 band_path = next((os.path.join(path, f) for f in os.listdir(path) if f.lower().endswith(suffix)), None)
-                
+
                 if band_path is None:
                     raise FileNotFoundError(f"Falta banda {suffix} en {path}")
-                
+
                 band = cv2.imread(band_path, cv2.IMREAD_UNCHANGED)
                 if band is None: raise ValueError(f"No leíble: {band_path}")
-                
+
                 band_resized = cv2.resize(band, img_size).astype('float32') / 255.0
                 bands.append(band_resized)
             

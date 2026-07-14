@@ -4,49 +4,8 @@ import os
 import json
 import matplotlib.pyplot as plt
 import tensorflow as tf
-from keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
 from datetime import datetime
 from typing import List, Tuple, Union
-
-def create_cnn_callbacks(base_dir: str, isRgb: bool = False, loss_type: str = "focal_loss", monitor: str = 'val_recall') -> Tuple[List[tf.keras.callbacks.Callback], str]:
-    """
-    Crea y devuelve la lista estándar de callbacks y la ruta de guardado del mejor modelo.
-    """
-    # Directorio para guardar el mejor modelo
-    model_save_dir = os.path.join(base_dir, 'best_models')
-    os.makedirs(model_save_dir, exist_ok=True)
-    
-    # Ruta donde se guardará el modelo con mejor precisión
-    model_path = os.path.join(model_save_dir, f'best_model_final_{"RGB" if isRgb else "MULTIESPECTRAL"}_{loss_type}.keras')
-    
-    callbacks = [
-        # 1. Detención temprana (si la pérdida de validación no mejora)
-        EarlyStopping(
-            monitor=monitor,
-            patience=10,
-            restore_best_weights=True,
-            verbose=1,
-            mode='min'
-        ),
-        # 2. Guardado del mejor modelo (basado en la precisión)
-        ModelCheckpoint(
-            filepath=model_path,
-            save_best_only=True,
-            monitor="val_recall",
-            verbose=1,
-            mode='max'
-        ),
-        # 3. Reducción de la tasa de aprendizaje (para evitar estancamientos)
-        ReduceLROnPlateau(
-            monitor="val_auc",
-            factor=0.5,
-            patience=5,
-            min_lr=1e-6,
-            verbose=1,
-            mode='max'
-        )
-    ]
-    return callbacks, model_path
 
 def save_history_and_plot(
     history: tf.keras.callbacks.History, 

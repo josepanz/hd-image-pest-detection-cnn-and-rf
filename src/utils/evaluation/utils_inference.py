@@ -5,7 +5,7 @@ import numpy as np
 import tensorflow as tf
 import joblib
 from typing import Union, List, Tuple, Dict, Any
-from src.utils.models.function_losses import focal_loss # Necesario para cargar modelos Keras con Focal Loss
+from src.utils.focal_loss import focal_loss # misma implementación usada para entrenar/compilar en cnn_model.py
 import json
 
 from keras.preprocessing.image import load_img, img_to_array
@@ -25,7 +25,12 @@ start_time = time.time()
 timestamp = datetime.now().strftime("%Y%m%d_%H%M")
 
 CUSTOM_OBJECTS = {
-    'focal_loss': focal_loss(), 
+    # focal_loss() usa los valores por defecto de alpha/gamma (no los que se pasaron
+    # en el CLI de train.py al entrenar cada modelo en particular, que no se persisten
+    # junto al .keras). Esto es suficiente para poder cargar el modelo y predecir,
+    # pero el valor de "loss" que se reporte en evaluate.py para un modelo entrenado
+    # con otro alpha/gamma no será exactamente el de entrenamiento.
+    'focal_loss': focal_loss(),
     # Añadir aquí cualquier otra clase o función personalizada que uses en tus modelos
 }
 

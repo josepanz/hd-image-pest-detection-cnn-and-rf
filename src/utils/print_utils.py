@@ -7,8 +7,17 @@ import os
 
 CLASSES = ["Plaga", "Sana"] 
 
-def print_time_and_step(step_number, message, timestamp = datetime.now().strftime("%Y%m%d_%H%M"), start_time = time.time()):
-    """Calcula y imprime el tiempo transcurrido desde el inicio."""
+def print_time_and_step(step_number, message, timestamp=None, start_time=None):
+    """Calcula y imprime el tiempo transcurrido desde el inicio.
+
+    timestamp/start_time se calculan en cada llamada si no se pasan
+    explícitamente (evita el bug de "default arg" evaluado una sola vez
+    al importar el módulo, que congelaba el reloj al momento del import).
+    """
+    if timestamp is None:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+    if start_time is None:
+        start_time = time.time()
     elapsed = time.time() - start_time
     print(f"\n--- [Fecha/hora inicio={timestamp}] ---")
     # Usar f-string para formatear el tiempo a segundos con 2 decimales
