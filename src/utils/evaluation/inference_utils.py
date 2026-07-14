@@ -47,9 +47,17 @@ def is_sample_folder(path, is_ms):
 def get_all_sample_folders(root_path, is_ms):
     """
     Busca recursivamente todas las carpetas que cumplan con ser una muestra.
+
+    Para RGB, root_path también puede ser directamente un archivo *rgb.tif suelto
+    (no solo una carpeta que lo contenga): load_and_preprocess_image ya sabía manejar
+    ese caso, pero antes este descubridor no lo reconocía como muestra y devolvía una
+    lista vacía sin avisar (0 muestras encontradas, sin error).
     """
     sample_folders = []
-    
+
+    if not is_ms and os.path.isfile(root_path) and root_path.lower().endswith("rgb.tif"):
+        return [root_path]
+
     # Si el path ya es una muestra, lo retornamos directamente
     if os.path.isdir(root_path) and is_sample_folder(root_path, is_ms):
         return [root_path]
@@ -85,25 +93,37 @@ def run_inference_on_path(model, feature_extractor_rf, path, threshold, img_size
     sample_folders = get_all_sample_folders(path, is_multiespectral)
     print_time_and_step('riop 2', f"✅ Se encontraron {len(sample_folders)} muestras para procesar.", timestamp=timestamp, start_time=start_time)
 
-    # 2. Extraer modelo del diccionario (RF)
+    # 2. Extraer modelo (y scaler, si viene) del diccionario (RF)
     actual_model = model
+    scaler = None
     if is_random_forest and isinstance(model, dict):
         actual_model = model.get('model') or model.get('rf_model') or list(model.values())[0]
+        # BUG CORREGIDO: train.py::run_rf_training guarda el StandardScaler ajustado
+        # sobre las features de la CNN junto con el RF (mismo bundle .joblib) y
+        # evaluate.py::run_evaluation_rf sí lo aplica antes de predecir, pero acá nunca
+        # se extraía ni se aplicaba: se le pasaban al RF features sin escalar, distintas
+        # a las que vio en entrenamiento. Un árbol de decisión no es invariante a esto:
+        # los umbrales de corte que aprendió son numéricamente los de la escala de
+        # entrenamiento, así que aplicarlos a features sin escalar produce splits
+        # arbitrarios.
+        scaler = model.get('scaler')
 
     # 3. Procesar cada carpeta encontrada
     for sample_path in sample_folders:
         print_time_and_step('riop 3', f"🚀 Procesando muestra: {os.path.basename(sample_path)}", timestamp=timestamp, start_time=start_time)
-        
+
         # Cargamos la data (load_and_preprocess_image ya sabe manejar carpetas MS o RGB)
         img_data = load_and_preprocess_image(sample_path, img_size, is_multiespectral)
-        
+
         if img_data is not None:
             x = np.expand_dims(img_data, axis=0)
-            
+
             if is_random_forest:
                 if feature_extractor_rf is not None:
                     features = feature_extractor_rf.predict(x, verbose=0)
                     x_input = features.reshape(1, -1)
+                    if scaler is not None:
+                        x_input = scaler.transform(x_input)
                 else:
                     x_input = x.reshape(1, -1)
 
