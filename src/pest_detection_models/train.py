@@ -1,7 +1,23 @@
+"""Entrenamiento de los modelos de detección de plaga/sana (CNN o Random Forest).
+
+Dos modos, seleccionados con -mt/--model_type:
+- cnn: entrena una CNN (MobileNet-simple definida en models/cnn_model.py) desde cero,
+  con Focal Loss o Binary Crossentropy, sobre imágenes RGB o multiespectrales (5 bandas).
+- rf: entrena un Random Forest sobre features extraídas por una CNN YA ENTRENADA.
+  run_rf_training carga desde disco (best_models/best_model_final_{RGB|MULTIESPECTRAL}_
+  {loss_type}.keras) la CNN correspondiente al mismo tipo de imagen/loss indicado por
+  -lt; si ese archivo no existe todavía (no se corrió antes el modo cnn con esa
+  combinación), esto falla con FileNotFoundError. El RF no entrena una CNN propia.
+
+El umbral de decisión (0.5 por defecto) NO se fija acá: entrenar no lo usa para nada,
+solo evaluate.py/inference_models.py lo aplican al momento de clasificar. train()
+además calcula su propio "umbral óptimo" post-entrenamiento (ver encontrar_umbral_optimo)
+solo a modo de referencia/diagnóstico, no como umbral que se guarda con el modelo.
+"""
+
 import argparse
 import os
 
-# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # agregar a path la carpeta src
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
@@ -47,6 +63,7 @@ set_seeds(SEED) # Usa el número que quieras, pero mantenlo
 
 
 def run_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, alpha: float, gamma: float, model_type: str) -> None:
+  """Despacha a train() (CNN) o run_rf_training() (Random Forest) según model_type."""
   if model_type == 'cnn':
     print(f'Modelo cnn {loss_type} | RGB? {isRgb} | alpha {alpha} | gamma {gamma}')
     train(
@@ -77,7 +94,15 @@ def train(
     gamma=2.0,
     epochs=20
 ):
+    """Entrena la CNN desde cero y la guarda en best_models/ vía el ModelCheckpoint
+    de get_callbacks (que monitorea val_recall, no val_loss/val_accuracy: en este
+    dominio un falso negativo -plaga clasificada como sana- es el error caro).
 
+    Si loss_type == 'focal_loss' no se pasa class_weight a model.fit: alpha ya
+    compensa el desbalance de clases dentro de la propia función de pérdida, así
+    que aplicar además class_weight sería doblemente penalizar la clase minoritaria.
+    class_weight solo se usa con binary_crossentropy, que no tiene ese mecanismo propio.
+    """
     start_time = time.time()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M")
     input_shape = (224, 224, 3) if isRgb else (224, 224, 5)
@@ -147,6 +172,18 @@ def train(
     return model
 
 def run_rf_training(data_dir: str, isRgb: bool, base_dir: str, model_loss_type: str) -> None:
+    """Entrena un Random Forest sobre features extraídas por una CNN ya entrenada.
+
+    Requiere que best_models/best_model_final_{RGB|MULTIESPECTRAL}_{model_loss_type}.keras
+    ya exista (entrenado antes con `train.py ... -mt cnn -lt <model_loss_type>` [-rgb]).
+    El "feature extractor" es esa misma CNN cortada antes de su capa de salida
+    (penúltima capa, ver cnn_model.crear_modelo_cnn), no un modelo nuevo.
+
+    Guarda un único .joblib con un dict {rf_model, scaler, feature_extractor}: hace
+    falta el feature_extractor completo (no solo el RF) porque para clasificar una
+    imagen nueva primero hay que pasarla por la misma CNN para obtener el vector de
+    features antes de dárselo al RF.
+    """
     start_time = time.time()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M")
 

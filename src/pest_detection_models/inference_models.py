@@ -1,3 +1,12 @@
+"""Script CLI de inferencia vigente (reemplaza al viejo inference.py, ya eliminado).
+
+Soporta CNN (.keras) y Random Forest (.joblib) sobre RGB o multiespectral, sobre una
+imagen/carpeta de muestra individual o una carpeta que contenga varias. Para RF,
+además del .joblib del RF necesita encontrar en el mismo best_models/ la CNN "hermana"
+(mismo tipo RGB/MS, misma -l/--loss) para extraer las features; si no la encuentra,
+avisa y sigue igual pasando los píxeles crudos aplanados (ver run_unified_inference).
+"""
+
 import argparse
 import os
 import sys

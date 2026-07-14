@@ -2,6 +2,13 @@ import tensorflow as tf
 import os
 
 def get_callbacks(isRgb=False, loss_type="focal_loss", base_dir: str = ""):
+    """Callbacks de entrenamiento usados por train.py::train.
+
+    El ModelCheckpoint monitorea val_recall (no val_loss/val_accuracy): en este
+    dominio dejar pasar una plaga sin detectar (falso negativo) es el error caro,
+    así que el "mejor" modelo guardado es el que mejor recall de validación logra,
+    no el de menor pérdida. EarlyStopping/ReduceLROnPlateau sí monitorean val_loss.
+    """
     model_save_dir = os.path.join(base_dir, 'best_models')
     os.makedirs(model_save_dir, exist_ok=True)
     

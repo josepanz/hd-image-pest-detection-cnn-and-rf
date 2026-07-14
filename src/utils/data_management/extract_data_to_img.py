@@ -31,6 +31,26 @@ SHP_ID_COLUMN = 'PlotID' # <--- EJEMPLO: Revisa y ajusta este nombre.
 TARGET_SIZE = (224, 224)
 
 def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: str = LABELS_CSV, parcels_dir: str = PARCELS_SHP, isRgb: bool = False, img_size: tuple[int, int] = TARGET_SIZE, val_split: float = 0.2, seed: int = 42, batch_size: int = 32, model_type: str = 'cnn'):
+  """Construye el dataset de entrenamiento/validación a partir del esquema TTADDA:
+  un CSV de labels (columna 'Etiqueta_FINAL' filtrada a 'Plaga'/'Sana', el resto se
+  descarta silenciosamente) + un shapefile de parcelas + carpetas de TIFF por fecha.
+
+  Para cada fila del CSV: ubica los TIFF de esa fecha/parcela (RGB.tif si isRgb,
+  si no las 5 bandas red/red edge/nir/blue/green), los recorta al polígono de la
+  parcela (rasterio.mask), los apila y redimensiona a img_size.
+
+  Normalización (importante, ver también la nota de cnn_model.py y el bug
+  documentado en evaluation/inference_utils.py): RGB se normaliza /255; multiespectral
+  se normaliza dividiendo por el máximo de esa imagen en particular (no un valor fijo
+  global), por lo que la escala relativa entre imágenes distintas no es idéntica.
+
+  model_type='cnn' devuelve imágenes 4D (N, H, W, C) listas para una CNN; 'rf' aplana
+  a vectores 2D (N, H*W*C) - pero en la práctica train.py::run_rf_training NO usa esta
+  rama: extrae features de una CNN en vez de vectorizar los píxeles crudos, así que
+  model_type='rf' solo se ejercita si se llama a esta función directamente con ese valor.
+
+  Retorna (X_train, X_val, y_train, y_val, label_encoder).
+  """
   # --- 1. CARGA DE DATOS ---
   print_time_and_step('1', f'Carga de datos {model_type} {"RGB" if isRgb else "Multiespectral"}', timestamp=timestamp, start_time=start_time)
   labels_df = pd.read_csv(labels_dir)

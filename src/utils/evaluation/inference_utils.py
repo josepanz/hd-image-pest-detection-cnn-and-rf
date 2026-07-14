@@ -1,7 +1,11 @@
+"""Motor de inferencia vigente (usado por pest_detection_models/inference_models.py):
+descubre carpetas de muestra (RGB o multiespectral) bajo una ruta dada, las carga y
+preprocesa, y corre la predicción con un modelo CNN o Random Forest ya cargado.
+"""
+
 import os
 import cv2
 import numpy as np
-import tensorflow as tf
 from typing import List, Dict, Any, Optional
 
 # Extensiones y sufijos para bandas multiespectrales (Ajustar según tu dataset)
@@ -17,19 +21,14 @@ BAND_SUFFIXES = [
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
 from src.utils.print_utils import print_time_and_step
+# Reexportado por compatibilidad con inference_models.py: la carga de modelo vive en
+# model_loading.py (evaluate.py también la usa) para no tener dos implementaciones de
+# "cargar modelo" a la vez.
+from src.utils.evaluation.model_loading import load_model_for_inference
 import time
 from datetime import datetime
 start_time = time.time()
 timestamp = datetime.now().strftime("%Y%m%d_%H%M")
-
-def load_model_for_inference(model_path: str):
-    """Carga un modelo de Keras para inferencia."""
-    try:
-        model = tf.keras.models.load_model(model_path, compile=False)
-        return model
-    except Exception as e:
-        print(f"❌ Error al cargar el modelo: {e}")
-        raise e
 
 def is_sample_folder(path, is_ms):
     """
@@ -66,6 +65,19 @@ def get_all_sample_folders(root_path, is_ms):
     return sample_folders
 
 def run_inference_on_path(model, feature_extractor_rf, path, threshold, img_size, model_name, is_multiespectral, is_random_forest):
+    """Corre inferencia sobre todas las muestras encontradas bajo `path` (una imagen
+    RGB, o recursivamente carpetas de bandas MS/subcarpetas RGB).
+
+    feature_extractor_rf: solo aplica si is_random_forest=True; es la CNN cortada que
+    convierte la imagen en el vector de features que espera el RF (ver
+    inference_models.py::run_unified_inference, que arma este extractor cargando la
+    CNN "hermana" del mismo tipo RGB/MS y loss). Si es None y is_random_forest=True,
+    se le pasan los píxeles crudos aplanados al RF (probablemente incorrecto salvo que
+    el RF se haya entrenado así a propósito).
+
+    umbral (threshold) solo decide la etiqueta final para CNN (Sana si prob_sana >=
+    threshold); para RF se usa directamente el argmax de predict_proba.
+    """
     results = []
     
     # 1. Identificar todas las muestras (recursivo)
@@ -178,6 +190,7 @@ def load_and_preprocess_image(path, img_size, is_ms):
         return None
 
 def save_inference_results(results, output_dir, threshold, img_type, model_type):
+    """Guarda la lista de resultados (una por muestra) como JSON en output_dir."""
     import json
     from datetime import datetime
     timestamp = datetime.now().strftime("%Y%m%d_%H%M")

@@ -1,3 +1,13 @@
+"""Evaluación de un modelo ya entrenado (CNN o RF) contra un split de validación.
+
+IMPORTANTE: reconstruye el split de validación llamando a extract_data_to_img_for_train
+con la MISMA seed/val_split que usa train.py, es decir que asume que se lo está
+llamando con el mismo data_dir (y el mismo dataset intacto) que se usó para entrenar
+ese modelo - no carga un split guardado. El tipo de modelo (RGB/MS, focal/BCE) se
+infiere del NOMBRE del archivo del modelo (substrings 'rgb'/'focal'), no de un flag
+explícito; si se renombra el .keras/.joblib sin esas palabras, la detección falla.
+"""
+
 import argparse
 import os
 import sys
