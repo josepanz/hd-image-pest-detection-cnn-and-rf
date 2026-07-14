@@ -1,16 +1,16 @@
-# src/utils/evaluation/model_loading.py
+# pest_detection/evaluation/model_loading.py
 #
 # Carga de modelos ya entrenados (.keras / .joblib) para evaluate.py.
 # Antes vivía en utils_inference.py junto con lógica de inferencia que ya no se usa
-# (el motor de inferencia vigente es inference_utils.py, usado por inference_models.py);
+# (el motor de inferencia vigente es inference_utils.py, usado por infer.py);
 # se dejó solo lo que evaluate.py realmente importa.
 
 import os
 import tensorflow as tf
 import joblib
 
-from src.utils.focal_loss import focal_loss # misma implementación usada para entrenar/compilar en cnn_model.py
-from src.utils.print_utils import print_time_and_step
+from pest_detection.focal_loss import focal_loss # misma implementación usada para entrenar/compilar en cnn_model.py
+from pest_detection.print_utils import print_time_and_step
 
 CUSTOM_OBJECTS = {
     # focal_loss() usa los valores por defecto de alpha/gamma (no los que se pasaron

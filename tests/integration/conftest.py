@@ -11,9 +11,9 @@ import numpy as np
 import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-BEST_MODELS_DIR = REPO_ROOT / "src" / "pest_detection_models" / "best_models"
+BEST_MODELS_DIR = REPO_ROOT / "best_models"
 
-# Debe coincidir con BAND_SUFFIXES en src/utils/evaluation/inference_utils.py
+# Debe coincidir con BAND_SUFFIXES en pest_detection/evaluation/inference_utils.py
 _MS_BAND_SUFFIXES = ["_blue.tif", "_green.tif", "_red.tif", "_red edge.tif", "_nir.tif"]
 
 

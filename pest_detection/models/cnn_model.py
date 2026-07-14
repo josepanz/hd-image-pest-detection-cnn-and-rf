@@ -1,11 +1,7 @@
 import tensorflow as tf
-import os
-import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
 from keras import layers, Model, Input
 from keras.metrics import Precision, Recall, AUC, BinaryAccuracy
-from src.utils.focal_loss import focal_loss
+from pest_detection.focal_loss import focal_loss
 
 def crear_modelo_cnn(input_shape, loss_type='focal_loss', alpha=0.25, gamma=2.0):
     """CNN simple (3 bloques Conv+BN+MaxPool -> GAP -> Dense -> sigmoid) para

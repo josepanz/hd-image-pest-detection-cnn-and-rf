@@ -9,7 +9,7 @@ import cv2
 
 from sklearn.preprocessing import LabelEncoder
 
-from src.utils.print_utils import print_time_and_step
+from pest_detection.print_utils import print_time_and_step
 
 import time
 from datetime import datetime

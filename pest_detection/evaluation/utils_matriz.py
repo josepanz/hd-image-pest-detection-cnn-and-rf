@@ -133,7 +133,7 @@ def plot_conteo_umbrales():
     plt.tight_layout()
     
     # Guardar para la tesis
-    plt.savefig('C:\workspace\hd-image-pest-detection-cnn-and-rf\src\pest_detection_models\evaluation_results\evolucion_conteo.png', dpi=300, bbox_inches='tight')
+    plt.savefig('C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results\evolucion_conteo.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 def plot_stacked_evolution():

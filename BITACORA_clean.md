@@ -1156,13 +1156,13 @@ AUC REAL: 0.8793
 ````
 
 #### 1.3.2 Accuracy plot:
-![alt text](src/pest_detection_models/history/MULTIESPECTRAL/focal_loss/accuracy_plot_20260324_1303_epochs_80_MULTIESPECTRAL_Focal_a0.75_g2.0.png)
+![alt text](history/MULTIESPECTRAL/focal_loss/accuracy_plot_20260324_1303_epochs_80_MULTIESPECTRAL_Focal_a0.75_g2.0.png)
 
 #### 1.3.2 Loss plot:
-![alt text](src/pest_detection_models/history/MULTIESPECTRAL/focal_loss/loss_plot_20260324_1303_epochs_80_MULTIESPECTRAL_Focal_a0.75_g2.0.png)
+![alt text](history/MULTIESPECTRAL/focal_loss/loss_plot_20260324_1303_epochs_80_MULTIESPECTRAL_Focal_a0.75_g2.0.png)
 
 #### 1.3.2 Recall plot:
-![alt text](src/pest_detection_models/history/MULTIESPECTRAL/focal_loss/recall_plot_20260324_1303_epochs_80_MULTIESPECTRAL_Focal_a0.75_g2.0.png)
+![alt text](history/MULTIESPECTRAL/focal_loss/recall_plot_20260324_1303_epochs_80_MULTIESPECTRAL_Focal_a0.75_g2.0.png)
 
 # 2. BINARY CROSS ENTROPY MULTIESPECTRAL (BCE MS)
 ### 2.1 Comando:
@@ -1483,13 +1483,13 @@ AUC REAL: 0.8708
 ````
 
 #### 2.3.2 Accuracy plot:
-![alt text](src/pest_detection_models/history/MULTIESPECTRAL/binary_crossentropy/accuracy_plot_20260324_1356_epochs_80_MULTIESPECTRAL_BCE.png)
+![alt text](history/MULTIESPECTRAL/binary_crossentropy/accuracy_plot_20260324_1356_epochs_80_MULTIESPECTRAL_BCE.png)
 
 #### 2.3.2 Loss plot:
-![alt text](src/pest_detection_models/history/MULTIESPECTRAL/binary_crossentropy/loss_plot_20260324_1356_epochs_80_MULTIESPECTRAL_BCE.png)
+![alt text](history/MULTIESPECTRAL/binary_crossentropy/loss_plot_20260324_1356_epochs_80_MULTIESPECTRAL_BCE.png)
 
 #### 2.3.2 Recall plot:
-![alt text](src/pest_detection_models/history/MULTIESPECTRAL/binary_crossentropy/recall_plot_20260324_1356_epochs_80_MULTIESPECTRAL_BCE.png)
+![alt text](history/MULTIESPECTRAL/binary_crossentropy/recall_plot_20260324_1356_epochs_80_MULTIESPECTRAL_BCE.png)
 
 # 3. FOCAL LOSS RGB (FL RGB)
 ### 3.1 Comando:
@@ -1860,13 +1860,13 @@ AUC REAL: 0.7504
 ````
 
 #### 3.3.2 Accuracy plot:
-![alt text](src/pest_detection_models/history/RGB/focal_loss/accuracy_plot_20260324_1405_epochs_80_RGB_Focal_a0.75_g2.0.png)
+![alt text](history/RGB/focal_loss/accuracy_plot_20260324_1405_epochs_80_RGB_Focal_a0.75_g2.0.png)
 
 #### 3.3.2 Loss plot:
-![alt text](src/pest_detection_models/history/RGB/focal_loss/loss_plot_20260324_1405_epochs_80_RGB_Focal_a0.75_g2.0.png)
+![alt text](history/RGB/focal_loss/loss_plot_20260324_1405_epochs_80_RGB_Focal_a0.75_g2.0.png)
 
 #### 3.3.2 Recall plot:
-![alt text](src/pest_detection_models/history/RGB/focal_loss/recall_plot_20260324_1405_epochs_80_RGB_Focal_a0.75_g2.0.png)
+![alt text](history/RGB/focal_loss/recall_plot_20260324_1405_epochs_80_RGB_Focal_a0.75_g2.0.png)
 
 # 4. BINARY CROSS ENTROPY RGB (BCE RGB)
 ### 4.1 Comando:
@@ -2222,13 +2222,13 @@ AUC REAL: 0.6576
 ````
 
 #### 4.3.2 Accuracy plot:
-![alt text](src/pest_detection_models/history/RGB/binary_crossentropy/accuracy_plot_20260325_1459_epochs_80_RGB_BCE.png)
+![alt text](history/RGB/binary_crossentropy/accuracy_plot_20260325_1459_epochs_80_RGB_BCE.png)
 
 #### 4.3.2 Loss plot:
-![alt text](src/pest_detection_models/history/RGB/binary_crossentropy/loss_plot_20260325_1459_epochs_80_RGB_BCE.png)
+![alt text](history/RGB/binary_crossentropy/loss_plot_20260325_1459_epochs_80_RGB_BCE.png)
 
 #### 4.3.2 Recall plot:
-![alt text](src/pest_detection_models/history/RGB/binary_crossentropy/recall_plot_20260325_1459_epochs_80_RGB_BCE.png)
+![alt text](history/RGB/binary_crossentropy/recall_plot_20260325_1459_epochs_80_RGB_BCE.png)
 
 # RANDOM FOREST (RF)
 ## I. ENTRENAMIENTO
@@ -2566,7 +2566,7 @@ if __name__ == "__main__":
 
 
 ## CNN MULTIESPECTRAL FOCAL LOSS
-![alt text](src/pest_detection_models/evaluation_results/CNN/MULTIESPECTRAL/focal_loss/0.45/ROC_best_model_final_MULTIESPECTRAL_focal_loss.keras_20260325_1155_t0.45.png)
+![alt text](evaluation_results/CNN/MULTIESPECTRAL/focal_loss/0.45/ROC_best_model_final_MULTIESPECTRAL_focal_loss.keras_20260325_1155_t0.45.png)
 
 ### 1 UMBRAL 0.4
 #### 1.1 Comando:
@@ -2757,7 +2757,7 @@ weighted avg       0.82      0.76      0.77       133
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 1.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/CNN/MULTIESPECTRAL/focal_loss/0.45/report_best_model_final_MULTIESPECTRAL_focal_loss.keras_20260325_1155_t45_confusion.png)
+![alt text](evaluation_results/CNN/MULTIESPECTRAL/focal_loss/0.45/report_best_model_final_MULTIESPECTRAL_focal_loss.keras_20260325_1155_t45_confusion.png)
 
 # Matriz de confusin
 
@@ -2958,7 +2958,7 @@ weighted avg       0.82      0.77      0.77       133
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 2.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/CNN/MULTIESPECTRAL/focal_loss/0.5214/report_best_model_final_MULTIESPECTRAL_focal_loss.keras_20260325_1157_t52_confusion.png)
+![alt text](evaluation_results/CNN/MULTIESPECTRAL/focal_loss/0.5214/report_best_model_final_MULTIESPECTRAL_focal_loss.keras_20260325_1157_t52_confusion.png)
 
 # Matriz de confusin
 
@@ -3160,7 +3160,7 @@ weighted avg       0.81      0.81      0.81       133
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 3.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/CNN/MULTIESPECTRAL/focal_loss/0.7/report_best_model_final_MULTIESPECTRAL_focal_loss.keras_20260325_1159_t70_confusion.png)
+![alt text](evaluation_results/CNN/MULTIESPECTRAL/focal_loss/0.7/report_best_model_final_MULTIESPECTRAL_focal_loss.keras_20260325_1159_t70_confusion.png)
 
 # Matriz de confusin
 
@@ -3175,7 +3175,7 @@ weighted avg       0.81      0.81      0.81       133
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ## CNN MULTIESPECTRAL BINARY CROSS ENTROPY
-![alt text](src/pest_detection_models/evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.5/report_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260325_1152_t50_confusion.png)
+![alt text](evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.5/report_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260325_1152_t50_confusion.png)
 
 ### 1 UMBRAL 0.45
 #### 1.1 Comando:
@@ -3366,7 +3366,7 @@ weighted avg       0.78      0.68      0.56       133
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 1.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.45/report_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260325_1137_t45_confusion.png)
+![alt text](evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.45/report_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260325_1137_t45_confusion.png)
 
 # Matriz de confusin
 
@@ -3569,7 +3569,7 @@ weighted avg       0.78      0.68      0.56       133
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 2.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.5/report_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260325_1152_t50_confusion.png)
+![alt text](evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.5/report_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260325_1152_t50_confusion.png)
 
 # Matriz de confusin
 
@@ -3774,7 +3774,7 @@ weighted avg       0.46      0.68      0.55       133
 ##### 3.3.3 Matriz de confusin
 
 # Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.7/report_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260325_1154_t70_confusion.png)
+![alt text](evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.7/report_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260325_1154_t70_confusion.png)
 
 - **Fecha:** 2026-03-25 11:54:15
 - **Modelo:** report_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260325_1154_t70_confusion.md
@@ -3787,7 +3787,7 @@ weighted avg       0.46      0.68      0.55       133
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ## CNN RGB FOCAL LOSS
-![alt text](src/pest_detection_models/evaluation_results/CNN/RGB/focal_loss/0.7/ROC_best_model_final_RGB_focal_loss.keras_20260325_1445_t0.7.png)
+![alt text](evaluation_results/CNN/RGB/focal_loss/0.7/ROC_best_model_final_RGB_focal_loss.keras_20260325_1445_t0.7.png)
 
 ### 1 UMBRAL 0.4
 #### 1.1 Comando:
@@ -4000,7 +4000,7 @@ weighted avg       0.12      0.34      0.17       126
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 1.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/CNN/RGB/focal_loss/0.45/report_best_model_final_RGB_focal_loss.keras_20260325_1429_t45_confusion.png)
+![alt text](evaluation_results/CNN/RGB/focal_loss/0.45/report_best_model_final_RGB_focal_loss.keras_20260325_1429_t45_confusion.png)
 
 # Matriz de confusin
 
@@ -4225,7 +4225,7 @@ weighted avg       0.43      0.66      0.52       126
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 2.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/CNN/RGB/focal_loss/0.5214/report_best_model_final_RGB_focal_loss.keras_20260325_1441_t52_confusion.png)
+![alt text](evaluation_results/CNN/RGB/focal_loss/0.5214/report_best_model_final_RGB_focal_loss.keras_20260325_1441_t52_confusion.png)
 
 # Matriz de confusin
 
@@ -4451,7 +4451,7 @@ weighted avg       0.43      0.66      0.52       126
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 3.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/CNN/RGB/focal_loss/0.7/report_best_model_final_RGB_focal_loss.keras_20260325_1444_t70_confusion.png)
+![alt text](evaluation_results/CNN/RGB/focal_loss/0.7/report_best_model_final_RGB_focal_loss.keras_20260325_1444_t70_confusion.png)
 
 # Matriz de confusin
 
@@ -4466,7 +4466,7 @@ weighted avg       0.43      0.66      0.52       126
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ## CNN RGB BINARY CROSS ENTROPY
-![alt text](src/pest_detection_models/evaluation_results/CNN/RGB/binary_crossentropy/0.45/ROC_best_model_final_RGB_binary_crossentropy.keras_20260325_1504_t0.45.png)
+![alt text](evaluation_results/CNN/RGB/binary_crossentropy/0.45/ROC_best_model_final_RGB_binary_crossentropy.keras_20260325_1504_t0.45.png)
 
 ### 1 UMBRAL 0.4
 #### 1.1 Comando:
@@ -4679,7 +4679,7 @@ weighted avg       0.12      0.34      0.17       126
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 1.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/CNN/RGB/binary_crossentropy/0.45/report_best_model_final_RGB_binary_crossentropy.keras_20260325_1504_t45_confusion.png)
+![alt text](evaluation_results/CNN/RGB/binary_crossentropy/0.45/report_best_model_final_RGB_binary_crossentropy.keras_20260325_1504_t45_confusion.png)
 
 # Matriz de confusin
 
@@ -4904,7 +4904,7 @@ weighted avg       0.43      0.66      0.52       126
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 2.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/CNN/RGB/binary_crossentropy/0.5214/report_best_model_final_RGB_binary_crossentropy.keras_20260325_1508_t52_confusion.png)
+![alt text](evaluation_results/CNN/RGB/binary_crossentropy/0.5214/report_best_model_final_RGB_binary_crossentropy.keras_20260325_1508_t52_confusion.png)
 
 # Matriz de confusin
 
@@ -5129,7 +5129,7 @@ weighted avg       0.43      0.66      0.52       126
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 3.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/CNN/RGB/binary_crossentropy/0.7/report_best_model_final_RGB_binary_crossentropy.keras_20260325_1509_t70_confusion.png)
+![alt text](evaluation_results/CNN/RGB/binary_crossentropy/0.7/report_best_model_final_RGB_binary_crossentropy.keras_20260325_1509_t70_confusion.png)
 
 # Matriz de confusin
 
@@ -5144,7 +5144,7 @@ weighted avg       0.43      0.66      0.52       126
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ## CNN + RANDOM FOREST MULTIESPECTRAL
-![alt text](src/pest_detection_models/evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.45/ROC_report_table_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1627_t0.45.png)
+![alt text](evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.45/ROC_report_table_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1627_t0.45.png)
 
 ### 1 UMBRAL 0.4
 #### 1.1 Comando:
@@ -5304,10 +5304,10 @@ weighted avg       0.75      0.73      0.74       133
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 1.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.45/ROC_report_table_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1627_t0.45.png)
+![alt text](evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.45/ROC_report_table_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1627_t0.45.png)
 
 # Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.45/report_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1625.png)
+![alt text](evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.45/report_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1625.png)
 
 - **Fecha:** 2026-03-25 16:27:04
 - **Modelo:** report_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1625.md
@@ -5496,7 +5496,7 @@ weighted avg       0.74      0.73      0.73       133
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 2.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.5214/report_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1630.png)
+![alt text](evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.5214/report_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1630.png)
 
 # Matriz de confusin
 
@@ -5687,7 +5687,7 @@ weighted avg       0.71      0.73      0.71       133
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 3.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.7/report_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1632.png)
+![alt text](evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.7/report_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1632.png)
 
 # Matriz de confusin
 
@@ -5702,7 +5702,7 @@ weighted avg       0.71      0.73      0.71       133
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ## CNN + RANDOM FOREST RGB
-![alt text](src/pest_detection_models/evaluation_results/RANDOM_FOREST/RGB/0.45/ROC_report_table_best_model_RANDOM_FOREST_RGB_20260325_1639_t0.45.png)
+![alt text](evaluation_results/RANDOM_FOREST/RGB/0.45/ROC_report_table_best_model_RANDOM_FOREST_RGB_20260325_1639_t0.45.png)
 
 ### 1 UMBRAL 0.45
 #### 1.1 Comando:
@@ -5916,7 +5916,7 @@ weighted avg       0.85      0.84      0.84       126
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 1.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/RANDOM_FOREST/RGB/0.45/report_best_model_RANDOM_FOREST_RGB_20260325_1638.png)
+![alt text](evaluation_results/RANDOM_FOREST/RGB/0.45/report_best_model_RANDOM_FOREST_RGB_20260325_1638.png)
 
 # Matriz de confusin
 
@@ -6144,7 +6144,7 @@ weighted avg       0.83      0.83      0.83       126
 ##### 2.3.3 Matriz de confusin
 
 # Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/RANDOM_FOREST/RGB/0.5214/report_best_model_RANDOM_FOREST_RGB_20260325_1641.png)
+![alt text](evaluation_results/RANDOM_FOREST/RGB/0.5214/report_best_model_RANDOM_FOREST_RGB_20260325_1641.png)
 
 - **Fecha:** 2026-03-25 16:41:45
 - **Modelo:** report_best_model_RANDOM_FOREST_RGB_20260325_1641.md
@@ -6368,7 +6368,7 @@ weighted avg       0.71      0.73      0.71       133
 *Generado automticamente por el sistema de deteccin de plagas.*
 
 ##### 3.3.3 Matriz de confusin
-![alt text](src/pest_detection_models/evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.7/report_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1632.png)
+![alt text](evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.7/report_best_model_RANDOM_FOREST_MULTIESPECTRAL_20260325_1632.png)
 
 # Matriz de confusin
 

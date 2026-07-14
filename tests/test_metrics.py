@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.metrics import roc_auc_score
 
-from src.utils.metrics import evaluar_modelo
+from pest_detection.metrics import evaluar_modelo
 
 
 def test_confusion_matrix_and_auc_match_hand_computed_case():

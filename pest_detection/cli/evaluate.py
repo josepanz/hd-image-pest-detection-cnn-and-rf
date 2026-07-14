@@ -10,27 +10,21 @@ explícito; si se renombra el .keras/.joblib sin esas palabras, la detección fa
 
 import argparse
 import os
-import sys
 import time
 from datetime import datetime
 
 import numpy as np
 import joblib
 
-# Paths
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
-
 # Utils propios
-from src.utils.print_utils import print_time_and_step
-from src.utils.evaluation.utils_metrics import (
+from pest_detection.print_utils import print_time_and_step
+from pest_detection.evaluation.utils_metrics import (
     save_report_and_plot_cm,
     CLASSES,
     plot_roc_curve_and_auc,
 )
-from src.utils.evaluation.model_loading import load_model_for_inference
-from src.utils.data_management.extract_data_to_img import extract_data_to_img_for_train
+from pest_detection.evaluation.model_loading import load_model_for_inference
+from pest_detection.datasets.extract_data_to_img import extract_data_to_img_for_train
 
 # Constantes
 IMG_SIZE = (224, 224)
@@ -227,7 +221,7 @@ if __name__ == "__main__":
     parser.add_argument("-m", "--model", required=True)
     parser.add_argument("-t", "--threshold", type=float, default=0.5)
     parser.add_argument("-mt", "--model_type", required=True, choices=["cnn", "rf"])
-    parser.add_argument("-b", "--base_dir", default=BASE_DIR)
+    parser.add_argument("-b", "--base_dir", default=os.getcwd())
     parser.add_argument("-bs", "--batch_size", type=int, default=32)
 
     args = parser.parse_args()

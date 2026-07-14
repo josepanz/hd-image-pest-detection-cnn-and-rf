@@ -1,4 +1,4 @@
-"""Motor de inferencia vigente (usado por pest_detection_models/inference_models.py):
+"""Motor de inferencia vigente (usado por pest_detection/cli/infer.py):
 descubre carpetas de muestra (RGB o multiespectral) bajo una ruta dada, las carga y
 preprocesa, y corre la predicción con un modelo CNN o Random Forest ya cargado.
 """
@@ -17,14 +17,11 @@ BAND_SUFFIXES = [
     "_nir.tif"
 ]
 
-# agregar a path la carpeta src
-import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
-from src.utils.print_utils import print_time_and_step
-# Reexportado por compatibilidad con inference_models.py: la carga de modelo vive en
+from pest_detection.print_utils import print_time_and_step
+# Reexportado por compatibilidad con infer.py: la carga de modelo vive en
 # model_loading.py (evaluate.py también la usa) para no tener dos implementaciones de
 # "cargar modelo" a la vez.
-from src.utils.evaluation.model_loading import load_model_for_inference
+from pest_detection.evaluation.model_loading import load_model_for_inference
 import time
 from datetime import datetime
 start_time = time.time()

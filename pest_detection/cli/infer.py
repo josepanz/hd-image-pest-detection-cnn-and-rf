@@ -9,7 +9,6 @@ avisa y sigue igual pasando los píxeles crudos aplanados (ver run_unified_infer
 
 import argparse
 import os
-import sys
 import time
 import numpy as np
 import tensorflow as tf
@@ -18,16 +17,9 @@ import json
 from datetime import datetime
 from typing import List, Dict, Any
 
-# Configuración de Paths
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(os.path.join(BASE_DIR, '../..'))
-sys.path.append(os.path.join(BASE_DIR, '../evaluation'))
-sys.path.append(os.path.join(BASE_DIR, '../utils'))
-
-# Imports de la Tesis
-from src.utils.evaluation.inference_utils import load_model_for_inference, run_inference_on_path, save_inference_results
-from src.utils.print_utils import print_time_and_step
-from src.utils.print_utils import plot_inference_results 
+from pest_detection.evaluation.inference_utils import load_model_for_inference, run_inference_on_path, save_inference_results
+from pest_detection.print_utils import print_time_and_step
+from pest_detection.print_utils import plot_inference_results
 
 # Constantes Globales
 IMG_SIZE = (224, 224)
@@ -40,11 +32,13 @@ def main():
     parser.add_argument("-t", "--threshold", type=float, default=0.5, help="Umbral de decisión (t).")
     parser.add_argument("-mt", "--model_type", type=str, required=True, choices=["cnn", "rf"], help="Tipo de arquitectura.")
     parser.add_argument("-l", "--loss", type=str, required=False, choices=["fl", "bce"], help="Tipo de perdida.")
+    parser.add_argument("-b", "--base_dir", default=os.getcwd(), help="Directorio donde se crea inference-results/ (por defecto, el directorio actual).")
     args = parser.parse_args()
 
-    run_unified_inference(args.path, args.model, args.threshold, args.model_type, args.loss)
+    run_unified_inference(args.path, args.model, args.threshold, args.model_type, args.loss, args.base_dir)
 
-def run_unified_inference(path, model_path, threshold, arch_type, loss: str = 'fl'):
+def run_unified_inference(path, model_path, threshold, arch_type, loss: str = 'fl', base_dir: str = None):
+    base_dir = base_dir if base_dir is not None else os.getcwd()
     start_time = time.time()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M")
     
@@ -122,7 +116,7 @@ def run_unified_inference(path, model_path, threshold, arch_type, loss: str = 'f
     print_time_and_step('3', f"✅ Inferencia completada. Procesados: {len(results)} items.", timestamp=timestamp, start_time=start_time)
 
     # Crear directorios de salida
-    output_base = os.path.join(BASE_DIR, f'inference-results/{arch_type}/{loss_info}/{img_mode}/{threshold}')
+    output_base = os.path.join(base_dir, f'inference-results/{arch_type}/{loss_info}/{img_mode}/{threshold}')
     os.makedirs(output_base, exist_ok=True)
 
     # Guardar JSON y Gráfico

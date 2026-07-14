@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.datasets import make_classification
 
-from src.utils.models.random_forest import model_random_forest, entrenar_rf, evaluar_rf
+from pest_detection.models.random_forest import model_random_forest, entrenar_rf, evaluar_rf
 
 
 def _synthetic_dataset():

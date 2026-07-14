@@ -28,13 +28,15 @@ El código está organizado por el tipo de clasificador (CNN o RF) y la función
 | :--- | :--- |
 | data/ | Datasets de entrenamiento. No incluye los `.tif` reales del dataset TTADDA (hay que descargarlos aparte, ver más abajo); tampoco incluye ya el dataset RGB tipo PlantVillage que existió acá anteriormente (`data/rgb/Plaga`, `data/rgb/Sana`) - era un enfoque descartado y no estaba conectado al pipeline de `train.py` |
 | predict-test/ | Imágenes/metadatos de ejemplo para pruebas de inferencia (tampoco incluye los `.tif` reales) |
-| src/pest_detection_models/ | Código principal del proyecto
-| src/pest_detection_models/train.py | Script para entrenamiento de modelos (CNN o Random Forest) |
-| src/pest_detection_models/evaluate.py | Script para evaluación de modelos ya entrenados |
-| src/pest_detection_models/inference_models.py | Script para realizar predicciones (CNN y Random Forest, RGB y multiespectral) |
-| src/pest_detection_models/best_models/ | Modelos entrenados guardados |
-| src/pest_detection_models/evaluation_results/ | Resultados de evaluación |
-| src/utils/ | Utilidades compartidas (carga de datos, modelos, métricas, inferencia); incluye también scripts CLI standalone de preparación/inspección de datos, ver sección dedicada más abajo |
+| pest_detection/ | Código principal del proyecto, organizado como paquete Python |
+| pest_detection/cli/train.py | Script para entrenamiento de modelos (CNN o Random Forest) |
+| pest_detection/cli/evaluate.py | Script para evaluación de modelos ya entrenados |
+| pest_detection/cli/infer.py | Script para realizar predicciones (CNN y Random Forest, RGB y multiespectral) |
+| pest_detection/models/, pest_detection/datasets/, pest_detection/evaluation/ | Arquitectura de modelos, carga/preparación de datos, y métricas/motor de inferencia |
+| pest_detection/tools/ | Scripts CLI standalone de preparación/inspección de datos, ver sección dedicada más abajo |
+| best_models/ | Modelos entrenados guardados |
+| evaluation_results/, history/, inference-results/ | Resultados de evaluación, historiales de entrenamiento e inferencias |
+| tests/ | Suite de tests (unitarios en `tests/`, de integración en `tests/integration/`) |
 | requirements.txt | Dependencias del proyecto |
 | README.md | Documentación del repositorio |
 
@@ -50,36 +52,45 @@ El código está organizado por el tipo de clasificador (CNN o RF) y la función
     ├── predict-test/
     │   └── multiespectral/
     │
-    ├── src/
-    │   └── pest_detection_models/
-    │       ├── train.py
-    │       ├── evaluate.py
-    │       ├── inference_models.py
-    │       ├── best_models/
-    │       └── evaluation_results/
+    ├── pest_detection/
+    │   ├── cli/
+    │   │   ├── train.py
+    │   │   ├── evaluate.py
+    │   │   └── infer.py
+    │   ├── models/
+    │   ├── datasets/
+    │   ├── evaluation/
+    │   └── tools/
+    │
+    ├── best_models/
+    ├── evaluation_results/
+    ├── tests/
     │
     ├── requirements.txt
     └── README.md
 ```
 
+Los scripts se corren con `python -m` desde la raíz del repo (así Python encuentra el
+paquete `pest_detection` sin necesidad de instalarlo ni de hacks de `sys.path`), por
+ejemplo `python -m pest_detection.cli.train ...` (ver comandos completos más abajo).
 
 ## 🧰 Herramientas auxiliares
 
 Estos scripts se ejecutan manualmente para preparar o inspeccionar datos. Ninguno es
-importado por `train.py`/`evaluate.py`/`inference_models.py` (no forman parte del
-pipeline principal, son de uso puntual):
+importado por `train.py`/`evaluate.py`/`infer.py` (no forman parte del pipeline
+principal, son de uso puntual), y se corren igual con `python -m`:
 
 | Script | Para qué sirve |
 | :--- | :--- |
-| `src/utils/inspects/inspect_tif.py` | Inspecciona bandas, dimensiones y CRS de un GeoTIFF |
-| `src/utils/inspects/inspect_shapefile.py` | Inspecciona columnas/CRS/registros de un shapefile de parcelas |
-| `src/utils/inspects/inspect_datatables.py` | Explora un Excel de mediciones agronómicas |
-| `src/utils/miscellaneous/patch_extractor.py` | Extrae parches de imagen por polígono desde un TIFF multiespectral |
-| `src/utils/miscellaneous/save_rgb_and_bands.py` | Guarda cada banda + un compuesto RGB como PNG, para QA visual del dataset |
-| `src/utils/miscellaneous/utils_tiff_converter.py` | Convierte TIFF RGB a PNG normalizado (correr una sola vez antes de entrenar RGB) |
-| `src/utils/miscellaneous/convert_md_to_pdf.py` | Convierte bitácoras Markdown a PDF (requiere `pandoc`/`xelatex` instalados aparte) |
-| `src/utils/evaluation/utils_matriz.py` | Genera figuras de evolución de matriz de confusión para el informe |
-| `src/utils/evaluation/utils_roc.py` | Combina curvas ROC de corridas ya guardadas en un gráfico comparativo |
+| `python -m pest_detection.tools.inspect_tif` | Inspecciona bandas, dimensiones y CRS de un GeoTIFF |
+| `python -m pest_detection.tools.inspect_shapefile` | Inspecciona columnas/CRS/registros de un shapefile de parcelas |
+| `python -m pest_detection.tools.inspect_datatables` | Explora un Excel de mediciones agronómicas |
+| `python -m pest_detection.tools.patch_extractor` | Extrae parches de imagen por polígono desde un TIFF multiespectral |
+| `python -m pest_detection.tools.save_rgb_and_bands` | Guarda cada banda + un compuesto RGB como PNG, para QA visual del dataset |
+| `python -m pest_detection.tools.utils_tiff_converter` | Convierte TIFF RGB a PNG normalizado (correr una sola vez antes de entrenar RGB) |
+| `python -m pest_detection.tools.convert_md_to_pdf` | Convierte bitácoras Markdown a PDF (requiere `pandoc`/`xelatex` instalados aparte) |
+| `python -m pest_detection.evaluation.utils_matriz` | Genera figuras de evolución de matriz de confusión para el informe |
+| `python -m pest_detection.evaluation.utils_roc` | Combina curvas ROC de corridas ya guardadas en un gráfico comparativo |
 
 ## ⚙️ Configuración del Entorno
 
@@ -147,26 +158,29 @@ pip install -r requirements.txt
 > al entrenamiento, y correr el mismo comando con distintos `-t` como antes solo
 > reentrenaba y sobreescribía el mismo modelo varias veces). El umbral de decisión se
 > define recién al *evaluar* o *inferir* con un modelo ya entrenado, con
-> `evaluate.py`/`inference_models.py` (ver más abajo).
+> `evaluate.py`/`infer.py` (ver más abajo). Todos los comandos se corren desde la raíz
+> del repo con `python -m` (así se encuentra el paquete `pest_detection` sin
+> instalarlo); `-b/--base_dir` (opcional en los tres scripts) elige dónde se crean
+> `best_models/`/`evaluation_results/`/etc. y por defecto es el directorio actual.
 
 #### **- CNN Multiespectral — Focal Loss**
 ```bash
-python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt focal_loss -e 20 -a 0.75 -g 1.5 -mt cnn
+python -m pest_detection.cli.train data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt focal_loss -e 20 -a 0.75 -g 1.5 -mt cnn
 ```
 
 #### **- CNN Multiespectral — Binary Crossentropy**
 ```bash
-python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt binary_crossentropy -e 20 -mt cnn
+python -m pest_detection.cli.train data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt binary_crossentropy -e 20 -mt cnn
 ```
 
 #### **- CNN RGB — Focal Loss**
 ```bash
-python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt focal_loss -e 20 -a 0.75 -g 1.5 -mt cnn -rgb
+python -m pest_detection.cli.train data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt focal_loss -e 20 -a 0.75 -g 1.5 -mt cnn -rgb
 ```
 
 #### **- CNN RGB — Binary Crossentropy**
 ```bash
-python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt binary_crossentropy -e 20 -mt cnn -rgb
+python -m pest_detection.cli.train data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -lt binary_crossentropy -e 20 -mt cnn -rgb
 ```
 
 #### **- Random Forest**
@@ -174,20 +188,20 @@ python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTA
 > con uno de los comandos CNN de arriba, mismo tipo RGB/MS y mismo `-lt`): Random Forest
 > no entrena una CNN propia, extrae features de una ya entrenada.
 ```bash
-python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -mt rf
+python -m pest_detection.cli.train data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -mt rf
 
-python src\pest_detection_models\train.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -mt rf -rgb
+python -m pest_detection.cli.train data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -mt rf -rgb
 ```
 ------------------------------------------------------------------------
 
 ### 2️⃣ 📊 Evaluación de Modelos
 
 #### Los resultados de evaluación se guardan en:
-- `src/pest_detection_models/evaluation_results/`
+- `evaluation_results/`
 
 #### Ejemplo de evaluación:
 ```bash
-python src\pest_detection_models\evaluate.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -m src\pest_detection_models\best_models\best_model_final_MULTIESPECTRAL_focal_loss.keras -t 0.50 -mt cnn
+python -m pest_detection.cli.evaluate data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -m best_models\best_model_final_MULTIESPECTRAL_focal_loss.keras -t 0.50 -mt cnn
 ```
 
 #### Evaluación Random Forest:
@@ -195,24 +209,23 @@ python src\pest_detection_models\evaluate.py data\multiespectral\TTADDA-dataset\
 > particular (lo imprime `train.py -mt rf` al terminar) - reemplazá el de abajo por el
 > que tengas realmente en tu carpeta `best_models/`.
 ```bash
-python src\pest_detection_models\evaluate.py data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -m src\pest_detection_models\best_models\best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib -mt rf
+python -m pest_detection.cli.evaluate data\multiespectral\TTADDA-dataset\TTADDA_NARO_2023_F1\drone_data -m best_models\best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib -mt rf
 ```
 
 ### 3️⃣ 🔎 Inferencia (Predicción)
 
 Permite predecir si una imagen (o carpeta de muestra) corresponde a plaga o planta
-sana. El script vigente es `inference_models.py`, unificado para CNN y Random Forest,
-RGB y multiespectral (reemplaza a un `inference.py` más viejo que ya no existe en el
-repo).
+sana. El script vigente es `infer.py`, unificado para CNN y Random Forest, RGB y
+multiespectral.
 
 #### Ejemplo CNN Multiespectral:
 ```bash
-python src\pest_detection_models\inference_models.py predict-test\multiespectral\TTADDA_NARO_2021_F1\drone_data\2021-05-25 -m src\pest_detection_models\best_models\best_model_final_MULTIESPECTRAL_focal_loss.keras -t 0.50 -mt cnn
+python -m pest_detection.cli.infer predict-test\multiespectral\TTADDA_NARO_2021_F1\drone_data\2021-05-25 -m best_models\best_model_final_MULTIESPECTRAL_focal_loss.keras -t 0.50 -mt cnn
 ```
 
 #### Ejemplo CNN RGB:
 ```bash
-python src\pest_detection_models\inference_models.py predict-test\multiespectral\TTADDA_NARO_2021_F1\drone_data\2021-05-25\20210525_rgb.tif -m src\pest_detection_models\best_models\best_model_final_RGB_binary_crossentropy.keras -t 0.50 -mt cnn
+python -m pest_detection.cli.infer predict-test\multiespectral\TTADDA_NARO_2021_F1\drone_data\2021-05-25\20210525_rgb.tif -m best_models\best_model_final_RGB_binary_crossentropy.keras -t 0.50 -mt cnn
 ```
 
 #### Random Forest:
@@ -220,9 +233,17 @@ python src\pest_detection_models\inference_models.py predict-test\multiespectral
 > existir esa CNN entrenada en `best_models/` para el mismo tipo RGB/MS. El nombre del
 > `.joblib` varía por corrida (ver nota de evaluación arriba).
 ```bash
-python src\pest_detection_models\inference_models.py predict-test\multiespectral\TTADDA_NARO_2021_F1\drone_data\2021-05-25 -m src\pest_detection_models\best_models\best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib -mt rf -l fl
+python -m pest_detection.cli.infer predict-test\multiespectral\TTADDA_NARO_2021_F1\drone_data\2021-05-25 -m best_models\best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib -mt rf -l fl
 ```
 
+
+## ✅ Tests
+
+```bash
+pip install pytest
+pytest                      # corre todo (unitarios + integración con checkpoints reales)
+pytest -m "not integration" # solo los unitarios, rápido, sin cargar TensorFlow/modelos
+```
 
 ## 🔬 Análisis y Comparativa de Resultados
 
@@ -238,7 +259,7 @@ Dada la naturaleza crítica de la detección de plagas y el alto desbalance de c
 
 ----
 
-Tras ejecutar las evaluaciones, encontrarás los reportes de clasificación en formato JSON/Markdown (y las matrices de confusión y curvas ROC ploteadas) dentro de `src/pest_detection_models/evaluation_results/{CNN|RANDOM_FOREST}/{RGB|MULTIESPECTRAL}/...`.
+Tras ejecutar las evaluaciones, encontrarás los reportes de clasificación en formato JSON/Markdown (y las matrices de confusión y curvas ROC ploteadas) dentro de `evaluation_results/{CNN|RANDOM_FOREST}/{RGB|MULTIESPECTRAL}/...`.
 
 ### Métricas Clave
 

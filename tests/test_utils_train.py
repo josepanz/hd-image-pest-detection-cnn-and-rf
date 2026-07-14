@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.metrics import roc_curve
 
-from src.utils.utils_train import encontrar_umbral_optimo
+from pest_detection.utils_train import encontrar_umbral_optimo
 
 
 class _FakeModel:

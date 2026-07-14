@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 
-from src.utils.focal_loss import focal_loss
+from pest_detection.focal_loss import focal_loss
 
 
 def test_output_shape_matches_batch_size_not_batch_squared():

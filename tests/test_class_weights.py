@@ -1,6 +1,6 @@
 import pytest
 
-from src.utils.data_management.class_weights import calculate_class_weights
+from pest_detection.datasets.class_weights import calculate_class_weights
 
 
 def test_zero_samples_falls_back_to_neutral_weights():

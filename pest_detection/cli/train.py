@@ -18,26 +18,21 @@ solo a modo de referencia/diagnóstico, no como umbral que se guarda con el mode
 import argparse
 import os
 
-# agregar a path la carpeta src
-import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '../utils'))
-
 import keras
 # Importaciones de Módulos
-from src.utils.data_management.extract_data_to_img import extract_data_to_img_for_train
-from src.utils.models.cnn_model import crear_modelo_cnn
-from src.utils.callbacks import get_callbacks
-from src.utils.utils_train import encontrar_umbral_optimo, save_history_and_plot
-from src.utils.data_management.class_weights import calculate_class_weights
-from src.utils.evaluation.utils_metrics import save_report_and_plot_cm, plot_roc_curve_and_auc, CLASSES
-from src.utils.metrics import evaluar_modelo
+from pest_detection.datasets.extract_data_to_img import extract_data_to_img_for_train
+from pest_detection.models.cnn_model import crear_modelo_cnn
+from pest_detection.callbacks import get_callbacks
+from pest_detection.utils_train import encontrar_umbral_optimo, save_history_and_plot
+from pest_detection.datasets.class_weights import calculate_class_weights
+from pest_detection.evaluation.utils_metrics import save_report_and_plot_cm, plot_roc_curve_and_auc, CLASSES
+from pest_detection.metrics import evaluar_modelo
 import random
 import numpy as np
 import tensorflow as tf
 
-from src.utils.print_utils import print_time_and_step
-from src.utils.models.random_forest import entrenar_rf, evaluar_rf, model_random_forest
+from pest_detection.print_utils import print_time_and_step
+from pest_detection.models.random_forest import entrenar_rf, evaluar_rf, model_random_forest
 import joblib
 from sklearn.preprocessing import StandardScaler
 
@@ -49,7 +44,6 @@ SEED = 42
 IMG_SIZE = (224, 224)
 VAL_SPLIT = 0.2
 BATCH_SIZE = 32
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def set_seeds(seed=SEED):
     os.environ['PYTHONHASHSEED'] = str(seed)
@@ -62,27 +56,29 @@ def set_seeds(seed=SEED):
 set_seeds(SEED) # Usa el número que quieras, pero mantenlo
 
 
-def run_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, alpha: float, gamma: float, model_type: str) -> None:
+def run_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, alpha: float, gamma: float, model_type: str, base_dir: str = None) -> None:
   """Despacha a train() (CNN) o run_rf_training() (Random Forest) según model_type."""
+  base_dir = base_dir if base_dir is not None else os.getcwd()
   if model_type == 'cnn':
     print(f'Modelo cnn {loss_type} | RGB? {isRgb} | alpha {alpha} | gamma {gamma}')
     train(
-      data_dir=data_dir, 
-      epochs=epochs, 
-      loss_type=loss_type, 
-      isRgb=isRgb, 
-      alpha=alpha, 
-      gamma=gamma
+      data_dir=data_dir,
+      epochs=epochs,
+      loss_type=loss_type,
+      isRgb=isRgb,
+      alpha=alpha,
+      gamma=gamma,
+      base_dir=base_dir
     )
   elif model_type == 'rf':
       # Llamar a la nueva función especializada para RF
       print('Modelo Random Forest con extracción CNN')
       run_rf_training(
-        data_dir=data_dir, 
-        isRgb=isRgb, 
-        base_dir=BASE_DIR, 
+        data_dir=data_dir,
+        isRgb=isRgb,
+        base_dir=base_dir,
         model_loss_type=loss_type
-        ) 
+        )
   else:
       raise ValueError(f"Tipo de modelo '{model_type}' no soportado.")
 
@@ -92,7 +88,8 @@ def train(
     loss_type='focal_loss',
     alpha=0.25,
     gamma=2.0,
-    epochs=20
+    epochs=20,
+    base_dir=None
 ):
     """Entrena la CNN desde cero y la guarda en best_models/ vía el ModelCheckpoint
     de get_callbacks (que monitorea val_recall, no val_loss/val_accuracy: en este
@@ -103,6 +100,7 @@ def train(
     que aplicar además class_weight sería doblemente penalizar la clase minoritaria.
     class_weight solo se usa con binary_crossentropy, que no tiene ese mecanismo propio.
     """
+    base_dir = base_dir if base_dir is not None else os.getcwd()
     start_time = time.time()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M")
     input_shape = (224, 224, 3) if isRgb else (224, 224, 5)
@@ -140,7 +138,7 @@ def train(
         batch_size=BATCH_SIZE,
         shuffle=True,
         validation_data=(X_val, y_val),
-        callbacks=get_callbacks(isRgb=isRgb, loss_type=loss_type, base_dir=BASE_DIR),
+        callbacks=get_callbacks(isRgb=isRgb, loss_type=loss_type, base_dir=base_dir),
         class_weight=None if loss_type == 'focal_loss' else class_weight,
         verbose=1
     )
@@ -151,7 +149,7 @@ def train(
     # 5. Guardado y Ploteo (Usando utils_train)
     print_time_and_step('5', 'Guardado y Ploteo (Usando utils_train)', timestamp=timestamp, start_time=start_time)
     suffix = f"_Focal_a{alpha}_g{gamma}" if loss_type == 'focal_loss' else "_BCE"
-    save_history_and_plot(history, BASE_DIR, epochs, suffix=suffix, isRgb=isRgb, loss_type=loss_type)
+    save_history_and_plot(history, base_dir, epochs, suffix=suffix, isRgb=isRgb, loss_type=loss_type)
 
     umbral_maestro = encontrar_umbral_optimo(model, X_train, y_train)
     print('Umbral mas optimo: ', umbral_maestro)
@@ -160,7 +158,7 @@ def train(
     # las mismas funciones que usa evaluate.py (antes esto se recalculaba de forma
     # separada e incompleta en post_train.py).
     imgType = 'RGB' if isRgb else 'MULTIESPECTRAL'
-    val_results_dir = os.path.join(BASE_DIR, 'evaluation_results', 'CNN', imgType, loss_type, 'post_train_val')
+    val_results_dir = os.path.join(base_dir, 'evaluation_results', 'CNN', imgType, loss_type, 'post_train_val')
     os.makedirs(val_results_dir, exist_ok=True)
     model_label = f"post_train_{imgType}_{loss_type}"
 
@@ -307,6 +305,7 @@ def main():
   parser.add_argument("-lt", "--loss_type", type=str, choices=["focal_loss", "binary_crossentropy"], help="Tipo de funcion de perdida")
   parser.add_argument("-rgb", "--rgb", action='store_true', default=False, help="Es RGB?")
   parser.add_argument("-mt", "--model_type", type=str, required=True, default='cnn', choices=["cnn", "rf"], help="Tipo de modelo a entrenar (cnn o rf)")
+  parser.add_argument("-b", "--base_dir", default=os.getcwd(), help="Directorio donde se crean best_models/, evaluation_results/, history/ (por defecto, el directorio actual).")
   args = parser.parse_args()
   run_training(
     data_dir=args.data_dir,
@@ -315,7 +314,8 @@ def main():
     isRgb=args.rgb,
     alpha=args.alpha,
     gamma=args.gamma,
-    model_type=args.model_type
+    model_type=args.model_type,
+    base_dir=args.base_dir
     )
 
 if __name__ == "__main__":

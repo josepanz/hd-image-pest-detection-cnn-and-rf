@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from src.utils.models.cnn_model import crear_modelo_cnn
+from pest_detection.models.cnn_model import crear_modelo_cnn
 
 
 @pytest.mark.parametrize("channels", [3, 5])  # RGB=3, multiespectral=5 bandas

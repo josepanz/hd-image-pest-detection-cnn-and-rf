@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 
-from src.utils.evaluation.inference_utils import get_all_sample_folders, run_inference_on_path
+from pest_detection.evaluation.inference_utils import get_all_sample_folders, run_inference_on_path
 
 
 def _write_rgb_tif(path):
