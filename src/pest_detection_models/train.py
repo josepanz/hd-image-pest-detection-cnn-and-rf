@@ -11,11 +11,10 @@ import keras
 # Importaciones de Módulos
 from src.utils.data_management.extract_data_to_img import extract_data_to_img_for_train
 from src.utils.models.cnn_model import crear_modelo_cnn
-from src.utils.plots import plot_history
 from src.utils.callbacks import get_callbacks
 from src.utils.utils_train import encontrar_umbral_optimo, save_history_and_plot
-from src.utils.data_management.base_loader import calculate_class_weights
-from src.utils.post_train import evaluate_model
+from src.utils.data_management.class_weights import calculate_class_weights
+from src.utils.evaluation.utils_metrics import save_report_and_plot_cm, plot_roc_curve_and_auc, CLASSES
 from src.utils.metrics import evaluar_modelo
 import random
 import numpy as np
@@ -129,12 +128,21 @@ def train(
     suffix = f"_Focal_a{alpha}_g{gamma}" if loss_type == 'focal_loss' else "_BCE"
     save_history_and_plot(history, BASE_DIR, epochs, suffix=suffix, isRgb=isRgb, loss_type=loss_type)
 
-    plot_history(history, f"outputs/history_{'rgb' if isRgb else 'ms'}")
-
     umbral_maestro = encontrar_umbral_optimo(model, X_train, y_train)
     print('Umbral mas optimo: ', umbral_maestro)
 
-    evaluate_model(model, X_val, y_val, umbral_maestro, BASE_DIR)
+    # Reporte/matriz de confusión/ROC de esta validación post-entrenamiento, reutilizando
+    # las mismas funciones que usa evaluate.py (antes esto se recalculaba de forma
+    # separada e incompleta en post_train.py).
+    imgType = 'RGB' if isRgb else 'MULTIESPECTRAL'
+    val_results_dir = os.path.join(BASE_DIR, 'evaluation_results', 'CNN', imgType, loss_type, 'post_train_val')
+    os.makedirs(val_results_dir, exist_ok=True)
+    model_label = f"post_train_{imgType}_{loss_type}"
+
+    y_val_probs = model.predict(X_val).ravel()
+    y_val_pred = (y_val_probs >= umbral_maestro).astype(int)
+    save_report_and_plot_cm(y_val, y_val_pred, CLASSES, val_results_dir, model_label, umbral_maestro)
+    plot_roc_curve_and_auc(y_val, y_val_probs, val_results_dir, model_label, umbral_maestro)
 
     return model
 

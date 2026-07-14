@@ -2,13 +2,10 @@ import argparse
 import os
 import sys
 import time
-import json
 from datetime import datetime
 
 import numpy as np
 import joblib
-
-from sklearn.metrics import classification_report, confusion_matrix
 
 # Paths
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -21,9 +18,8 @@ from src.utils.evaluation.utils_metrics import (
     save_report_and_plot_cm,
     CLASSES,
     plot_roc_curve_and_auc,
-    plot_confusion
 )
-from src.utils.evaluation.utils_inference import load_model_for_inference
+from src.utils.evaluation.model_loading import load_model_for_inference
 from src.utils.data_management.extract_data_to_img import extract_data_to_img_for_train
 
 # Constantes
@@ -199,69 +195,16 @@ def run_evaluation_rf(data_dir, model_path, threshold, base_dir):
     print("STD:", np.std(y_prob))
 
     # =========================================================
-    # 6. MÉTRICAS
+    # 6. MÉTRICAS (mismas funciones que usa la evaluación CNN, ver arriba)
     # =========================================================
-    cm = confusion_matrix(y_val, y_pred)
+    print_time_and_step('4', 'Evaluación y Reporte de Random Forest...', timestamp=timestamp, start_time=start_time)
 
     RESULTS_DIR = os.path.join(base_dir, f'evaluation_results/RANDOM_FOREST/{imgType}/{threshold}')
     os.makedirs(RESULTS_DIR, exist_ok=True)
+    model_name = os.path.basename(model_path)
 
-    plot_confusion(
-        cm,
-        ["Plaga", "Sana"],
-        RESULTS_DIR,
-        name=f'report_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}.png'
-    )
-
-    report = classification_report(y_val, y_pred, target_names=["Plaga", "Sana"])
-
-    print("\n--- REPORTE ---")
-    print(report)
-
-    # Generar el reporte de clasificación y matriz de confusión (asumiendo que tienes utils para esto)
-    report_dict = classification_report(
-        y_val, y_pred, target_names=["Plaga", "Sana"], output_dict=True, zero_division=0 
-    )
-
-    text_report = classification_report(
-        y_val, y_pred, target_names=["Plaga", "Sana"], zero_division=0 
-    )
-    
-    # 5. Guardar Reporte
-    final_save_path = os.path.join(RESULTS_DIR, f'report_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}.json')
-    with open(final_save_path, "w") as f:
-        json.dump(report_dict, f, indent=2)
-    print(f"\nReporte guardado en '{final_save_path}'")
-
-    # 4. Evaluación y Reporte
-    print_time_and_step('4', 'Evaluación y Reporte de Random Forest...', timestamp=timestamp, start_time=start_time)
-
-    # 5. Guardado (Ajusta esta función según cómo guardes los reportes RF)
-    print("\n--- RESUMEN DEL REPORTE DE CLASIFICACIÓN ---")
-    print(text_report)
-
-    report_path_md = os.path.join(RESULTS_DIR, f'report_table_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}.md')
-    with open(report_path_md, "w", encoding="utf-8") as f:
-      f.write(f"# Reporte de Clasificación - {f'RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}'}\n\n")
-      f.write(f"- **Fecha:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-      f.write(f"- **Modelo:** {f'RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}_{timestamp}'}\n")
-      f.write(f"- **Umbral de decisión:** por defecto {0.5}\n\n")
-      f.write("## Métricas por Clase\n\n")
-      f.write("```text\n")
-      f.write(text_report)
-      f.write("\n```\n\n")
-      f.write("---\n")
-      f.write("*Generado automáticamente por el sistema de detección de plagas.*")
-
-    print(f"✅ Reporte Markdown (Tabla) guardado en: {report_path_md}")
-
-    plot_roc_curve_and_auc(
-        y_val,
-        y_prob,
-        RESULTS_DIR,
-        f'report_table_best_model_RANDOM_FOREST_{"RGB" if isRgb else "MULTIESPECTRAL"}',
-        threshold
-    )
+    save_report_and_plot_cm(y_val, y_pred, CLASSES, RESULTS_DIR, model_name, threshold)
+    plot_roc_curve_and_auc(y_val, y_prob, RESULTS_DIR, model_name, threshold)
 
 
 # =========================================================
