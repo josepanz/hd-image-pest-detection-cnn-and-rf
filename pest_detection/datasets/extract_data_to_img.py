@@ -4,6 +4,7 @@ import rasterio
 from rasterio.mask import mask
 import numpy as np
 import os
+import glob
 from sklearn.model_selection import train_test_split
 import cv2
 
@@ -115,7 +116,16 @@ def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: s
                   tif_path = os.path.join(tif_folder, tif_name)
 
               if not os.path.exists(tif_path):
-                  raise FileNotFoundError(f"Falta el archivo: {tif_name}")
+                  # Algunas carpetas de fecha traen los TIFF multiespectrales con un
+                  # prefijo de fecha distinto al de la carpeta/RGB/DEM (dataset real:
+                  # 2023-06-05/20230606_transparent_reflectance_*.tif). Antes de
+                  # descartar la fila, buscamos por sufijo cualquier archivo de esa
+                  # misma carpeta que calce, sin importar el prefijo de fecha.
+                  candidatos = glob.glob(os.path.join(tif_folder, f"*transparent_reflectance_{suffix}"))
+                  if candidatos:
+                      tif_path = candidatos[0]
+                  else:
+                      raise FileNotFoundError(f"Falta el archivo: {tif_name}")
 
               with rasterio.open(tif_path) as src:
                   # Recortar el ráster. out_band_clip tiene forma (1, H, W)
@@ -130,6 +140,10 @@ def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: s
             stacked_image = np.concatenate(all_bands_clipped, axis=0)
           else:
             stacked_image = all_bands_clipped[0]
+            if stacked_image.shape[0] > 3:
+              # Algunos RGB.tif traen un canal alpha además de R/G/B (dataset real:
+              # 2023-05-18/20230518_RGB.tif tiene 4 bandas) - nos quedamos solo con R/G/B.
+              stacked_image = stacked_image[:3]
 
           # 6. REORDENAMIENTO Y RESIZE
           # Reorganizar array: (Bandas, Alto, Ancho) -> (Alto, Ancho, Bandas)
