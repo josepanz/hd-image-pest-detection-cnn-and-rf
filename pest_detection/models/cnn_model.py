@@ -12,11 +12,11 @@ def crear_modelo_cnn(input_shape, loss_type='focal_loss', alpha=0.25, gamma=2.0)
 
     NOTA sobre normalización: esta capa Rescaling(1./255) divide la entrada por 255
     DE NUEVO, sin importar cómo haya llegado normalizada desde extract_data_to_img.py
-    (que ya la deja en ~0-1 antes de esto). Para RGB es consistente porque tanto el
-    entrenamiento como inference_utils.py normalizan igual antes de llegar acá
-    (doble división por 255, pero igual en ambos lados). Para multiespectral NO es
-    consistente entre entrenamiento (/max por imagen) e inferencia (/255 fijo) - ver
-    el comentario de bug documentado en evaluation/inference_utils.py.
+    (que ya la deja en ~0-1 antes de esto). Es redundante pero consistente: tanto
+    entrenamiento como inference_utils.py normalizan la entrada de la misma forma
+    antes de llegar acá (RGB: /255; multiespectral: /max de la imagen), así que esta
+    segunda división por 255 se aplica igual en ambos lados (ver
+    evaluation/inference_utils.py para el detalle de esa normalización previa).
     """
     inp = Input(shape=input_shape)
 

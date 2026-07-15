@@ -17,6 +17,15 @@ def save_history_and_plot(
 ) -> None:
     """
     Guarda el historial en JSON y plotea las curvas de entrenamiento.
+
+    BUG CORREGIDO: cada gráfico llamaba a plt.show() (bloqueante) inmediatamente
+    seguido de plt.close('all') al final de la función. Con el backend interactivo
+    por defecto (no el 'Agg' forzado en tests, ver tests/conftest.py), plt.show() sin
+    block=False congela la ejecución hasta cerrar la ventana a mano - 3 veces por
+    corrida de train.py (accuracy/loss/recall), lo que colgaba una corrida
+    desatendida de los 6 modelos de la bitácora. Ahora se usa show(block=False) +
+    pause() para que la ventana se dibuje y quede visible SIN bloquear, y ya no se
+    cierran las figuras al final: quedan en pantalla mientras el script sigue.
     """
     imgType = 'RGB' if isRgb else 'MULTIESPECTRAL'
     HISTORY_DIR = os.path.join(base_dir, f'history/{imgType}/{loss_type}')
@@ -47,8 +56,9 @@ def save_history_and_plot(
     plt.legend()
     acc_path = os.path.join(HISTORY_DIR, f"accuracy_plot_{timestamp}_epochs_{epochs}_{imgType}{suffix}.png")
     plt.savefig(acc_path)
-    plt.show()
-    
+    plt.show(block=False)
+    plt.pause(0.001)
+
     # Curva de Pérdida
     plt.figure(figsize=(10, 5))
     plt.plot(epochs_trained, history.history['loss'], label='train_loss')
@@ -61,7 +71,8 @@ def save_history_and_plot(
     plt.legend()
     loss_path = os.path.join(HISTORY_DIR, f"loss_plot_{timestamp}_epochs_{epochs}_{imgType}{suffix}.png")
     plt.savefig(loss_path)
-    plt.show()
+    plt.show(block=False)
+    plt.pause(0.001)
 
     # Curva de Recall
     plt.figure(figsize=(10, 5))
@@ -75,9 +86,8 @@ def save_history_and_plot(
     plt.legend()
     acc_path = os.path.join(HISTORY_DIR, f"recall_plot_{timestamp}_epochs_{epochs}_{imgType}{suffix}.png")
     plt.savefig(acc_path)
-    plt.show()
-
-    plt.close('all')
+    plt.show(block=False)
+    plt.pause(0.001)
 
 import numpy as np
 from sklearn.metrics import roc_curve, confusion_matrix, classification_report, auc

@@ -61,6 +61,10 @@ def plot_inference_results(results: List[Dict[str, Any]], output_dir: str, times
   
   plot_path = os.path.join(output_dir, f"inference_confidence_plot_{model_type}_{model_name}_{timestamp}.png")
   plt.savefig(plot_path)
-  plt.close()
-  
+  # Se muestra sin bloquear (show(block=False)+pause) y no se cierra: queda visible
+  # en pantalla igual que los gráficos de train.py/evaluate.py (ver utils_train.py y
+  # evaluation/utils_metrics.py), sin frenar una corrida de infer.py desatendida.
+  plt.show(block=False)
+  plt.pause(0.001)
+
   print(f"📈 Gráfico de confianza guardado en: {plot_path}")
