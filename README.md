@@ -87,7 +87,7 @@ principal, son de uso puntual), y se corren igual con `python -m`:
 | `python -m pest_detection.tools.inspect_datatables` | Explora un Excel de mediciones agronómicas |
 | `python -m pest_detection.tools.patch_extractor` | Extrae parches de imagen por polígono desde un TIFF multiespectral |
 | `python -m pest_detection.tools.save_rgb_and_bands` | Guarda cada banda + un compuesto RGB como PNG, para QA visual del dataset |
-| `python -m pest_detection.tools.utils_tiff_converter` | Convierte TIFF RGB a PNG normalizado (correr una sola vez antes de entrenar RGB) |
+| `python -m pest_detection.tools.utils_tiff_converter` | Convierte TIFF multiespectral a PNG RGB normalizado, para inspección visual. **No hace falta correrlo para entrenar** (`train.py -rgb` lee el `*_RGB.tif` directo con rasterio, nunca un PNG) — pese a lo que dice su propio docstring, y a diferencia de lo que decía antes esta tabla. Además asume rutas (`data/multispectral_images/...`) y orden de bandas (B,G,R) que no coinciden con el dataset TTADDA real (`data/multiespectral/...`, TIFF ya en orden R,G,B) — revisarlo/corregirlo antes de usarlo si hace falta. |
 | `python -m pest_detection.tools.convert_md_to_pdf` | Convierte bitácoras Markdown a PDF (requiere `pandoc`/`xelatex` instalados aparte) |
 | `python -m pest_detection.evaluation.utils_matriz` | Genera figuras de evolución de matriz de confusión para el informe |
 | `python -m pest_detection.evaluation.utils_roc` | Combina curvas ROC de corridas ya guardadas en un gráfico comparativo |

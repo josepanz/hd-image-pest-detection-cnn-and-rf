@@ -13,6 +13,15 @@ CLASSES = ["Plaga", "Sana"]
 def plot_confusion(cm: np.ndarray, class_names: List[str], save_path: str, name: str, title: str = "Matriz de Confusión") -> None:
     """
     Dibuja y guarda la Matriz de Confusión con anotaciones de recuento.
+
+    BUG CORREGIDO: llamaba a plt.show() (bloqueante) seguido de plt.close('all') -
+    con el backend interactivo por defecto (fuera de tests, que fuerzan 'Agg'), esto
+    congelaba la ejecución hasta cerrar la ventana a mano. Se llama una vez por cada
+    train.py (post_train_val) y una vez por cada evaluate.py: para correr los 6
+    modelos x 3 umbrales de la bitácora de forma desatendida esto colgaba el script
+    en cada corrida. Ahora usa show(block=False)+pause() para dibujarla sin bloquear,
+    y ya no se cierra: queda visible en pantalla (plt.close('all') además cerraría
+    también los gráficos de entrenamiento que haya abiertos de antes).
     """
     plot_path = os.path.join(save_path, name)
     fig, ax = plt.subplots(figsize=(6, 6))
@@ -34,10 +43,9 @@ def plot_confusion(cm: np.ndarray, class_names: List[str], save_path: str, name:
             
     fig.tight_layout()
     plt.savefig(plot_path)
-    plt.show()
+    plt.show(block=False)
+    plt.pause(0.001)
     print(f"✅ Matriz de Confusión guardada en: {plot_path}")
-
-    plt.close('all')
 
     print('Matriz de confusión:')
     print(cm)
@@ -123,6 +131,10 @@ def save_report_and_plot_cm(
 def plot_roc_curve_and_auc(y_true: np.ndarray, y_scores: np.ndarray, results_dir: str, model_name: str, threshold: float = 0.5) -> None:
   """
   Plotea la curva ROC y calcula el AUC, luego guarda la figura.
+
+  BUG CORREGIDO: plt.show() (bloqueante) seguido de plt.close('all') - ver el mismo
+  fix en plot_confusion más arriba. Ahora show(block=False)+pause() para que quede
+  visible sin bloquear ni cerrar las demás figuras ya abiertas.
   """
 
   fpr, tpr, _ = roc_curve(y_true, y_scores)
@@ -140,10 +152,9 @@ def plot_roc_curve_and_auc(y_true: np.ndarray, y_scores: np.ndarray, results_dir
   plt.title(f'Curva ROC - {model_name} (t={threshold})')
   plt.legend()
   plt.savefig(report_path)
-  plt.show()
+  plt.show(block=False)
+  plt.pause(0.001)
   print(f"✅ Curva ROC guardada en: {report_path}")
-
-  plt.close('all')
 
   save_roc_data(y_true, y_scores, os.path.join(results_dir, f"ROC_data_{model_name}_{timestamp}_t{threshold}.npz"))
 
