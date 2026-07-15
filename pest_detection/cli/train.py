@@ -71,13 +71,19 @@ def run_training(data_dir: str, epochs: int, loss_type: str, isRgb: bool, alpha:
       base_dir=base_dir
     )
   elif model_type == 'rf':
-      # Llamar a la nueva función especializada para RF
-      print('Modelo Random Forest con extracción CNN')
+      # BUG CORREGIDO: -lt/--loss_type no tiene default en el CLI (None si se omite,
+      # ver main() más abajo) - pasar ese None directo a run_rf_training rompía con
+      # ValueError("File not found: ...best_model_final_MULTIESPECTRAL_None.keras"),
+      # exactamente el comando documentado en EJECUCION.md/README ("-mt rf" sin
+      # "-lt"). Default a 'focal_loss' (misma convención que infer.py/api.py usan
+      # para RF cuando no se especifica -l/--loss) si no se pasó explícitamente.
+      rf_loss_type = loss_type if loss_type is not None else 'focal_loss'
+      print(f'Modelo Random Forest con extracción CNN (loss_type={rf_loss_type})')
       run_rf_training(
         data_dir=data_dir,
         isRgb=isRgb,
         base_dir=base_dir,
-        model_loss_type=loss_type
+        model_loss_type=rf_loss_type
         )
   else:
       raise ValueError(f"Tipo de modelo '{model_type}' no soportado.")
