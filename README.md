@@ -35,7 +35,7 @@ El código está organizado por el tipo de clasificador (CNN o RF) y la función
 | pest_detection/models/, pest_detection/datasets/, pest_detection/evaluation/ | Arquitectura de modelos, carga/preparación de datos, y métricas/motor de inferencia |
 | pest_detection/tools/ | Scripts CLI standalone de preparación/inspección de datos, ver sección dedicada más abajo |
 | best_models/ | Modelos entrenados guardados |
-| evaluation_results/, history/, inference-results/ | Resultados de evaluación, historiales de entrenamiento e inferencias |
+| evaluation_results/, history/, inference_results/ | Resultados de evaluación, historiales de entrenamiento e inferencias |
 | tests/ | Suite de tests (unitarios en `tests/`, de integración en `tests/integration/`) |
 | requirements.txt | Dependencias del proyecto |
 | README.md | Documentación del repositorio |
@@ -152,6 +152,12 @@ pip install -r requirements.txt
 -   mediciones y metadatos agronómicos
 
 ## 🚀 Guía de Ejecución Paso a Paso
+
+> Para replicar **todas** las combinaciones registradas en las bitácoras (los 6
+> modelos × los 3 umbrales usados en evaluación/inferencia), con la sintaxis exacta
+> de las dos ramas de trabajo, ver [`EJECUCION.md`](EJECUCION.md). Acá abajo queda
+> un ejemplo mínimo de cada paso.
+
 ### 1️⃣ 🧠 Entrenamiento de Modelos
 
 > **Nota:** `train.py` no tiene flag `-t/--threshold` (se eliminó: no afectaba en nada

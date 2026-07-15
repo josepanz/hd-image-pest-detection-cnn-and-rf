@@ -143,9 +143,6 @@ def train(
         verbose=1
     )
 
-    os.makedirs("outputs", exist_ok=True)
-    
-    # keras.saving.save_model(f"outputs/model_{'rgb' if isRgb else 'ms'}_{loss_type}.keras")
     # 5. Guardado y Ploteo (Usando utils_train)
     print_time_and_step('5', 'Guardado y Ploteo (Usando utils_train)', timestamp=timestamp, start_time=start_time)
     suffix = f"_Focal_a{alpha}_g{gamma}" if loss_type == 'focal_loss' else "_BCE"

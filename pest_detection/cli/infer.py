@@ -32,7 +32,7 @@ def main():
     parser.add_argument("-t", "--threshold", type=float, default=0.5, help="Umbral de decisión (t).")
     parser.add_argument("-mt", "--model_type", type=str, required=True, choices=["cnn", "rf"], help="Tipo de arquitectura.")
     parser.add_argument("-l", "--loss", type=str, required=False, choices=["fl", "bce"], help="Tipo de perdida.")
-    parser.add_argument("-b", "--base_dir", default=os.getcwd(), help="Directorio donde se crea inference-results/ (por defecto, el directorio actual).")
+    parser.add_argument("-b", "--base_dir", default=os.getcwd(), help="Directorio donde se crea inference_results/ (por defecto, el directorio actual).")
     args = parser.parse_args()
 
     run_unified_inference(args.path, args.model, args.threshold, args.model_type, args.loss, args.base_dir)
@@ -46,14 +46,17 @@ def run_unified_inference(path, model_path, threshold, arch_type, loss: str = 'f
     model_path_lower = model_path.lower()
     is_ms = "multiespectral" in model_path_lower
     img_mode = "MULTIESPECTRAL" if is_ms else "RGB"
-    
-    # Identificar función de pérdida/algoritmo para el log
-    if arch_type == "rf":
-        loss_info = "Focal Loss" if "fl" in loss else "BCE"
-    else:
-        loss_info = "Focal Loss" if "focal" in model_path_lower else "BCE"
+    # Mismos nombres que usa evaluate.py para sus propias carpetas de resultados
+    # (CNN/RANDOM_FOREST, focal_loss/binary_crossentropy), para no tener dos
+    # convenciones de nombres distintas entre evaluation_results/ e inference_results/.
+    arch_folder = "CNN" if arch_type == "cnn" else "RANDOM_FOREST"
 
-    print_time_and_step('init', f'🚀 Modo: {img_mode} | Arq: {arch_type.upper()} | Config: {loss_info}', timestamp=timestamp, start_time=start_time)
+    if arch_type == "rf":
+        loss_type = "focal_loss" if "fl" in loss else "binary_crossentropy"
+    else:
+        loss_type = "focal_loss" if "focal" in model_path_lower else "binary_crossentropy"
+
+    print_time_and_step('init', f'🚀 Modo: {img_mode} | Arq: {arch_folder} | Config: {loss_type}', timestamp=timestamp, start_time=start_time)
 
     # 2. Carga del Modelo
     print_time_and_step('1', f"⏳ Cargando modelo: {os.path.basename(model_path)}", timestamp=timestamp, start_time=start_time)
@@ -116,12 +119,12 @@ def run_unified_inference(path, model_path, threshold, arch_type, loss: str = 'f
     print_time_and_step('3', f"✅ Inferencia completada. Procesados: {len(results)} items.", timestamp=timestamp, start_time=start_time)
 
     # Crear directorios de salida
-    output_base = os.path.join(base_dir, f'inference-results/{arch_type}/{loss_info}/{img_mode}/{threshold}')
+    output_base = os.path.join(base_dir, f'inference_results/{arch_folder}/{loss_type}/{img_mode}/{threshold}')
     os.makedirs(output_base, exist_ok=True)
 
     # Guardar JSON y Gráfico
-    save_inference_results(results, output_base, threshold, img_mode, loss_info.replace(" ", "_").lower())
-    plot_inference_results(results, output_base, timestamp, is_ms, arch_type.upper())
+    save_inference_results(results, output_base, threshold, img_mode, loss_type)
+    plot_inference_results(results, output_base, timestamp, is_ms, arch_folder)
     
     print_time_and_step('END', f"✨ Proceso finalizado. Resultados en: {output_base}", timestamp=timestamp, start_time=start_time)
 
