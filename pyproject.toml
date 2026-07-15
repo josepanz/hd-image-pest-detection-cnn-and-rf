@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pest-detection"
+version = "0.1.0"
+description = "Detección de plagas en cultivos de papa con CNN y Random Forest sobre imágenes RGB/multiespectrales"
+requires-python = ">=3.10"
+dependencies = [
+    "tensorflow>=2.10",
+    "keras",
+    "numpy",
+    "matplotlib",
+    "scikit-learn",
+    "opencv-python",
+    "joblib",
+    "pandas",
+    "geopandas",
+    "rasterio",
+    "fiona",
+    "shapely",
+    "scikit-image",
+    "openpyxl",
+    "seaborn",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+# opcional, solo para pest_detection/tools/convert_md_to_pdf.py (requiere ademas
+# tener pandoc/xelatex instalados en el sistema)
+pdf = ["pypandoc"]
+
+[project.scripts]
+pest-train = "pest_detection.cli.train:main"
+pest-evaluate = "pest_detection.cli.evaluate:main"
+pest-infer = "pest_detection.cli.infer:main"
+
+[tool.setuptools.packages.find]
+include = ["pest_detection*"]

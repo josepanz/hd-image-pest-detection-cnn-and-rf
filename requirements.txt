@@ -20,6 +20,6 @@ openpyxl
 
 seaborn
 
-# opcional, solo para src/utils/miscellaneous/convert_md_to_pdf.py
+# opcional, solo para pest_detection/tools/convert_md_to_pdf.py
 # (requiere ademas tener pandoc/xelatex instalados en el sistema)
 # pypandoc
