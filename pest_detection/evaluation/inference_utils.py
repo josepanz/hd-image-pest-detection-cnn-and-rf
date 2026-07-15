@@ -234,6 +234,11 @@ def load_and_preprocess_parcels(sample_path: str, shapefile_path: str, img_size,
             for band_path in band_paths:
                 with rasterio.open(band_path) as src:
                     out_band, _ = rio_mask(src, [row.geometry], crop=True)
+                    # Mismo fix que extract_data_to_img.py: nodata (-10000 en las bandas
+                    # de reflectancia reales) se pone en 0 antes de normalizar, si no
+                    # contamina el /max con valores del orden de -millones.
+                    if src.nodata is not None:
+                        out_band = np.where(out_band == src.nodata, 0, out_band)
                     bands_clipped.append(out_band)
 
             if is_ms:
@@ -291,7 +296,11 @@ def load_and_preprocess_image(path, img_size, is_ms):
                 band = cv2.imread(band_path, cv2.IMREAD_UNCHANGED)
                 if band is None: raise ValueError(f"No leíble: {band_path}")
 
-                band_resized = cv2.resize(band, img_size).astype('float32')
+                # Mismo fix de nodata que extract_data_to_img.py/load_and_preprocess_parcels:
+                # cv2 no preserva el nodata de GDAL, así que se usa el sentinel real
+                # (-10000, ver TIFFs WUR_transparent_reflectance_*) directamente.
+                band = np.where(band <= -9999, 0, band).astype('float32')
+                band_resized = cv2.resize(band, img_size)
                 bands.append(band_resized)
 
             stacked = np.stack(bands, axis=-1)

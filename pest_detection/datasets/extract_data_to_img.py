@@ -131,6 +131,17 @@ def extract_data_to_img_for_train(data_dir: str = BASE_DIR_RASTER, labels_dir: s
                   # Recortar el ráster. out_band_clip tiene forma (1, H, W)
                   out_band_clip, out_transform = mask(src, geometries, crop=True)
 
+                  # BUG CORREGIDO: las bandas de reflectancia marcan fuera-de-cobertura
+                  # con nodata=-10000 (validado contra TIFFs reales, ver EJECUCION.md).
+                  # Sin esto, esos píxeles quedaban mezclados con los valores reales al
+                  # normalizar por el máximo de la imagen (que ignora los negativos),
+                  # terminando en valores post-normalización del orden de -millones -
+                  # ruido muy fuerte de entrada al modelo (medido: hasta 44.6% de los
+                  # píxeles de un recorte de parcela son nodata, no es un caso de borde
+                  # aislado). Se ponen en 0 (neutro) antes de apilar/normalizar.
+                  if src.nodata is not None:
+                      out_band_clip = np.where(out_band_clip == src.nodata, 0, out_band_clip)
+
                   # Agregamos la banda recortada a la lista
                   all_bands_clipped.append(out_band_clip)
 
