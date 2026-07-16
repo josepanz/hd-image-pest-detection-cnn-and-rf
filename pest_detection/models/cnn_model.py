@@ -2,7 +2,7 @@ import tensorflow as tf
 from keras import layers, Model, Input
 from keras.metrics import Precision, Recall, AUC, BinaryAccuracy
 from pest_detection.focal_loss import focal_loss
-from pest_detection.models.plaga_metrics import RecallPlaga, F2Plaga
+from pest_detection.models.plaga_metrics import RecallPlaga, F2Plaga, F2Macro
 
 def crear_modelo_cnn(input_shape, loss_type='focal_loss', alpha=0.25, gamma=2.0):
     """CNN simple (3 bloques Conv+BN+MaxPool -> GAP -> Dense -> sigmoid) para
@@ -51,6 +51,7 @@ def crear_modelo_cnn(input_shape, loss_type='focal_loss', alpha=0.25, gamma=2.0)
             AUC(name='auc'),
             RecallPlaga(),
             F2Plaga(),
+            F2Macro(),
             ]
     )
 

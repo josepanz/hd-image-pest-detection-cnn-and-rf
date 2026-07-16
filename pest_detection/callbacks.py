@@ -16,6 +16,14 @@ def get_callbacks(isRgb=False, loss_type="focal_loss", base_dir: str = ""):
     recall de Plaga (pesado 4x más que la precisión), pero penaliza ese colapso
     porque la precisión de un modelo así sería pésima. EarlyStopping/ReduceLROnPlateau
     siguen monitoreando val_loss (no cambia).
+
+    SEGUNDO BUG ENCONTRADO (validado reentrenando con val_f2_plaga): como Plaga ya es
+    la clase mayoritaria (67.7% del dataset), un modelo que predice "Plaga" para todo
+    saca F2Plaga~0.91 sin ser útil (ignora a Sana por completo) - confirmado en la
+    práctica, el checkpoint quedó así en la primera corrida con este monitor. Se
+    cambia a val_f2_macro (promedio del F2 de Plaga y el F2 de Sana, ver
+    plaga_metrics.py): ese colapso ahora sale ~0.46 (F2 de Sana cae a 0, arrastrando
+    el promedio), mientras se sigue priorizando recall alto en ambas clases.
     """
     model_save_dir = os.path.join(base_dir, 'best_models')
     os.makedirs(model_save_dir, exist_ok=True)
@@ -42,7 +50,7 @@ def get_callbacks(isRgb=False, loss_type="focal_loss", base_dir: str = ""):
     model_checkpoint = tf.keras.callbacks.ModelCheckpoint(
         filepath=model_path,
         save_best_only=True,
-        monitor="val_f2_plaga",
+        monitor="val_f2_macro",
         verbose=1,
         mode='max'
     )
