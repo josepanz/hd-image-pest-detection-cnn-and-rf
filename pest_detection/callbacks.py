@@ -32,7 +32,13 @@ def get_callbacks(isRgb=False, loss_type="focal_loss", base_dir: str = ""):
     model_path = os.path.join(model_save_dir, f'best_model_final_{"RGB" if isRgb else "MULTIESPECTRAL"}_{loss_type}.keras')
     early_stop = tf.keras.callbacks.EarlyStopping(
         monitor='val_loss',
-        patience=10,
+        # patience=10 (valor original de la bitácora) cortaba el entrenamiento muy
+        # pronto en algunos casos (ej. focal_loss: mejor val_f2_macro en época 2,
+        # EarlyStopping corta en época 11) - el modelo apenas alcanza a separar bien
+        # las probabilidades aunque el AUC ya sea bueno. Subido a 20 para darle más
+        # margen a que val_f2_macro siga mejorando después de una mejora temprana,
+        # sin tocar el resto de la metodología (alpha/gamma/epochs tope=80 iguales).
+        patience=20,
         restore_best_weights=True,
         verbose=1,
         mode='min'
