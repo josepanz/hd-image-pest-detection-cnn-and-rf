@@ -74,13 +74,14 @@ def save_history_and_plot(
     plt.show(block=False)
     plt.pause(0.001)
 
-    # Curva de Recall
+    # Curva de Recall de Plaga (recall_plaga, no 'recall' - ver plaga_metrics.py:
+    # 'recall' mide Sana por el bug ya corregido en cnn_model.py/callbacks.py)
     plt.figure(figsize=(10, 5))
-    plt.plot(epochs_trained, history.history['recall'], label='train_rec')
-    plt.plot(epochs_trained, history.history['val_recall'], label='val_rec')
-    plt.title(f'Recall durante el entrenamiento {imgType}{suffix}')
+    plt.plot(epochs_trained, history.history['recall_plaga'], label='train_rec_plaga')
+    plt.plot(epochs_trained, history.history['val_recall_plaga'], label='val_rec_plaga')
+    plt.title(f'Recall de Plaga durante el entrenamiento {imgType}{suffix}')
     plt.xlabel('Epoch')
-    plt.ylabel('Recall')
+    plt.ylabel('Recall (Plaga)')
     plt.xticks(epochs_trained, [e + 1 for e in epochs_trained])
     plt.grid(True, linestyle='--', alpha=0.5)
     plt.legend()

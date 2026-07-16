@@ -22,6 +22,17 @@ def _model_path(filename):
     return str(path)
 
 
+def _latest_rf_joblib(prefix):
+    """Los .joblib de RF incluyen fecha/hora de entrenamiento en el nombre (ver
+    train.py::run_rf_training) - hardcodear un timestamp puntual hace que el test se
+    salte silenciosamente en vez de correr apenas se reentrena. Se toma el más
+    reciente que matchee el prefijo (RGB o MULTIESPECTRAL)."""
+    candidates = sorted(BEST_MODELS_DIR.glob(f"best_model_final_random_forest_{prefix}_*.joblib"))
+    if not candidates:
+        pytest.skip(f"No hay ningún .joblib de RF {prefix} en {BEST_MODELS_DIR}")
+    return str(candidates[-1])
+
+
 def _run_and_load_json(tmp_path, path, model_path, arch_type, loss="fl"):
     infer.run_unified_inference(str(path), model_path, threshold=0.5, arch_type=arch_type, loss=loss, base_dir=str(tmp_path))
 
@@ -53,7 +64,7 @@ def test_cnn_rgb_inference_end_to_end_with_bare_file_path(tmp_path, rgb_sample_f
 
 
 def test_random_forest_multiespectral_inference_end_to_end(tmp_path, ms_sample_dir):
-    model_path = _model_path("best_model_final_random_forest_MULTIESPECTRAL_20260325_1611.joblib")
+    model_path = _latest_rf_joblib("MULTIESPECTRAL")
     # requiere su CNN "hermana" (misma banda RGB/MS, loss 'fl') presente en best_models/
     _model_path("best_model_final_MULTIESPECTRAL_focal_loss.keras")
 
@@ -64,7 +75,7 @@ def test_random_forest_multiespectral_inference_end_to_end(tmp_path, ms_sample_d
 
 
 def test_random_forest_rgb_inference_end_to_end(tmp_path, rgb_sample_file):
-    model_path = _model_path("best_model_final_random_forest_RGB_20260325_1637.joblib")
+    model_path = _latest_rf_joblib("RGB")
     _model_path("best_model_final_RGB_focal_loss.keras")
 
     results = _run_and_load_json(tmp_path, rgb_sample_file, model_path, arch_type="rf", loss="fl")
