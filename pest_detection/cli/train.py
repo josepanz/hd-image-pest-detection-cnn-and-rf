@@ -155,6 +155,15 @@ def train(
     suffix = f"_Focal_a{alpha}_g{gamma}" if loss_type == 'focal_loss' else "_BCE"
     save_history_and_plot(history, base_dir, epochs, suffix=suffix, isRgb=isRgb, loss_type=loss_type)
 
+    # BUG CORREGIDO: hasta acá 'model' tiene los pesos que restauró EarlyStopping
+    # (restore_best_weights=True, criterio val_loss) - NO necesariamente los que
+    # ModelCheckpoint grabó en disco (criterio val_f2_macro), pueden ser épocas
+    # distintas. Recargamos el .keras recién guardado para que el reporte post-train
+    # de acá abajo (y el umbral óptimo) reflejen el checkpoint real que va a usar
+    # evaluate.py/infer.py después, no una época distinta que quedó solo en memoria.
+    model_path = os.path.join(base_dir, 'best_models', f'best_model_final_{"RGB" if isRgb else "MULTIESPECTRAL"}_{loss_type}.keras')
+    model = keras.models.load_model(model_path, compile=False)
+
     umbral_maestro = encontrar_umbral_optimo(model, X_train, y_train)
     print('Umbral mas optimo: ', umbral_maestro)
 
