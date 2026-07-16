@@ -2,6 +2,7 @@ import tensorflow as tf
 from keras import layers, Model, Input
 from keras.metrics import Precision, Recall, AUC, BinaryAccuracy
 from pest_detection.focal_loss import focal_loss
+from pest_detection.models.plaga_metrics import RecallPlaga, F2Plaga
 
 def crear_modelo_cnn(input_shape, loss_type='focal_loss', alpha=0.25, gamma=2.0):
     """CNN simple (3 bloques Conv+BN+MaxPool -> GAP -> Dense -> sigmoid) para
@@ -44,10 +45,12 @@ def crear_modelo_cnn(input_shape, loss_type='focal_loss', alpha=0.25, gamma=2.0)
         optimizer=tf.keras.optimizers.Adam(1e-4),
         loss=focal_loss(alpha, gamma) if loss_type == 'focal_loss' else 'binary_crossentropy',
         metrics=[
-            BinaryAccuracy(name='accuracy'), 
-            Precision(name='precision'), 
-            Recall(name='recall'), 
-            AUC(name='auc')
+            BinaryAccuracy(name='accuracy'),
+            Precision(name='precision'),
+            Recall(name='recall'), # BUG: mide recall de Sana (clase 1), no de Plaga - ver plaga_metrics.py. Se deja por compatibilidad/diagnóstico, ya no se usa para nada crítico.
+            AUC(name='auc'),
+            RecallPlaga(),
+            F2Plaga(),
             ]
     )
 

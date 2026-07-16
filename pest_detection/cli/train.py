@@ -98,8 +98,9 @@ def train(
     base_dir=None
 ):
     """Entrena la CNN desde cero y la guarda en best_models/ vía el ModelCheckpoint
-    de get_callbacks (que monitorea val_recall, no val_loss/val_accuracy: en este
-    dominio un falso negativo -plaga clasificada como sana- es el error caro).
+    de get_callbacks (que monitorea val_f2_plaga, no val_loss/val_accuracy: en este
+    dominio un falso negativo -plaga clasificada como sana- es el error caro, ver
+    pest_detection/models/plaga_metrics.py y callbacks.py para el detalle).
 
     Si loss_type == 'focal_loss' no se pasa class_weight a model.fit: alpha ya
     compensa el desbalance de clases dentro de la propia función de pérdida, así
