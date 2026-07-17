@@ -1,0 +1,218 @@
+[
+    {
+        "file_name": "2021-05-25_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9806,
+        "prob_plaga": 0.0194,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.979,
+        "prob_plaga": 0.021,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9769,
+        "prob_plaga": 0.0231,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9686,
+        "prob_plaga": 0.0314,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9708,
+        "prob_plaga": 0.0292,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9747,
+        "prob_plaga": 0.0253,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9773,
+        "prob_plaga": 0.0227,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9445,
+        "prob_plaga": 0.0555,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9798,
+        "prob_plaga": 0.0202,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9796,
+        "prob_plaga": 0.0204,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.8998,
+        "prob_plaga": 0.1002,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9779,
+        "prob_plaga": 0.0221,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.8927,
+        "prob_plaga": 0.1073,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9717,
+        "prob_plaga": 0.0283,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9592,
+        "prob_plaga": 0.0408,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9576,
+        "prob_plaga": 0.0424,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9744,
+        "prob_plaga": 0.0256,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9802,
+        "prob_plaga": 0.0198,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9834,
+        "prob_plaga": 0.0166,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.977,
+        "prob_plaga": 0.023,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9794,
+        "prob_plaga": 0.0206,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9731,
+        "prob_plaga": 0.0269,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.9714,
+        "prob_plaga": 0.0286,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.964,
+        "prob_plaga": 0.036,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_MULTIESPECTRAL_binary_crossentropy.keras"
+    }
+]
