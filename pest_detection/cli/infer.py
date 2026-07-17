@@ -10,20 +10,12 @@ avisa y sigue igual pasando los píxeles crudos aplanados (ver run_unified_infer
 import argparse
 import os
 import time
-import numpy as np
-import tensorflow as tf
-import joblib
-import json
 from datetime import datetime
-from typing import List, Dict, Any
 
-from pest_detection.evaluation.inference_utils import load_model_for_inference, run_inference_on_path, save_inference_results
+from pest_detection.api import PestDetector
+from pest_detection.evaluation.inference_utils import save_inference_results
 from pest_detection.print_utils import print_time_and_step
 from pest_detection.print_utils import plot_inference_results
-
-# Constantes Globales
-IMG_SIZE = (224, 224)
-CLASSES = ['Plaga', 'Sana']
 
 def main():
     parser = argparse.ArgumentParser(description="Inferencia unificada para modelos CNN y Random Forest (RGB/MS).")
@@ -58,55 +50,15 @@ def run_unified_inference(path, model_path, threshold, arch_type, loss: str = 'f
 
     print_time_and_step('init', f'🚀 Modo: {img_mode} | Arq: {arch_folder} | Config: {loss_type}', timestamp=timestamp, start_time=start_time)
 
-    # 2. Carga del Modelo
+    # 2. Carga del Modelo (y, para RF, de su CNN "hermana" extractora de features)
     print_time_and_step('1', f"⏳ Cargando modelo: {os.path.basename(model_path)}", timestamp=timestamp, start_time=start_time)
-    
-    model = None
-    feature_extractor = None # Por si en el futuro usas extracción de features para RF
-
-    if arch_type == "cnn":
-        model = load_model_for_inference(model_path)
-    else:
-        # Cargar RF (.joblib)
-        model = joblib.load(model_path)
-        
-        # --- LÓGICA DEL EXTRACTOR PARA RF ---
-        # Buscamos el modelo CNN correspondiente para extraer las 64 features
-        # Asumimos que están en la misma carpeta 'best_models'
-        best_models_dir = os.path.dirname(model_path)
-        
-        # El RF necesita que la CNN use la misma base (MS o RGB)
-        # Intentamos cargar la versión Focal Loss por defecto que es la más robusta
-        cnn_suffix = "focal_loss.keras" if "fl" in loss else "binary_crossentropy.keras"
-        cnn_for_rf_path = os.path.join(best_models_dir, f"best_model_final_{img_mode}_{cnn_suffix}")
-
-        if os.path.exists(cnn_for_rf_path):
-            print_time_and_step('1.1', f"⏳ Cargando extractor de features desde: {os.path.basename(cnn_for_rf_path)}", timestamp=timestamp, start_time=start_time)
-            full_cnn = tf.keras.models.load_model(cnn_for_rf_path, compile=False)
-            
-            # Creamos el extractor: entrada de la CNN hasta la capa Dense de 64 (índice -2)
-            feature_extractor = tf.keras.Model(
-                inputs=full_cnn.input,
-                outputs=full_cnn.layers[-2].output
-            )
-        else:
-            print_time_and_step('WARN', f"⚠️ No se encontró la CNN base en {cnn_for_rf_path}. El RF podría fallar si espera 64 features.", timestamp=timestamp, start_time=start_time)
+    detector = PestDetector(model_path, model_type=arch_type, is_multiespectral=is_ms, loss=loss)
 
     # 3. Ejecución de Inferencia
-    # Usamos la utilidad centralizada que ya maneja la lógica de carpetas MS y archivos RGB
     print_time_and_step('2', "🔎 Procesando imágenes y realizando predicción...", timestamp=timestamp, start_time=start_time)
-    
+
     try:
-        results = run_inference_on_path(
-            model=model,
-            feature_extractor_rf=feature_extractor,
-            path=path,
-            threshold=threshold,
-            img_size=IMG_SIZE,
-            model_name=os.path.basename(model_path),
-            is_multiespectral=is_ms,
-            is_random_forest=(arch_type == "rf")
-        )
+        results = detector.predict(path, threshold=threshold)
     except Exception as e:
         print_time_and_step('ERROR', f"Fallo crítico en inferencia: {e}", timestamp=timestamp, start_time=start_time)
         return

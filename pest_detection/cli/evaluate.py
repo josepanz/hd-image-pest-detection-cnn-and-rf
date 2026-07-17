@@ -214,7 +214,7 @@ def run_evaluation_rf(data_dir, model_path, threshold, base_dir):
 # =========================================================
 # CLI
 # =========================================================
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument("data_dir")
@@ -234,3 +234,6 @@ if __name__ == "__main__":
         args.base_dir,
         args.batch_size
     )
+
+if __name__ == "__main__":
+    main()

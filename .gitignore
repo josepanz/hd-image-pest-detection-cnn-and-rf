@@ -5,7 +5,7 @@ venv/
 # Archivos compilados y caché
 __pycache__/
 *.pyc
-# Metadata generada por `pip install -e .` (solo aplica en feature/pest-detection-package)
+# Metadata generada por `pip install -e .`
 *.egg-info/
 # Modelos y checkpoints
 *.h5
