@@ -1,0 +1,27 @@
+{
+    "Plaga": {
+        "precision": 0.6766917293233082,
+        "recall": 1.0,
+        "f1-score": 0.8071748878923767,
+        "support": 90.0
+    },
+    "Sana": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 43.0
+    },
+    "accuracy": 0.6766917293233082,
+    "macro avg": {
+        "precision": 0.3383458646616541,
+        "recall": 0.5,
+        "f1-score": 0.40358744394618834,
+        "support": 133.0
+    },
+    "weighted avg": {
+        "precision": 0.4579116965345695,
+        "recall": 0.6766917293233082,
+        "f1-score": 0.5462085707542399,
+        "support": 133.0
+    }
+}
