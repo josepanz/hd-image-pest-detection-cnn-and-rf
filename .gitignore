@@ -12,6 +12,3 @@ __pycache__/
 *.tif
 *.zip
 .DS_Store
-# Logs crudos de las corridas de reentrenamiento (evidencia de desarrollo, no de
-# repo) - ver BITACORA_RETRAIN_2026-07.md para el resumen curado con lo relevante.
-retrain_logs/

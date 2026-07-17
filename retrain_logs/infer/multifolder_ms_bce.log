@@ -1,0 +1,154 @@
+2026-07-16 21:49:17.400604: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-16 21:49:19.417246: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-16 21:49:20.789206: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\print_utils.py:67: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show(block=False)
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\print_utils.py:68: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.pause(0.001)
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=0.00s] ---
+init. 🚀 Modo: MULTIESPECTRAL | Arq: CNN | Config: binary_crossentropy
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=0.00s] ---
+1. ⏳ Cargando modelo: best_model_final_MULTIESPECTRAL_binary_crossentropy.keras
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=0.00s] ---
+1. ⏳ Cargando modelo desde: best_models/best_model_final_MULTIESPECTRAL_binary_crossentropy.keras
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=0.00s] ---
+2. ✅ Modelo Keras cargado exitosamente desde best_models/best_model_final_MULTIESPECTRAL_binary_crossentropy.keras
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=0.07s] ---
+2. 🔎 Procesando imágenes y realizando predicción...
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=0.07s] ---
+riop 1. 🔎 Buscando muestras en: D:\TTADDA_NARO_2021\TTADDA_NARO_2021_F1\drone_data
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=0.08s] ---
+riop 2. ✅ Se encontraron 19 muestras para procesar.
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=0.08s] ---
+riop 3. 🚀 Procesando muestra: 2021-05-18
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=3.08s] ---
+riop 3. 🚀 Procesando muestra: 2021-05-25
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=6.08s] ---
+riop 3. 🚀 Procesando muestra: 2021-06-01
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=8.77s] ---
+riop 3. 🚀 Procesando muestra: 2021-06-07
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=11.44s] ---
+riop 3. 🚀 Procesando muestra: 2021-06-14
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=14.20s] ---
+riop 3. 🚀 Procesando muestra: 2021-06-22
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=16.91s] ---
+riop 3. 🚀 Procesando muestra: 2021-06-29
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=19.64s] ---
+riop 3. 🚀 Procesando muestra: 2021-07-07
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=22.95s] ---
+riop 3. 🚀 Procesando muestra: 2021-07-13
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=25.63s] ---
+riop 3. 🚀 Procesando muestra: 2021-07-20
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=28.32s] ---
+riop 3. 🚀 Procesando muestra: 2021-07-27
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=31.23s] ---
+riop 3. 🚀 Procesando muestra: 2021-08-03
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=33.90s] ---
+riop 3. 🚀 Procesando muestra: 2021-08-11
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=36.58s] ---
+riop 3. 🚀 Procesando muestra: 2021-08-17
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=39.50s] ---
+riop 3. 🚀 Procesando muestra: 2021-08-31
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=42.06s] ---
+riop 3. 🚀 Procesando muestra: 2021-09-06
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=44.81s] ---
+riop 3. 🚀 Procesando muestra: 2021-09-14
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=47.86s] ---
+riop 3. 🚀 Procesando muestra: 2021-09-21
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=50.77s] ---
+riop 3. 🚀 Procesando muestra: 2021-09-28
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=53.48s] ---
+3. ✅ Inferencia completada. Procesados: 456 items.
+
+--- [Fecha/hora inicio=20260716_2150] ---
+
+--- [T=53.48s] ---
+riop 5. 📂 JSON guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\inference_results/CNN/binary_crossentropy/MULTIESPECTRAL/0.5\results_MULTIESPECTRAL_binary_crossentropy_t0.5_20260716_2150.json
+📈 Gráfico de confianza guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\inference_results/CNN/binary_crossentropy/MULTIESPECTRAL/0.5\inference_confidence_plot_CNN_MULTIESPECTRAL_20260716_2149.png
+
+--- [Fecha/hora inicio=20260716_2149] ---
+
+--- [T=55.50s] ---
+END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection-cnn-and-rf\inference_results/CNN/binary_crossentropy/MULTIESPECTRAL/0.5

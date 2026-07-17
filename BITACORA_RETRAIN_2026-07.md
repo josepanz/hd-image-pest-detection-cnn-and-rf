@@ -206,7 +206,37 @@ clase a estos umbrales puntuales.
 
 ---
 
-## 5️⃣ Estado final
+## 5️⃣ Logs completos (evidencia cruda)
+
+Todos los comandos de este documento se corrieron tal cual están escritos, y la
+salida completa de consola de cada uno quedó guardada en `retrain_logs/` (versionado
+en el repo, no solo un resumen). Estructura:
+
+```
+retrain_logs/
+├── 01_cnn_ms_focal_loss.log / .err.log   # entrenamiento CNN MS Focal Loss (ronda 4, final)
+├── 02_cnn_ms_bce.log / .err.log          # entrenamiento CNN MS BCE (ronda 4, final)
+├── 03_cnn_rgb_focal_loss.log / .err.log  # entrenamiento CNN RGB Focal Loss (ronda 4, final)
+├── 04_cnn_rgb_bce.log / .err.log         # entrenamiento CNN RGB BCE (ronda 4, final)
+├── 05_rf_ms.log / .err.log               # entrenamiento RF Multiespectral (ronda 4, final)
+├── 06_rf_rgb.log / .err.log              # entrenamiento RF RGB (ronda 4, final)
+├── eval/                                 # las 18 corridas de evaluate.py (sección 3), una
+│                                          # por modelo x umbral (ms_fl_t0.45.log, etc.)
+├── infer/                                # las corridas de infer.py contra 2021 (sección 4),
+│                                          # una por fecha suelta + multifolder por modelo
+├── ronda1_bug_recall_sana/                # entrenamientos de la ronda 1 (con el bug de
+│                                          # val_recall midiendo Sana en vez de Plaga)
+├── ronda2_bug_f2plaga_colapsa_a_plaga/    # el entrenamiento que reveló el colapso de F2Plaga
+└── ronda3_ok_pero_patience_corta/         # ronda 3, ya con F2Macro pero antes de subir patience
+```
+
+Las rondas 1-3 quedaron para evidenciar el proceso de depuración descrito en la
+sección 2 (no son el resultado final - eso es lo que hay directamente en
+`retrain_logs/` sin subcarpeta de ronda, más `eval/` e `infer/`).
+
+---
+
+## 6️⃣ Estado final
 
 - Los 6 modelos en `best_models/` corresponden a esta ronda 4 (final).
 - Pendiente real, documentado, no resuelto: la sensibilidad a umbrales fijos de
@@ -220,3 +250,16 @@ clase a estos umbrales puntuales.
   usarlos en producción o de reportar el 76-91% como si fuera representativo de
   cualquier año.
 - Sin otros pendientes de código conocidos a la fecha de este documento.
+- **`pest_detection/kfold.py`**: utilidad de validación cruzada (Stratified K-Fold)
+  existente en el repo pero no conectada al pipeline. Evaluada como posible forma
+  de agregar un test estadístico formal a la hipótesis de la tesis (ver comparación
+  con el documento, más abajo) - **decisión: no usarla**. El proyecto ya cuenta con
+  varios datasets de temporadas distintas (2021, 2023) para validar de forma más
+  representativa (evita el sobreajuste/"data drift" de evaluar repetidas veces
+  sobre particiones del mismo año), en vez de re-muestrear el mismo dataset 2023
+  con K-Fold.
+- **Hipótesis de la tesis ("diferencias estadísticamente significativas")**: no hay
+  ningún test estadístico formal (valor p, intervalo de confianza) en el documento
+  que la respalde - se optó por suavizar la redacción a "diferencias observables"
+  en vez de agregar un test formal (que hubiera requerido K-Fold, descartado por
+  el punto anterior).

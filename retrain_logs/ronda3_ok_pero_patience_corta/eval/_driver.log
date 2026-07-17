@@ -1,0 +1,106 @@
++ export PYTHONIOENCODING=utf-8
++ PYTHONIOENCODING=utf-8
++ export MPLBACKEND=Agg
++ MPLBACKEND=Agg
++ export TF_NUM_INTRAOP_THREADS=4
++ TF_NUM_INTRAOP_THREADS=4
++ export TF_NUM_INTEROP_THREADS=2
++ TF_NUM_INTEROP_THREADS=2
++ export OMP_NUM_THREADS=4
++ OMP_NUM_THREADS=4
++ DATA='D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data'
++ PY=./venv/Scripts/python.exe
++ MODELS=('best_models/best_model_final_MULTIESPECTRAL_focal_loss.keras|cnn|ms_fl' 'best_models/best_model_final_MULTIESPECTRAL_binary_crossentropy.keras|cnn|ms_bce' 'best_models/best_model_final_RGB_focal_loss.keras|cnn|rgb_fl' 'best_models/best_model_final_RGB_binary_crossentropy.keras|cnn|rgb_bce' 'best_models/best_model_final_random_forest_MULTIESPECTRAL_20260716_1824.joblib|rf|rf_ms' 'best_models/best_model_final_random_forest_RGB_20260716_1826.joblib|rf|rf_rgb')
++ declare -a MODELS
++ for entry in "${MODELS[@]}"
++ IFS='|'
++ read -r model mtype tag
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL ms_fl t=0.45 ==='
+=== EVAL ms_fl t=0.45 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_MULTIESPECTRAL_focal_loss.keras -t 0.45 -mt cnn
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL ms_fl t=0.50 ==='
+=== EVAL ms_fl t=0.50 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_MULTIESPECTRAL_focal_loss.keras -t 0.50 -mt cnn
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL ms_fl t=0.70 ==='
+=== EVAL ms_fl t=0.70 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_MULTIESPECTRAL_focal_loss.keras -t 0.70 -mt cnn
++ for entry in "${MODELS[@]}"
++ IFS='|'
++ read -r model mtype tag
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL ms_bce t=0.45 ==='
+=== EVAL ms_bce t=0.45 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_MULTIESPECTRAL_binary_crossentropy.keras -t 0.45 -mt cnn
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL ms_bce t=0.50 ==='
+=== EVAL ms_bce t=0.50 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_MULTIESPECTRAL_binary_crossentropy.keras -t 0.50 -mt cnn
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL ms_bce t=0.70 ==='
+=== EVAL ms_bce t=0.70 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_MULTIESPECTRAL_binary_crossentropy.keras -t 0.70 -mt cnn
++ for entry in "${MODELS[@]}"
++ IFS='|'
++ read -r model mtype tag
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL rgb_fl t=0.45 ==='
+=== EVAL rgb_fl t=0.45 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_RGB_focal_loss.keras -t 0.45 -mt cnn
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL rgb_fl t=0.50 ==='
+=== EVAL rgb_fl t=0.50 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_RGB_focal_loss.keras -t 0.50 -mt cnn
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL rgb_fl t=0.70 ==='
+=== EVAL rgb_fl t=0.70 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_RGB_focal_loss.keras -t 0.70 -mt cnn
++ for entry in "${MODELS[@]}"
++ IFS='|'
++ read -r model mtype tag
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL rgb_bce t=0.45 ==='
+=== EVAL rgb_bce t=0.45 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_RGB_binary_crossentropy.keras -t 0.45 -mt cnn
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL rgb_bce t=0.50 ==='
+=== EVAL rgb_bce t=0.50 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_RGB_binary_crossentropy.keras -t 0.50 -mt cnn
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL rgb_bce t=0.70 ==='
+=== EVAL rgb_bce t=0.70 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_RGB_binary_crossentropy.keras -t 0.70 -mt cnn
++ for entry in "${MODELS[@]}"
++ IFS='|'
++ read -r model mtype tag
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL rf_ms t=0.45 ==='
+=== EVAL rf_ms t=0.45 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_random_forest_MULTIESPECTRAL_20260716_1824.joblib -t 0.45 -mt rf
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL rf_ms t=0.50 ==='
+=== EVAL rf_ms t=0.50 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_random_forest_MULTIESPECTRAL_20260716_1824.joblib -t 0.50 -mt rf
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL rf_ms t=0.70 ==='
+=== EVAL rf_ms t=0.70 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_random_forest_MULTIESPECTRAL_20260716_1824.joblib -t 0.70 -mt rf
++ for entry in "${MODELS[@]}"
++ IFS='|'
++ read -r model mtype tag
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL rf_rgb t=0.45 ==='
+=== EVAL rf_rgb t=0.45 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_random_forest_RGB_20260716_1826.joblib -t 0.45 -mt rf
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL rf_rgb t=0.50 ==='
+=== EVAL rf_rgb t=0.50 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_random_forest_RGB_20260716_1826.joblib -t 0.50 -mt rf
++ for t in 0.45 0.50 0.70
++ echo '=== EVAL rf_rgb t=0.70 ==='
+=== EVAL rf_rgb t=0.70 ===
++ ./venv/Scripts/python.exe -m pest_detection.cli.evaluate 'D:\TTADDA_NARO_2023\TTADDA_NARO_2023_F1\drone_data' -m best_models/best_model_final_random_forest_RGB_20260716_1826.joblib -t 0.70 -mt rf
++ echo ALL_EVALS_DONE
+ALL_EVALS_DONE

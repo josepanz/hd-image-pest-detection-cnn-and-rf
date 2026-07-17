@@ -1,0 +1,121 @@
+2026-07-16 21:13:06.905715: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-16 21:13:08.922925: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-16 21:14:32.107295: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+--- [Fecha/hora inicio=20260716_2113] ---
+
+--- [T=0.00s] ---
+init. Evaluando CNN MULTIESPECTRAL - Loss: binary_crossentropy - Threshold: 0.45
+
+--- [Fecha/hora inicio=20260716_2113] ---
+
+--- [T=0.00s] ---
+1. Extrayendo datos (MISMO pipeline que training)...
+
+--- [Fecha/hora inicio=20260716_2113] ---
+
+--- [T=0.00s] ---
+1. Carga de datos cnn Multiespectral
+
+--- [Fecha/hora inicio=20260716_2113] ---
+
+--- [T=0.08s] ---
+2. Filtrado y extracción de datos
+
+--- [Fecha/hora inicio=20260716_2113] ---
+
+--- [T=0.08s] ---
+2.1. Iniciando procesamiento de 665 imágenes etiquetadas...
+
+--- [Fecha/hora inicio=20260716_2113] ---
+
+--- [T=0.08s] ---
+2.2. Archivos seleccionados: ['red.tif', 'red edge.tif', 'nir.tif', 'blue.tif', 'green.tif']
+
+--- [Fecha/hora inicio=20260716_2114] ---
+
+--- [T=0.00s] ---
+7. Extracción de imágenes completada.
+
+Datos listos para entrenamiento. Total de muestras: 665
+
+Resumen de Datos Multiespectrales:
+Total de parches extraídos: 665
+X Train/Val Split: 532 / 133
+Y Train/Val Split: 532 / 133
+Forma X_train: (532, 224, 224, 5)
+Forma Y_train: (532,)
+Distribución y_val: {np.int64(0): np.int64(90), np.int64(1): np.int64(43)}
+
+--- [Fecha/hora inicio=20260716_2113] ---
+
+--- [T=82.46s] ---
+2. Cargando modelo...
+
+--- [Fecha/hora inicio=20260716_2114] ---
+
+--- [T=0.00s] ---
+1. ⏳ Cargando modelo desde: best_models/best_model_final_MULTIESPECTRAL_binary_crossentropy.keras
+
+--- [Fecha/hora inicio=20260716_2114] ---
+
+--- [T=0.00s] ---
+2. ✅ Modelo Keras cargado exitosamente desde best_models/best_model_final_MULTIESPECTRAL_binary_crossentropy.keras
+
+--- [Fecha/hora inicio=20260716_2113] ---
+
+--- [T=82.74s] ---
+3. Prediciendo...
+
+[1m1/5[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m2s[0m 732ms/step
+[1m2/5[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m0s[0m 332ms/step
+[1m3/5[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 339ms/step
+[1m4/5[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 348ms/step
+[1m5/5[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 294ms/step
+[1m5/5[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m2s[0m 299ms/step
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\evaluation\utils_metrics.py:46: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show(block=False)
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\evaluation\utils_metrics.py:47: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.pause(0.001)
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\evaluation\utils_metrics.py:155: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show(block=False)
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\evaluation\utils_metrics.py:156: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.pause(0.001)
+
+--- DEBUG PROBABILIDADES ---
+MIN: 0.00022165485
+MAX: 0.90106696
+MEAN: 0.3978113
+PERCENTILES: [2.21654846e-04 1.99899171e-02 2.36524880e-01 8.25505912e-01
+ 9.01066959e-01]
+X_val stats:
+MIN: 0.0
+MAX: 1.0
+MEAN: 0.17431194
+STD: 0.37569025
+
+--- [Fecha/hora inicio=20260716_2113] ---
+
+--- [T=85.62s] ---
+4. Generando métricas...
+
+✅ Reporte de Clasificación guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.45\report_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260716_2114_t45.json
+✅ Matriz de Confusión guardada en: C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.45\report_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260716_2114_t45_confusion.png
+Matriz de confusión:
+[[72 18]
+ [ 0 43]]
+
+--- RESUMEN DEL REPORTE DE CLASIFICACIÓN ---
+              precision    recall  f1-score   support
+
+       Plaga       1.00      0.80      0.89        90
+        Sana       0.70      1.00      0.83        43
+
+    accuracy                           0.86       133
+   macro avg       0.85      0.90      0.86       133
+weighted avg       0.90      0.86      0.87       133
+
+✅ Reporte Markdown (Tabla) guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.45\report_table_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260716_2114_t45.md
+✅ Curva ROC guardada en: C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.45\ROC_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260716_2114_t0.45.png
+ROC guardada en C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results/CNN/MULTIESPECTRAL/binary_crossentropy/0.45\ROC_data_best_model_final_MULTIESPECTRAL_binary_crossentropy.keras_20260716_2114_t0.45.npz (AUC=0.9297)

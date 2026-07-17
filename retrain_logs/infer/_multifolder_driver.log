@@ -1,0 +1,12 @@
++ export PYTHONIOENCODING=utf-8
++ PYTHONIOENCODING=utf-8
++ export MPLBACKEND=Agg
++ MPLBACKEND=Agg
++ PY=./venv/Scripts/python.exe
++ ./venv/Scripts/python.exe -m pest_detection.cli.infer 'D:\TTADDA_NARO_2021\TTADDA_NARO_2021_F1\drone_data' -m best_models/best_model_final_MULTIESPECTRAL_binary_crossentropy.keras -mt cnn -t 0.5
++ ./venv/Scripts/python.exe -m pest_detection.cli.infer 'D:\TTADDA_NARO_2021\TTADDA_NARO_2021_F1\drone_data' -m best_models/best_model_final_RGB_focal_loss.keras -mt cnn -t 0.5
++ ./venv/Scripts/python.exe -m pest_detection.cli.infer 'D:\TTADDA_NARO_2021\TTADDA_NARO_2021_F1\drone_data' -m best_models/best_model_final_RGB_binary_crossentropy.keras -mt cnn -t 0.5
++ ./venv/Scripts/python.exe -m pest_detection.cli.infer 'D:\TTADDA_NARO_2021\TTADDA_NARO_2021_F1\drone_data' -m best_models/best_model_final_random_forest_MULTIESPECTRAL_20260716_2105.joblib -mt rf -t 0.5 -l fl
++ ./venv/Scripts/python.exe -m pest_detection.cli.infer 'D:\TTADDA_NARO_2021\TTADDA_NARO_2021_F1\drone_data' -m best_models/best_model_final_random_forest_RGB_20260716_2107.joblib -mt rf -t 0.5 -l fl
++ echo MULTIFOLDER_ALL_DONE
+MULTIFOLDER_ALL_DONE

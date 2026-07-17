@@ -1,0 +1,110 @@
+2026-07-16 16:46:29.873173: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-16 16:46:31.649212: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-16 16:47:57.207146: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+--- [Fecha/hora inicio=20260716_1646] ---
+
+--- [T=0.00s] ---
+init. Evaluando RANDOM FOREST MULTIESPECTRAL
+
+--- [Fecha/hora inicio=20260716_1646] ---
+
+--- [T=0.00s] ---
+1. Carga de datos cnn Multiespectral
+
+--- [Fecha/hora inicio=20260716_1646] ---
+
+--- [T=0.05s] ---
+2. Filtrado y extracción de datos
+
+--- [Fecha/hora inicio=20260716_1646] ---
+
+--- [T=0.05s] ---
+2.1. Iniciando procesamiento de 665 imágenes etiquetadas...
+
+--- [Fecha/hora inicio=20260716_1646] ---
+
+--- [T=0.05s] ---
+2.2. Archivos seleccionados: ['red.tif', 'red edge.tif', 'nir.tif', 'blue.tif', 'green.tif']
+
+--- [Fecha/hora inicio=20260716_1647] ---
+
+--- [T=0.00s] ---
+7. Extracción de imágenes completada.
+
+Datos listos para entrenamiento. Total de muestras: 665
+
+Resumen de Datos Multiespectrales:
+Total de parches extraídos: 665
+X Train/Val Split: 532 / 133
+Y Train/Val Split: 532 / 133
+Forma X_train: (532, 224, 224, 5)
+Forma Y_train: (532,)
+Distribución y_val: {np.int64(0): np.int64(90), np.int64(1): np.int64(43)}
+
+--- [Fecha/hora inicio=20260716_1646] ---
+
+--- [T=84.59s] ---
+2. Cargando modelo...
+
+--- DEBUG RF ---
+X_val shape: (133, 224, 224, 5)
+X_val min: 0.0
+X_val max: 1.0
+
+--- [Fecha/hora inicio=20260716_1646] ---
+
+--- [T=84.95s] ---
+3. Extrayendo features...
+
+[1m1/5[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m2s[0m 630ms/step
+[1m2/5[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m1s[0m 371ms/step
+[1m3/5[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 383ms/step
+[1m4/5[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 382ms/step
+[1m5/5[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 324ms/step
+[1m5/5[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m2s[0m 329ms/step
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\evaluation\utils_metrics.py:46: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show(block=False)
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\evaluation\utils_metrics.py:47: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.pause(0.001)
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\evaluation\utils_metrics.py:155: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show(block=False)
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\evaluation\utils_metrics.py:156: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.pause(0.001)
+Features shape: (133, 64)
+
+--- [Fecha/hora inicio=20260716_1646] ---
+
+--- [T=86.99s] ---
+4. Prediciendo...
+
+--- DEBUG PROB ---
+MIN: 0.0
+MAX: 0.9536360030643717
+STD: 0.36145694671139866
+
+--- [Fecha/hora inicio=20260716_1646] ---
+
+--- [T=87.04s] ---
+4. Evaluación y Reporte de Random Forest...
+
+✅ Reporte de Clasificación guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.45\report_best_model_final_random_forest_MULTIESPECTRAL_20260716_1628.joblib_20260716_1647_t45.json
+✅ Matriz de Confusión guardada en: C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.45\report_best_model_final_random_forest_MULTIESPECTRAL_20260716_1628.joblib_20260716_1647_t45_confusion.png
+Matriz de confusión:
+[[75 15]
+ [ 1 42]]
+
+--- RESUMEN DEL REPORTE DE CLASIFICACIÓN ---
+              precision    recall  f1-score   support
+
+       Plaga       0.99      0.83      0.90        90
+        Sana       0.74      0.98      0.84        43
+
+    accuracy                           0.88       133
+   macro avg       0.86      0.91      0.87       133
+weighted avg       0.91      0.88      0.88       133
+
+✅ Reporte Markdown (Tabla) guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.45\report_table_best_model_final_random_forest_MULTIESPECTRAL_20260716_1628.joblib_20260716_1647_t45.md
+✅ Curva ROC guardada en: C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.45\ROC_best_model_final_random_forest_MULTIESPECTRAL_20260716_1628.joblib_20260716_1647_t0.45.png
+ROC guardada en C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results/RANDOM_FOREST/MULTIESPECTRAL/0.45\ROC_data_best_model_final_random_forest_MULTIESPECTRAL_20260716_1628.joblib_20260716_1647_t0.45.npz (AUC=0.9341)

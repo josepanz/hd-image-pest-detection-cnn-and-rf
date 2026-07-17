@@ -1,0 +1,372 @@
+Modelo cnn focal_loss | RGB? False | alpha 0.75 | gamma 2.0
+
+--- [Fecha/hora inicio=20260716_1713] ---
+
+--- [T=0.00s] ---
+init. Iniciando entrenamiento MULTIESPECTRAL con perdida Focal Loss
+
+--- [Fecha/hora inicio=20260716_1713] ---
+
+--- [T=0.00s] ---
+1. 1. Extrayendo datos
+
+--- [Fecha/hora inicio=20260716_1713] ---
+
+--- [T=0.07s] ---
+1. Carga de datos cnn Multiespectral
+
+--- [Fecha/hora inicio=20260716_1713] ---
+
+--- [T=0.10s] ---
+2. Filtrado y extracción de datos
+
+--- [Fecha/hora inicio=20260716_1713] ---
+
+--- [T=0.10s] ---
+2.1. Iniciando procesamiento de 665 imágenes etiquetadas...
+
+--- [Fecha/hora inicio=20260716_1713] ---
+
+--- [T=0.10s] ---
+2.2. Archivos seleccionados: ['red.tif', 'red edge.tif', 'nir.tif', 'blue.tif', 'green.tif']
+
+--- [Fecha/hora inicio=20260716_1714] ---
+
+--- [T=0.00s] ---
+7. Extracción de imágenes completada.
+
+Datos listos para entrenamiento. Total de muestras: 665
+
+Resumen de Datos Multiespectrales:
+Total de parches extraídos: 665
+X Train/Val Split: 532 / 133
+Y Train/Val Split: 532 / 133
+Forma X_train: (532, 224, 224, 5)
+Forma Y_train: (532,)
+Shape train: (532, 224, 224, 5)
+Pesos de Clase Calculados: Plaga (0): 1.11, Sana (1): 1.55
+------------------------------
+DEBUG - Conteo: Plaga: 360, Sana: 172
+RESULTADO - Pesos Finales: Plaga (0): 1.11, Sana (1): 1.55
+------------------------------
+Epoch 1/80
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m53s[0m 3s/step - accuracy: 0.3750 - auc: 0.4273 - f2_plaga: 0.1111 - loss: 0.0711 - precision: 0.3333 - recall: 1.0000 - recall_plaga: 0.0909
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m22s[0m 1s/step - accuracy: 0.3516 - auc: 0.5177 - f2_plaga: 0.0830 - loss: 0.0696 - precision: 0.3199 - recall: 1.0000 - recall_plaga: 0.0677
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m20s[0m 1s/step - accuracy: 0.3594 - auc: 0.5804 - f2_plaga: 0.0750 - loss: 0.0695 - precision: 0.3315 - recall: 1.0000 - recall_plaga: 0.0610
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m19s[0m 1s/step - accuracy: 0.3750 - auc: 0.6242 - f2_plaga: 0.0860 - loss: 0.0694 - precision: 0.3445 - recall: 1.0000 - recall_plaga: 0.0701
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m17s[0m 1s/step - accuracy: 0.3875 - auc: 0.6572 - f2_plaga: 0.0994 - loss: 0.0691 - precision: 0.3531 - recall: 1.0000 - recall_plaga: 0.0813
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m16s[0m 1s/step - accuracy: 0.3993 - auc: 0.6767 - f2_plaga: 0.1151 - loss: 0.0688 - precision: 0.3602 - recall: 1.0000 - recall_plaga: 0.0947
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m14s[0m 1s/step - accuracy: 0.4048 - auc: 0.6914 - f2_plaga: 0.1271 - loss: 0.0684 - precision: 0.3611 - recall: 1.0000 - recall_plaga: 0.1048
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m13s[0m 1s/step - accuracy: 0.4089 - auc: 0.7017 - f2_plaga: 0.1363 - loss: 0.0681 - precision: 0.3617 - recall: 1.0000 - recall_plaga: 0.1127
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m11s[0m 1s/step - accuracy: 0.4151 - auc: 0.7105 - f2_plaga: 0.1468 - loss: 0.0678 - precision: 0.3644 - recall: 1.0000 - recall_plaga: 0.1217
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m10s[0m 1s/step - accuracy: 0.4211 - auc: 0.7166 - f2_plaga: 0.1577 - loss: 0.0676 - precision: 0.3668 - recall: 0.9991 - recall_plaga: 0.1311
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m8s[0m 1s/step - accuracy: 0.4262 - auc: 0.7225 - f2_plaga: 0.1679 - loss: 0.0673 - precision: 0.3684 - recall: 0.9984 - recall_plaga: 0.1399 
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m7s[0m 1s/step - accuracy: 0.4319 - auc: 0.7289 - f2_plaga: 0.1785 - loss: 0.0670 - precision: 0.3704 - recall: 0.9978 - recall_plaga: 0.1492
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m5s[0m 1s/step - accuracy: 0.4374 - auc: 0.7349 - f2_plaga: 0.1879 - loss: 0.0667 - precision: 0.3728 - recall: 0.9974 - recall_plaga: 0.1575
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m4s[0m 1s/step - accuracy: 0.4425 - auc: 0.7398 - f2_plaga: 0.1967 - loss: 0.0664 - precision: 0.3751 - recall: 0.9972 - recall_plaga: 0.1652
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m2s[0m 1s/step - accuracy: 0.4470 - auc: 0.7441 - f2_plaga: 0.2052 - loss: 0.0662 - precision: 0.3766 - recall: 0.9969 - recall_plaga: 0.1727
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m1s[0m 1s/step - accuracy: 0.4510 - auc: 0.7483 - f2_plaga: 0.2130 - loss: 0.0659 - precision: 0.3779 - recall: 0.9967 - recall_plaga: 0.1795
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.4549 - auc: 0.7521 - f2_plaga: 0.2203 - loss: 0.0657 - precision: 0.3793 - recall: 0.9966 - recall_plaga: 0.1860
+Epoch 1: val_f2_plaga improved from None to 0.00000, saving model to C:\workspace\hd-image-pest-detection-cnn-and-rf\best_models\best_model_final_MULTIESPECTRAL_focal_loss.keras
+
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m28s[0m 2s/step - accuracy: 0.5169 - auc: 0.8135 - f2_plaga: 0.3366 - loss: 0.0619 - precision: 0.4005 - recall: 0.9942 - recall_plaga: 0.2889 - val_accuracy: 0.3233 - val_auc: 0.5000 - val_f2_plaga: 0.0000e+00 - val_loss: 0.0711 - val_precision: 0.3233 - val_recall: 1.0000 - val_recall_plaga: 0.0000e+00 - learning_rate: 1.0000e-04
+Epoch 2/80
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m24s[0m 2s/step - accuracy: 0.5938 - auc: 0.8295 - f2_plaga: 0.4639 - loss: 0.0572 - precision: 0.4348 - recall: 1.0000 - recall_plaga: 0.4091
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m22s[0m 2s/step - accuracy: 0.6094 - auc: 0.8478 - f2_plaga: 0.4932 - loss: 0.0559 - precision: 0.4383 - recall: 1.0000 - recall_plaga: 0.4379
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m21s[0m 2s/step - accuracy: 0.6285 - auc: 0.8570 - f2_plaga: 0.5113 - loss: 0.0554 - precision: 0.4614 - recall: 1.0000 - recall_plaga: 0.4559
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m20s[0m 2s/step - accuracy: 0.6432 - auc: 0.8609 - f2_plaga: 0.5254 - loss: 0.0550 - precision: 0.4798 - recall: 1.0000 - recall_plaga: 0.4700
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m18s[0m 2s/step - accuracy: 0.6508 - auc: 0.8635 - f2_plaga: 0.5324 - loss: 0.0547 - precision: 0.4894 - recall: 1.0000 - recall_plaga: 0.4770
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m17s[0m 2s/step - accuracy: 0.6569 - auc: 0.8626 - f2_plaga: 0.5389 - loss: 0.0547 - precision: 0.4964 - recall: 1.0000 - recall_plaga: 0.4835
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m15s[0m 2s/step - accuracy: 0.6581 - auc: 0.8612 - f2_plaga: 0.5417 - loss: 0.0547 - precision: 0.4959 - recall: 1.0000 - recall_plaga: 0.4863
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m13s[0m 2s/step - accuracy: 0.6584 - auc: 0.8576 - f2_plaga: 0.5431 - loss: 0.0549 - precision: 0.4950 - recall: 1.0000 - recall_plaga: 0.4877
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m12s[0m 2s/step - accuracy: 0.6597 - auc: 0.8552 - f2_plaga: 0.5448 - loss: 0.0551 - precision: 0.4961 - recall: 1.0000 - recall_plaga: 0.4893
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m10s[0m 2s/step - accuracy: 0.6600 - auc: 0.8519 - f2_plaga: 0.5456 - loss: 0.0553 - precision: 0.4963 - recall: 0.9991 - recall_plaga: 0.4902
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m9s[0m 2s/step - accuracy: 0.6607 - auc: 0.8490 - f2_plaga: 0.5474 - loss: 0.0554 - precision: 0.4962 - recall: 0.9984 - recall_plaga: 0.4920 
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m7s[0m 1s/step - accuracy: 0.6622 - auc: 0.8476 - f2_plaga: 0.5502 - loss: 0.0555 - precision: 0.4970 - recall: 0.9978 - recall_plaga: 0.4949
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m5s[0m 1s/step - accuracy: 0.6640 - auc: 0.8465 - f2_plaga: 0.5532 - loss: 0.0555 - precision: 0.4984 - recall: 0.9969 - recall_plaga: 0.4980
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m4s[0m 1s/step - accuracy: 0.6657 - auc: 0.8455 - f2_plaga: 0.5558 - loss: 0.0555 - precision: 0.4998 - recall: 0.9962 - recall_plaga: 0.5008
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m2s[0m 1s/step - accuracy: 0.6669 - auc: 0.8446 - f2_plaga: 0.5582 - loss: 0.0556 - precision: 0.5002 - recall: 0.9956 - recall_plaga: 0.5032
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m1s[0m 1s/step - accuracy: 0.6681 - auc: 0.8441 - f2_plaga: 0.5607 - loss: 0.0555 - precision: 0.5007 - recall: 0.9951 - recall_plaga: 0.5058
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.6693 - auc: 0.8437 - f2_plaga: 0.5629 - loss: 0.0555 - precision: 0.5012 - recall: 0.9947 - recall_plaga: 0.5080
+Epoch 2: val_f2_plaga improved from 0.00000 to 0.91278, saving model to C:\workspace\hd-image-pest-detection-cnn-and-rf\best_models\best_model_final_MULTIESPECTRAL_focal_loss.keras
+
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m26s[0m 2s/step - accuracy: 0.6880 - auc: 0.8365 - f2_plaga: 0.5983 - loss: 0.0553 - precision: 0.5090 - recall: 0.9884 - recall_plaga: 0.5444 - val_accuracy: 0.6767 - val_auc: 0.7948 - val_f2_plaga: 0.9128 - val_loss: 0.0715 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_recall_plaga: 1.0000 - learning_rate: 1.0000e-04
+Epoch 3/80
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m24s[0m 2s/step - accuracy: 0.7188 - auc: 0.9182 - f2_plaga: 0.6436 - loss: 0.0466 - precision: 0.5263 - recall: 1.0000 - recall_plaga: 0.5909
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m21s[0m 1s/step - accuracy: 0.7188 - auc: 0.9184 - f2_plaga: 0.6479 - loss: 0.0463 - precision: 0.5199 - recall: 1.0000 - recall_plaga: 0.5955
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m20s[0m 1s/step - accuracy: 0.7292 - auc: 0.9173 - f2_plaga: 0.6553 - loss: 0.0465 - precision: 0.5396 - recall: 1.0000 - recall_plaga: 0.6033
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m19s[0m 1s/step - accuracy: 0.7363 - auc: 0.9146 - f2_plaga: 0.6621 - loss: 0.0468 - precision: 0.5547 - recall: 0.9946 - recall_plaga: 0.6110
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m17s[0m 1s/step - accuracy: 0.7391 - auc: 0.9139 - f2_plaga: 0.6638 - loss: 0.0468 - precision: 0.5617 - recall: 0.9921 - recall_plaga: 0.6131
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m16s[0m 1s/step - accuracy: 0.7400 - auc: 0.9107 - f2_plaga: 0.6637 - loss: 0.0471 - precision: 0.5651 - recall: 0.9910 - recall_plaga: 0.6131
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m14s[0m 1s/step - accuracy: 0.7383 - auc: 0.9083 - f2_plaga: 0.6623 - loss: 0.0472 - precision: 0.5623 - recall: 0.9903 - recall_plaga: 0.6116
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m13s[0m 1s/step - accuracy: 0.7373 - auc: 0.9052 - f2_plaga: 0.6623 - loss: 0.0474 - precision: 0.5605 - recall: 0.9885 - recall_plaga: 0.6117
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m11s[0m 1s/step - accuracy: 0.7364 - auc: 0.9024 - f2_plaga: 0.6622 - loss: 0.0476 - precision: 0.5601 - recall: 0.9852 - recall_plaga: 0.6118
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m10s[0m 1s/step - accuracy: 0.7349 - auc: 0.8984 - f2_plaga: 0.6621 - loss: 0.0479 - precision: 0.5590 - recall: 0.9802 - recall_plaga: 0.6121
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m8s[0m 1s/step - accuracy: 0.7342 - auc: 0.8950 - f2_plaga: 0.6629 - loss: 0.0482 - precision: 0.5580 - recall: 0.9764 - recall_plaga: 0.6133 
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m7s[0m 1s/step - accuracy: 0.7342 - auc: 0.8926 - f2_plaga: 0.6644 - loss: 0.0483 - precision: 0.5579 - recall: 0.9731 - recall_plaga: 0.6151
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m5s[0m 1s/step - accuracy: 0.7347 - auc: 0.8908 - f2_plaga: 0.6664 - loss: 0.0485 - precision: 0.5587 - recall: 0.9696 - recall_plaga: 0.6175
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m4s[0m 1s/step - accuracy: 0.7349 - auc: 0.8891 - f2_plaga: 0.6677 - loss: 0.0486 - precision: 0.5591 - recall: 0.9666 - recall_plaga: 0.6192
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m2s[0m 1s/step - accuracy: 0.7352 - auc: 0.8874 - f2_plaga: 0.6694 - loss: 0.0487 - precision: 0.5592 - recall: 0.9641 - recall_plaga: 0.6211
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m1s[0m 1s/step - accuracy: 0.7356 - auc: 0.8863 - f2_plaga: 0.6710 - loss: 0.0488 - precision: 0.5592 - recall: 0.9622 - recall_plaga: 0.6230
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.7361 - auc: 0.8851 - f2_plaga: 0.6725 - loss: 0.0488 - precision: 0.5595 - recall: 0.9606 - recall_plaga: 0.6248
+Epoch 3: val_f2_plaga did not improve from 0.91278
+
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m26s[0m 2s/step - accuracy: 0.7444 - auc: 0.8665 - f2_plaga: 0.6969 - loss: 0.0500 - precision: 0.5629 - recall: 0.9360 - recall_plaga: 0.6528 - val_accuracy: 0.6767 - val_auc: 0.5000 - val_f2_plaga: 0.9128 - val_loss: 0.0719 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_recall_plaga: 1.0000 - learning_rate: 1.0000e-04
+Epoch 4/80
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m24s[0m 2s/step - accuracy: 0.7812 - auc: 0.9273 - f2_plaga: 0.7282 - loss: 0.0404 - precision: 0.5882 - recall: 1.0000 - recall_plaga: 0.6818
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m22s[0m 1s/step - accuracy: 0.7812 - auc: 0.9297 - f2_plaga: 0.7314 - loss: 0.0413 - precision: 0.5820 - recall: 1.0000 - recall_plaga: 0.6854
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m20s[0m 1s/step - accuracy: 0.7847 - auc: 0.9314 - f2_plaga: 0.7345 - loss: 0.0414 - precision: 0.5971 - recall: 0.9899 - recall_plaga: 0.6897
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m18s[0m 1s/step - accuracy: 0.7839 - auc: 0.9294 - f2_plaga: 0.7368 - loss: 0.0417 - precision: 0.6070 - recall: 0.9707 - recall_plaga: 0.6941
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m17s[0m 1s/step - accuracy: 0.7846 - auc: 0.9272 - f2_plaga: 0.7387 - loss: 0.0421 - precision: 0.6133 - recall: 0.9625 - recall_plaga: 0.6970
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m16s[0m 2s/step - accuracy: 0.7823 - auc: 0.9225 - f2_plaga: 0.7375 - loss: 0.0426 - precision: 0.6144 - recall: 0.9541 - recall_plaga: 0.6965
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m15s[0m 2s/step - accuracy: 0.7790 - auc: 0.9182 - f2_plaga: 0.7353 - loss: 0.0431 - precision: 0.6099 - recall: 0.9489 - recall_plaga: 0.6944
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m13s[0m 2s/step - accuracy: 0.7773 - auc: 0.9135 - f2_plaga: 0.7344 - loss: 0.0436 - precision: 0.6071 - recall: 0.9462 - recall_plaga: 0.6936
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m12s[0m 2s/step - accuracy: 0.7766 - auc: 0.9096 - f2_plaga: 0.7340 - loss: 0.0440 - precision: 0.6068 - recall: 0.9442 - recall_plaga: 0.6933
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m10s[0m 2s/step - accuracy: 0.7752 - auc: 0.9048 - f2_plaga: 0.7331 - loss: 0.0445 - precision: 0.6055 - recall: 0.9414 - recall_plaga: 0.6925
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m9s[0m 2s/step - accuracy: 0.7744 - auc: 0.9006 - f2_plaga: 0.7330 - loss: 0.0450 - precision: 0.6043 - recall: 0.9396 - recall_plaga: 0.6925 
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m7s[0m 2s/step - accuracy: 0.7739 - auc: 0.8973 - f2_plaga: 0.7332 - loss: 0.0453 - precision: 0.6036 - recall: 0.9373 - recall_plaga: 0.6929
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m5s[0m 1s/step - accuracy: 0.7739 - auc: 0.8946 - f2_plaga: 0.7341 - loss: 0.0456 - precision: 0.6040 - recall: 0.9350 - recall_plaga: 0.6940
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m4s[0m 1s/step - accuracy: 0.7743 - auc: 0.8922 - f2_plaga: 0.7352 - loss: 0.0459 - precision: 0.6048 - recall: 0.9329 - recall_plaga: 0.6955
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m2s[0m 1s/step - accuracy: 0.7742 - auc: 0.8900 - f2_plaga: 0.7358 - loss: 0.0461 - precision: 0.6044 - recall: 0.9314 - recall_plaga: 0.6963
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m1s[0m 1s/step - accuracy: 0.7743 - auc: 0.8884 - f2_plaga: 0.7365 - loss: 0.0463 - precision: 0.6041 - recall: 0.9304 - recall_plaga: 0.6971
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.7744 - auc: 0.8870 - f2_plaga: 0.7370 - loss: 0.0464 - precision: 0.6039 - recall: 0.9297 - recall_plaga: 0.6977
+Epoch 4: val_f2_plaga did not improve from 0.91278
+
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m26s[0m 2s/step - accuracy: 0.7763 - auc: 0.8635 - f2_plaga: 0.7461 - loss: 0.0487 - precision: 0.6008 - recall: 0.9186 - recall_plaga: 0.7083 - val_accuracy: 0.6767 - val_auc: 0.5000 - val_f2_plaga: 0.9128 - val_loss: 0.0723 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_recall_plaga: 1.0000 - learning_rate: 1.0000e-04
+Epoch 5/80
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m25s[0m 2s/step - accuracy: 0.8438 - auc: 0.8955 - f2_plaga: 0.8095 - loss: 0.0434 - precision: 0.6667 - recall: 1.0000 - recall_plaga: 0.7727
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m22s[0m 1s/step - accuracy: 0.8438 - auc: 0.8986 - f2_plaga: 0.8195 - loss: 0.0430 - precision: 0.6667 - recall: 0.9737 - recall_plaga: 0.7864
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m20s[0m 1s/step - accuracy: 0.8438 - auc: 0.9068 - f2_plaga: 0.8205 - loss: 0.0421 - precision: 0.6793 - recall: 0.9623 - recall_plaga: 0.7888
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m19s[0m 1s/step - accuracy: 0.8418 - auc: 0.9111 - f2_plaga: 0.8200 - loss: 0.0418 - precision: 0.6874 - recall: 0.9500 - recall_plaga: 0.7898
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m17s[0m 1s/step - accuracy: 0.8409 - auc: 0.9136 - f2_plaga: 0.8190 - loss: 0.0416 - precision: 0.6913 - recall: 0.9459 - recall_plaga: 0.7891
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m16s[0m 1s/step - accuracy: 0.8371 - auc: 0.9129 - f2_plaga: 0.8151 - loss: 0.0418 - precision: 0.6896 - recall: 0.9402 - recall_plaga: 0.7853
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m14s[0m 1s/step - accuracy: 0.8323 - auc: 0.9115 - f2_plaga: 0.8103 - loss: 0.0419 - precision: 0.6823 - recall: 0.9370 - recall_plaga: 0.7800
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m13s[0m 1s/step - accuracy: 0.8279 - auc: 0.9091 - f2_plaga: 0.8063 - loss: 0.0423 - precision: 0.6758 - recall: 0.9329 - recall_plaga: 0.7757
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m11s[0m 1s/step - accuracy: 0.8246 - auc: 0.9070 - f2_plaga: 0.8037 - loss: 0.0425 - precision: 0.6725 - recall: 0.9277 - recall_plaga: 0.7733
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m10s[0m 1s/step - accuracy: 0.8206 - auc: 0.9030 - f2_plaga: 0.8005 - loss: 0.0430 - precision: 0.6681 - recall: 0.9219 - recall_plaga: 0.7701
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m8s[0m 1s/step - accuracy: 0.8175 - auc: 0.8994 - f2_plaga: 0.7980 - loss: 0.0434 - precision: 0.6640 - recall: 0.9179 - recall_plaga: 0.7676 
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m7s[0m 2s/step - accuracy: 0.8156 - auc: 0.8970 - f2_plaga: 0.7967 - loss: 0.0436 - precision: 0.6616 - recall: 0.9148 - recall_plaga: 0.7663
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m6s[0m 2s/step - accuracy: 0.8142 - auc: 0.8951 - f2_plaga: 0.7959 - loss: 0.0439 - precision: 0.6603 - recall: 0.9120 - recall_plaga: 0.7657
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m4s[0m 2s/step - accuracy: 0.8125 - auc: 0.8930 - f2_plaga: 0.7951 - loss: 0.0441 - precision: 0.6589 - recall: 0.9078 - recall_plaga: 0.7652
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m3s[0m 2s/step - accuracy: 0.8110 - auc: 0.8910 - f2_plaga: 0.7945 - loss: 0.0444 - precision: 0.6570 - recall: 0.9041 - recall_plaga: 0.7648
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m1s[0m 2s/step - accuracy: 0.8099 - auc: 0.8895 - f2_plaga: 0.7941 - loss: 0.0445 - precision: 0.6554 - recall: 0.9014 - recall_plaga: 0.7645
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.8089 - auc: 0.8882 - f2_plaga: 0.7936 - loss: 0.0447 - precision: 0.6539 - recall: 0.8993 - recall_plaga: 0.7642
+Epoch 5: val_f2_plaga did not improve from 0.91278
+
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m26s[0m 2s/step - accuracy: 0.7932 - auc: 0.8660 - f2_plaga: 0.7863 - loss: 0.0472 - precision: 0.6314 - recall: 0.8663 - recall_plaga: 0.7583 - val_accuracy: 0.6767 - val_auc: 0.5000 - val_f2_plaga: 0.9128 - val_loss: 0.0726 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_recall_plaga: 1.0000 - learning_rate: 1.0000e-04
+Epoch 6/80
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m24s[0m 2s/step - accuracy: 0.8438 - auc: 0.9114 - f2_plaga: 0.8095 - loss: 0.0409 - precision: 0.6667 - recall: 1.0000 - recall_plaga: 0.7727
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m21s[0m 1s/step - accuracy: 0.8516 - auc: 0.9194 - f2_plaga: 0.8214 - loss: 0.0399 - precision: 0.6726 - recall: 1.0000 - recall_plaga: 0.7864
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m20s[0m 1s/step - accuracy: 0.8559 - auc: 0.9267 - f2_plaga: 0.8272 - loss: 0.0390 - precision: 0.6908 - recall: 0.9899 - recall_plaga: 0.7941
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m19s[0m 1s/step - accuracy: 0.8568 - auc: 0.9312 - f2_plaga: 0.8288 - loss: 0.0387 - precision: 0.7015 - recall: 0.9816 - recall_plaga: 0.7968
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m17s[0m 1s/step - accuracy: 0.8554 - auc: 0.9333 - f2_plaga: 0.8266 - loss: 0.0385 - precision: 0.7040 - recall: 0.9782 - recall_plaga: 0.7947
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m16s[0m 1s/step - accuracy: 0.8509 - auc: 0.9322 - f2_plaga: 0.8219 - loss: 0.0387 - precision: 0.7014 - recall: 0.9721 - recall_plaga: 0.7899
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m15s[0m 2s/step - accuracy: 0.8447 - auc: 0.9306 - f2_plaga: 0.8156 - loss: 0.0389 - precision: 0.6925 - recall: 0.9682 - recall_plaga: 0.7831
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m13s[0m 2s/step - accuracy: 0.8393 - auc: 0.9280 - f2_plaga: 0.8105 - loss: 0.0393 - precision: 0.6848 - recall: 0.9632 - recall_plaga: 0.7777
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m12s[0m 2s/step - accuracy: 0.8344 - auc: 0.9252 - f2_plaga: 0.8062 - loss: 0.0396 - precision: 0.6796 - recall: 0.9569 - recall_plaga: 0.7733
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m10s[0m 2s/step - accuracy: 0.8294 - auc: 0.9208 - f2_plaga: 0.8017 - loss: 0.0402 - precision: 0.6739 - recall: 0.9510 - recall_plaga: 0.7687
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m9s[0m 2s/step - accuracy: 0.8252 - auc: 0.9171 - f2_plaga: 0.7979 - loss: 0.0406 - precision: 0.6686 - recall: 0.9467 - recall_plaga: 0.7648 
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m7s[0m 2s/step - accuracy: 0.8224 - auc: 0.9144 - f2_plaga: 0.7956 - loss: 0.0409 - precision: 0.6651 - recall: 0.9432 - recall_plaga: 0.7624
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m6s[0m 2s/step - accuracy: 0.8206 - auc: 0.9121 - f2_plaga: 0.7943 - loss: 0.0412 - precision: 0.6632 - recall: 0.9398 - recall_plaga: 0.7613
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m4s[0m 2s/step - accuracy: 0.8192 - auc: 0.9101 - f2_plaga: 0.7935 - loss: 0.0415 - precision: 0.6620 - recall: 0.9370 - recall_plaga: 0.7606
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m3s[0m 2s/step - accuracy: 0.8179 - auc: 0.9080 - f2_plaga: 0.7928 - loss: 0.0417 - precision: 0.6603 - recall: 0.9344 - recall_plaga: 0.7601
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m1s[0m 2s/step - accuracy: 0.8170 - auc: 0.9064 - f2_plaga: 0.7924 - loss: 0.0419 - precision: 0.6588 - recall: 0.9324 - recall_plaga: 0.7598
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.8162 - auc: 0.9049 - f2_plaga: 0.7921 - loss: 0.0421 - precision: 0.6577 - recall: 0.9309 - recall_plaga: 0.7595
+Epoch 6: ReduceLROnPlateau reducing learning rate to 4.999999873689376e-05.
+
+Epoch 6: val_f2_plaga did not improve from 0.91278
+
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m26s[0m 2s/step - accuracy: 0.8045 - auc: 0.8802 - f2_plaga: 0.7870 - loss: 0.0451 - precision: 0.6393 - recall: 0.9070 - recall_plaga: 0.7556 - val_accuracy: 0.6767 - val_auc: 0.5000 - val_f2_plaga: 0.9128 - val_loss: 0.0728 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_recall_plaga: 1.0000 - learning_rate: 1.0000e-04
+Epoch 7/80
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m27s[0m 2s/step - accuracy: 0.8750 - auc: 0.9205 - f2_plaga: 0.8491 - loss: 0.0365 - precision: 0.7143 - recall: 1.0000 - recall_plaga: 0.8182
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m22s[0m 2s/step - accuracy: 0.8750 - auc: 0.9333 - f2_plaga: 0.8508 - loss: 0.0352 - precision: 0.7090 - recall: 1.0000 - recall_plaga: 0.8202
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m20s[0m 1s/step - accuracy: 0.8715 - auc: 0.9352 - f2_plaga: 0.8468 - loss: 0.0354 - precision: 0.7151 - recall: 0.9899 - recall_plaga: 0.8166
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m19s[0m 1s/step - accuracy: 0.8685 - auc: 0.9356 - f2_plaga: 0.8455 - loss: 0.0359 - precision: 0.7217 - recall: 0.9761 - recall_plaga: 0.8168
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m17s[0m 1s/step - accuracy: 0.8648 - auc: 0.9357 - f2_plaga: 0.8414 - loss: 0.0361 - precision: 0.7213 - recall: 0.9704 - recall_plaga: 0.8126
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m16s[0m 1s/step - accuracy: 0.8595 - auc: 0.9314 - f2_plaga: 0.8364 - loss: 0.0369 - precision: 0.7178 - recall: 0.9631 - recall_plaga: 0.8076
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m14s[0m 1s/step - accuracy: 0.8541 - auc: 0.9284 - f2_plaga: 0.8312 - loss: 0.0375 - precision: 0.7095 - recall: 0.9585 - recall_plaga: 0.8019
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m13s[0m 1s/step - accuracy: 0.8484 - auc: 0.9244 - f2_plaga: 0.8264 - loss: 0.0381 - precision: 0.7017 - recall: 0.9517 - recall_plaga: 0.7971
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m11s[0m 1s/step - accuracy: 0.8440 - auc: 0.9210 - f2_plaga: 0.8232 - loss: 0.0387 - precision: 0.6972 - recall: 0.9444 - recall_plaga: 0.7940
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m10s[0m 1s/step - accuracy: 0.8393 - auc: 0.9171 - f2_plaga: 0.8193 - loss: 0.0393 - precision: 0.6919 - recall: 0.9379 - recall_plaga: 0.7902
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m8s[0m 1s/step - accuracy: 0.8356 - auc: 0.9136 - f2_plaga: 0.8162 - loss: 0.0398 - precision: 0.6869 - recall: 0.9332 - recall_plaga: 0.7870 
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m7s[0m 1s/step - accuracy: 0.8328 - auc: 0.9110 - f2_plaga: 0.8142 - loss: 0.0402 - precision: 0.6835 - recall: 0.9289 - recall_plaga: 0.7851
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m5s[0m 1s/step - accuracy: 0.8307 - auc: 0.9089 - f2_plaga: 0.8128 - loss: 0.0405 - precision: 0.6813 - recall: 0.9249 - recall_plaga: 0.7838
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m4s[0m 1s/step - accuracy: 0.8287 - auc: 0.9070 - f2_plaga: 0.8115 - loss: 0.0408 - precision: 0.6795 - recall: 0.9212 - recall_plaga: 0.7827
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m2s[0m 1s/step - accuracy: 0.8272 - auc: 0.9052 - f2_plaga: 0.8107 - loss: 0.0411 - precision: 0.6775 - recall: 0.9184 - recall_plaga: 0.7820
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m1s[0m 1s/step - accuracy: 0.8261 - auc: 0.9040 - f2_plaga: 0.8100 - loss: 0.0413 - precision: 0.6757 - recall: 0.9163 - recall_plaga: 0.7814
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.8250 - auc: 0.9026 - f2_plaga: 0.8093 - loss: 0.0415 - precision: 0.6741 - recall: 0.9147 - recall_plaga: 0.7807
+Epoch 7: val_f2_plaga did not improve from 0.91278
+
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m26s[0m 2s/step - accuracy: 0.8083 - auc: 0.8815 - f2_plaga: 0.7978 - loss: 0.0446 - precision: 0.6483 - recall: 0.8895 - recall_plaga: 0.7694 - val_accuracy: 0.6767 - val_auc: 0.5000 - val_f2_plaga: 0.9128 - val_loss: 0.0729 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_recall_plaga: 1.0000 - learning_rate: 5.0000e-05
+Epoch 8/80
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m22s[0m 1s/step - accuracy: 0.8750 - auc: 0.9318 - f2_plaga: 0.8491 - loss: 0.0346 - precision: 0.7143 - recall: 1.0000 - recall_plaga: 0.8182
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m21s[0m 1s/step - accuracy: 0.8672 - auc: 0.9381 - f2_plaga: 0.8488 - loss: 0.0348 - precision: 0.7033 - recall: 0.9737 - recall_plaga: 0.8202
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m20s[0m 1s/step - accuracy: 0.8628 - auc: 0.9415 - f2_plaga: 0.8446 - loss: 0.0348 - precision: 0.7092 - recall: 0.9623 - recall_plaga: 0.8166
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m18s[0m 1s/step - accuracy: 0.8581 - auc: 0.9413 - f2_plaga: 0.8407 - loss: 0.0352 - precision: 0.7129 - recall: 0.9500 - recall_plaga: 0.8137
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m17s[0m 1s/step - accuracy: 0.8565 - auc: 0.9418 - f2_plaga: 0.8389 - loss: 0.0353 - precision: 0.7155 - recall: 0.9459 - recall_plaga: 0.8121
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m15s[0m 1s/step - accuracy: 0.8526 - auc: 0.9387 - f2_plaga: 0.8352 - loss: 0.0359 - precision: 0.7137 - recall: 0.9402 - recall_plaga: 0.8085
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m14s[0m 1s/step - accuracy: 0.8469 - auc: 0.9364 - f2_plaga: 0.8292 - loss: 0.0363 - precision: 0.7047 - recall: 0.9370 - recall_plaga: 0.8018
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m13s[0m 1s/step - accuracy: 0.8416 - auc: 0.9332 - f2_plaga: 0.8241 - loss: 0.0368 - precision: 0.6967 - recall: 0.9329 - recall_plaga: 0.7962
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m11s[0m 1s/step - accuracy: 0.8376 - auc: 0.9300 - f2_plaga: 0.8202 - loss: 0.0373 - precision: 0.6920 - recall: 0.9289 - recall_plaga: 0.7921
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m10s[0m 1s/step - accuracy: 0.8329 - auc: 0.9256 - f2_plaga: 0.8158 - loss: 0.0379 - precision: 0.6863 - recall: 0.9238 - recall_plaga: 0.7875
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m8s[0m 1s/step - accuracy: 0.8292 - auc: 0.9216 - f2_plaga: 0.8123 - loss: 0.0385 - precision: 0.6811 - recall: 0.9205 - recall_plaga: 0.7838 
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m7s[0m 1s/step - accuracy: 0.8268 - auc: 0.9185 - f2_plaga: 0.8101 - loss: 0.0389 - precision: 0.6777 - recall: 0.9178 - recall_plaga: 0.7815
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m5s[0m 1s/step - accuracy: 0.8249 - auc: 0.9159 - f2_plaga: 0.8086 - loss: 0.0393 - precision: 0.6756 - recall: 0.9153 - recall_plaga: 0.7800
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m4s[0m 1s/step - accuracy: 0.8234 - auc: 0.9136 - f2_plaga: 0.8074 - loss: 0.0396 - precision: 0.6741 - recall: 0.9128 - recall_plaga: 0.7789
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m2s[0m 1s/step - accuracy: 0.8220 - auc: 0.9114 - f2_plaga: 0.8064 - loss: 0.0400 - precision: 0.6719 - recall: 0.9109 - recall_plaga: 0.7778
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m1s[0m 1s/step - accuracy: 0.8209 - auc: 0.9098 - f2_plaga: 0.8055 - loss: 0.0402 - precision: 0.6700 - recall: 0.9097 - recall_plaga: 0.7769
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.8198 - auc: 0.9081 - f2_plaga: 0.8046 - loss: 0.0404 - precision: 0.6683 - recall: 0.9085 - recall_plaga: 0.7760
+Epoch 8: val_f2_plaga did not improve from 0.91278
+
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m25s[0m 1s/step - accuracy: 0.8026 - auc: 0.8820 - f2_plaga: 0.7905 - loss: 0.0442 - precision: 0.6402 - recall: 0.8895 - recall_plaga: 0.7611 - val_accuracy: 0.6767 - val_auc: 0.6667 - val_f2_plaga: 0.9128 - val_loss: 0.0731 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_recall_plaga: 1.0000 - learning_rate: 5.0000e-05
+Epoch 9/80
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m23s[0m 1s/step - accuracy: 0.8750 - auc: 0.8864 - f2_plaga: 0.8491 - loss: 0.0380 - precision: 0.7143 - recall: 1.0000 - recall_plaga: 0.8182
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m22s[0m 2s/step - accuracy: 0.8750 - auc: 0.9072 - f2_plaga: 0.8508 - loss: 0.0369 - precision: 0.7090 - recall: 1.0000 - recall_plaga: 0.8202
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m22s[0m 2s/step - accuracy: 0.8750 - auc: 0.9172 - f2_plaga: 0.8514 - loss: 0.0366 - precision: 0.7207 - recall: 0.9899 - recall_plaga: 0.8219
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m20s[0m 2s/step - accuracy: 0.8730 - auc: 0.9216 - f2_plaga: 0.8515 - loss: 0.0368 - precision: 0.7291 - recall: 0.9761 - recall_plaga: 0.8238
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m18s[0m 2s/step - accuracy: 0.8722 - auc: 0.9242 - f2_plaga: 0.8512 - loss: 0.0368 - precision: 0.7333 - recall: 0.9704 - recall_plaga: 0.8241
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m16s[0m 2s/step - accuracy: 0.8683 - auc: 0.9230 - f2_plaga: 0.8489 - loss: 0.0373 - precision: 0.7327 - recall: 0.9606 - recall_plaga: 0.8225
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m14s[0m 1s/step - accuracy: 0.8629 - auc: 0.9219 - f2_plaga: 0.8443 - loss: 0.0377 - precision: 0.7247 - recall: 0.9545 - recall_plaga: 0.8176
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m13s[0m 1s/step - accuracy: 0.8576 - auc: 0.9194 - f2_plaga: 0.8398 - loss: 0.0382 - precision: 0.7171 - recall: 0.9481 - recall_plaga: 0.8129
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m11s[0m 1s/step - accuracy: 0.8533 - auc: 0.9169 - f2_plaga: 0.8366 - loss: 0.0386 - precision: 0.7126 - recall: 0.9413 - recall_plaga: 0.8098
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m10s[0m 1s/step - accuracy: 0.8486 - auc: 0.9139 - f2_plaga: 0.8326 - loss: 0.0392 - precision: 0.7071 - recall: 0.9350 - recall_plaga: 0.8059
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m8s[0m 1s/step - accuracy: 0.8448 - auc: 0.9112 - f2_plaga: 0.8293 - loss: 0.0396 - precision: 0.7019 - recall: 0.9306 - recall_plaga: 0.8024 
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m7s[0m 1s/step - accuracy: 0.8421 - auc: 0.9091 - f2_plaga: 0.8271 - loss: 0.0399 - precision: 0.6983 - recall: 0.9272 - recall_plaga: 0.8001
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m5s[0m 1s/step - accuracy: 0.8400 - auc: 0.9075 - f2_plaga: 0.8254 - loss: 0.0402 - precision: 0.6960 - recall: 0.9239 - recall_plaga: 0.7986
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m4s[0m 1s/step - accuracy: 0.8384 - auc: 0.9060 - f2_plaga: 0.8242 - loss: 0.0404 - precision: 0.6943 - recall: 0.9213 - recall_plaga: 0.7974
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m2s[0m 1s/step - accuracy: 0.8371 - auc: 0.9044 - f2_plaga: 0.8233 - loss: 0.0407 - precision: 0.6923 - recall: 0.9192 - recall_plaga: 0.7965
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m1s[0m 1s/step - accuracy: 0.8359 - auc: 0.9033 - f2_plaga: 0.8223 - loss: 0.0408 - precision: 0.6903 - recall: 0.9178 - recall_plaga: 0.7955
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.8348 - auc: 0.9022 - f2_plaga: 0.8214 - loss: 0.0410 - precision: 0.6885 - recall: 0.9169 - recall_plaga: 0.7945
+Epoch 9: val_f2_plaga did not improve from 0.91278
+
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m26s[0m 2s/step - accuracy: 0.8177 - auc: 0.8847 - f2_plaga: 0.8060 - loss: 0.0434 - precision: 0.6596 - recall: 0.9012 - recall_plaga: 0.7778 - val_accuracy: 0.6767 - val_auc: 0.7579 - val_f2_plaga: 0.9128 - val_loss: 0.0731 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_recall_plaga: 1.0000 - learning_rate: 5.0000e-05
+Epoch 10/80
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m24s[0m 2s/step - accuracy: 0.8750 - auc: 0.8955 - f2_plaga: 0.8491 - loss: 0.0390 - precision: 0.7143 - recall: 1.0000 - recall_plaga: 0.8182
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m21s[0m 1s/step - accuracy: 0.8750 - auc: 0.9208 - f2_plaga: 0.8508 - loss: 0.0366 - precision: 0.7090 - recall: 1.0000 - recall_plaga: 0.8202
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m20s[0m 1s/step - accuracy: 0.8785 - auc: 0.9314 - f2_plaga: 0.8559 - loss: 0.0357 - precision: 0.7266 - recall: 0.9899 - recall_plaga: 0.8272
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m18s[0m 1s/step - accuracy: 0.8757 - auc: 0.9345 - f2_plaga: 0.8549 - loss: 0.0358 - precision: 0.7336 - recall: 0.9761 - recall_plaga: 0.8277
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m17s[0m 1s/step - accuracy: 0.8730 - auc: 0.9355 - f2_plaga: 0.8523 - loss: 0.0358 - precision: 0.7348 - recall: 0.9704 - recall_plaga: 0.8253
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m16s[0m 1s/step - accuracy: 0.8681 - auc: 0.9326 - f2_plaga: 0.8477 - loss: 0.0364 - precision: 0.7317 - recall: 0.9631 - recall_plaga: 0.8208
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m14s[0m 1s/step - accuracy: 0.8627 - auc: 0.9301 - f2_plaga: 0.8426 - loss: 0.0368 - precision: 0.7233 - recall: 0.9585 - recall_plaga: 0.8152
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m13s[0m 1s/step - accuracy: 0.8574 - auc: 0.9266 - f2_plaga: 0.8378 - loss: 0.0374 - precision: 0.7155 - recall: 0.9532 - recall_plaga: 0.8101
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m11s[0m 1s/step - accuracy: 0.8528 - auc: 0.9231 - f2_plaga: 0.8339 - loss: 0.0379 - precision: 0.7104 - recall: 0.9469 - recall_plaga: 0.8062
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m10s[0m 2s/step - accuracy: 0.8475 - auc: 0.9189 - f2_plaga: 0.8294 - loss: 0.0386 - precision: 0.7042 - recall: 0.9401 - recall_plaga: 0.8016
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m9s[0m 2s/step - accuracy: 0.8433 - auc: 0.9154 - f2_plaga: 0.8257 - loss: 0.0391 - precision: 0.6985 - recall: 0.9353 - recall_plaga: 0.7978 
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m7s[0m 2s/step - accuracy: 0.8403 - auc: 0.9128 - f2_plaga: 0.8232 - loss: 0.0394 - precision: 0.6945 - recall: 0.9314 - recall_plaga: 0.7953
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m6s[0m 2s/step - accuracy: 0.8382 - auc: 0.9108 - f2_plaga: 0.8216 - loss: 0.0397 - precision: 0.6922 - recall: 0.9278 - recall_plaga: 0.7938
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m4s[0m 2s/step - accuracy: 0.8364 - auc: 0.9091 - f2_plaga: 0.8204 - loss: 0.0400 - precision: 0.6904 - recall: 0.9244 - recall_plaga: 0.7927
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m3s[0m 2s/step - accuracy: 0.8345 - auc: 0.9074 - f2_plaga: 0.8191 - loss: 0.0403 - precision: 0.6879 - recall: 0.9213 - recall_plaga: 0.7915
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m1s[0m 2s/step - accuracy: 0.8330 - auc: 0.9061 - f2_plaga: 0.8181 - loss: 0.0405 - precision: 0.6856 - recall: 0.9190 - recall_plaga: 0.7905
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.8315 - auc: 0.9048 - f2_plaga: 0.8170 - loss: 0.0407 - precision: 0.6835 - recall: 0.9170 - recall_plaga: 0.7894
+Epoch 10: val_f2_plaga did not improve from 0.91278
+
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m26s[0m 2s/step - accuracy: 0.8083 - auc: 0.8840 - f2_plaga: 0.7998 - loss: 0.0438 - precision: 0.6496 - recall: 0.8837 - recall_plaga: 0.7722 - val_accuracy: 0.6767 - val_auc: 0.5000 - val_f2_plaga: 0.9128 - val_loss: 0.0732 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_recall_plaga: 1.0000 - learning_rate: 5.0000e-05
+Epoch 11/80
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m22s[0m 1s/step - accuracy: 0.8750 - auc: 0.9409 - f2_plaga: 0.8491 - loss: 0.0323 - precision: 0.7143 - recall: 1.0000 - recall_plaga: 0.8182
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m21s[0m 1s/step - accuracy: 0.8750 - auc: 0.9395 - f2_plaga: 0.8508 - loss: 0.0334 - precision: 0.7090 - recall: 1.0000 - recall_plaga: 0.8202
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m20s[0m 1s/step - accuracy: 0.8785 - auc: 0.9427 - f2_plaga: 0.8559 - loss: 0.0338 - precision: 0.7266 - recall: 0.9899 - recall_plaga: 0.8272
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m19s[0m 1s/step - accuracy: 0.8776 - auc: 0.9417 - f2_plaga: 0.8575 - loss: 0.0345 - precision: 0.7369 - recall: 0.9761 - recall_plaga: 0.8308
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m17s[0m 1s/step - accuracy: 0.8771 - auc: 0.9406 - f2_plaga: 0.8577 - loss: 0.0347 - precision: 0.7417 - recall: 0.9704 - recall_plaga: 0.8316
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m16s[0m 2s/step - accuracy: 0.8724 - auc: 0.9370 - f2_plaga: 0.8543 - loss: 0.0354 - precision: 0.7396 - recall: 0.9606 - recall_plaga: 0.8288
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m15s[0m 2s/step - accuracy: 0.8670 - auc: 0.9338 - f2_plaga: 0.8497 - loss: 0.0359 - precision: 0.7316 - recall: 0.9545 - recall_plaga: 0.8239
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m13s[0m 2s/step - accuracy: 0.8617 - auc: 0.9294 - f2_plaga: 0.8451 - loss: 0.0365 - precision: 0.7239 - recall: 0.9481 - recall_plaga: 0.8192
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m12s[0m 2s/step - accuracy: 0.8574 - auc: 0.9261 - f2_plaga: 0.8418 - loss: 0.0371 - precision: 0.7193 - recall: 0.9413 - recall_plaga: 0.8160
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m10s[0m 1s/step - accuracy: 0.8526 - auc: 0.9215 - f2_plaga: 0.8377 - loss: 0.0377 - precision: 0.7136 - recall: 0.9350 - recall_plaga: 0.8119
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m8s[0m 1s/step - accuracy: 0.8487 - auc: 0.9170 - f2_plaga: 0.8343 - loss: 0.0383 - precision: 0.7081 - recall: 0.9306 - recall_plaga: 0.8083 
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m7s[0m 1s/step - accuracy: 0.8457 - auc: 0.9135 - f2_plaga: 0.8319 - loss: 0.0388 - precision: 0.7042 - recall: 0.9265 - recall_plaga: 0.8058
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m5s[0m 1s/step - accuracy: 0.8433 - auc: 0.9107 - f2_plaga: 0.8301 - loss: 0.0392 - precision: 0.7016 - recall: 0.9227 - recall_plaga: 0.8041
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m4s[0m 1s/step - accuracy: 0.8414 - auc: 0.9083 - f2_plaga: 0.8287 - loss: 0.0396 - precision: 0.6996 - recall: 0.9197 - recall_plaga: 0.8028
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m2s[0m 1s/step - accuracy: 0.8396 - auc: 0.9061 - f2_plaga: 0.8274 - loss: 0.0399 - precision: 0.6970 - recall: 0.9169 - recall_plaga: 0.8015
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m1s[0m 1s/step - accuracy: 0.8382 - auc: 0.9046 - f2_plaga: 0.8263 - loss: 0.0401 - precision: 0.6948 - recall: 0.9149 - recall_plaga: 0.8004
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1s/step - accuracy: 0.8369 - auc: 0.9032 - f2_plaga: 0.8252 - loss: 0.0403 - precision: 0.6927 - recall: 0.9134 - recall_plaga: 0.7992
+Epoch 11: ReduceLROnPlateau reducing learning rate to 2.499999936844688e-05.
+
+Epoch 11: val_f2_plaga did not improve from 0.91278
+
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m26s[0m 2s/step - accuracy: 0.8158 - auc: 0.8800 - f2_plaga: 0.8075 - loss: 0.0436 - precision: 0.6595 - recall: 0.8895 - recall_plaga: 0.7806 - val_accuracy: 0.6767 - val_auc: 0.5000 - val_f2_plaga: 0.9128 - val_loss: 0.0732 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 - val_recall_plaga: 1.0000 - learning_rate: 5.0000e-05
+Epoch 11: early stopping
+Restoring model weights from the end of the best epoch: 1.
+
+--- [Fecha/hora inicio=20260716_1713] ---
+
+--- [T=349.76s] ---
+5. Guardado y Ploteo (Usando utils_train)
+
+Historial guardado en 'C:\workspace\hd-image-pest-detection-cnn-and-rf\history/MULTIESPECTRAL/focal_loss\history_20260716_1718_epochs_80_MULTIESPECTRAL_Focal_a0.75_g2.0.json'
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m6s[0m 408ms/step
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m3s[0m 262ms/step
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m3s[0m 258ms/step
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m3s[0m 256ms/step
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m3s[0m 262ms/step
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m2s[0m 261ms/step
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m2s[0m 261ms/step
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m2s[0m 261ms/step
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m2s[0m 260ms/step
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m1s[0m 260ms/step
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m1s[0m 260ms/step
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m1s[0m 259ms/step
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m1s[0m 259ms/step
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 259ms/step
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m0s[0m 259ms/step
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 259ms/step
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 256ms/step
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m5s[0m 256ms/step
+
+--- ANÁLISIS DE UMBRAL ÓPTIMO ---
+Mejor Umbral detectado: 0.5020
+
+Nueva Matriz de Confusión con Umbral Óptimo:
+[[216 144]
+ [  1 171]]
+
+Reporte de Clasificación:
+              precision    recall  f1-score   support
+
+           0       1.00      0.60      0.75       360
+           1       0.54      0.99      0.70       172
+
+    accuracy                           0.73       532
+   macro avg       0.77      0.80      0.73       532
+weighted avg       0.85      0.73      0.73       532
+
+
+Auc: 0.8562822997416021
+Umbral mas optimo:  0.5019504
+
+[1m1/5[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m1s[0m 292ms/step
+[1m2/5[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m0s[0m 251ms/step
+[1m3/5[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 250ms/step
+[1m4/5[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 251ms/step
+[1m5/5[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 199ms/step
+
+✅ Reporte de Clasificación guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results\CNN\MULTIESPECTRAL\focal_loss\post_train_val\report_post_train_MULTIESPECTRAL_focal_loss_20260716_1719_t50.json
+✅ Matriz de Confusión guardada en: C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results\CNN\MULTIESPECTRAL\focal_loss\post_train_val\report_post_train_MULTIESPECTRAL_focal_loss_20260716_1719_t50_confusion.png
+Matriz de confusión:
+[[53 37]
+ [ 0 43]]
+
+--- RESUMEN DEL REPORTE DE CLASIFICACIÓN ---
+              precision    recall  f1-score   support
+
+       Plaga       1.00      0.59      0.74        90
+        Sana       0.54      1.00      0.70        43
+
+    accuracy                           0.72       133
+   macro avg       0.77      0.79      0.72       133
+weighted avg       0.85      0.72      0.73       133
+
+✅ Reporte Markdown (Tabla) guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results\CNN\MULTIESPECTRAL\focal_loss\post_train_val\report_table_post_train_MULTIESPECTRAL_focal_loss_20260716_1719_t50.md
+✅ Curva ROC guardada en: C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results\CNN\MULTIESPECTRAL\focal_loss\post_train_val\ROC_post_train_MULTIESPECTRAL_focal_loss_20260716_1719_t0.5019503831863403.png
+ROC guardada en C:\workspace\hd-image-pest-detection-cnn-and-rf\evaluation_results\CNN\MULTIESPECTRAL\focal_loss\post_train_val\ROC_data_post_train_MULTIESPECTRAL_focal_loss_20260716_1719_t0.5019503831863403.npz (AUC=0.8685)

@@ -1,0 +1,132 @@
+Modelo Random Forest con extracción CNN (loss_type=focal_loss)
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=0.00s] ---
+1. Iniciando entrenamiento Random Forest RGB
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=0.00s] ---
+1. Cargando datos...
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=0.11s] ---
+1. Carga de datos cnn RGB
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=0.19s] ---
+2. Filtrado y extracción de datos
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=0.19s] ---
+2.1. Iniciando procesamiento de 665 imágenes etiquetadas...
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=0.19s] ---
+2.2. Archivos seleccionados: ['RGB.tif']
+
+--- [Fecha/hora inicio=20260716_2108] ---
+
+--- [T=0.00s] ---
+7. Extracción de imágenes completada.
+
+Datos listos para entrenamiento. Total de muestras: 665
+
+Resumen de Datos Multiespectrales:
+Total de parches extraídos: 665
+X Train/Val Split: 532 / 133
+Y Train/Val Split: 532 / 133
+Forma X_train: (532, 224, 224, 3)
+Forma Y_train: (532,)
+Shape train: (532, 224, 224, 3)
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=35.58s] ---
+2. Cargando modelo CNN para extracción de features...
+Feature extractor listo ✔
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=35.69s] ---
+3. Extrayendo features con CNN...
+
+[1m 1/17[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m10s[0m 681ms/step
+[1m 2/17[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m5s[0m 376ms/step 
+[1m 3/17[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m4s[0m 353ms/step
+[1m 4/17[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m4s[0m 346ms/step
+[1m 5/17[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m4s[0m 341ms/step
+[1m 6/17[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m3s[0m 338ms/step
+[1m 7/17[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m3s[0m 336ms/step
+[1m 8/17[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m3s[0m 337ms/step
+[1m 9/17[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m2s[0m 336ms/step
+[1m10/17[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m2s[0m 334ms/step
+[1m11/17[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m2s[0m 334ms/step
+[1m12/17[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m1s[0m 333ms/step
+[1m13/17[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m1s[0m 333ms/step
+[1m14/17[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 333ms/step
+[1m15/17[0m [32m━━━━━━━━━━━━━━━━━[0m[37m━━━[0m [1m0s[0m 332ms/step
+[1m16/17[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 332ms/step
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 329ms/step
+[1m17/17[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m6s[0m 330ms/step
+
+[1m1/5[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m1s[0m 384ms/step
+[1m2/5[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m0s[0m 326ms/step
+[1m3/5[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 325ms/step
+[1m4/5[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 324ms/step
+[1m5/5[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 260ms/step
+Shape features train: (532, 64)
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=48.98s] ---
+4. Aplicando StandardScaler...
+Pesos de Clase Calculados: Plaga (0): 1.11, Sana (1): 1.55
+------------------------------
+DEBUG - Conteo: Plaga: 360, Sana: 172
+RESULTADO - Pesos Finales: Plaga (0): 1.11, Sana (1): 1.55
+------------------------------
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=48.98s] ---
+5. Entrenando Random Forest...
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=49.55s] ---
+Finish. Entrenamiento completado ✔
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=49.55s] ---
+6. Evaluando modelo...
+
+--- MATRIZ DE CONFUSIÓN ---
+[[81  9]
+ [ 3 40]]
+
+--- REPORTE DE CLASIFICACIÓN ---
+              precision    recall  f1-score   support
+
+           0       0.96      0.90      0.93        90
+           1       0.82      0.93      0.87        43
+
+    accuracy                           0.91       133
+   macro avg       0.89      0.92      0.90       133
+weighted avg       0.92      0.91      0.91       133
+
+
+AUC: 0.9452
+
+--- [Fecha/hora inicio=20260716_2107] ---
+
+--- [T=49.60s] ---
+7. Guardando modelo...
+
+Modelo RF + Scaler guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\best_models\best_model_final_random_forest_RGB_20260716_2107.joblib

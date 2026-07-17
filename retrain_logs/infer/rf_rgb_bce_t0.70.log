@@ -1,0 +1,59 @@
+2026-07-16 21:41:11.036717: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-16 21:41:12.595828: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-16 21:41:14.056715: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\print_utils.py:67: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show(block=False)
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\print_utils.py:68: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.pause(0.001)
+
+--- [Fecha/hora inicio=20260716_2141] ---
+
+--- [T=0.00s] ---
+init. 🚀 Modo: RGB | Arq: RANDOM_FOREST | Config: binary_crossentropy
+
+--- [Fecha/hora inicio=20260716_2141] ---
+
+--- [T=0.00s] ---
+1. ⏳ Cargando modelo: best_model_final_random_forest_RGB_20260716_2107.joblib
+
+--- [Fecha/hora inicio=20260716_2141] ---
+
+--- [T=0.24s] ---
+1.1. ⏳ Cargando extractor de features desde: best_model_final_RGB_binary_crossentropy.keras
+
+--- [Fecha/hora inicio=20260716_2141] ---
+
+--- [T=0.30s] ---
+2. 🔎 Procesando imágenes y realizando predicción...
+
+--- [Fecha/hora inicio=20260716_2141] ---
+
+--- [T=0.30s] ---
+riop 1. 🔎 Buscando muestras en: D:\TTADDA_NARO_2021\TTADDA_NARO_2021_F1\drone_data\2021-05-25\20210525_rgb.tif
+
+--- [Fecha/hora inicio=20260716_2141] ---
+
+--- [T=0.30s] ---
+riop 2. ✅ Se encontraron 1 muestras para procesar.
+
+--- [Fecha/hora inicio=20260716_2141] ---
+
+--- [T=0.30s] ---
+riop 3. 🚀 Procesando muestra: 20210525_rgb.tif
+
+--- [Fecha/hora inicio=20260716_2141] ---
+
+--- [T=4.50s] ---
+3. ✅ Inferencia completada. Procesados: 24 items.
+
+--- [Fecha/hora inicio=20260716_2141] ---
+
+--- [T=4.50s] ---
+riop 5. 📂 JSON guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\inference_results/RANDOM_FOREST/binary_crossentropy/RGB/0.7\results_RGB_binary_crossentropy_t0.7_20260716_2141.json
+📈 Gráfico de confianza guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\inference_results/RANDOM_FOREST/binary_crossentropy/RGB/0.7\inference_confidence_plot_RANDOM_FOREST_RGB_20260716_2141.png
+
+--- [Fecha/hora inicio=20260716_2141] ---
+
+--- [T=4.71s] ---
+END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection-cnn-and-rf\inference_results/RANDOM_FOREST/binary_crossentropy/RGB/0.7

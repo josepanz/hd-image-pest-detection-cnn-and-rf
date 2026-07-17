@@ -1,0 +1,64 @@
+2026-07-16 21:39:08.236676: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-16 21:39:10.017455: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-07-16 21:39:11.444561: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\print_utils.py:67: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show(block=False)
+C:\workspace\hd-image-pest-detection-cnn-and-rf\pest_detection\print_utils.py:68: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.pause(0.001)
+
+--- [Fecha/hora inicio=20260716_2139] ---
+
+--- [T=0.00s] ---
+init. 🚀 Modo: MULTIESPECTRAL | Arq: CNN | Config: focal_loss
+
+--- [Fecha/hora inicio=20260716_2139] ---
+
+--- [T=0.00s] ---
+1. ⏳ Cargando modelo: best_model_final_MULTIESPECTRAL_focal_loss.keras
+
+--- [Fecha/hora inicio=20260716_2139] ---
+
+--- [T=0.00s] ---
+1. ⏳ Cargando modelo desde: best_models/best_model_final_MULTIESPECTRAL_focal_loss.keras
+
+--- [Fecha/hora inicio=20260716_2139] ---
+
+--- [T=0.00s] ---
+2. ✅ Modelo Keras cargado exitosamente desde best_models/best_model_final_MULTIESPECTRAL_focal_loss.keras
+
+--- [Fecha/hora inicio=20260716_2139] ---
+
+--- [T=0.12s] ---
+2. 🔎 Procesando imágenes y realizando predicción...
+
+--- [Fecha/hora inicio=20260716_2139] ---
+
+--- [T=0.12s] ---
+riop 1. 🔎 Buscando muestras en: D:\TTADDA_NARO_2021\TTADDA_NARO_2021_F1\drone_data\2021-05-25
+
+--- [Fecha/hora inicio=20260716_2139] ---
+
+--- [T=0.12s] ---
+riop 2. ✅ Se encontraron 1 muestras para procesar.
+
+--- [Fecha/hora inicio=20260716_2139] ---
+
+--- [T=0.12s] ---
+riop 3. 🚀 Procesando muestra: 2021-05-25
+
+--- [Fecha/hora inicio=20260716_2139] ---
+
+--- [T=5.57s] ---
+3. ✅ Inferencia completada. Procesados: 24 items.
+
+--- [Fecha/hora inicio=20260716_2139] ---
+
+--- [T=5.57s] ---
+riop 5. 📂 JSON guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\inference_results/CNN/focal_loss/MULTIESPECTRAL/0.45\results_MULTIESPECTRAL_focal_loss_t0.45_20260716_2139.json
+📈 Gráfico de confianza guardado en: C:\workspace\hd-image-pest-detection-cnn-and-rf\inference_results/CNN/focal_loss/MULTIESPECTRAL/0.45\inference_confidence_plot_CNN_MULTIESPECTRAL_20260716_2139.png
+
+--- [Fecha/hora inicio=20260716_2139] ---
+
+--- [T=5.84s] ---
+END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection-cnn-and-rf\inference_results/CNN/focal_loss/MULTIESPECTRAL/0.45
