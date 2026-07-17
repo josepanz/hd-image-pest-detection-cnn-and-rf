@@ -1,0 +1,218 @@
+[
+    {
+        "file_name": "2021-05-25_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.4973,
+        "prob_plaga": 0.5027,
+        "prediccion": "Sana",
+        "umbral": 0.45,
+        "modelo": "best_model_final_MULTIESPECTRAL_focal_loss.keras"
+    }
+]
