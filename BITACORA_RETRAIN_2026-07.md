@@ -156,31 +156,53 @@ Reportes completos (JSON + Markdown + matriz de confusión + curva ROC) en
 
 ---
 
-## 4️⃣ Inferencia de validación
+## 4️⃣ Inferencia de validación y generalización entre años
 
-Corrida contra `D:\TTADDA_NARO_2021\TTADDA_NARO_2021_F1\drone_data` (dataset de un
-año distinto al usado para entrenar - 2021 vs. 2023 - útil como prueba de que el
-pipeline funciona de punta a punta con datos reales frescos, no como prueba de
-generalización entre años, que es un tema aparte).
+Corrida contra `D:\TTADDA_NARO_2021\TTADDA_NARO_2021_F1\drone_data` - dataset de un
+año **distinto** al usado para entrenar (2021 vs. 2023), con el shapefile de
+parcelas propio de esa temporada (24 parcelas, no 35 como en 2023). Verdad de
+campo (`Etiqueta_FINAL`) tomada de
+`predict-test/multiespectral/TTADDA_NARO_2021_F1/measurements/generated_labels_unified.csv`
+(ya versionado en el repo).
 
 ```bash
 python -m pest_detection.cli.infer "D:\TTADDA_NARO_2021\TTADDA_NARO_2021_F1\drone_data\2021-05-25" -m best_models\best_model_final_MULTIESPECTRAL_focal_loss.keras -t 0.50 -mt cnn
-# ... (los 4 CNN x 3 umbrales, RF MS/RGB x umbral 0.70, y la corrida "multifolder"
-# sobre toda la carpeta drone_data)
+# ... (los 4 CNN x 3 umbrales sobre esa fecha, y la corrida "multifolder" - toda
+# la carpeta drone_data, 19 fechas, 456 parcelas - para los 6 modelos)
 ```
 
-- **`2021-05-25` (una fecha)**: 24 parcelas procesadas por corrida (según el
-  `plot_shapefile.shp` de ese dataset - 24, no 35 como en 2023), sin errores, en
-  las 4 CNN + 2 RF.
+- **`2021-05-25` (una fecha)**: 24 parcelas procesadas por corrida, sin errores, en
+  las 4 CNN + 2 RF. Las 24 están etiquetadas `Plaga` en `Etiqueta_FINAL` (fecha
+  temprana de temporada, igual que `2023-05-18` en el dataset de entrenamiento).
 - **Multifolder** (`drone_data` completa, 19 fechas): **456 parcelas procesadas en
-  una sola corrida** (19 fechas × 24 parcelas), confirmando que el modo "toda la
-  carpeta de una vez" (`BITACORA_INFERENCE_MULTIFOLDERS.md`) sigue funcionando con
-  el recorte por parcela nuevo.
-- No se pudo comparar contra verdad de campo para este dataset en esta ubicación
-  puntual: solo trae los CSV de mediciones crudas (`NARO_field_2021_GT_*.csv`), no
-  el `generated_labels_unified.csv` (Plaga/Sana ya derivado) que sí tiene el
-  dataset 2023 - generarlo requeriría correr `pest_detection/datasets/
-  generate_labels_unified.py` aparte, no se hizo en esta sesión.
+  una sola corrida** por modelo (19 fechas × 24 parcelas: 274 Plaga / 182 Sana en
+  total), confirmando que el modo "toda la carpeta de una vez"
+  (`BITACORA_INFERENCE_MULTIFOLDERS.md`) sigue funcionando con el recorte por
+  parcela nuevo.
+
+**Precisión real contra verdad de campo (`Etiqueta_FINAL`), las 456 parcelas de
+las 19 fechas de 2021** (dataset íntegramente fuera de la muestra de entrenamiento,
+de otro año):
+
+| Modelo | Accuracy | Recall Plaga | Recall Sana | Comportamiento |
+| :--- | :--- | :--- | :--- | :--- |
+| CNN MS Focal Loss (t=0.70) | 0.60 | 1.00 | 0.00 | Predice "Plaga" siempre (= tasa base) |
+| CNN MS BCE (t=0.50) | 0.26 | 0.41 | 0.02 | Sin señal útil |
+| CNN RGB Focal Loss (t=0.50) | **0.55** | 0.58 | 0.49 | Con algo de discriminación real |
+| CNN RGB BCE (t=0.50) | 0.40 | 0.01 | 1.00 | Predice "Sana" casi siempre |
+| RF Multiespectral (t=0.50) | 0.60 | 1.00 | 0.00 | Predice "Plaga" siempre (= tasa base) |
+| RF RGB (t=0.50) | **0.61** | 0.79 | 0.35 | El más equilibrado de los 6 |
+
+**Hallazgo honesto, no es un bug**: la generalización entre años (entrenado 2023,
+probado 2021) es **floja en los 6 modelos** - muy por debajo de la validación
+interna (76-91% accuracy, sección 2-3 arriba). Es esperable en este dominio
+(condiciones de vuelo, calibración de sensor, clima y estadio del cultivo
+distintos entre temporadas), pero es información importante para no sobreestimar
+qué tan bien va a andar cualquiera de estos 6 modelos contra datos de una
+temporada que el modelo nunca vio - la validación 80/20 dentro del mismo dataset
+2023 no es garantía de eso. RF RGB y CNN RGB Focal Loss son los que mejor
+resisten el cambio de año; el resto colapsa a predecir casi siempre la misma
+clase a estos umbrales puntuales.
 
 ---
 
@@ -188,6 +210,13 @@ python -m pest_detection.cli.infer "D:\TTADDA_NARO_2021\TTADDA_NARO_2021_F1\dron
 
 - Los 6 modelos en `best_models/` corresponden a esta ronda 4 (final).
 - Pendiente real, documentado, no resuelto: la sensibilidad a umbrales fijos de
-  MS Focal Loss y RGB BCE (ítem 3, arriba) - no es un bug de código, es una
+  MS Focal Loss y RGB BCE (sección 3) - no es un bug de código, es una
   característica del entrenamiento de esos 2 modelos puntuales.
+- **Pendiente más importante, también documentado y no resuelto**: la
+  generalización entre años es floja en los 6 modelos (sección 4, 26-61% accuracy
+  contra 2021, muy por debajo del 76-91% de la validación interna sobre 2023). No
+  es un bug - es una limitación real de qué tan bien van a rendir estos modelos
+  contra una temporada que nunca vieron, y conviene tenerla presente antes de
+  usarlos en producción o de reportar el 76-91% como si fuera representativo de
+  cualquier año.
 - Sin otros pendientes de código conocidos a la fecha de este documento.
