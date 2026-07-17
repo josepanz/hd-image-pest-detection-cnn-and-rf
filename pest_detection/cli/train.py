@@ -1,8 +1,11 @@
 """Entrenamiento de los modelos de detección de plaga/sana (CNN o Random Forest).
 
 Dos modos, seleccionados con -mt/--model_type:
-- cnn: entrena una CNN (MobileNet-simple definida en models/cnn_model.py) desde cero,
-  con Focal Loss o Binary Crossentropy, sobre imágenes RGB o multiespectrales (5 bandas).
+- cnn: entrena una CNN propia (arquitectura simple definida en models/cnn_model.py,
+  no basada en un modelo pre-entrenado como MobileNetV2 - se abandonó esa opción por
+  costosa de reentrenar y por esperar 3 canales fijos, sin aceptar directamente las 5
+  bandas del modo multiespectral) desde cero, con Focal Loss o Binary Crossentropy,
+  sobre imágenes RGB o multiespectrales (5 bandas).
 - rf: entrena un Random Forest sobre features extraídas por una CNN YA ENTRENADA.
   run_rf_training carga desde disco (best_models/best_model_final_{RGB|MULTIESPECTRAL}_
   {loss_type}.keras) la CNN correspondiente al mismo tipo de imagen/loss indicado por

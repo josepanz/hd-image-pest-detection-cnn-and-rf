@@ -10,7 +10,7 @@ de clases presente en el dataset.
 
 **Modelos evaluados:**
 
--   CNN basada en MobileNetV2
+-   CNN propia (arquitectura simple, no basada en un modelo pre-entrenado): al comienzo del proyecto se probó con MobileNetV2, pero se abandonó por ser costosa de reentrenar y porque su entrada esperaba 3 canales fijos — no aceptaba directamente las 5 bandas del modo multiespectral. Se reemplazó por una CNN propia (3 bloques Conv+BatchNorm+MaxPooling con 32/64/128 filtros, GlobalAveragePooling, Dense+Dropout, salida sigmoide — ver `pest_detection/models/cnn_model.py`) que acepta cualquier número de canales de entrada (3 para RGB, 5 para multiespectral) sin modificar la arquitectura.
 -   CNN utilizando Focal Loss
 -   Random Forest utilizando características extraídas por CNN
 
