@@ -1,0 +1,4106 @@
+[
+    {
+        "file_name": "2021-05-18_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5033,
+        "prob_plaga": 0.4967,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5028,
+        "prob_plaga": 0.4972,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5033,
+        "prob_plaga": 0.4967,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5043,
+        "prob_plaga": 0.4957,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5033,
+        "prob_plaga": 0.4967,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5032,
+        "prob_plaga": 0.4968,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5034,
+        "prob_plaga": 0.4966,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5033,
+        "prob_plaga": 0.4967,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5033,
+        "prob_plaga": 0.4967,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5034,
+        "prob_plaga": 0.4966,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5041,
+        "prob_plaga": 0.4959,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5043,
+        "prob_plaga": 0.4957,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-18_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-18",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5037,
+        "prob_plaga": 0.4963,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5036,
+        "prob_plaga": 0.4964,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5034,
+        "prob_plaga": 0.4966,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5036,
+        "prob_plaga": 0.4964,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5043,
+        "prob_plaga": 0.4957,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5037,
+        "prob_plaga": 0.4963,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5036,
+        "prob_plaga": 0.4964,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5046,
+        "prob_plaga": 0.4954,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-05-25_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-05-25",
+        "prob_sana": 0.5046,
+        "prob_plaga": 0.4954,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5007,
+        "prob_plaga": 0.4993,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5013,
+        "prob_plaga": 0.4987,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5009,
+        "prob_plaga": 0.4991,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5013,
+        "prob_plaga": 0.4987,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5011,
+        "prob_plaga": 0.4989,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5009,
+        "prob_plaga": 0.4991,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5013,
+        "prob_plaga": 0.4987,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5011,
+        "prob_plaga": 0.4989,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5008,
+        "prob_plaga": 0.4992,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-01_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-01",
+        "prob_sana": 0.5016,
+        "prob_plaga": 0.4984,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5011,
+        "prob_plaga": 0.4989,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5022,
+        "prob_plaga": 0.4978,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5019,
+        "prob_plaga": 0.4981,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5024,
+        "prob_plaga": 0.4976,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5013,
+        "prob_plaga": 0.4987,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5011,
+        "prob_plaga": 0.4989,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5018,
+        "prob_plaga": 0.4982,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5017,
+        "prob_plaga": 0.4983,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5005,
+        "prob_plaga": 0.4995,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5021,
+        "prob_plaga": 0.4979,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-07_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-07",
+        "prob_sana": 0.5022,
+        "prob_plaga": 0.4978,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5022,
+        "prob_plaga": 0.4978,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5019,
+        "prob_plaga": 0.4981,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5026,
+        "prob_plaga": 0.4974,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5023,
+        "prob_plaga": 0.4977,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5027,
+        "prob_plaga": 0.4973,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.502,
+        "prob_plaga": 0.498,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5025,
+        "prob_plaga": 0.4975,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5016,
+        "prob_plaga": 0.4984,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5016,
+        "prob_plaga": 0.4984,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5021,
+        "prob_plaga": 0.4979,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5017,
+        "prob_plaga": 0.4983,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5025,
+        "prob_plaga": 0.4975,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5026,
+        "prob_plaga": 0.4974,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5024,
+        "prob_plaga": 0.4976,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5022,
+        "prob_plaga": 0.4978,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5018,
+        "prob_plaga": 0.4982,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5021,
+        "prob_plaga": 0.4979,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5025,
+        "prob_plaga": 0.4975,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.502,
+        "prob_plaga": 0.498,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5026,
+        "prob_plaga": 0.4974,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5027,
+        "prob_plaga": 0.4973,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-14_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-14",
+        "prob_sana": 0.5025,
+        "prob_plaga": 0.4975,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5037,
+        "prob_plaga": 0.4963,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5033,
+        "prob_plaga": 0.4967,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5032,
+        "prob_plaga": 0.4968,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5036,
+        "prob_plaga": 0.4964,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5036,
+        "prob_plaga": 0.4964,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5028,
+        "prob_plaga": 0.4972,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5037,
+        "prob_plaga": 0.4963,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5032,
+        "prob_plaga": 0.4968,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5034,
+        "prob_plaga": 0.4966,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5028,
+        "prob_plaga": 0.4972,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5033,
+        "prob_plaga": 0.4967,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5033,
+        "prob_plaga": 0.4967,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-22_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-22",
+        "prob_sana": 0.5034,
+        "prob_plaga": 0.4966,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5049,
+        "prob_plaga": 0.4951,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5046,
+        "prob_plaga": 0.4954,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5047,
+        "prob_plaga": 0.4953,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5046,
+        "prob_plaga": 0.4954,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5047,
+        "prob_plaga": 0.4953,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5047,
+        "prob_plaga": 0.4953,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5043,
+        "prob_plaga": 0.4957,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5048,
+        "prob_plaga": 0.4952,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5043,
+        "prob_plaga": 0.4957,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5043,
+        "prob_plaga": 0.4957,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5046,
+        "prob_plaga": 0.4954,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5043,
+        "prob_plaga": 0.4957,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5048,
+        "prob_plaga": 0.4952,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5046,
+        "prob_plaga": 0.4954,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5048,
+        "prob_plaga": 0.4952,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5046,
+        "prob_plaga": 0.4954,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5047,
+        "prob_plaga": 0.4953,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5043,
+        "prob_plaga": 0.4957,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-06-29_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-06-29",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5041,
+        "prob_plaga": 0.4959,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5037,
+        "prob_plaga": 0.4963,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5043,
+        "prob_plaga": 0.4957,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5037,
+        "prob_plaga": 0.4963,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5041,
+        "prob_plaga": 0.4959,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5041,
+        "prob_plaga": 0.4959,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5034,
+        "prob_plaga": 0.4966,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.5043,
+        "prob_plaga": 0.4957,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-07_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-07",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5047,
+        "prob_plaga": 0.4953,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5048,
+        "prob_plaga": 0.4952,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.505,
+        "prob_plaga": 0.495,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5047,
+        "prob_plaga": 0.4953,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5047,
+        "prob_plaga": 0.4953,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5047,
+        "prob_plaga": 0.4953,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5047,
+        "prob_plaga": 0.4953,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5051,
+        "prob_plaga": 0.4949,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5046,
+        "prob_plaga": 0.4954,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5046,
+        "prob_plaga": 0.4954,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5048,
+        "prob_plaga": 0.4952,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5046,
+        "prob_plaga": 0.4954,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-13_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-13",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5049,
+        "prob_plaga": 0.4951,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5047,
+        "prob_plaga": 0.4953,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5029,
+        "prob_plaga": 0.4971,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5023,
+        "prob_plaga": 0.4977,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.502,
+        "prob_plaga": 0.498,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5028,
+        "prob_plaga": 0.4972,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5024,
+        "prob_plaga": 0.4976,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5047,
+        "prob_plaga": 0.4953,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5046,
+        "prob_plaga": 0.4954,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5034,
+        "prob_plaga": 0.4966,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5022,
+        "prob_plaga": 0.4978,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5027,
+        "prob_plaga": 0.4973,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-20_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-20",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5034,
+        "prob_plaga": 0.4966,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.503,
+        "prob_plaga": 0.497,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5013,
+        "prob_plaga": 0.4987,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5009,
+        "prob_plaga": 0.4991,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.502,
+        "prob_plaga": 0.498,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5028,
+        "prob_plaga": 0.4972,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5016,
+        "prob_plaga": 0.4984,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5036,
+        "prob_plaga": 0.4964,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.503,
+        "prob_plaga": 0.497,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5032,
+        "prob_plaga": 0.4968,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5011,
+        "prob_plaga": 0.4989,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-07-27_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-07-27",
+        "prob_sana": 0.5026,
+        "prob_plaga": 0.4974,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5034,
+        "prob_plaga": 0.4966,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5026,
+        "prob_plaga": 0.4974,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5009,
+        "prob_plaga": 0.4991,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5009,
+        "prob_plaga": 0.4991,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5029,
+        "prob_plaga": 0.4971,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5047,
+        "prob_plaga": 0.4953,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5025,
+        "prob_plaga": 0.4975,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5025,
+        "prob_plaga": 0.4975,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5029,
+        "prob_plaga": 0.4971,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5046,
+        "prob_plaga": 0.4954,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5011,
+        "prob_plaga": 0.4989,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5027,
+        "prob_plaga": 0.4973,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5008,
+        "prob_plaga": 0.4992,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-03_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-03",
+        "prob_sana": 0.5025,
+        "prob_plaga": 0.4975,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5054,
+        "prob_plaga": 0.4946,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5041,
+        "prob_plaga": 0.4959,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5033,
+        "prob_plaga": 0.4967,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5017,
+        "prob_plaga": 0.4983,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5021,
+        "prob_plaga": 0.4979,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5024,
+        "prob_plaga": 0.4976,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5042,
+        "prob_plaga": 0.4958,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5058,
+        "prob_plaga": 0.4942,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5025,
+        "prob_plaga": 0.4975,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5021,
+        "prob_plaga": 0.4979,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5032,
+        "prob_plaga": 0.4968,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5033,
+        "prob_plaga": 0.4967,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5055,
+        "prob_plaga": 0.4945,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5018,
+        "prob_plaga": 0.4982,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5025,
+        "prob_plaga": 0.4975,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.503,
+        "prob_plaga": 0.497,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5018,
+        "prob_plaga": 0.4982,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-11_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-11",
+        "prob_sana": 0.5028,
+        "prob_plaga": 0.4972,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5049,
+        "prob_plaga": 0.4951,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5036,
+        "prob_plaga": 0.4964,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5036,
+        "prob_plaga": 0.4964,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5023,
+        "prob_plaga": 0.4977,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5023,
+        "prob_plaga": 0.4977,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5009,
+        "prob_plaga": 0.4991,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5017,
+        "prob_plaga": 0.4983,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5021,
+        "prob_plaga": 0.4979,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5028,
+        "prob_plaga": 0.4972,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5036,
+        "prob_plaga": 0.4964,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5052,
+        "prob_plaga": 0.4948,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5022,
+        "prob_plaga": 0.4978,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5018,
+        "prob_plaga": 0.4982,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5007,
+        "prob_plaga": 0.4993,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5017,
+        "prob_plaga": 0.4983,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5025,
+        "prob_plaga": 0.4975,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5028,
+        "prob_plaga": 0.4972,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.505,
+        "prob_plaga": 0.495,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5009,
+        "prob_plaga": 0.4991,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5016,
+        "prob_plaga": 0.4984,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5022,
+        "prob_plaga": 0.4978,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-17_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-17",
+        "prob_sana": 0.5022,
+        "prob_plaga": 0.4978,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5021,
+        "prob_plaga": 0.4979,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5008,
+        "prob_plaga": 0.4992,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5004,
+        "prob_plaga": 0.4996,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5003,
+        "prob_plaga": 0.4997,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5019,
+        "prob_plaga": 0.4981,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5008,
+        "prob_plaga": 0.4992,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5006,
+        "prob_plaga": 0.4994,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5006,
+        "prob_plaga": 0.4994,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5005,
+        "prob_plaga": 0.4995,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5017,
+        "prob_plaga": 0.4983,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5009,
+        "prob_plaga": 0.4991,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5037,
+        "prob_plaga": 0.4963,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5006,
+        "prob_plaga": 0.4994,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5006,
+        "prob_plaga": 0.4994,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5008,
+        "prob_plaga": 0.4992,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5008,
+        "prob_plaga": 0.4992,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-08-31_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-08-31",
+        "prob_sana": 0.5007,
+        "prob_plaga": 0.4993,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.503,
+        "prob_plaga": 0.497,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5005,
+        "prob_plaga": 0.4995,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5001,
+        "prob_plaga": 0.4999,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5,
+        "prob_plaga": 0.5,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5029,
+        "prob_plaga": 0.4971,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5003,
+        "prob_plaga": 0.4997,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5,
+        "prob_plaga": 0.5,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.4998,
+        "prob_plaga": 0.5002,
+        "prediccion": "Plaga",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5011,
+        "prob_plaga": 0.4989,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5006,
+        "prob_plaga": 0.4994,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5011,
+        "prob_plaga": 0.4989,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5028,
+        "prob_plaga": 0.4972,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5005,
+        "prob_plaga": 0.4995,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.4999,
+        "prob_plaga": 0.5001,
+        "prediccion": "Plaga",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5001,
+        "prob_plaga": 0.4999,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5001,
+        "prob_plaga": 0.4999,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5006,
+        "prob_plaga": 0.4994,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-06_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-06",
+        "prob_sana": 0.5005,
+        "prob_plaga": 0.4995,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5052,
+        "prob_plaga": 0.4948,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5041,
+        "prob_plaga": 0.4959,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5041,
+        "prob_plaga": 0.4959,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5036,
+        "prob_plaga": 0.4964,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5037,
+        "prob_plaga": 0.4963,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5045,
+        "prob_plaga": 0.4955,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5044,
+        "prob_plaga": 0.4956,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5037,
+        "prob_plaga": 0.4963,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5037,
+        "prob_plaga": 0.4963,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5054,
+        "prob_plaga": 0.4946,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5039,
+        "prob_plaga": 0.4961,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5043,
+        "prob_plaga": 0.4957,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5037,
+        "prob_plaga": 0.4963,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5054,
+        "prob_plaga": 0.4946,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.504,
+        "prob_plaga": 0.496,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-14_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-14",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5038,
+        "prob_plaga": 0.4962,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5028,
+        "prob_plaga": 0.4972,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5029,
+        "prob_plaga": 0.4971,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.503,
+        "prob_plaga": 0.497,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5036,
+        "prob_plaga": 0.4964,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5036,
+        "prob_plaga": 0.4964,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5028,
+        "prob_plaga": 0.4972,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5029,
+        "prob_plaga": 0.4971,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5041,
+        "prob_plaga": 0.4959,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5032,
+        "prob_plaga": 0.4968,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5033,
+        "prob_plaga": 0.4967,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.503,
+        "prob_plaga": 0.497,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5029,
+        "prob_plaga": 0.4971,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5031,
+        "prob_plaga": 0.4969,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5034,
+        "prob_plaga": 0.4966,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5034,
+        "prob_plaga": 0.4966,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5035,
+        "prob_plaga": 0.4965,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-21_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-21",
+        "prob_sana": 0.5034,
+        "prob_plaga": 0.4966,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_8",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.502,
+        "prob_plaga": 0.498,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_7",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_6",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_5",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_4",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_3",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5005,
+        "prob_plaga": 0.4995,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_2",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5006,
+        "prob_plaga": 0.4994,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_1",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5003,
+        "prob_plaga": 0.4997,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_9",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5008,
+        "prob_plaga": 0.4992,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_10",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.501,
+        "prob_plaga": 0.499,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_11",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5021,
+        "prob_plaga": 0.4979,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_12",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_13",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5014,
+        "prob_plaga": 0.4986,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_14",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5011,
+        "prob_plaga": 0.4989,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_15",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5008,
+        "prob_plaga": 0.4992,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_16",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5008,
+        "prob_plaga": 0.4992,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_24",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5006,
+        "prob_plaga": 0.4994,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_23",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5017,
+        "prob_plaga": 0.4983,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_22",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5012,
+        "prob_plaga": 0.4988,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_21",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5016,
+        "prob_plaga": 0.4984,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_20",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5015,
+        "prob_plaga": 0.4985,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_19",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5016,
+        "prob_plaga": 0.4984,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_18",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5011,
+        "prob_plaga": 0.4989,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    },
+    {
+        "file_name": "2021-09-28_parcela_17",
+        "path": "D:\\TTADDA_NARO_2021\\TTADDA_NARO_2021_F1\\drone_data\\2021-09-28",
+        "prob_sana": 0.5009,
+        "prob_plaga": 0.4991,
+        "prediccion": "Sana",
+        "umbral": 0.5,
+        "modelo": "best_model_final_RGB_binary_crossentropy.keras"
+    }
+]

@@ -1,9 +1,12 @@
 # para algoritmos ML
 tensorflow>=2.10
+keras
 numpy
 matplotlib
 scikit-learn
 opencv-python
+joblib
+pandas
 geopandas
 
 # para importacion de imagenes mediante satelites
@@ -12,10 +15,11 @@ fiona
 shapely
 scikit-image
 
-# para calculo nvdi de algoritmo nunez
-#cv2
-
 # para inspeccionar xlsx
 openpyxl
 
 seaborn
+
+# opcional, solo para src/utils/miscellaneous/convert_md_to_pdf.py
+# (requiere ademas tener pandoc/xelatex instalados en el sistema)
+# pypandoc

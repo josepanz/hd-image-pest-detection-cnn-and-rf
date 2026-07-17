@@ -60,7 +60,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ````
 
 * Gráfico:
-![alt text](<src/pest_detection_models/inference-results/cnn/Focal Loss/MULTIESPECTRAL/0.45/inference_confidence_plot_CNN_MULTIESPECTRAL_20260417_0917.png>)
+![alt text](<inference_results/CNN/focal_loss/MULTIESPECTRAL/0.45/inference_confidence_plot_CNN_MULTIESPECTRAL_20260417_0917.png>)
 
 ### UMBRAL 0.50
 #### Comando:
@@ -118,7 +118,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](<src/pest_detection_models/inference-results/cnn/Focal Loss/MULTIESPECTRAL/0.5/inference_confidence_plot_CNN_MULTIESPECTRAL_20260417_0918.png>)
+![alt text](<inference_results/CNN/focal_loss/MULTIESPECTRAL/0.5/inference_confidence_plot_CNN_MULTIESPECTRAL_20260417_0918.png>)
 
 ### UMBRAL 0.70
 #### Comando:
@@ -177,7 +177,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](<src/pest_detection_models/inference-results/cnn/Focal Loss/MULTIESPECTRAL/0.7/inference_confidence_plot_CNN_MULTIESPECTRAL_20260417_0918.png>)
+![alt text](<inference_results/CNN/focal_loss/MULTIESPECTRAL/0.7/inference_confidence_plot_CNN_MULTIESPECTRAL_20260417_0918.png>)
 
 ## Convolutional Neural Network (CNN) Multiespectral (MS) Binary Cross Entropy (BCE)
 ### UMBRAL 0.45
@@ -236,7 +236,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](src/pest_detection_models/inference-results/cnn/BCE/MULTIESPECTRAL/0.45/inference_confidence_plot_CNN_MULTIESPECTRAL_20260417_0922.png)
+![alt text](inference_results/CNN/binary_crossentropy/MULTIESPECTRAL/0.45/inference_confidence_plot_CNN_MULTIESPECTRAL_20260417_0922.png)
 
 
 ### UMBRAL 0.50
@@ -295,7 +295,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](src/pest_detection_models/inference-results/cnn/BCE/MULTIESPECTRAL/0.5/inference_confidence_plot_CNN_MULTIESPECTRAL_20260417_0923.png)
+![alt text](inference_results/CNN/binary_crossentropy/MULTIESPECTRAL/0.5/inference_confidence_plot_CNN_MULTIESPECTRAL_20260417_0923.png)
 
 ### UMBRAL 0.70
 #### Comando:
@@ -353,7 +353,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](src/pest_detection_models/inference-results/cnn/BCE/MULTIESPECTRAL/0.7/inference_confidence_plot_CNN_MULTIESPECTRAL_20260417_0924.png)
+![alt text](inference_results/CNN/binary_crossentropy/MULTIESPECTRAL/0.7/inference_confidence_plot_CNN_MULTIESPECTRAL_20260417_0924.png)
 
 ## Convolutional Neural Network (CNN) RGB (RGB) Focal Loss (FL)
 ### UMBRAL 0.45
@@ -412,7 +412,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](<src/pest_detection_models/inference-results/cnn/Focal Loss/RGB/0.45/inference_confidence_plot_CNN_RGB_20260417_0927.png>)
+![alt text](<inference_results/CNN/focal_loss/RGB/0.45/inference_confidence_plot_CNN_RGB_20260417_0927.png>)
 
 ### UMBRAL 0.50
 #### Comando:
@@ -470,7 +470,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](<src/pest_detection_models/inference-results/cnn/Focal Loss/RGB/0.5/inference_confidence_plot_CNN_RGB_20260417_0928.png>)
+![alt text](<inference_results/CNN/focal_loss/RGB/0.5/inference_confidence_plot_CNN_RGB_20260417_0928.png>)
 
 ### UMBRAL 0.70
 #### Comando:
@@ -528,7 +528,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](<src/pest_detection_models/inference-results/cnn/Focal Loss/RGB/0.7/inference_confidence_plot_CNN_RGB_20260417_0929.png>)
+![alt text](<inference_results/CNN/focal_loss/RGB/0.7/inference_confidence_plot_CNN_RGB_20260417_0929.png>)
 
 ## Convolutional Neural Network (CNN) RGB (RGB) Binary Cross Entropy (BCE)
 ### UMBRAL 0.45
@@ -587,7 +587,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](src/pest_detection_models/inference-results/cnn/BCE/RGB/0.45/inference_confidence_plot_CNN_RGB_20260417_0930.png)
+![alt text](inference_results/CNN/binary_crossentropy/RGB/0.45/inference_confidence_plot_CNN_RGB_20260417_0930.png)
 
 ### UMBRAL 0.50
 #### Comando:
@@ -645,7 +645,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](src/pest_detection_models/inference-results/cnn/BCE/RGB/0.5/inference_confidence_plot_CNN_RGB_20260417_0931.png)
+![alt text](inference_results/CNN/binary_crossentropy/RGB/0.5/inference_confidence_plot_CNN_RGB_20260417_0931.png)
 
 ### UMBRAL 0.70
 #### Comando:
@@ -703,7 +703,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](src/pest_detection_models/inference-results/cnn/BCE/RGB/0.7/inference_confidence_plot_CNN_RGB_20260417_0932.png)
+![alt text](inference_results/CNN/binary_crossentropy/RGB/0.7/inference_confidence_plot_CNN_RGB_20260417_0932.png)
 
 ## Convolutional Neural Network (CNN Extractor) + Random Forest (RF classifier) Multiespectral (MS) Focal Loss (FL)
 ### UMBRAL 0.45
@@ -768,7 +768,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](<src/pest_detection_models/inference-results/rf/Focal Loss/MULTIESPECTRAL/0.45/inference_confidence_plot_RF_MULTIESPECTRAL_20260417_0959.png>)
+![alt text](<inference_results/RANDOM_FOREST/focal_loss/MULTIESPECTRAL/0.45/inference_confidence_plot_RF_MULTIESPECTRAL_20260417_0959.png>)
 
 ### UMBRAL 0.50
 #### Comando:
@@ -870,7 +870,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](<src/pest_detection_models/inference-results/rf/Focal Loss/MULTIESPECTRAL/0.5/inference_confidence_plot_RF_MULTIESPECTRAL_20260417_0959.png>)
+![alt text](<inference_results/RANDOM_FOREST/focal_loss/MULTIESPECTRAL/0.5/inference_confidence_plot_RF_MULTIESPECTRAL_20260417_0959.png>)
 
 ### UMBRAL 0.70
 #### Comando:
@@ -934,7 +934,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](<src/pest_detection_models/inference-results/rf/Focal Loss/MULTIESPECTRAL/0.7/inference_confidence_plot_RF_MULTIESPECTRAL_20260417_1002.png>)
+![alt text](<inference_results/RANDOM_FOREST/focal_loss/MULTIESPECTRAL/0.7/inference_confidence_plot_RF_MULTIESPECTRAL_20260417_1002.png>)
 
 ## Convolutional Neural Network (CNN Extractor) + Random Forest (RF classifier) Multiespectral (MS) Binary Cross Entropy (BCE)
 ### UMBRAL 0.45
@@ -999,7 +999,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](src/pest_detection_models/inference-results/rf/BCE/MULTIESPECTRAL/0.45/inference_confidence_plot_RF_MULTIESPECTRAL_20260417_1003.png)
+![alt text](inference_results/RANDOM_FOREST/binary_crossentropy/MULTIESPECTRAL/0.45/inference_confidence_plot_RF_MULTIESPECTRAL_20260417_1003.png)
 
 ### UMBRAL 0.50
 #### Comando:
@@ -1064,7 +1064,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](src/pest_detection_models/inference-results/rf/BCE/MULTIESPECTRAL/0.5/inference_confidence_plot_RF_MULTIESPECTRAL_20260417_1016.png)
+![alt text](inference_results/RANDOM_FOREST/binary_crossentropy/MULTIESPECTRAL/0.5/inference_confidence_plot_RF_MULTIESPECTRAL_20260417_1016.png)
 
 ### UMBRAL 0.70
 #### Comando:
@@ -1128,7 +1128,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](src/pest_detection_models/inference-results/rf/BCE/MULTIESPECTRAL/0.7/inference_confidence_plot_RF_MULTIESPECTRAL_20260417_1017.png)
+![alt text](inference_results/RANDOM_FOREST/binary_crossentropy/MULTIESPECTRAL/0.7/inference_confidence_plot_RF_MULTIESPECTRAL_20260417_1017.png)
 
 ## Convolutional Neural Network (CNN Extractor) + Random Forest (RF classifier) RGB (RGB) Focal Loss (FL)
 ### UMBRAL 0.45
@@ -1193,7 +1193,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](<src/pest_detection_models/inference-results/rf/Focal Loss/RGB/0.45/inference_confidence_plot_RF_RGB_20260417_1020.png>)
+![alt text](<inference_results/RANDOM_FOREST/focal_loss/RGB/0.45/inference_confidence_plot_RF_RGB_20260417_1020.png>)
 
 ### UMBRAL 0.50
 #### Comando:
@@ -1257,7 +1257,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](<src/pest_detection_models/inference-results/rf/Focal Loss/RGB/0.5/inference_confidence_plot_RF_RGB_20260417_1021.png>)
+![alt text](<inference_results/RANDOM_FOREST/focal_loss/RGB/0.5/inference_confidence_plot_RF_RGB_20260417_1021.png>)
 
 ### UMBRAL 0.70
 #### Comando:
@@ -1321,7 +1321,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](<src/pest_detection_models/inference-results/rf/Focal Loss/RGB/0.7/inference_confidence_plot_RF_RGB_20260417_1021.png>)
+![alt text](<inference_results/RANDOM_FOREST/focal_loss/RGB/0.7/inference_confidence_plot_RF_RGB_20260417_1021.png>)
 
 ## Convolutional Neural Network (CNN Extractor) + Random Forest (RF classifier) RGB (RGB) Binary Cross Entropy (BCE)
 ### UMBRAL 0.45
@@ -1386,7 +1386,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](src/pest_detection_models/inference-results/rf/BCE/RGB/0.45/inference_confidence_plot_RF_RGB_20260417_1022.png)
+![alt text](inference_results/RANDOM_FOREST/binary_crossentropy/RGB/0.45/inference_confidence_plot_RF_RGB_20260417_1022.png)
 
 ### UMBRAL 0.50
 #### Comando:
@@ -1450,7 +1450,7 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](src/pest_detection_models/inference-results/rf/BCE/RGB/0.5/inference_confidence_plot_RF_RGB_20260417_1023.png)
+![alt text](inference_results/RANDOM_FOREST/binary_crossentropy/RGB/0.5/inference_confidence_plot_RF_RGB_20260417_1023.png)
 
 ### UMBRAL 0.70
 #### Comando:
@@ -1514,4 +1514,4 @@ END. ✨ Proceso finalizado. Resultados en: C:\workspace\hd-image-pest-detection
 ]
 ````
 * Gráfico:
-![alt text](src/pest_detection_models/inference-results/rf/BCE/RGB/0.7/inference_confidence_plot_RF_RGB_20260417_1023.png)
+![alt text](inference_results/RANDOM_FOREST/binary_crossentropy/RGB/0.7/inference_confidence_plot_RF_RGB_20260417_1023.png)
