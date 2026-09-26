@@ -1,4 +1,5 @@
-# 🌿 Detección de Plagas en Cultivos de Papa con Imágenes HD y Multiespectrales (CNN y Random Forest)
+# Comparativa de Técnicas de Procesamiento de Imágenes Multiespectrales y de Alta Resolución para el Diagnóstico Fitosanitario en Cultivos de papa Mediante Machine Learning y Deep Learning
+## 🌿 Detección de Plagas en Cultivos de Papa con Imágenes HD y Multiespectrales (CNN y Random Forest)
 
 Este proyecto implementa y compara distintos enfoques de Inteligencia
 Artificial para detectar plagas en cultivos de papa utilizando imágenes
